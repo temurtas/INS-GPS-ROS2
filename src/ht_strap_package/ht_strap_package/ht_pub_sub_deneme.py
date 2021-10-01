@@ -19,7 +19,6 @@ class DenemePubSub(Node):
         ''' 
         Class constructor to initialise the class 
         '''
-
         super().__init__('deneme_ps')
 
         # Initialise publishers
