@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ht_nav_variables/msg/HtNavImuData.msg
+// generated code does not contain a copyright notice
+
+#include "ht_nav_variables/msg/HtNavVector3.idl"
+
+module ht_nav_variables {
+  module msg {
+    @verbatim (language="comment", text=
+      " This expresses acceleration in free space broken into its linear and angular parts.")
+    struct HtNavImuData {
+      @verbatim (language="comment", text=
+        " hiz_fark")
+      ht_nav_variables::msg::HtNavVector3 vel_diff;
+
+      @verbatim (language="comment", text=
+        " aci_fark")
+      ht_nav_variables::msg::HtNavVector3 ang_diff;
+    };
+  };
+};

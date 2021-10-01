@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ht_nav_variables/msg/HtNavStrapOut.msg
+// generated code does not contain a copyright notice
+
+#include "ht_nav_variables/msg/HtNavEuler.idl"
+#include "ht_nav_variables/msg/HtNavPoint.idl"
+#include "ht_nav_variables/msg/HtNavQuaternion.idl"
+#include "ht_nav_variables/msg/HtNavVector3.idl"
+
+module ht_nav_variables {
+  module msg {
+    @verbatim (language="comment", text=
+      " This expresses")
+    struct HtNavStrapOut {
+      ht_nav_variables::msg::HtNavPoint pos;
+
+      ht_nav_variables::msg::HtNavVector3 vel;
+
+      ht_nav_variables::msg::HtNavEuler euler;
+
+      ht_nav_variables::msg::HtNavQuaternion quaternion;
+    };
+  };
+};

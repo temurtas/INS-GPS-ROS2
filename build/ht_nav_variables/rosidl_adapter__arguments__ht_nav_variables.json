@@ -1,0 +1,15 @@
+{
+  "package_name": "ht_nav_variables",
+  "non_idl_tuples": [
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavErrorVector.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavEuler.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavGpsData.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavImuData.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavKalmanOut.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavStrapOut.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavPoint.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavVector3.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavQuaternion.msg",
+    "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavDeneme.msg"
+  ]
+}

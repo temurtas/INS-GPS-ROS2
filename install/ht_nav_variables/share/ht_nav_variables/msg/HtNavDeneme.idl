@@ -1,0 +1,12 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ht_nav_variables/msg/HtNavDeneme.msg
+// generated code does not contain a copyright notice
+
+
+module ht_nav_variables {
+  module msg {
+    struct HtNavDeneme {
+      int64 num;
+    };
+  };
+};

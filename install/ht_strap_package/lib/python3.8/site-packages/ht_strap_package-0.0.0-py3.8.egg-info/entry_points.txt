@@ -1,0 +1,5 @@
+[console_scripts]
+listener = ht_strap_package.subscriber_member_function:main
+middle_man = ht_strap_package.ht_pub_sub_deneme:main
+talker = ht_strap_package.publisher_member_function:main
+

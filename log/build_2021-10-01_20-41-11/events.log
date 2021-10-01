@@ -1,0 +1,66 @@
+[0.000000] (-) TimerEvent: {}
+[0.000888] (ht_nav_variables) JobQueued: {'identifier': 'ht_nav_variables', 'dependencies': OrderedDict()}
+[0.001372] (ht_nav_variables) JobStarted: {'identifier': 'ht_nav_variables'}
+[0.011251] (ht_nav_variables) JobProgress: {'identifier': 'ht_nav_variables', 'progress': 'cmake'}
+[0.011988] (ht_nav_variables) Command: {'cmd': ['/usr/bin/cmake', '/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables', '-DCMAKE_INSTALL_PREFIX=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables'], 'cwd': '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'temurtas'), ('LC_TIME', 'tr_TR.UTF-8'), ('SSH_AGENT_PID', '1301'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/temurtas'), ('OLDPWD', '/home/temurtas'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'tr_TR.UTF-8'), ('MANAGERPID', '1012'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_colcon_cd_root', '/home/temurtas/ros2_install'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'temurtas'), ('JOURNAL_STREAM', '8:35397'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'temurtas'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/home/temurtas/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/temurtas:@/tmp/.ICE-unix/1418,unix/temurtas:/tmp/.ICE-unix/1418'), ('INVOCATION_ID', '5fa8f183c0ff4217810c2b11bcb0cbe0'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'tr_TR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/37bfa559_8d0b_4de3_937f_a7c753854ae0'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'tr_TR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.801'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'tr_TR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'tr_TR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GAZEBO_RESOURCE_PATH', '/usr/share/gazebo-11'), ('LC_IDENTIFICATION', 'tr_TR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('GAZEBO_PLUGIN_PATH', ':/home/temurtas/gazebo_plugin_tutorial/build'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'tr_TR.UTF-8'), ('LC_PAPER', 'tr_TR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.031815] (ht_nav_variables) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.056199] (ht_nav_variables) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099813] (-) TimerEvent: {}
+[0.200334] (-) TimerEvent: {}
+[0.216293] (ht_nav_variables) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[0.218727] (ht_nav_variables) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.221559] (ht_nav_variables) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.300462] (-) TimerEvent: {}
+[0.381098] (ht_nav_variables) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.400656] (-) TimerEvent: {}
+[0.425207] (ht_nav_variables) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[0.500787] (-) TimerEvent: {}
+[0.588915] (ht_nav_variables) StderrLine: {'line': b'CMake Error at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:60 (message):\n'}
+[0.589308] (ht_nav_variables) StderrLine: {'line': b'  execute_process(/usr/bin/python3 -m rosidl_adapter --package-name\n'}
+[0.589698] (ht_nav_variables) StderrLine: {'line': b'  ht_nav_variables --arguments-file\n'}
+[0.590027] (ht_nav_variables) StderrLine: {'line': b'  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter__arguments__ht_nav_variables.json\n'}
+[0.590189] (ht_nav_variables) StderrLine: {'line': b'  --output-dir\n'}
+[0.590583] (ht_nav_variables) StderrLine: {'line': b'  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables\n'}
+[0.591213] (ht_nav_variables) StderrLine: {'line': b'  --output-file\n'}
+[0.591394] (ht_nav_variables) StderrLine: {'line': b'  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables.idls)\n'}
+[0.591594] (ht_nav_variables) StderrLine: {'line': b'  returned error code 1:\n'}
+[0.591754] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.591895] (ht_nav_variables) StderrLine: {'line': b"  Error processing 'geometry_msgs/Point.msg gps_pos' of\n"}
+[0.592033] (ht_nav_variables) StderrLine: {'line': b"  'ht_nav_variables/HtNavGpsData': ''Point.msg' is an invalid message name.\n"}
+[0.592177] (ht_nav_variables) StderrLine: {'line': b"  It should have the pattern '^[A-Z][A-Za-z0-9]*$''\n"}
+[0.592446] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.592695] (ht_nav_variables) StderrLine: {'line': b'  Traceback (most recent call last):\n'}
+[0.592833] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.592993] (ht_nav_variables) StderrLine: {'line': b'    File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main\n'}
+[0.593400] (ht_nav_variables) StderrLine: {'line': b'      return _run_code(code, main_globals, None,\n'}
+[0.593803] (ht_nav_variables) StderrLine: {'line': b'    File "/usr/lib/python3.8/runpy.py", line 87, in _run_code\n'}
+[0.593975] (ht_nav_variables) StderrLine: {'line': b'      exec(code, run_globals)\n'}
+[0.594190] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__main__.py", line 19, in <module>\n'}
+[0.594356] (ht_nav_variables) StderrLine: {'line': b'      sys.exit(main())\n'}
+[0.594555] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/main.py", line 53, in main\n'}
+[0.594700] (ht_nav_variables) StderrLine: {'line': b'      abs_idl_file = convert_to_idl(\n'}
+[0.594838] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/__init__.py", line 19, in convert_to_idl\n'}
+[0.594976] (ht_nav_variables) StderrLine: {'line': b'      return convert_msg_to_idl(\n'}
+[0.595120] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/msg/__init__.py", line 28, in convert_msg_to_idl\n'}
+[0.595266] (ht_nav_variables) StderrLine: {'line': b'      msg = parse_message_string(package_name, input_file.stem, content)\n'}
+[0.595404] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 516, in parse_message_string\n'}
+[0.595545] (ht_nav_variables) StderrLine: {'line': b'      Type(type_string, context_package_name=pkg_name),\n'}
+[0.595682] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 276, in __init__\n'}
+[0.595824] (ht_nav_variables) StderrLine: {'line': b'      super(Type, self).__init__(\n'}
+[0.595965] (ht_nav_variables) StderrLine: {'line': b'    File "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_adapter/parser.py", line 204, in __init__\n'}
+[0.596104] (ht_nav_variables) StderrLine: {'line': b'      raise InvalidResourceName(\n'}
+[0.596245] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.596571] (ht_nav_variables) StderrLine: {'line': b"  rosidl_adapter.parser.InvalidResourceName: 'Point.msg' is an invalid\n"}
+[0.596836] (ht_nav_variables) StderrLine: {'line': b"  message name.  It should have the pattern '^[A-Z][A-Za-z0-9]*$'\n"}
+[0.596971] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.597176] (ht_nav_variables) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.597407] (ht_nav_variables) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)\n'}
+[0.597561] (ht_nav_variables) StderrLine: {'line': b'  CMakeLists.txt:25 (rosidl_generate_interfaces)\n'}
+[0.597701] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.597841] (ht_nav_variables) StderrLine: {'line': b'\n'}
+[0.597982] (ht_nav_variables) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.598150] (ht_nav_variables) StdoutLine: {'line': b'See also "/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".\n'}
+[0.600117] (ht_nav_variables) CommandEnded: {'returncode': 1}
+[0.601920] (-) TimerEvent: {}
+[0.634923] (ht_nav_variables) JobEnded: {'identifier': 'ht_nav_variables', 'rc': 1}
+[0.646129] (-) EventReactorShutdown: {}

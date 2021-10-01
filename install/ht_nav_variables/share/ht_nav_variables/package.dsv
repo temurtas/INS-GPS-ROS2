@@ -1,0 +1,14 @@
+source;share/ht_nav_variables/hook/cmake_prefix_path.ps1
+source;share/ht_nav_variables/hook/cmake_prefix_path.dsv
+source;share/ht_nav_variables/hook/cmake_prefix_path.sh
+source;share/ht_nav_variables/hook/ld_library_path_lib.ps1
+source;share/ht_nav_variables/hook/ld_library_path_lib.dsv
+source;share/ht_nav_variables/hook/ld_library_path_lib.sh
+source;share/ht_nav_variables/hook/pythonpath.ps1
+source;share/ht_nav_variables/hook/pythonpath.dsv
+source;share/ht_nav_variables/hook/pythonpath.sh
+source;share/ht_nav_variables/local_setup.bash
+source;share/ht_nav_variables/local_setup.dsv
+source;share/ht_nav_variables/local_setup.ps1
+source;share/ht_nav_variables/local_setup.sh
+source;share/ht_nav_variables/local_setup.zsh
