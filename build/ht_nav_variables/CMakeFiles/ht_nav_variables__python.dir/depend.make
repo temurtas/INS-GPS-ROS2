@@ -946,7 +946,6 @@ CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: /usr/include/python3.8/warnings.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: /usr/include/python3.8/weakrefobject.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_euler__struct.h
-CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h

@@ -60,8 +60,6 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
  /opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_euler__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_euler__struct.h
- rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.h
- rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h

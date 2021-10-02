@@ -309,8 +309,6 @@ stddef.h
 -
 stdint.h
 -
-ht_nav_variables/msg/detail/ht_nav_point__struct.h
-rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__struct.h
 ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 ht_nav_variables/msg/detail/ht_nav_euler__struct.h

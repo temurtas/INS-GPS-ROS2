@@ -1,4 +1,6 @@
 from setuptools import setup
+import os
+from glob import glob
 
 package_name = 'ht_strap_package'
 
@@ -10,6 +12,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,8 +24,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'middle_man = ht_strap_package.ht_pub_sub_deneme:main',
-                'talker = ht_strap_package.publisher_member_function:main',
+                'strap_node = ht_strap_package.ht_pub_sub_deneme:main',
+                'imu_data_publisher_node = ht_strap_package.imu_data_publisher_function:main',
                 'listener = ht_strap_package.subscriber_member_function:main',
         ],
     },

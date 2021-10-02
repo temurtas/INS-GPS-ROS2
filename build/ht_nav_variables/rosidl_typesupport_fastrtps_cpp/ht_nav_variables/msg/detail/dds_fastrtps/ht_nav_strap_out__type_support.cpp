@@ -23,16 +23,16 @@ namespace msg
 namespace typesupport_fastrtps_cpp
 {
 bool cdr_serialize(
-  const ht_nav_variables::msg::HtNavPoint &,
+  const ht_nav_variables::msg::HtNavVector3 &,
   eprosima::fastcdr::Cdr &);
 bool cdr_deserialize(
   eprosima::fastcdr::Cdr &,
-  ht_nav_variables::msg::HtNavPoint &);
+  ht_nav_variables::msg::HtNavVector3 &);
 size_t get_serialized_size(
-  const ht_nav_variables::msg::HtNavPoint &,
+  const ht_nav_variables::msg::HtNavVector3 &,
   size_t current_alignment);
 size_t
-max_serialized_size_HtNavPoint(
+max_serialized_size_HtNavVector3(
   bool & full_bounded,
   size_t current_alignment);
 }  // namespace typesupport_fastrtps_cpp
@@ -227,7 +227,7 @@ max_serialized_size_HtNavStrapOut(
 
     for (size_t index = 0; index < array_size; ++index) {
       current_alignment +=
-        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavPoint(
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavVector3(
         full_bounded, current_alignment);
     }
   }

@@ -16,7 +16,6 @@
 
 // Include directives for member types
 // Member 'pos'
-#include "ht_nav_variables/msg/detail/ht_nav_point__struct.hpp"
 // Member 'vel'
 #include "ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp"
 // Member 'euler'
@@ -62,7 +61,7 @@ struct HtNavStrapOut_
 
   // field types and members
   using _pos_type =
-    ht_nav_variables::msg::HtNavPoint_<ContainerAllocator>;
+    ht_nav_variables::msg::HtNavVector3_<ContainerAllocator>;
   _pos_type pos;
   using _vel_type =
     ht_nav_variables::msg::HtNavVector3_<ContainerAllocator>;
@@ -76,7 +75,7 @@ struct HtNavStrapOut_
 
   // setters for named parameter idiom
   Type & set__pos(
-    const ht_nav_variables::msg::HtNavPoint_<ContainerAllocator> & _arg)
+    const ht_nav_variables::msg::HtNavVector3_<ContainerAllocator> & _arg)
   {
     this->pos = _arg;
     return *this;

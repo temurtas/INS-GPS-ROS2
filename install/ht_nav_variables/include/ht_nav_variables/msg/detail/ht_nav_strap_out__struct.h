@@ -19,7 +19,6 @@ extern "C"
 
 // Include directives for member types
 // Member 'pos'
-#include "ht_nav_variables/msg/detail/ht_nav_point__struct.h"
 // Member 'vel'
 #include "ht_nav_variables/msg/detail/ht_nav_vector3__struct.h"
 // Member 'euler'
@@ -30,7 +29,7 @@ extern "C"
 // Struct defined in msg/HtNavStrapOut in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavStrapOut
 {
-  ht_nav_variables__msg__HtNavPoint pos;
+  ht_nav_variables__msg__HtNavVector3 pos;
   ht_nav_variables__msg__HtNavVector3 vel;
   ht_nav_variables__msg__HtNavEuler euler;
   ht_nav_variables__msg__HtNavQuaternion quaternion;

@@ -11,7 +11,6 @@
 
 // Include directives for member types
 // Member `pos`
-#include "ht_nav_variables/msg/detail/ht_nav_point__functions.h"
 // Member `vel`
 #include "ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"
 // Member `euler`
@@ -26,7 +25,7 @@ ht_nav_variables__msg__HtNavStrapOut__init(ht_nav_variables__msg__HtNavStrapOut 
     return false;
   }
   // pos
-  if (!ht_nav_variables__msg__HtNavPoint__init(&msg->pos)) {
+  if (!ht_nav_variables__msg__HtNavVector3__init(&msg->pos)) {
     ht_nav_variables__msg__HtNavStrapOut__fini(msg);
     return false;
   }
@@ -55,7 +54,7 @@ ht_nav_variables__msg__HtNavStrapOut__fini(ht_nav_variables__msg__HtNavStrapOut 
     return;
   }
   // pos
-  ht_nav_variables__msg__HtNavPoint__fini(&msg->pos);
+  ht_nav_variables__msg__HtNavVector3__fini(&msg->pos);
   // vel
   ht_nav_variables__msg__HtNavVector3__fini(&msg->vel);
   // euler

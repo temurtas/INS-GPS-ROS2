@@ -42,7 +42,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavStrapOut
     "pos",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
     0,  // upper bound of string
-    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<ht_nav_variables::msg::HtNavPoint>(),  // members of sub message
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<ht_nav_variables::msg::HtNavVector3>(),  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound

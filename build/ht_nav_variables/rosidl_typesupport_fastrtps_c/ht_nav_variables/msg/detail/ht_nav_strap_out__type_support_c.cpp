@@ -35,9 +35,8 @@ extern "C"
 #endif
 
 #include "ht_nav_variables/msg/detail/ht_nav_euler__functions.h"  // euler
-#include "ht_nav_variables/msg/detail/ht_nav_point__functions.h"  // pos
 #include "ht_nav_variables/msg/detail/ht_nav_quaternion__functions.h"  // quaternion
-#include "ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"  // vel
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"  // pos, vel
 
 // forward declare type support functions
 size_t get_serialized_size_ht_nav_variables__msg__HtNavEuler(
@@ -50,16 +49,6 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavEuler(
 
 const rosidl_message_type_support_t *
   ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavEuler)();
-size_t get_serialized_size_ht_nav_variables__msg__HtNavPoint(
-  const void * untyped_ros_message,
-  size_t current_alignment);
-
-size_t max_serialized_size_ht_nav_variables__msg__HtNavPoint(
-  bool & full_bounded,
-  size_t current_alignment);
-
-const rosidl_message_type_support_t *
-  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavPoint)();
 size_t get_serialized_size_ht_nav_variables__msg__HtNavQuaternion(
   const void * untyped_ros_message,
   size_t current_alignment);
@@ -98,7 +87,7 @@ static bool _HtNavStrapOut__cdr_serialize(
     const message_type_support_callbacks_t * callbacks =
       static_cast<const message_type_support_callbacks_t *>(
       ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
-        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavPoint
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavVector3
       )()->data);
     if (!callbacks->cdr_serialize(
         &ros_message->pos, cdr))
@@ -166,7 +155,7 @@ static bool _HtNavStrapOut__cdr_deserialize(
     const message_type_support_callbacks_t * callbacks =
       static_cast<const message_type_support_callbacks_t *>(
       ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
-        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavPoint
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavVector3
       )()->data);
     if (!callbacks->cdr_deserialize(
         cdr, &ros_message->pos))
@@ -236,7 +225,7 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavStrapOut(
 
   // field.name pos
 
-  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavPoint(
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavVector3(
     &(ros_message->pos), current_alignment);
   // field.name vel
 
@@ -281,7 +270,7 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavStrapOut(
 
     for (size_t index = 0; index < array_size; ++index) {
       current_alignment +=
-        max_serialized_size_ht_nav_variables__msg__HtNavPoint(
+        max_serialized_size_ht_nav_variables__msg__HtNavVector3(
         full_bounded, current_alignment);
     }
   }

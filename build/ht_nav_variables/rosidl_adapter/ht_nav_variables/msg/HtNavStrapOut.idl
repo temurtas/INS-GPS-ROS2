@@ -3,7 +3,6 @@
 // generated code does not contain a copyright notice
 
 #include "ht_nav_variables/msg/HtNavEuler.idl"
-#include "ht_nav_variables/msg/HtNavPoint.idl"
 #include "ht_nav_variables/msg/HtNavQuaternion.idl"
 #include "ht_nav_variables/msg/HtNavVector3.idl"
 
@@ -12,7 +11,7 @@ module ht_nav_variables {
     @verbatim (language="comment", text=
       " This expresses")
     struct HtNavStrapOut {
-      ht_nav_variables::msg::HtNavPoint pos;
+      ht_nav_variables::msg::HtNavVector3 pos;
 
       ht_nav_variables::msg::HtNavVector3 vel;
 

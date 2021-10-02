@@ -947,7 +947,6 @@ CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg
  /usr/include/python3.8/warnings.h
  /usr/include/python3.8/weakrefobject.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_euler__struct.h
- rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h

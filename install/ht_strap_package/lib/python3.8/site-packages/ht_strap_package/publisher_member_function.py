@@ -14,23 +14,51 @@
 
 import rclpy
 from rclpy.node import Node
+from pathlib import Path
 
-from ht_nav_variables.msg import HtNavDeneme
+from std_msgs.msg import String
+#from ht_nav_variables.msg import HtNavDeneme
+from ht_nav_variables.msg import HtNavImuData
+from ht_nav_variables.msg import HtNavPoint
+base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
+imu_data_path = base_path / "aob_veri.txt"
 
 class MinimalPublisher(Node):
 
     def __init__(self):
         super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(HtNavDeneme, 'topic1', 10)
-        timer_period = 0.5  # seconds
+        self.imu_data = HtNavImuData()
+
+        self.lines = String()
+        with open(imu_data_path) as imu_data_txt: # open the file for reading
+            self.lines = imu_data_txt.readlines()
+
+        self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', 10)
+        timer_period = 1/100  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
     def timer_callback(self):
-        msg = HtNavDeneme()
-        msg.num = self.i
+        line = self.lines[self.i]
+        #for line in lines: # iterate over each line
+        w1, w2, w3, a1, a2, a3 = line.split() # split it by whitespace
+        self.imu_data.ang_diff.x = float(w1) # convert bs from string to float
+        self.imu_data.ang_diff.y = float(w2) # convert bs from string to float
+        self.imu_data.ang_diff.z = float(w3) # convert bs from string to float
+
+        self.imu_data.vel_diff.x = float(a1) # convert bs from string to float
+        self.imu_data.vel_diff.y = float(a2) # convert bs from string to float
+        self.imu_data.vel_diff.z = float(a3) # convert bs from string to float
+
+        msg = HtNavImuData()
+        msg.vel_diff.x = self.imu_data.vel_diff.x
+        msg.vel_diff.y = self.imu_data.vel_diff.y
+        msg.vel_diff.z = self.imu_data.vel_diff.z
+        msg.ang_diff.x = self.imu_data.vel_diff.x
+        msg.ang_diff.y = self.imu_data.vel_diff.y
+        msg.ang_diff.z = self.imu_data.vel_diff.z
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%d"' % msg.num)
+        self.get_logger().info('Publishing vel_diff x as: "%f"' % msg.vel_diff.x)
         self.i += 1
 
 

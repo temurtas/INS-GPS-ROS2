@@ -16,8 +16,8 @@
 #include "ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h"
 #include "ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h"
 
-bool ht_nav_variables__msg__ht_nav_point__convert_from_py(PyObject * _pymsg, void * _ros_message);
-PyObject * ht_nav_variables__msg__ht_nav_point__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_vector3__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_vector3__convert_to_py(void * raw_ros_message);
 bool ht_nav_variables__msg__ht_nav_vector3__convert_from_py(PyObject * _pymsg, void * _ros_message);
 PyObject * ht_nav_variables__msg__ht_nav_vector3__convert_to_py(void * raw_ros_message);
 bool ht_nav_variables__msg__ht_nav_euler__convert_from_py(PyObject * _pymsg, void * _ros_message);
@@ -63,7 +63,7 @@ bool ht_nav_variables__msg__ht_nav_strap_out__convert_from_py(PyObject * _pymsg,
     if (!field) {
       return false;
     }
-    if (!ht_nav_variables__msg__ht_nav_point__convert_from_py(field, &ros_message->pos)) {
+    if (!ht_nav_variables__msg__ht_nav_vector3__convert_from_py(field, &ros_message->pos)) {
       Py_DECREF(field);
       return false;
     }
@@ -126,7 +126,7 @@ PyObject * ht_nav_variables__msg__ht_nav_strap_out__convert_to_py(void * raw_ros
   ht_nav_variables__msg__HtNavStrapOut * ros_message = (ht_nav_variables__msg__HtNavStrapOut *)raw_ros_message;
   {  // pos
     PyObject * field = NULL;
-    field = ht_nav_variables__msg__ht_nav_point__convert_to_py(&ros_message->pos);
+    field = ht_nav_variables__msg__ht_nav_vector3__convert_to_py(&ros_message->pos);
     if (!field) {
       return NULL;
     }

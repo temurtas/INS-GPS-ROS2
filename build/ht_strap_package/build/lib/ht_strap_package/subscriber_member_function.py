@@ -15,21 +15,23 @@
 import rclpy
 from rclpy.node import Node
 
-from ht_nav_variables.msg import HtNavDeneme
+#from ht_nav_variables.msg import HtNavDeneme
+from ht_nav_variables.msg import HtNavEuler
+from ht_nav_variables.msg import HtNavStrapOut
 
 class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
         self.subscription = self.create_subscription(
-            HtNavDeneme,
-            'topic2',
+            HtNavStrapOut,
+            'ht_nav_strap_topic',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%d"' % msg.num)
+        self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
 
 
 def main(args=None):

@@ -218,7 +218,6 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupp
  /opt/ros/foxy/include/rosidl_typesupport_fastrtps_cpp/wstring_conversion.hpp
  /opt/ros/foxy/include/rosidl_typesupport_interface/macros.h
  rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__struct.hpp
- rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp
  rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.hpp
  rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp
  rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp

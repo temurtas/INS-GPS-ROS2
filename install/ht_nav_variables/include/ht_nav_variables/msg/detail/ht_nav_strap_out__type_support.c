@@ -14,11 +14,9 @@
 
 // Include directives for member types
 // Member `pos`
-#include "ht_nav_variables/msg/ht_nav_point.h"
-// Member `pos`
-#include "ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_c.h"
 // Member `vel`
 #include "ht_nav_variables/msg/ht_nav_vector3.h"
+// Member `pos`
 // Member `vel`
 #include "ht_nav_variables/msg/detail/ht_nav_vector3__rosidl_typesupport_introspection_c.h"
 // Member `euler`
@@ -134,7 +132,7 @@ ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_ht_nav_variables
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavStrapOut)() {
   HtNavStrapOut__rosidl_typesupport_introspection_c__HtNavStrapOut_message_member_array[0].members_ =
-    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavPoint)();
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavVector3)();
   HtNavStrapOut__rosidl_typesupport_introspection_c__HtNavStrapOut_message_member_array[1].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavVector3)();
   HtNavStrapOut__rosidl_typesupport_introspection_c__HtNavStrapOut_message_member_array[2].members_ =

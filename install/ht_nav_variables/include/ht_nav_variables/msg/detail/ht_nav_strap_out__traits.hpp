@@ -12,7 +12,6 @@
 
 // Include directives for member types
 // Member 'pos'
-#include "ht_nav_variables/msg/detail/ht_nav_point__traits.hpp"
 // Member 'vel'
 #include "ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp"
 // Member 'euler'
@@ -37,11 +36,11 @@ inline const char * name<ht_nav_variables::msg::HtNavStrapOut>()
 
 template<>
 struct has_fixed_size<ht_nav_variables::msg::HtNavStrapOut>
-  : std::integral_constant<bool, has_fixed_size<ht_nav_variables::msg::HtNavEuler>::value && has_fixed_size<ht_nav_variables::msg::HtNavPoint>::value && has_fixed_size<ht_nav_variables::msg::HtNavQuaternion>::value && has_fixed_size<ht_nav_variables::msg::HtNavVector3>::value> {};
+  : std::integral_constant<bool, has_fixed_size<ht_nav_variables::msg::HtNavEuler>::value && has_fixed_size<ht_nav_variables::msg::HtNavQuaternion>::value && has_fixed_size<ht_nav_variables::msg::HtNavVector3>::value> {};
 
 template<>
 struct has_bounded_size<ht_nav_variables::msg::HtNavStrapOut>
-  : std::integral_constant<bool, has_bounded_size<ht_nav_variables::msg::HtNavEuler>::value && has_bounded_size<ht_nav_variables::msg::HtNavPoint>::value && has_bounded_size<ht_nav_variables::msg::HtNavQuaternion>::value && has_bounded_size<ht_nav_variables::msg::HtNavVector3>::value> {};
+  : std::integral_constant<bool, has_bounded_size<ht_nav_variables::msg::HtNavEuler>::value && has_bounded_size<ht_nav_variables::msg::HtNavQuaternion>::value && has_bounded_size<ht_nav_variables::msg::HtNavVector3>::value> {};
 
 template<>
 struct is_message<ht_nav_variables::msg::HtNavStrapOut>

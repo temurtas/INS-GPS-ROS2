@@ -179,10 +179,6 @@ ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
 ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
-ht_nav_variables/msg/ht_nav_point.h
-/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/ht_nav_point.h
-ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_c.h
-/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_c.h
 ht_nav_variables/msg/ht_nav_vector3.h
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/ht_nav_vector3.h
 ht_nav_variables/msg/detail/ht_nav_vector3__rosidl_typesupport_introspection_c.h
@@ -467,8 +463,6 @@ stddef.h
 -
 stdint.h
 -
-ht_nav_variables/msg/detail/ht_nav_point__struct.h
-rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__struct.h
 ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 ht_nav_variables/msg/detail/ht_nav_euler__struct.h

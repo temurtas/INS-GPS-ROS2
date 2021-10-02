@@ -1,5 +1,5 @@
 [console_scripts]
+imu_data_publisher_node = ht_strap_package.imu_data_publisher_function:main
 listener = ht_strap_package.subscriber_member_function:main
-middle_man = ht_strap_package.ht_pub_sub_deneme:main
-talker = ht_strap_package.publisher_member_function:main
+strap_node = ht_strap_package.ht_pub_sub_deneme:main
 

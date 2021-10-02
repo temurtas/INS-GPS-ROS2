@@ -44,10 +44,6 @@ class Metaclass_HtNavStrapOut(type):
             if HtNavEuler.__class__._TYPE_SUPPORT is None:
                 HtNavEuler.__class__.__import_type_support__()
 
-            from ht_nav_variables.msg import HtNavPoint
-            if HtNavPoint.__class__._TYPE_SUPPORT is None:
-                HtNavPoint.__class__.__import_type_support__()
-
             from ht_nav_variables.msg import HtNavQuaternion
             if HtNavQuaternion.__class__._TYPE_SUPPORT is None:
                 HtNavQuaternion.__class__.__import_type_support__()
@@ -76,14 +72,14 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     ]
 
     _fields_and_field_types = {
-        'pos': 'ht_nav_variables/HtNavPoint',
+        'pos': 'ht_nav_variables/HtNavVector3',
         'vel': 'ht_nav_variables/HtNavVector3',
         'euler': 'ht_nav_variables/HtNavEuler',
         'quaternion': 'ht_nav_variables/HtNavQuaternion',
     }
 
     SLOT_TYPES = (
-        rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavPoint'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavEuler'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavQuaternion'),  # noqa: E501
@@ -93,8 +89,8 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        from ht_nav_variables.msg import HtNavPoint
-        self.pos = kwargs.get('pos', HtNavPoint())
+        from ht_nav_variables.msg import HtNavVector3
+        self.pos = kwargs.get('pos', HtNavVector3())
         from ht_nav_variables.msg import HtNavVector3
         self.vel = kwargs.get('vel', HtNavVector3())
         from ht_nav_variables.msg import HtNavEuler
@@ -154,10 +150,10 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     @pos.setter
     def pos(self, value):
         if __debug__:
-            from ht_nav_variables.msg import HtNavPoint
+            from ht_nav_variables.msg import HtNavVector3
             assert \
-                isinstance(value, HtNavPoint), \
-                "The 'pos' field must be a sub message of type 'HtNavPoint'"
+                isinstance(value, HtNavVector3), \
+                "The 'pos' field must be a sub message of type 'HtNavVector3'"
         self._pos = value
 
     @property
