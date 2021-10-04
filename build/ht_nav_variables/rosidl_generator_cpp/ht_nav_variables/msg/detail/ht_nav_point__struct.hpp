@@ -37,7 +37,9 @@ struct HtNavPoint_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->structure_needs_at_least_one_member = 0;
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
     }
   }
 
@@ -47,15 +49,42 @@ struct HtNavPoint_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->structure_needs_at_least_one_member = 0;
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
     }
   }
 
   // field types and members
-  using _structure_needs_at_least_one_member_type =
-    uint8_t;
-  _structure_needs_at_least_one_member_type structure_needs_at_least_one_member;
+  using _x_type =
+    double;
+  _x_type x;
+  using _y_type =
+    double;
+  _y_type y;
+  using _z_type =
+    double;
+  _z_type z;
 
+  // setters for named parameter idiom
+  Type & set__x(
+    const double & _arg)
+  {
+    this->x = _arg;
+    return *this;
+  }
+  Type & set__y(
+    const double & _arg)
+  {
+    this->y = _arg;
+    return *this;
+  }
+  Type & set__z(
+    const double & _arg)
+  {
+    this->z = _arg;
+    return *this;
+  }
 
   // constant declarations
 
@@ -99,7 +128,13 @@ struct HtNavPoint_
   // comparison operators
   bool operator==(const HtNavPoint_ & other) const
   {
-    if (this->structure_needs_at_least_one_member != other.structure_needs_at_least_one_member) {
+    if (this->x != other.x) {
+      return false;
+    }
+    if (this->y != other.y) {
+      return false;
+    }
+    if (this->z != other.z) {
       return false;
     }
     return true;

@@ -50,7 +50,33 @@ bool ht_nav_variables__msg__ht_nav_point__convert_from_py(PyObject * _pymsg, voi
     assert(strncmp("ht_nav_variables.msg._ht_nav_point.HtNavPoint", full_classname_dest, 45) == 0);
   }
   ht_nav_variables__msg__HtNavPoint * ros_message = _ros_message;
-  ros_message->structure_needs_at_least_one_member = 0;
+  {  // x
+    PyObject * field = PyObject_GetAttrString(_pymsg, "x");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->x = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // y
+    PyObject * field = PyObject_GetAttrString(_pymsg, "y");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->y = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // z
+    PyObject * field = PyObject_GetAttrString(_pymsg, "z");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->z = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -72,7 +98,40 @@ PyObject * ht_nav_variables__msg__ht_nav_point__convert_to_py(void * raw_ros_mes
       return NULL;
     }
   }
-  (void)raw_ros_message;
+  ht_nav_variables__msg__HtNavPoint * ros_message = (ht_nav_variables__msg__HtNavPoint *)raw_ros_message;
+  {  // x
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->x);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "x", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // y
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->y);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "y", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // z
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->z);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "z", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
 
   // ownership of _pymessage is transferred to the caller
   return _pymessage;

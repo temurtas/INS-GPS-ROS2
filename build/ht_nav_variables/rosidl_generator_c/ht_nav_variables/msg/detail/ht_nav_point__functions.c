@@ -15,7 +15,9 @@ ht_nav_variables__msg__HtNavPoint__init(ht_nav_variables__msg__HtNavPoint * msg)
   if (!msg) {
     return false;
   }
-  // structure_needs_at_least_one_member
+  // x
+  // y
+  // z
   return true;
 }
 
@@ -25,7 +27,9 @@ ht_nav_variables__msg__HtNavPoint__fini(ht_nav_variables__msg__HtNavPoint * msg)
   if (!msg) {
     return;
   }
-  // structure_needs_at_least_one_member
+  // x
+  // y
+  // z
 }
 
 ht_nav_variables__msg__HtNavPoint *

@@ -20,7 +20,9 @@ extern "C"
 // Struct defined in msg/HtNavPoint in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavPoint
 {
-  uint8_t structure_needs_at_least_one_member;
+  double x;
+  double y;
+  double z;
 } ht_nav_variables__msg__HtNavPoint;
 
 // Struct for a sequence of ht_nav_variables__msg__HtNavPoint.

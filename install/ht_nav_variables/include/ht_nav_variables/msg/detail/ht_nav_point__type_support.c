@@ -31,16 +31,46 @@ void HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_fini_function(vo
   ht_nav_variables__msg__HtNavPoint__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_message_member_array[1] = {
+static rosidl_typesupport_introspection_c__MessageMember HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_message_member_array[3] = {
   {
-    "structure_needs_at_least_one_member",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
+    "x",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(ht_nav_variables__msg__HtNavPoint, structure_needs_at_least_one_member),  // bytes offset in struct
+    offsetof(ht_nav_variables__msg__HtNavPoint, x),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "y",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavPoint, y),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "z",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavPoint, z),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -52,7 +82,7 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavPoint__rosidl_type
 static const rosidl_typesupport_introspection_c__MessageMembers HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_message_members = {
   "ht_nav_variables__msg",  // message namespace
   "HtNavPoint",  // message name
-  1,  // number of fields
+  3,  // number of fields
   sizeof(ht_nav_variables__msg__HtNavPoint),
   HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_message_member_array,  // message members
   HtNavPoint__rosidl_typesupport_introspection_c__HtNavPoint_init_function,  // function to initialize message memory (memory has to be allocated)

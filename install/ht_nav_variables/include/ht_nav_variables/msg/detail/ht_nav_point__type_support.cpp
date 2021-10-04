@@ -37,16 +37,46 @@ void HtNavPoint_fini_function(void * message_memory)
   typed_message->~HtNavPoint();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavPoint_message_member_array[1] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavPoint_message_member_array[3] = {
   {
-    "structure_needs_at_least_one_member",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
+    "x",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(ht_nav_variables::msg::HtNavPoint, structure_needs_at_least_one_member),  // bytes offset in struct
+    offsetof(ht_nav_variables::msg::HtNavPoint, x),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "y",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavPoint, y),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "z",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavPoint, z),  // bytes offset in struct
     nullptr,  // default value
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
@@ -58,7 +88,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavPoint_me
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers HtNavPoint_message_members = {
   "ht_nav_variables::msg",  // message namespace
   "HtNavPoint",  // message name
-  1,  // number of fields
+  3,  // number of fields
   sizeof(ht_nav_variables::msg::HtNavPoint),
   HtNavPoint_message_member_array,  // message members
   HtNavPoint_init_function,  // function to initialize message memory (memory has to be allocated)

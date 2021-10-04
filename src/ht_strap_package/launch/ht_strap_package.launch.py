@@ -12,8 +12,9 @@ def generate_launch_description():
         )
         
     bagfile = launch.actions.ExecuteProcess(
-         cmd=['ros2', 'bag', 'record', '-o', 'imu_strap_data_only', '/ht_nav_imu_data_topic', '/ht_nav_strap_topic'],
-        output='screen'
+        cmd=['rm', '-rf', '~/INS-GPS-ROS2/imu_strap_data_only',';','.', '~/INS-GPS-ROS2/install/setup.bash', ';','ros2', 'bag', 'record', '-o', '~/INS-GPS-ROS2/imu_strap_data_only', '/ht_nav_imu_data_topic', '/ht_nav_strap_topic'],
+        prefix = 'xterm -e',
+        output='screen' 
     )
 
     ps_node = Node(

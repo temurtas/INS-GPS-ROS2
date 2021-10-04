@@ -5,8 +5,14 @@
 
 module ht_nav_variables {
   module msg {
+    @verbatim (language="comment", text=
+      " This contains the position of a point in free space")
     struct HtNavPoint {
-      uint8 structure_needs_at_least_one_member;
+      double x;
+
+      double y;
+
+      double z;
     };
   };
 };

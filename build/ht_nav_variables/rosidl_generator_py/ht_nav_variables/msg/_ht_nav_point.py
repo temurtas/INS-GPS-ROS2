@@ -53,18 +53,30 @@ class HtNavPoint(metaclass=Metaclass_HtNavPoint):
     """Message class 'HtNavPoint'."""
 
     __slots__ = [
+        '_x',
+        '_y',
+        '_z',
     ]
 
     _fields_and_field_types = {
+        'x': 'double',
+        'y': 'double',
+        'z': 'double',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.x = kwargs.get('x', float())
+        self.y = kwargs.get('y', float())
+        self.z = kwargs.get('z', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -95,9 +107,54 @@ class HtNavPoint(metaclass=Metaclass_HtNavPoint):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.x != other.x:
+            return False
+        if self.y != other.y:
+            return False
+        if self.z != other.z:
+            return False
         return True
 
     @classmethod
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @property
+    def x(self):
+        """Message field 'x'."""
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'x' field must be of type 'float'"
+        self._x = value
+
+    @property
+    def y(self):
+        """Message field 'y'."""
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'y' field must be of type 'float'"
+        self._y = value
+
+    @property
+    def z(self):
+        """Message field 'z'."""
+        return self._z
+
+    @z.setter
+    def z(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'z' field must be of type 'float'"
+        self._z = value
