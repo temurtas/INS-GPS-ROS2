@@ -11,11 +11,11 @@ def generate_launch_description():
         'params.yaml'
         )
         
-    bagfile = launch.actions.ExecuteProcess(
-        cmd=['rm', '-rf', '~/INS-GPS-ROS2/imu_strap_data_only',';','.', '~/INS-GPS-ROS2/install/setup.bash', ';','ros2', 'bag', 'record', '-o', '~/INS-GPS-ROS2/imu_strap_data_only', '/ht_nav_imu_data_topic', '/ht_nav_strap_topic'],
-        prefix = 'xterm -e',
-        output='screen' 
-    )
+    #bagfile = launch.actions.ExecuteProcess(
+    #    cmd=['rm', '-rf', '~/INS-GPS-ROS2/imu_strap_data_only',';','.', '~/INS-GPS-ROS2/install/setup.bash', ';','ros2', 'bag', 'record', '-o', '~/INS-GPS-ROS2/imu_strap_data_only', '/ht_nav_imu_data_topic', '/ht_nav_strap_topic'],
+    #    prefix = 'xterm -e',
+    #    output='screen' 
+    #)
 
     ps_node = Node(
         package = 'ht_strap_package',
@@ -36,7 +36,7 @@ def generate_launch_description():
         executable = 'listener',
     )
 
-    ld.add_action(bagfile)
+    #ld.add_action(bagfile)
     ld.add_action(ps_node)
     ld.add_action(talker_node)
     ld.add_action(listener_node)

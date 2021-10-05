@@ -20,8 +20,14 @@ from ht_nav_variables.msg import HtNavStrapOut
 from ht_strap_package.strapdown import strapdown
 from ht_strap_package.strap_operations import euler2quaternion, quaternion_normalize 
 
-base_path2 = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+from ht_strap_package.config import base_path
+
+base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 initial_data_path = base_path2 / "ilk_deger.txt"
+
+out_data_mid_txt = base_path2 / "ros_mid_strap_out.txt"
+
+out_data_mid_ros_txt = open(out_data_mid_txt, 'w')
 
 class DenemePubSub(Node):
 
@@ -72,6 +78,8 @@ class DenemePubSub(Node):
         # Initialise subscribers
         self.deneme_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
 
+        self.zaman_ref = 0.0
+        self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.ax = []
         self.imu_data = HtNavImuData()
         self.imu_data.vel_diff.x = 0.0
@@ -146,6 +154,10 @@ class DenemePubSub(Node):
     def pub_func(self,msg):
         self.deneme_pub.publish(msg)
         self.get_logger().info('I publish z pos as: "%f"' % msg.pos.z)
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(self.zaman_ref, str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
+
 
 
 def main(args=None):

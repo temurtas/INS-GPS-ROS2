@@ -14,10 +14,17 @@
 
 import rclpy
 from rclpy.node import Node
+from pathlib import Path
 
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavEuler
 from ht_nav_variables.msg import HtNavStrapOut
+from ht_strap_package.config import base_path
+
+#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+
+out_data_path = base_path / "ros_strap_out.txt"
+out_data_txt = open(out_data_path, 'w')
 
 class MinimalSubscriber(Node):
 
@@ -29,9 +36,14 @@ class MinimalSubscriber(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
+        self.zaman_ref = 0.0
+        self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
 
     def listener_callback(self, msg):
         self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_txt)
 
 
 def main(args=None):

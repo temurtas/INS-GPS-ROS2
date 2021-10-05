@@ -2,6 +2,9 @@ import numpy as np
 
 # define global variables
 delta_t = 0.01
+from pathlib import Path
+
+base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 # INS/GPS variances
 pos_std = 5                         # m
@@ -18,3 +21,4 @@ sigma_ra = 9.81 * 1e-3              # mg
 sigma_rg = np.deg2rad(1) / 3600     # deg / hr
 sigma_bad = 9.81 * 2e-3             # mg
 sigma_bgd = np.deg2rad(5) / 3600    # deg / hr
+

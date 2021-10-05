@@ -21,8 +21,14 @@ from std_msgs.msg import String
 from ht_nav_variables.msg import HtNavImuData
 from ht_nav_variables.msg import HtNavPoint
 #base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
-base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+
+from ht_strap_package.config import base_path
+
 imu_data_path = base_path / "aob_veri.txt"
+imu_data_ros_path = base_path / "aob_veri_ros2.txt"
+
+imu_data_ros_txt = open(imu_data_ros_path, 'w')
 
 class IMUDataPublisher(Node):
 
@@ -35,9 +41,11 @@ class IMUDataPublisher(Node):
             self.lines = imu_data_txt.readlines()
 
         self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', 10)
-        timer_period = 1/1000  # seconds
+        timer_period = 1/100  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
+        self.zaman_ref = 0.0
+        self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
 
     def timer_callback(self):
         line = self.lines[self.i]
@@ -55,11 +63,14 @@ class IMUDataPublisher(Node):
         msg.vel_diff.x = self.imu_data.vel_diff.x
         msg.vel_diff.y = self.imu_data.vel_diff.y
         msg.vel_diff.z = self.imu_data.vel_diff.z
-        msg.ang_diff.x = self.imu_data.vel_diff.x
-        msg.ang_diff.y = self.imu_data.vel_diff.y
-        msg.ang_diff.z = self.imu_data.vel_diff.z
+        msg.ang_diff.x = self.imu_data.ang_diff.x
+        msg.ang_diff.y = self.imu_data.ang_diff.y
+        msg.ang_diff.z = self.imu_data.ang_diff.z
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing vel_diff x as: "%f"' % msg.vel_diff.x)
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.ang_diff.x), str(msg.ang_diff.y), str(msg.ang_diff.z), str(msg.vel_diff.x), str(msg.vel_diff.y), str(msg.vel_diff.z), sep='\t', file=imu_data_ros_txt)
         self.i += 1
 
 
