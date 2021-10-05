@@ -15,10 +15,12 @@ from builtin_interfaces.msg import Duration
 from std_msgs.msg import String
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavImuData
+from ht_nav_variables.msg import HtNavQuaternion
 from ht_nav_variables.msg import HtNavEuler
 from ht_nav_variables.msg import HtNavStrapOut
+from ht_strap_package.strap_operations import pos_update, vel_update, quaternion_update, quaternion2euler
 from ht_strap_package.strapdown import strapdown
-from ht_strap_package.strap_operations import euler2quaternion, quaternion_normalize 
+from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler, quaternion_normalize 
 
 from ht_strap_package.config import base_path
 
@@ -93,8 +95,8 @@ class DenemePubSub(Node):
 
         initial_euler_temp = [0, 0, 0]
         initial_euler_temp[0] = float(e1) # convert bs from string to float
-        initial_euler_temp[0] = float(e1) # convert bs from string to float
-        initial_euler_temp[0] = float(e1) # convert bs from string to float
+        initial_euler_temp[1] = float(e2) # convert bs from string to float
+        initial_euler_temp[2] = float(e3) # convert bs from string to float
 
         initial_quaternion_temp = euler2quaternion(initial_euler_temp)
         initial_quaternion_temp2 = quaternion_normalize(initial_quaternion_temp)
@@ -135,7 +137,34 @@ class DenemePubSub(Node):
         self.imu_data.vel_diff = msg.vel_diff
         self.imu_data.ang_diff = msg.ang_diff
 
-        self.new_strap = strapdown(self.old_strap, self.imu_data)
+        #self.get_logger().info('old lat: "%f"' % self.old_strap.pos.x)
+        #self.get_logger().info('old lon: "%f"' % self.old_strap.pos.y)
+        #self.get_logger().info('old h: "%f"' % self.old_strap.pos.z)
+        #self.get_logger().info('old vn: "%f"' % self.old_strap.vel.x)
+        #self.get_logger().info('old vd: "%f"' % self.old_strap.vel.y)
+        #self.get_logger().info('old ve: "%f"' % self.old_strap.vel.z)
+        #self.get_logger().info('old roll: "%f"' % self.old_strap.euler.roll)
+        #self.get_logger().info('old pitch: "%f"' % self.old_strap.euler.pitch)
+        #self.get_logger().info('old yaw: "%f"' % self.old_strap.euler.yaw)
+        #self.get_logger().info('old q1: "%f"' % self.old_strap.quaternion.x)
+        #self.get_logger().info('old q2: "%f"' % self.old_strap.quaternion.y)
+        #self.get_logger().info('old q3: "%f"' % self.old_strap.quaternion.z) 
+        #self.get_logger().info('old q4: "%f"' % self.old_strap.quaternion.w) 
+        #self.new_strap = strapdown(self.old_strap, self.imu_data)
+        self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)
+        #self.get_logger().info('new q1: "%f"' % self.new_strap.quaternion.x)
+        #self.get_logger().info('new q2: "%f"' % self.new_strap.quaternion.y)
+        #self.get_logger().info('new q3: "%f"' % self.new_strap.quaternion.z) 
+        #self.get_logger().info('new q4: "%f"' % self.new_strap.quaternion.w) 
+        #self.get_logger().info('new lat: "%f"' % self.new_strap.pos.x)
+        #self.get_logger().info('new lon: "%f"' % self.new_strap.pos.y)
+        #self.get_logger().info('new h: "%f"' % self.new_strap.pos.z)
+        #self.get_logger().info('new vn: "%f"' % self.new_strap.vel.x)
+        #self.get_logger().info('new vd: "%f"' % self.new_strap.vel.y)
+        #self.get_logger().info('new ve: "%f"' % self.new_strap.vel.z)
+        #self.get_logger().info('new roll: "%f"' % self.new_strap.euler.roll)
+        #self.get_logger().info('new pitch: "%f"' % self.new_strap.euler.pitch)
+        #self.get_logger().info('new yaw: "%f"' % self.new_strap.euler.yaw)
 
         self.old_strap = self.new_strap
 
@@ -158,6 +187,81 @@ class DenemePubSub(Node):
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(self.zaman_ref, str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
 
+    def node_strapdown(self, old_strap, imu_data):
+    
+        # Convert your custom variable types (float) to np variables (float) 
+        vel_diff_temp = np.zeros((3, 1))
+        vel_diff_temp[0] = imu_data.vel_diff.x
+        vel_diff_temp[1] = imu_data.vel_diff.y
+        vel_diff_temp[2] = imu_data.vel_diff.z
+
+        ang_diff_temp = np.zeros((3, 1))
+        ang_diff_temp[0] = imu_data.ang_diff.x
+        ang_diff_temp[1] = imu_data.ang_diff.y
+        ang_diff_temp[2] = imu_data.ang_diff.z
+
+        old_quaternion_temp = np.zeros((4, 1))
+        old_quaternion_temp[0] = old_strap.quaternion.x
+        old_quaternion_temp[1] = old_strap.quaternion.y
+        old_quaternion_temp[2] = old_strap.quaternion.z
+        old_quaternion_temp[3] = old_strap.quaternion.w
+
+        old_vel_temp = np.zeros((3, 1))
+        old_vel_temp[0] = old_strap.vel.x
+        old_vel_temp[1] = old_strap.vel.y
+        old_vel_temp[2] = old_strap.vel.z
+
+        old_pos_temp = np.zeros((3, 1))
+        old_pos_temp[0] = old_strap.pos.x
+        old_pos_temp[1] = old_strap.pos.y
+        old_pos_temp[2] = old_strap.pos.z
+
+        new_vel_temp = np.zeros((3, 1))
+        new_pos_temp = np.zeros((3, 1))
+        new_quaternion_temp = np.zeros((4, 1))
+
+        # VELOCITY UPDATE
+        new_vel_temp = vel_update(old_vel_temp, vel_diff_temp, old_pos_temp, old_quaternion_temp)
+
+        # POSITION UPDATE
+        new_pos_temp = pos_update(new_vel_temp, old_pos_temp)
+
+
+        #self.get_logger().info('internal old q1: "%f"' % old_quaternion_temp[0])
+        #self.get_logger().info('internal old q2: "%f"' % old_quaternion_temp[1])
+        #self.get_logger().info('internal old q3: "%f"' % old_quaternion_temp[2])
+        #self.get_logger().info('internal old q4: "%f"' % old_quaternion_temp[3])
+
+        # ATTITUDE UPDATE
+        new_quaternion_temp = quaternion_update(old_quaternion_temp, ang_diff_temp, new_pos_temp, new_vel_temp)
+        new_euler_temp = quaternion2euler(new_quaternion_temp)
+
+        #self.get_logger().info('internal q1: "%f"' % new_quaternion_temp[0])
+        #self.get_logger().info('internal q2: "%f"' % new_quaternion_temp[1])
+        #self.get_logger().info('internal q3: "%f"' % new_quaternion_temp[2])
+        #self.get_logger().info('internal q4: "%f"' % new_quaternion_temp[3])
+
+        # Convert your np variables (float) to custom variable types (float)
+        new_strap = HtNavStrapOut()
+        
+        new_strap.pos.x = float(new_pos_temp[0])
+        new_strap.pos.y = float(new_pos_temp[1])
+        new_strap.pos.z = float(new_pos_temp[2])
+
+        new_strap.vel.x = float(new_vel_temp[0])
+        new_strap.vel.y = float(new_vel_temp[1])
+        new_strap.vel.z = float(new_vel_temp[2])
+
+        new_strap.euler.roll = float(new_euler_temp[0])
+        new_strap.euler.pitch = float(new_euler_temp[1])
+        new_strap.euler.yaw = float(new_euler_temp[2])
+
+        new_strap.quaternion.x = float(new_quaternion_temp[0])
+        new_strap.quaternion.y = float(new_quaternion_temp[1])
+        new_strap.quaternion.z = float(new_quaternion_temp[2])
+        new_strap.quaternion.w = float(new_quaternion_temp[3])
+        
+        return new_strap
 
 
 def main(args=None):
