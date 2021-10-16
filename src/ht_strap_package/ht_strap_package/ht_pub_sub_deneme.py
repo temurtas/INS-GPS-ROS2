@@ -78,7 +78,6 @@ class DenemePubSub(Node):
         # Initialise publishers
         self.deneme_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_topic', 10)
         # Initialise subscribers
-        self.deneme_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
 
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -129,6 +128,10 @@ class DenemePubSub(Node):
         self.new_strap.quaternion.y = 0.0
         self.new_strap.quaternion.z = 0.0
         self.new_strap.quaternion.w = 0.0
+        print(self.zaman_ref, str(self.old_strap.pos.x), str(self.old_strap.pos.y), str(self.old_strap.pos.z), str(self.old_strap.vel.x), str(self.old_strap.vel.y), str(self.old_strap.vel.z), str(self.old_strap.euler.roll), str(self.old_strap.euler.pitch), str(self.old_strap.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
+
+        self.deneme_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
+
 
     def sub_cb(self, msg):
         self.ax.append(msg.vel_diff.x)

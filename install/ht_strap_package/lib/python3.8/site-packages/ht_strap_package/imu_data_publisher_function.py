@@ -41,7 +41,7 @@ class IMUDataPublisher(Node):
             self.lines = imu_data_txt.readlines()
 
         self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', 10)
-        timer_period = 1/1000  # seconds
+        timer_period = 1/100  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.zaman_ref = 0.0

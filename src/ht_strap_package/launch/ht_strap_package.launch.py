@@ -16,6 +16,11 @@ def generate_launch_description():
     #    prefix = 'xterm -e',
     #    output='screen' 
     #)
+    listener_node = Node(
+        package = 'ht_strap_package',
+        name = 'listener',
+        executable = 'listener',
+    )
 
     ps_node = Node(
         package = 'ht_strap_package',
@@ -30,15 +35,11 @@ def generate_launch_description():
         executable = 'imu_data_publisher_node',
     )
 
-    listener_node = Node(
-        package = 'ht_strap_package',
-        name = 'listener',
-        executable = 'listener',
-    )
+
 
     #ld.add_action(bagfile)
+    ld.add_action(listener_node)
     ld.add_action(ps_node)
     ld.add_action(talker_node)
-    ld.add_action(listener_node)
 
     return ld
