@@ -31,7 +31,7 @@ out_data_mid_txt = base_path2 / "ros_mid_strap_out.txt"
 
 out_data_mid_ros_txt = open(out_data_mid_txt, 'w')
 
-class DenemePubSub(Node):
+class StrapPubSub(Node):
 
     def __init__(self):
         ''' 
@@ -76,7 +76,7 @@ class DenemePubSub(Node):
         self.sigma_bgd = float(self.get_parameter("sigma_bgd").value)
 
         # Initialise publishers
-        self.deneme_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_topic', 10)
+        self.strap_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_topic', 10)
         # Initialise subscribers
 
         self.zaman_ref = 0.0
@@ -130,12 +130,12 @@ class DenemePubSub(Node):
         self.new_strap.quaternion.w = 0.0
         print(self.zaman_ref, str(self.old_strap.pos.x), str(self.old_strap.pos.y), str(self.old_strap.pos.z), str(self.old_strap.vel.x), str(self.old_strap.vel.y), str(self.old_strap.vel.z), str(self.old_strap.euler.roll), str(self.old_strap.euler.pitch), str(self.old_strap.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
 
-        self.deneme_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
+        self.strap_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
 
 
     def sub_cb(self, msg):
         self.ax.append(msg.vel_diff.x)
-        self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
+        #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
         
         self.imu_data.vel_diff = msg.vel_diff
         self.imu_data.ang_diff = msg.ang_diff
@@ -184,8 +184,8 @@ class DenemePubSub(Node):
         self.pub_func(msg_pb)
 
     def pub_func(self,msg):
-        self.deneme_pub.publish(msg)
-        self.get_logger().info('I publish z pos as: "%f"' % msg.pos.z)
+        self.strap_pub.publish(msg)
+        #self.get_logger().info('I publish z pos as: "%f"' % msg.pos.z)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(self.zaman_ref, str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
@@ -277,7 +277,7 @@ def main(args=None):
 
     try:
         # Initialise the class
-        strap_node = DenemePubSub()
+        strap_node = StrapPubSub()
 
         # Stop the node from exiting
         rclpy.spin(strap_node)

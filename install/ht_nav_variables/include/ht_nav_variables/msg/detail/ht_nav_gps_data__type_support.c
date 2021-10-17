@@ -17,6 +17,10 @@
 #include "ht_nav_variables/msg/ht_nav_point.h"
 // Member `gps_pos`
 #include "ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_c.h"
+// Member `gps_vel`
+#include "ht_nav_variables/msg/ht_nav_vector3.h"
+// Member `gps_vel`
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -37,7 +41,7 @@ void HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_fini_functio
   ht_nav_variables__msg__HtNavGpsData__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_member_array[1] = {
+static rosidl_typesupport_introspection_c__MessageMember HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_member_array[2] = {
   {
     "gps_pos",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
@@ -52,13 +56,28 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavGpsData__rosidl_ty
     NULL,  // get_const(index) function pointer
     NULL,  // get(index) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "gps_vel",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavGpsData, gps_vel),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_members = {
   "ht_nav_variables__msg",  // message namespace
   "HtNavGpsData",  // message name
-  1,  // number of fields
+  2,  // number of fields
   sizeof(ht_nav_variables__msg__HtNavGpsData),
   HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_member_array,  // message members
   HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -78,6 +97,8 @@ const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavGpsData)() {
   HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_member_array[0].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavPoint)();
+  HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_member_array[1].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavVector3)();
   if (!HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_type_support_handle.typesupport_identifier) {
     HtNavGpsData__rosidl_typesupport_introspection_c__HtNavGpsData_message_type_support_handle.typesupport_identifier =
       rosidl_typesupport_introspection_c__identifier;

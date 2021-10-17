@@ -53,15 +53,15 @@ class HtNavErrorVector(metaclass=Metaclass_HtNavErrorVector):
     """Message class 'HtNavErrorVector'."""
 
     __slots__ = [
-        '_err_x',
-        '_err_y',
-        '_err_z',
+        '_x',
+        '_y',
+        '_z',
     ]
 
     _fields_and_field_types = {
-        'err_x': 'double',
-        'err_y': 'double',
-        'err_z': 'double',
+        'x': 'double',
+        'y': 'double',
+        'z': 'double',
     }
 
     SLOT_TYPES = (
@@ -74,9 +74,9 @@ class HtNavErrorVector(metaclass=Metaclass_HtNavErrorVector):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.err_x = kwargs.get('err_x', float())
-        self.err_y = kwargs.get('err_y', float())
-        self.err_z = kwargs.get('err_z', float())
+        self.x = kwargs.get('x', float())
+        self.y = kwargs.get('y', float())
+        self.z = kwargs.get('z', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -107,11 +107,11 @@ class HtNavErrorVector(metaclass=Metaclass_HtNavErrorVector):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
-        if self.err_x != other.err_x:
+        if self.x != other.x:
             return False
-        if self.err_y != other.err_y:
+        if self.y != other.y:
             return False
-        if self.err_z != other.err_z:
+        if self.z != other.z:
             return False
         return True
 
@@ -121,40 +121,40 @@ class HtNavErrorVector(metaclass=Metaclass_HtNavErrorVector):
         return copy(cls._fields_and_field_types)
 
     @property
-    def err_x(self):
-        """Message field 'err_x'."""
-        return self._err_x
+    def x(self):
+        """Message field 'x'."""
+        return self._x
 
-    @err_x.setter
-    def err_x(self, value):
+    @x.setter
+    def x(self, value):
         if __debug__:
             assert \
                 isinstance(value, float), \
-                "The 'err_x' field must be of type 'float'"
-        self._err_x = value
+                "The 'x' field must be of type 'float'"
+        self._x = value
 
     @property
-    def err_y(self):
-        """Message field 'err_y'."""
-        return self._err_y
+    def y(self):
+        """Message field 'y'."""
+        return self._y
 
-    @err_y.setter
-    def err_y(self, value):
+    @y.setter
+    def y(self, value):
         if __debug__:
             assert \
                 isinstance(value, float), \
-                "The 'err_y' field must be of type 'float'"
-        self._err_y = value
+                "The 'y' field must be of type 'float'"
+        self._y = value
 
     @property
-    def err_z(self):
-        """Message field 'err_z'."""
-        return self._err_z
+    def z(self):
+        """Message field 'z'."""
+        return self._z
 
-    @err_z.setter
-    def err_z(self, value):
+    @z.setter
+    def z(self, value):
         if __debug__:
             assert \
                 isinstance(value, float), \
-                "The 'err_z' field must be of type 'float'"
-        self._err_z = value
+                "The 'z' field must be of type 'float'"
+        self._z = value

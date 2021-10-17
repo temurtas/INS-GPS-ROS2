@@ -103,6 +103,8 @@ fastcdr/Cdr.h
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/detail/fastcdr/Cdr.h
 ht_nav_variables/msg/detail/ht_nav_point__functions.h
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__functions.h
+ht_nav_variables/msg/detail/ht_nav_vector3__functions.h
+/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_vector3__functions.h
 
 /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/detail/ht_nav_imu_data__type_support_c.cpp
 ht_nav_variables/msg/detail/ht_nav_imu_data__rosidl_typesupport_fastrtps_c.h
@@ -443,6 +445,8 @@ stdint.h
 -
 ht_nav_variables/msg/detail/ht_nav_point__struct.h
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__struct.h
+ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.h
 stdbool.h

@@ -419,6 +419,8 @@ vector
 -
 ht_nav_variables/msg/detail/ht_nav_point__struct.hpp
 rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp
+ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp
 
 rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.hpp
 rosidl_runtime_cpp/bounded_vector.hpp

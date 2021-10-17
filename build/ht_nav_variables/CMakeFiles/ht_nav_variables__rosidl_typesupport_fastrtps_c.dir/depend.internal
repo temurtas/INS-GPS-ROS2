@@ -92,6 +92,8 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_c.dir/rosidl_typesuppor
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
  rosidl_generator_c/ht_nav_variables/msg/rosidl_generator_c__visibility_control.h
  rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/detail/ht_nav_gps_data__rosidl_typesupport_fastrtps_c.h
  rosidl_typesupport_fastrtps_c/ht_nav_variables/msg/rosidl_typesupport_fastrtps_c__visibility_control.h

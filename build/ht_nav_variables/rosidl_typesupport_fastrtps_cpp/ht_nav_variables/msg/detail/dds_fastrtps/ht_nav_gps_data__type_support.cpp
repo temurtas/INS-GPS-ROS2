@@ -39,6 +39,29 @@ max_serialized_size_HtNavPoint(
 }  // namespace msg
 }  // namespace ht_nav_variables
 
+namespace ht_nav_variables
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const ht_nav_variables::msg::HtNavVector3 &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  ht_nav_variables::msg::HtNavVector3 &);
+size_t get_serialized_size(
+  const ht_nav_variables::msg::HtNavVector3 &,
+  size_t current_alignment);
+size_t
+max_serialized_size_HtNavVector3(
+  bool & full_bounded,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace ht_nav_variables
+
 
 namespace ht_nav_variables
 {
@@ -59,6 +82,10 @@ cdr_serialize(
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
     ros_message.gps_pos,
     cdr);
+  // Member: gps_vel
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.gps_vel,
+    cdr);
   return true;
 }
 
@@ -71,6 +98,10 @@ cdr_deserialize(
   // Member: gps_pos
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.gps_pos);
+
+  // Member: gps_vel
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.gps_vel);
 
   return true;
 }
@@ -93,6 +124,11 @@ get_serialized_size(
   current_alignment +=
     ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
     ros_message.gps_pos, current_alignment);
+  // Member: gps_vel
+
+  current_alignment +=
+    ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.gps_vel, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -120,6 +156,18 @@ max_serialized_size_HtNavGpsData(
     for (size_t index = 0; index < array_size; ++index) {
       current_alignment +=
         ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavPoint(
+        full_bounded, current_alignment);
+    }
+  }
+
+  // Member: gps_vel
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavVector3(
         full_bounded, current_alignment);
     }
   }

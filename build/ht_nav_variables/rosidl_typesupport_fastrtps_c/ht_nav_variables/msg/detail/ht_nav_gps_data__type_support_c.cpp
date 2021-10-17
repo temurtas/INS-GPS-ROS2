@@ -35,6 +35,7 @@ extern "C"
 #endif
 
 #include "ht_nav_variables/msg/detail/ht_nav_point__functions.h"  // gps_pos
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"  // gps_vel
 
 // forward declare type support functions
 size_t get_serialized_size_ht_nav_variables__msg__HtNavPoint(
@@ -47,6 +48,16 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavPoint(
 
 const rosidl_message_type_support_t *
   ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavPoint)();
+size_t get_serialized_size_ht_nav_variables__msg__HtNavVector3(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+size_t max_serialized_size_ht_nav_variables__msg__HtNavVector3(
+  bool & full_bounded,
+  size_t current_alignment);
+
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavVector3)();
 
 
 using _HtNavGpsData__ros_msg_type = ht_nav_variables__msg__HtNavGpsData;
@@ -69,6 +80,20 @@ static bool _HtNavGpsData__cdr_serialize(
       )()->data);
     if (!callbacks->cdr_serialize(
         &ros_message->gps_pos, cdr))
+    {
+      return false;
+    }
+  }
+
+  // Field name: gps_vel
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavVector3
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->gps_vel, cdr))
     {
       return false;
     }
@@ -100,6 +125,20 @@ static bool _HtNavGpsData__cdr_deserialize(
     }
   }
 
+  // Field name: gps_vel
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavVector3
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->gps_vel))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -121,6 +160,10 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavGpsData(
 
   current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavPoint(
     &(ros_message->gps_pos), current_alignment);
+  // field.name gps_vel
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavVector3(
+    &(ros_message->gps_vel), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -153,6 +196,17 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavGpsData(
     for (size_t index = 0; index < array_size; ++index) {
       current_alignment +=
         max_serialized_size_ht_nav_variables__msg__HtNavPoint(
+        full_bounded, current_alignment);
+    }
+  }
+  // member: gps_vel
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavVector3(
         full_bounded, current_alignment);
     }
   }

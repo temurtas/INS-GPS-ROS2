@@ -37,9 +37,9 @@ struct HtNavErrorVector_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->err_x = 0.0;
-      this->err_y = 0.0;
-      this->err_z = 0.0;
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
     }
   }
 
@@ -49,40 +49,40 @@ struct HtNavErrorVector_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->err_x = 0.0;
-      this->err_y = 0.0;
-      this->err_z = 0.0;
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
     }
   }
 
   // field types and members
-  using _err_x_type =
+  using _x_type =
     double;
-  _err_x_type err_x;
-  using _err_y_type =
+  _x_type x;
+  using _y_type =
     double;
-  _err_y_type err_y;
-  using _err_z_type =
+  _y_type y;
+  using _z_type =
     double;
-  _err_z_type err_z;
+  _z_type z;
 
   // setters for named parameter idiom
-  Type & set__err_x(
+  Type & set__x(
     const double & _arg)
   {
-    this->err_x = _arg;
+    this->x = _arg;
     return *this;
   }
-  Type & set__err_y(
+  Type & set__y(
     const double & _arg)
   {
-    this->err_y = _arg;
+    this->y = _arg;
     return *this;
   }
-  Type & set__err_z(
+  Type & set__z(
     const double & _arg)
   {
-    this->err_z = _arg;
+    this->z = _arg;
     return *this;
   }
 
@@ -128,13 +128,13 @@ struct HtNavErrorVector_
   // comparison operators
   bool operator==(const HtNavErrorVector_ & other) const
   {
-    if (this->err_x != other.err_x) {
+    if (this->x != other.x) {
       return false;
     }
-    if (this->err_y != other.err_y) {
+    if (this->y != other.y) {
       return false;
     }
-    if (this->err_z != other.err_z) {
+    if (this->z != other.z) {
       return false;
     }
     return true;

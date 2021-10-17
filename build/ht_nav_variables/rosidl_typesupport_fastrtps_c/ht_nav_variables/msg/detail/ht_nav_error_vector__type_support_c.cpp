@@ -49,19 +49,19 @@ static bool _HtNavErrorVector__cdr_serialize(
     return false;
   }
   const _HtNavErrorVector__ros_msg_type * ros_message = static_cast<const _HtNavErrorVector__ros_msg_type *>(untyped_ros_message);
-  // Field name: err_x
+  // Field name: x
   {
-    cdr << ros_message->err_x;
+    cdr << ros_message->x;
   }
 
-  // Field name: err_y
+  // Field name: y
   {
-    cdr << ros_message->err_y;
+    cdr << ros_message->y;
   }
 
-  // Field name: err_z
+  // Field name: z
   {
-    cdr << ros_message->err_z;
+    cdr << ros_message->z;
   }
 
   return true;
@@ -76,19 +76,19 @@ static bool _HtNavErrorVector__cdr_deserialize(
     return false;
   }
   _HtNavErrorVector__ros_msg_type * ros_message = static_cast<_HtNavErrorVector__ros_msg_type *>(untyped_ros_message);
-  // Field name: err_x
+  // Field name: x
   {
-    cdr >> ros_message->err_x;
+    cdr >> ros_message->x;
   }
 
-  // Field name: err_y
+  // Field name: y
   {
-    cdr >> ros_message->err_y;
+    cdr >> ros_message->y;
   }
 
-  // Field name: err_z
+  // Field name: z
   {
-    cdr >> ros_message->err_z;
+    cdr >> ros_message->z;
   }
 
   return true;
@@ -108,21 +108,21 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
   (void)padding;
   (void)wchar_size;
 
-  // field.name err_x
+  // field.name x
   {
-    size_t item_size = sizeof(ros_message->err_x);
+    size_t item_size = sizeof(ros_message->x);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name err_y
+  // field.name y
   {
-    size_t item_size = sizeof(ros_message->err_y);
+    size_t item_size = sizeof(ros_message->y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name err_z
+  // field.name z
   {
-    size_t item_size = sizeof(ros_message->err_z);
+    size_t item_size = sizeof(ros_message->z);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -150,21 +150,21 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
   (void)wchar_size;
   (void)full_bounded;
 
-  // member: err_x
+  // member: x
   {
     size_t array_size = 1;
 
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
-  // member: err_y
+  // member: y
   {
     size_t array_size = 1;
 
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
-  // member: err_z
+  // member: z
   {
     size_t array_size = 1;
 

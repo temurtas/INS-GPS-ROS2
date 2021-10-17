@@ -421,6 +421,7 @@ CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_gps_data__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
  rosidl_generator_c/ht_nav_variables/msg/rosidl_generator_c__visibility_control.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_imu_data_s.c.o
  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_imu_data_s.c

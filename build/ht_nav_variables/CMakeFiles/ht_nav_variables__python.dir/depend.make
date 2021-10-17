@@ -420,6 +420,7 @@ CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_gps_data__functions.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
+CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c.o: rosidl_generator_c/ht_nav_variables/msg/rosidl_generator_c__visibility_control.h
 
 CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_imu_data_s.c.o: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_imu_data_s.c

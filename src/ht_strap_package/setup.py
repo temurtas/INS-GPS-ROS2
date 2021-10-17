@@ -24,9 +24,12 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'strap_node = ht_strap_package.ht_pub_sub_deneme:main',
+                'strap_node = ht_strap_package.strap_node_function:main',
+                'strap_w_kalman_node = ht_strap_package.strap_with_kalman_node_function:main',
                 'imu_data_publisher_node = ht_strap_package.imu_data_publisher_function:main',
                 'listener = ht_strap_package.subscriber_member_function:main',
+                'gps_data_publisher_node = ht_strap_package.gps_data_publisher_function:main',
+                'ins_gps_node = ht_strap_package.ins_gps_node_function:main',
         ],
     },
 )

@@ -44,6 +44,10 @@ class Metaclass_HtNavGpsData(type):
             if HtNavPoint.__class__._TYPE_SUPPORT is None:
                 HtNavPoint.__class__.__import_type_support__()
 
+            from ht_nav_variables.msg import HtNavVector3
+            if HtNavVector3.__class__._TYPE_SUPPORT is None:
+                HtNavVector3.__class__.__import_type_support__()
+
     @classmethod
     def __prepare__(cls, name, bases, **kwargs):
         # list constant names here so that they appear in the help text of
@@ -58,14 +62,17 @@ class HtNavGpsData(metaclass=Metaclass_HtNavGpsData):
 
     __slots__ = [
         '_gps_pos',
+        '_gps_vel',
     ]
 
     _fields_and_field_types = {
         'gps_pos': 'ht_nav_variables/HtNavPoint',
+        'gps_vel': 'ht_nav_variables/HtNavVector3',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavPoint'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -74,6 +81,8 @@ class HtNavGpsData(metaclass=Metaclass_HtNavGpsData):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from ht_nav_variables.msg import HtNavPoint
         self.gps_pos = kwargs.get('gps_pos', HtNavPoint())
+        from ht_nav_variables.msg import HtNavVector3
+        self.gps_vel = kwargs.get('gps_vel', HtNavVector3())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -106,6 +115,8 @@ class HtNavGpsData(metaclass=Metaclass_HtNavGpsData):
             return False
         if self.gps_pos != other.gps_pos:
             return False
+        if self.gps_vel != other.gps_vel:
+            return False
         return True
 
     @classmethod
@@ -126,3 +137,17 @@ class HtNavGpsData(metaclass=Metaclass_HtNavGpsData):
                 isinstance(value, HtNavPoint), \
                 "The 'gps_pos' field must be a sub message of type 'HtNavPoint'"
         self._gps_pos = value
+
+    @property
+    def gps_vel(self):
+        """Message field 'gps_vel'."""
+        return self._gps_vel
+
+    @gps_vel.setter
+    def gps_vel(self, value):
+        if __debug__:
+            from ht_nav_variables.msg import HtNavVector3
+            assert \
+                isinstance(value, HtNavVector3), \
+                "The 'gps_vel' field must be a sub message of type 'HtNavVector3'"
+        self._gps_vel = value

@@ -29,6 +29,25 @@ def generate_launch_description():
         parameters = [config]
     )
 
+    gps_talker_node = Node(
+        package = 'ht_strap_package',
+        name = 'gps_data_publisher_node',
+        executable = 'gps_data_publisher_node',
+    )
+
+    kalman_ps_node = Node(
+        package = 'ht_strap_package',
+        name = 'ins_gps_node',
+        executable = 'ins_gps_node',
+        parameters = [config]
+    )
+
+    ps_node2 = Node(
+        package = 'ht_strap_package',
+        name = 'strap_w_kalman_node',
+        executable = 'strap_w_kalman_node',
+    )
+
     talker_node = Node(
         package = 'ht_strap_package',
         name = 'imu_data_publisher_node',
@@ -40,6 +59,9 @@ def generate_launch_description():
     #ld.add_action(bagfile)
     ld.add_action(listener_node)
     ld.add_action(ps_node)
+    ld.add_action(ps_node2)
+    ld.add_action(gps_talker_node)
+    ld.add_action(kalman_ps_node)
     ld.add_action(talker_node)
 
     return ld

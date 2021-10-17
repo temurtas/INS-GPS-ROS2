@@ -11,6 +11,9 @@
 #include <type_traits>
 
 // Include directives for member types
+// Member 'pos_err'
+// Member 'vel_err'
+// Member 'att_err'
 // Member 'bias'
 // Member 'drift'
 #include "ht_nav_variables/msg/detail/ht_nav_error_vector__traits.hpp"

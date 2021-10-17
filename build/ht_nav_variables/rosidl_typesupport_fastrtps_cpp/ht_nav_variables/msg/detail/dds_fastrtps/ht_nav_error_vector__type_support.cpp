@@ -32,12 +32,12 @@ cdr_serialize(
   const ht_nav_variables::msg::HtNavErrorVector & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
-  // Member: err_x
-  cdr << ros_message.err_x;
-  // Member: err_y
-  cdr << ros_message.err_y;
-  // Member: err_z
-  cdr << ros_message.err_z;
+  // Member: x
+  cdr << ros_message.x;
+  // Member: y
+  cdr << ros_message.y;
+  // Member: z
+  cdr << ros_message.z;
   return true;
 }
 
@@ -47,14 +47,14 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   ht_nav_variables::msg::HtNavErrorVector & ros_message)
 {
-  // Member: err_x
-  cdr >> ros_message.err_x;
+  // Member: x
+  cdr >> ros_message.x;
 
-  // Member: err_y
-  cdr >> ros_message.err_y;
+  // Member: y
+  cdr >> ros_message.y;
 
-  // Member: err_z
-  cdr >> ros_message.err_z;
+  // Member: z
+  cdr >> ros_message.z;
 
   return true;
 }
@@ -72,21 +72,21 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
-  // Member: err_x
+  // Member: x
   {
-    size_t item_size = sizeof(ros_message.err_x);
+    size_t item_size = sizeof(ros_message.x);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // Member: err_y
+  // Member: y
   {
-    size_t item_size = sizeof(ros_message.err_y);
+    size_t item_size = sizeof(ros_message.y);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // Member: err_z
+  // Member: z
   {
-    size_t item_size = sizeof(ros_message.err_z);
+    size_t item_size = sizeof(ros_message.z);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -109,7 +109,7 @@ max_serialized_size_HtNavErrorVector(
   (void)full_bounded;
 
 
-  // Member: err_x
+  // Member: x
   {
     size_t array_size = 1;
 
@@ -117,7 +117,7 @@ max_serialized_size_HtNavErrorVector(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
-  // Member: err_y
+  // Member: y
   {
     size_t array_size = 1;
 
@@ -125,7 +125,7 @@ max_serialized_size_HtNavErrorVector(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
-  // Member: err_z
+  // Member: z
   {
     size_t array_size = 1;
 

@@ -20,6 +20,12 @@ bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pym
 PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_ros_message);
 bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
 PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool ht_nav_variables__msg__ht_nav_kalman_out__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -54,6 +60,39 @@ bool ht_nav_variables__msg__ht_nav_kalman_out__convert_from_py(PyObject * _pymsg
     assert(strncmp("ht_nav_variables.msg._ht_nav_kalman_out.HtNavKalmanOut", full_classname_dest, 54) == 0);
   }
   ht_nav_variables__msg__HtNavKalmanOut * ros_message = _ros_message;
+  {  // pos_err
+    PyObject * field = PyObject_GetAttrString(_pymsg, "pos_err");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(field, &ros_message->pos_err)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
+  {  // vel_err
+    PyObject * field = PyObject_GetAttrString(_pymsg, "vel_err");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(field, &ros_message->vel_err)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
+  {  // att_err
+    PyObject * field = PyObject_GetAttrString(_pymsg, "att_err");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(field, &ros_message->att_err)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
   {  // bias
     PyObject * field = PyObject_GetAttrString(_pymsg, "bias");
     if (!field) {
@@ -98,6 +137,48 @@ PyObject * ht_nav_variables__msg__ht_nav_kalman_out__convert_to_py(void * raw_ro
     }
   }
   ht_nav_variables__msg__HtNavKalmanOut * ros_message = (ht_nav_variables__msg__HtNavKalmanOut *)raw_ros_message;
+  {  // pos_err
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(&ros_message->pos_err);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "pos_err", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // vel_err
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(&ros_message->vel_err);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "vel_err", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // att_err
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(&ros_message->att_err);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "att_err", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
   {  // bias
     PyObject * field = NULL;
     field = ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(&ros_message->bias);

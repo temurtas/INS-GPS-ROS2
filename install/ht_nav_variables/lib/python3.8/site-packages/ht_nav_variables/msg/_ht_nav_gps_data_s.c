@@ -18,6 +18,8 @@
 
 bool ht_nav_variables__msg__ht_nav_point__convert_from_py(PyObject * _pymsg, void * _ros_message);
 PyObject * ht_nav_variables__msg__ht_nav_point__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_vector3__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_vector3__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool ht_nav_variables__msg__ht_nav_gps_data__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -63,6 +65,17 @@ bool ht_nav_variables__msg__ht_nav_gps_data__convert_from_py(PyObject * _pymsg, 
     }
     Py_DECREF(field);
   }
+  {  // gps_vel
+    PyObject * field = PyObject_GetAttrString(_pymsg, "gps_vel");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_vector3__convert_from_py(field, &ros_message->gps_vel)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -93,6 +106,20 @@ PyObject * ht_nav_variables__msg__ht_nav_gps_data__convert_to_py(void * raw_ros_
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "gps_pos", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // gps_vel
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_vector3__convert_to_py(&ros_message->gps_vel);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "gps_vel", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

@@ -40,7 +40,7 @@ class MinimalSubscriber(Node):
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
+        #self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_txt)

@@ -20,11 +20,14 @@ extern "C"
 // Include directives for member types
 // Member 'gps_pos'
 #include "ht_nav_variables/msg/detail/ht_nav_point__struct.h"
+// Member 'gps_vel'
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__struct.h"
 
 // Struct defined in msg/HtNavGpsData in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavGpsData
 {
   ht_nav_variables__msg__HtNavPoint gps_pos;
+  ht_nav_variables__msg__HtNavVector3 gps_vel;
 } ht_nav_variables__msg__HtNavGpsData;
 
 // Struct for a sequence of ht_nav_variables__msg__HtNavGpsData.

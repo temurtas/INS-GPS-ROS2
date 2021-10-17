@@ -3,6 +3,7 @@
 // generated code does not contain a copyright notice
 
 #include "ht_nav_variables/msg/HtNavPoint.idl"
+#include "ht_nav_variables/msg/HtNavVector3.idl"
 
 module ht_nav_variables {
   module msg {
@@ -10,6 +11,8 @@ module ht_nav_variables {
       " This expresses GPS position of the object")
     struct HtNavGpsData {
       ht_nav_variables::msg::HtNavPoint gps_pos;
+
+      ht_nav_variables::msg::HtNavVector3 gps_vel;
     };
   };
 };

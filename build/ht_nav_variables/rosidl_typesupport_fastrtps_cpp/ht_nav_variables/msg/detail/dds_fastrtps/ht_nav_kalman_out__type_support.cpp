@@ -62,6 +62,75 @@ max_serialized_size_HtNavErrorVector(
 }  // namespace msg
 }  // namespace ht_nav_variables
 
+namespace ht_nav_variables
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  ht_nav_variables::msg::HtNavErrorVector &);
+size_t get_serialized_size(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  size_t current_alignment);
+size_t
+max_serialized_size_HtNavErrorVector(
+  bool & full_bounded,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace ht_nav_variables
+
+namespace ht_nav_variables
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  ht_nav_variables::msg::HtNavErrorVector &);
+size_t get_serialized_size(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  size_t current_alignment);
+size_t
+max_serialized_size_HtNavErrorVector(
+  bool & full_bounded,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace ht_nav_variables
+
+namespace ht_nav_variables
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  ht_nav_variables::msg::HtNavErrorVector &);
+size_t get_serialized_size(
+  const ht_nav_variables::msg::HtNavErrorVector &,
+  size_t current_alignment);
+size_t
+max_serialized_size_HtNavErrorVector(
+  bool & full_bounded,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace ht_nav_variables
+
 
 namespace ht_nav_variables
 {
@@ -78,6 +147,18 @@ cdr_serialize(
   const ht_nav_variables::msg::HtNavKalmanOut & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
+  // Member: pos_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.pos_err,
+    cdr);
+  // Member: vel_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.vel_err,
+    cdr);
+  // Member: att_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.att_err,
+    cdr);
   // Member: bias
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
     ros_message.bias,
@@ -95,6 +176,18 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   ht_nav_variables::msg::HtNavKalmanOut & ros_message)
 {
+  // Member: pos_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.pos_err);
+
+  // Member: vel_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.vel_err);
+
+  // Member: att_err
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.att_err);
+
   // Member: bias
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.bias);
@@ -119,6 +212,21 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
+  // Member: pos_err
+
+  current_alignment +=
+    ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.pos_err, current_alignment);
+  // Member: vel_err
+
+  current_alignment +=
+    ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.vel_err, current_alignment);
+  // Member: att_err
+
+  current_alignment +=
+    ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.att_err, current_alignment);
   // Member: bias
 
   current_alignment +=
@@ -147,6 +255,42 @@ max_serialized_size_HtNavKalmanOut(
   (void)wchar_size;
   (void)full_bounded;
 
+
+  // Member: pos_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
+
+  // Member: vel_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
+
+  // Member: att_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
 
   // Member: bias
   {

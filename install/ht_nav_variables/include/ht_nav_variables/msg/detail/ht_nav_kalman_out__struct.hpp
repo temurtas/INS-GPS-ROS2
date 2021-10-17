@@ -15,6 +15,9 @@
 
 
 // Include directives for member types
+// Member 'pos_err'
+// Member 'vel_err'
+// Member 'att_err'
 // Member 'bias'
 // Member 'drift'
 #include "ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp"
@@ -38,20 +41,35 @@ struct HtNavKalmanOut_
   using Type = HtNavKalmanOut_<ContainerAllocator>;
 
   explicit HtNavKalmanOut_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : bias(_init),
+  : pos_err(_init),
+    vel_err(_init),
+    att_err(_init),
+    bias(_init),
     drift(_init)
   {
     (void)_init;
   }
 
   explicit HtNavKalmanOut_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : bias(_alloc, _init),
+  : pos_err(_alloc, _init),
+    vel_err(_alloc, _init),
+    att_err(_alloc, _init),
+    bias(_alloc, _init),
     drift(_alloc, _init)
   {
     (void)_init;
   }
 
   // field types and members
+  using _pos_err_type =
+    ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator>;
+  _pos_err_type pos_err;
+  using _vel_err_type =
+    ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator>;
+  _vel_err_type vel_err;
+  using _att_err_type =
+    ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator>;
+  _att_err_type att_err;
   using _bias_type =
     ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator>;
   _bias_type bias;
@@ -60,6 +78,24 @@ struct HtNavKalmanOut_
   _drift_type drift;
 
   // setters for named parameter idiom
+  Type & set__pos_err(
+    const ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator> & _arg)
+  {
+    this->pos_err = _arg;
+    return *this;
+  }
+  Type & set__vel_err(
+    const ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator> & _arg)
+  {
+    this->vel_err = _arg;
+    return *this;
+  }
+  Type & set__att_err(
+    const ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator> & _arg)
+  {
+    this->att_err = _arg;
+    return *this;
+  }
   Type & set__bias(
     const ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator> & _arg)
   {
@@ -115,6 +151,15 @@ struct HtNavKalmanOut_
   // comparison operators
   bool operator==(const HtNavKalmanOut_ & other) const
   {
+    if (this->pos_err != other.pos_err) {
+      return false;
+    }
+    if (this->vel_err != other.vel_err) {
+      return false;
+    }
+    if (this->att_err != other.att_err) {
+      return false;
+    }
     if (this->bias != other.bias) {
       return false;
     }

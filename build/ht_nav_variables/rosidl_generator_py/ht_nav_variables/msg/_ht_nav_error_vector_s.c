@@ -50,31 +50,31 @@ bool ht_nav_variables__msg__ht_nav_error_vector__convert_from_py(PyObject * _pym
     assert(strncmp("ht_nav_variables.msg._ht_nav_error_vector.HtNavErrorVector", full_classname_dest, 58) == 0);
   }
   ht_nav_variables__msg__HtNavErrorVector * ros_message = _ros_message;
-  {  // err_x
-    PyObject * field = PyObject_GetAttrString(_pymsg, "err_x");
+  {  // x
+    PyObject * field = PyObject_GetAttrString(_pymsg, "x");
     if (!field) {
       return false;
     }
     assert(PyFloat_Check(field));
-    ros_message->err_x = PyFloat_AS_DOUBLE(field);
+    ros_message->x = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
-  {  // err_y
-    PyObject * field = PyObject_GetAttrString(_pymsg, "err_y");
+  {  // y
+    PyObject * field = PyObject_GetAttrString(_pymsg, "y");
     if (!field) {
       return false;
     }
     assert(PyFloat_Check(field));
-    ros_message->err_y = PyFloat_AS_DOUBLE(field);
+    ros_message->y = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
-  {  // err_z
-    PyObject * field = PyObject_GetAttrString(_pymsg, "err_z");
+  {  // z
+    PyObject * field = PyObject_GetAttrString(_pymsg, "z");
     if (!field) {
       return false;
     }
     assert(PyFloat_Check(field));
-    ros_message->err_z = PyFloat_AS_DOUBLE(field);
+    ros_message->z = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
 
@@ -99,33 +99,33 @@ PyObject * ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(void * raw_
     }
   }
   ht_nav_variables__msg__HtNavErrorVector * ros_message = (ht_nav_variables__msg__HtNavErrorVector *)raw_ros_message;
-  {  // err_x
+  {  // x
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->err_x);
+    field = PyFloat_FromDouble(ros_message->x);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "err_x", field);
+      int rc = PyObject_SetAttrString(_pymessage, "x", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
       }
     }
   }
-  {  // err_y
+  {  // y
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->err_y);
+    field = PyFloat_FromDouble(ros_message->y);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "err_y", field);
+      int rc = PyObject_SetAttrString(_pymessage, "y", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
       }
     }
   }
-  {  // err_z
+  {  // z
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->err_z);
+    field = PyFloat_FromDouble(ros_message->z);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "err_z", field);
+      int rc = PyObject_SetAttrString(_pymessage, "z", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

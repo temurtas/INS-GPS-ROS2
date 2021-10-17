@@ -17,6 +17,8 @@
 // Include directives for member types
 // Member 'gps_pos'
 #include "ht_nav_variables/msg/detail/ht_nav_point__struct.hpp"
+// Member 'gps_vel'
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp"
 
 #ifndef _WIN32
 # define DEPRECATED__ht_nav_variables__msg__HtNavGpsData __attribute__((deprecated))
@@ -37,13 +39,15 @@ struct HtNavGpsData_
   using Type = HtNavGpsData_<ContainerAllocator>;
 
   explicit HtNavGpsData_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : gps_pos(_init)
+  : gps_pos(_init),
+    gps_vel(_init)
   {
     (void)_init;
   }
 
   explicit HtNavGpsData_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : gps_pos(_alloc, _init)
+  : gps_pos(_alloc, _init),
+    gps_vel(_alloc, _init)
   {
     (void)_init;
   }
@@ -52,12 +56,21 @@ struct HtNavGpsData_
   using _gps_pos_type =
     ht_nav_variables::msg::HtNavPoint_<ContainerAllocator>;
   _gps_pos_type gps_pos;
+  using _gps_vel_type =
+    ht_nav_variables::msg::HtNavVector3_<ContainerAllocator>;
+  _gps_vel_type gps_vel;
 
   // setters for named parameter idiom
   Type & set__gps_pos(
     const ht_nav_variables::msg::HtNavPoint_<ContainerAllocator> & _arg)
   {
     this->gps_pos = _arg;
+    return *this;
+  }
+  Type & set__gps_vel(
+    const ht_nav_variables::msg::HtNavVector3_<ContainerAllocator> & _arg)
+  {
+    this->gps_vel = _arg;
     return *this;
   }
 
@@ -104,6 +117,9 @@ struct HtNavGpsData_
   bool operator==(const HtNavGpsData_ & other) const
   {
     if (this->gps_pos != other.gps_pos) {
+      return false;
+    }
+    if (this->gps_vel != other.gps_vel) {
       return false;
     }
     return true;

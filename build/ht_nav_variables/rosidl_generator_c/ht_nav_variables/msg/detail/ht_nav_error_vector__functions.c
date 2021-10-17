@@ -15,9 +15,9 @@ ht_nav_variables__msg__HtNavErrorVector__init(ht_nav_variables__msg__HtNavErrorV
   if (!msg) {
     return false;
   }
-  // err_x
-  // err_y
-  // err_z
+  // x
+  // y
+  // z
   return true;
 }
 
@@ -27,9 +27,9 @@ ht_nav_variables__msg__HtNavErrorVector__fini(ht_nav_variables__msg__HtNavErrorV
   if (!msg) {
     return;
   }
-  // err_x
-  // err_y
-  // err_z
+  // x
+  // y
+  // z
 }
 
 ht_nav_variables__msg__HtNavErrorVector *

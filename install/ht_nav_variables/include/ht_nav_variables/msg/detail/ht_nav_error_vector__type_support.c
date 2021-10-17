@@ -33,14 +33,14 @@ void HtNavErrorVector__rosidl_typesupport_introspection_c__HtNavErrorVector_fini
 
 static rosidl_typesupport_introspection_c__MessageMember HtNavErrorVector__rosidl_typesupport_introspection_c__HtNavErrorVector_message_member_array[3] = {
   {
-    "err_x",  // name
+    "x",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(ht_nav_variables__msg__HtNavErrorVector, err_x),  // bytes offset in struct
+    offsetof(ht_nav_variables__msg__HtNavErrorVector, x),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -48,14 +48,14 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavErrorVector__rosid
     NULL  // resize(index) function pointer
   },
   {
-    "err_y",  // name
+    "y",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(ht_nav_variables__msg__HtNavErrorVector, err_y),  // bytes offset in struct
+    offsetof(ht_nav_variables__msg__HtNavErrorVector, y),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -63,14 +63,14 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavErrorVector__rosid
     NULL  // resize(index) function pointer
   },
   {
-    "err_z",  // name
+    "z",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(ht_nav_variables__msg__HtNavErrorVector, err_z),  // bytes offset in struct
+    offsetof(ht_nav_variables__msg__HtNavErrorVector, z),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer

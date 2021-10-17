@@ -20,9 +20,9 @@ extern "C"
 // Struct defined in msg/HtNavErrorVector in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavErrorVector
 {
-  double err_x;
-  double err_y;
-  double err_z;
+  double x;
+  double y;
+  double z;
 } ht_nav_variables__msg__HtNavErrorVector;
 
 // Struct for a sequence of ht_nav_variables__msg__HtNavErrorVector.

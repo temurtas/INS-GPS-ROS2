@@ -20,15 +20,15 @@ namespace msg
 namespace builder
 {
 
-class Init_HtNavErrorVector_err_z
+class Init_HtNavErrorVector_z
 {
 public:
-  explicit Init_HtNavErrorVector_err_z(::ht_nav_variables::msg::HtNavErrorVector & msg)
+  explicit Init_HtNavErrorVector_z(::ht_nav_variables::msg::HtNavErrorVector & msg)
   : msg_(msg)
   {}
-  ::ht_nav_variables::msg::HtNavErrorVector err_z(::ht_nav_variables::msg::HtNavErrorVector::_err_z_type arg)
+  ::ht_nav_variables::msg::HtNavErrorVector z(::ht_nav_variables::msg::HtNavErrorVector::_z_type arg)
   {
-    msg_.err_z = std::move(arg);
+    msg_.z = std::move(arg);
     return std::move(msg_);
   }
 
@@ -36,32 +36,32 @@ private:
   ::ht_nav_variables::msg::HtNavErrorVector msg_;
 };
 
-class Init_HtNavErrorVector_err_y
+class Init_HtNavErrorVector_y
 {
 public:
-  explicit Init_HtNavErrorVector_err_y(::ht_nav_variables::msg::HtNavErrorVector & msg)
+  explicit Init_HtNavErrorVector_y(::ht_nav_variables::msg::HtNavErrorVector & msg)
   : msg_(msg)
   {}
-  Init_HtNavErrorVector_err_z err_y(::ht_nav_variables::msg::HtNavErrorVector::_err_y_type arg)
+  Init_HtNavErrorVector_z y(::ht_nav_variables::msg::HtNavErrorVector::_y_type arg)
   {
-    msg_.err_y = std::move(arg);
-    return Init_HtNavErrorVector_err_z(msg_);
+    msg_.y = std::move(arg);
+    return Init_HtNavErrorVector_z(msg_);
   }
 
 private:
   ::ht_nav_variables::msg::HtNavErrorVector msg_;
 };
 
-class Init_HtNavErrorVector_err_x
+class Init_HtNavErrorVector_x
 {
 public:
-  Init_HtNavErrorVector_err_x()
+  Init_HtNavErrorVector_x()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_HtNavErrorVector_err_y err_x(::ht_nav_variables::msg::HtNavErrorVector::_err_x_type arg)
+  Init_HtNavErrorVector_y x(::ht_nav_variables::msg::HtNavErrorVector::_x_type arg)
   {
-    msg_.err_x = std::move(arg);
-    return Init_HtNavErrorVector_err_y(msg_);
+    msg_.x = std::move(arg);
+    return Init_HtNavErrorVector_y(msg_);
   }
 
 private:
@@ -79,7 +79,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavErrorVector>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavErrorVector_err_x();
+  return ht_nav_variables::msg::builder::Init_HtNavErrorVector_x();
 }
 
 }  // namespace ht_nav_variables

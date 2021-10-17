@@ -10,6 +10,9 @@
 
 
 // Include directives for member types
+// Member `pos_err`
+// Member `vel_err`
+// Member `att_err`
 // Member `bias`
 // Member `drift`
 #include "ht_nav_variables/msg/detail/ht_nav_error_vector__functions.h"
@@ -18,6 +21,21 @@ bool
 ht_nav_variables__msg__HtNavKalmanOut__init(ht_nav_variables__msg__HtNavKalmanOut * msg)
 {
   if (!msg) {
+    return false;
+  }
+  // pos_err
+  if (!ht_nav_variables__msg__HtNavErrorVector__init(&msg->pos_err)) {
+    ht_nav_variables__msg__HtNavKalmanOut__fini(msg);
+    return false;
+  }
+  // vel_err
+  if (!ht_nav_variables__msg__HtNavErrorVector__init(&msg->vel_err)) {
+    ht_nav_variables__msg__HtNavKalmanOut__fini(msg);
+    return false;
+  }
+  // att_err
+  if (!ht_nav_variables__msg__HtNavErrorVector__init(&msg->att_err)) {
+    ht_nav_variables__msg__HtNavKalmanOut__fini(msg);
     return false;
   }
   // bias
@@ -39,6 +57,12 @@ ht_nav_variables__msg__HtNavKalmanOut__fini(ht_nav_variables__msg__HtNavKalmanOu
   if (!msg) {
     return;
   }
+  // pos_err
+  ht_nav_variables__msg__HtNavErrorVector__fini(&msg->pos_err);
+  // vel_err
+  ht_nav_variables__msg__HtNavErrorVector__fini(&msg->vel_err);
+  // att_err
+  ht_nav_variables__msg__HtNavErrorVector__fini(&msg->att_err);
   // bias
   ht_nav_variables__msg__HtNavErrorVector__fini(&msg->bias);
   // drift

@@ -6,11 +6,11 @@
 module ht_nav_variables {
   module msg {
     struct HtNavErrorVector {
-      double err_x;
+      double x;
 
-      double err_y;
+      double y;
 
-      double err_z;
+      double z;
     };
   };
 };

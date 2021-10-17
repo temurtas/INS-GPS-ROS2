@@ -34,7 +34,7 @@ extern "C"
 {
 #endif
 
-#include "ht_nav_variables/msg/detail/ht_nav_error_vector__functions.h"  // bias, drift
+#include "ht_nav_variables/msg/detail/ht_nav_error_vector__functions.h"  // att_err, bias, drift, pos_err, vel_err
 
 // forward declare type support functions
 size_t get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
@@ -60,6 +60,48 @@ static bool _HtNavKalmanOut__cdr_serialize(
     return false;
   }
   const _HtNavKalmanOut__ros_msg_type * ros_message = static_cast<const _HtNavKalmanOut__ros_msg_type *>(untyped_ros_message);
+  // Field name: pos_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->pos_err, cdr))
+    {
+      return false;
+    }
+  }
+
+  // Field name: vel_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->vel_err, cdr))
+    {
+      return false;
+    }
+  }
+
+  // Field name: att_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->att_err, cdr))
+    {
+      return false;
+    }
+  }
+
   // Field name: bias
   {
     const message_type_support_callbacks_t * callbacks =
@@ -100,6 +142,48 @@ static bool _HtNavKalmanOut__cdr_deserialize(
     return false;
   }
   _HtNavKalmanOut__ros_msg_type * ros_message = static_cast<_HtNavKalmanOut__ros_msg_type *>(untyped_ros_message);
+  // Field name: pos_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->pos_err))
+    {
+      return false;
+    }
+  }
+
+  // Field name: vel_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->vel_err))
+    {
+      return false;
+    }
+  }
+
+  // Field name: att_err
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavErrorVector
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->att_err))
+    {
+      return false;
+    }
+  }
+
   // Field name: bias
   {
     const message_type_support_callbacks_t * callbacks =
@@ -145,6 +229,18 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavKalmanOut(
   (void)padding;
   (void)wchar_size;
 
+  // field.name pos_err
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+    &(ros_message->pos_err), current_alignment);
+  // field.name vel_err
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+    &(ros_message->vel_err), current_alignment);
+  // field.name att_err
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+    &(ros_message->att_err), current_alignment);
   // field.name bias
 
   current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
@@ -177,6 +273,39 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavKalmanOut(
   (void)wchar_size;
   (void)full_bounded;
 
+  // member: pos_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
+  // member: vel_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
+  // member: att_err
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavErrorVector(
+        full_bounded, current_alignment);
+    }
+  }
   // member: bias
   {
     size_t array_size = 1;

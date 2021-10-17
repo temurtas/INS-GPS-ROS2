@@ -20,16 +20,32 @@ namespace msg
 namespace builder
 {
 
+class Init_HtNavGpsData_gps_vel
+{
+public:
+  explicit Init_HtNavGpsData_gps_vel(::ht_nav_variables::msg::HtNavGpsData & msg)
+  : msg_(msg)
+  {}
+  ::ht_nav_variables::msg::HtNavGpsData gps_vel(::ht_nav_variables::msg::HtNavGpsData::_gps_vel_type arg)
+  {
+    msg_.gps_vel = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavGpsData msg_;
+};
+
 class Init_HtNavGpsData_gps_pos
 {
 public:
   Init_HtNavGpsData_gps_pos()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::ht_nav_variables::msg::HtNavGpsData gps_pos(::ht_nav_variables::msg::HtNavGpsData::_gps_pos_type arg)
+  Init_HtNavGpsData_gps_vel gps_pos(::ht_nav_variables::msg::HtNavGpsData::_gps_pos_type arg)
   {
     msg_.gps_pos = std::move(arg);
-    return std::move(msg_);
+    return Init_HtNavGpsData_gps_vel(msg_);
   }
 
 private:

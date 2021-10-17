@@ -1,3 +1,3 @@
-float64 err_x
-float64 err_y
-float64 err_z
+float64 x
+float64 y
+float64 z

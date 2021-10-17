@@ -18,6 +18,9 @@ extern "C"
 // Constants defined in the message
 
 // Include directives for member types
+// Member 'pos_err'
+// Member 'vel_err'
+// Member 'att_err'
 // Member 'bias'
 // Member 'drift'
 #include "ht_nav_variables/msg/detail/ht_nav_error_vector__struct.h"
@@ -25,6 +28,9 @@ extern "C"
 // Struct defined in msg/HtNavKalmanOut in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavKalmanOut
 {
+  ht_nav_variables__msg__HtNavErrorVector pos_err;
+  ht_nav_variables__msg__HtNavErrorVector vel_err;
+  ht_nav_variables__msg__HtNavErrorVector att_err;
   ht_nav_variables__msg__HtNavErrorVector bias;
   ht_nav_variables__msg__HtNavErrorVector drift;
 } ht_nav_variables__msg__HtNavKalmanOut;

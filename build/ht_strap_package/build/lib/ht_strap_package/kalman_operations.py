@@ -1,8 +1,9 @@
 # We need install numpy in order to import it
 import numpy as np
 import math
-import config
-from strap_operations import *
+import ht_strap_package.config as config
+from ht_strap_package.strap_operations import *
+from ht_nav_variables.msg import HtNavStrapOut
 
 
 def p0_matrix_construct():
@@ -149,7 +150,24 @@ def kalman_update(p_prev, x_prev, gnss_pos, pos):
     return p_next, x_next
 
 
-def kalman_duzeltme(new_pos_ip, new_vel_ip, new_quaternion_ip, delta_x):
+def kalman_duzeltme(old_strap, delta_x):
+
+    new_pos_ip = np.zeros((3,1))
+    new_pos_ip[0] = old_strap.pos.x
+    new_pos_ip[1] = old_strap.pos.y
+    new_pos_ip[2] = old_strap.pos.z
+
+    new_vel_ip = np.zeros((3,1))
+    new_vel_ip[0] = old_strap.vel.x
+    new_vel_ip[1] = old_strap.vel.y
+    new_vel_ip[2] = old_strap.vel.z
+
+    new_quaternion_ip = np.zeros((4,1))
+    new_quaternion_ip[0] = old_strap.quaternion.x
+    new_quaternion_ip[1] = old_strap.quaternion.y
+    new_quaternion_ip[2] = old_strap.quaternion.z
+    new_quaternion_ip[3] = old_strap.quaternion.w
+
     new_pos = new_pos_ip - delta_x[0:3]
     new_vel = new_vel_ip - delta_x[3:6]
 
@@ -159,6 +177,27 @@ def kalman_duzeltme(new_pos_ip, new_vel_ip, new_quaternion_ip, delta_x):
     c_bn = quaternion2cbn(new_quaternion_ip)
 
     mat_b = np.dot(mat_a, c_bn)
-    new_quaternion = cbn2quaternion(mat_b)
+    new_quaternion_temp = cbn2quaternion(mat_b)
+    new_quaternion = quaternion_normalize(new_quaternion_temp)
 
-    return new_pos, new_vel, new_quaternion
+    new_euler = quaternion2euler(new_quaternion)
+
+    new_strap = HtNavStrapOut()
+    new_strap.pos.x = float(new_pos[0])
+    new_strap.pos.y = float(new_pos[1])
+    new_strap.pos.z = float(new_pos[2])
+
+    new_strap.vel.x = float(new_vel[0])
+    new_strap.vel.y = float(new_vel[1])
+    new_strap.vel.z = float(new_vel[2])
+
+    new_strap.quaternion.x = float(new_quaternion[0])
+    new_strap.quaternion.y = float(new_quaternion[1])
+    new_strap.quaternion.z = float(new_quaternion[2])
+    new_strap.quaternion.w = float(new_quaternion[3])
+
+    new_strap.euler.x = float(new_euler[0])
+    new_strap.euler.y = float(new_euler[1])
+    new_strap.euler.z = float(new_euler[2])
+
+    return new_strap

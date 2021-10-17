@@ -37,7 +37,7 @@ void HtNavGpsData_fini_function(void * message_memory)
   typed_message->~HtNavGpsData();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavGpsData_message_member_array[1] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavGpsData_message_member_array[2] = {
   {
     "gps_pos",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
@@ -52,13 +52,28 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavGpsData_
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "gps_vel",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<ht_nav_variables::msg::HtNavVector3>(),  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavGpsData, gps_vel),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers HtNavGpsData_message_members = {
   "ht_nav_variables::msg",  // message namespace
   "HtNavGpsData",  // message name
-  1,  // number of fields
+  2,  // number of fields
   sizeof(ht_nav_variables::msg::HtNavGpsData),
   HtNavGpsData_message_member_array,  // message members
   HtNavGpsData_init_function,  // function to initialize message memory (memory has to be allocated)

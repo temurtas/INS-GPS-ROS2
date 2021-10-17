@@ -13,6 +13,8 @@
 // Include directives for member types
 // Member 'gps_pos'
 #include "ht_nav_variables/msg/detail/ht_nav_point__traits.hpp"
+// Member 'gps_vel'
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp"
 
 namespace rosidl_generator_traits
 {
@@ -31,11 +33,11 @@ inline const char * name<ht_nav_variables::msg::HtNavGpsData>()
 
 template<>
 struct has_fixed_size<ht_nav_variables::msg::HtNavGpsData>
-  : std::integral_constant<bool, has_fixed_size<ht_nav_variables::msg::HtNavPoint>::value> {};
+  : std::integral_constant<bool, has_fixed_size<ht_nav_variables::msg::HtNavPoint>::value && has_fixed_size<ht_nav_variables::msg::HtNavVector3>::value> {};
 
 template<>
 struct has_bounded_size<ht_nav_variables::msg::HtNavGpsData>
-  : std::integral_constant<bool, has_bounded_size<ht_nav_variables::msg::HtNavPoint>::value> {};
+  : std::integral_constant<bool, has_bounded_size<ht_nav_variables::msg::HtNavPoint>::value && has_bounded_size<ht_nav_variables::msg::HtNavVector3>::value> {};
 
 template<>
 struct is_message<ht_nav_variables::msg::HtNavGpsData>

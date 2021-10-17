@@ -12,6 +12,8 @@
 // Include directives for member types
 // Member `gps_pos`
 #include "ht_nav_variables/msg/detail/ht_nav_point__functions.h"
+// Member `gps_vel`
+#include "ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"
 
 bool
 ht_nav_variables__msg__HtNavGpsData__init(ht_nav_variables__msg__HtNavGpsData * msg)
@@ -21,6 +23,11 @@ ht_nav_variables__msg__HtNavGpsData__init(ht_nav_variables__msg__HtNavGpsData * 
   }
   // gps_pos
   if (!ht_nav_variables__msg__HtNavPoint__init(&msg->gps_pos)) {
+    ht_nav_variables__msg__HtNavGpsData__fini(msg);
+    return false;
+  }
+  // gps_vel
+  if (!ht_nav_variables__msg__HtNavVector3__init(&msg->gps_vel)) {
     ht_nav_variables__msg__HtNavGpsData__fini(msg);
     return false;
   }
@@ -35,6 +42,8 @@ ht_nav_variables__msg__HtNavGpsData__fini(ht_nav_variables__msg__HtNavGpsData * 
   }
   // gps_pos
   ht_nav_variables__msg__HtNavPoint__fini(&msg->gps_pos);
+  // gps_vel
+  ht_nav_variables__msg__HtNavVector3__fini(&msg->gps_vel);
 }
 
 ht_nav_variables__msg__HtNavGpsData *
