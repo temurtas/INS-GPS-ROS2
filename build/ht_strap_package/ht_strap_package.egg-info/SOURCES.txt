@@ -21,6 +21,7 @@ ht_strap_package/strap_operations.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py
+launch/ht_strap_only_ins_gps.launch.py
 launch/ht_strap_package.launch.py
 resource/ht_strap_package
 test/test_copyright.py
