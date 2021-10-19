@@ -24,6 +24,7 @@ from ht_nav_variables.msg import HtNavPoint
 #base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 from ht_strap_package.config import base_path
+from ht_strap_package.config import buffer_size
 
 gps_data_path = base_path / "kks_veri.txt"
 gps_data_ros_path = base_path / "kks_veri_ros2.txt"
@@ -40,8 +41,8 @@ class GPSDataPublisher(Node):
         with open(gps_data_path) as gps_data_ros_txt: # open the file for reading
             self.lines = gps_data_ros_txt.readlines()
 
-        self.publisher_ = self.create_publisher(HtNavGpsData, 'ht_nav_gps_data_topic', 10)
-        timer_period = 1/100  # seconds
+        self.publisher_ = self.create_publisher(HtNavGpsData, 'ht_nav_gps_data_topic', buffer_size)
+        timer_period = 1/50  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.zaman_ref = 0.0

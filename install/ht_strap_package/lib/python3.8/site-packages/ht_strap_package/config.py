@@ -4,7 +4,9 @@ import numpy as np
 delta_t = 0.01
 from pathlib import Path
 
-base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path  #veri2_Senaryo2 #veri1_to_Dogukan
+base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
+
+buffer_size = 10
 
 # INS/GPS variances
 pos_std = 5                         # m

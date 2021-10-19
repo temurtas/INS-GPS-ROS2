@@ -196,8 +196,8 @@ def kalman_duzeltme(old_strap, delta_x):
     new_strap.quaternion.z = float(new_quaternion[2])
     new_strap.quaternion.w = float(new_quaternion[3])
 
-    new_strap.euler.x = float(new_euler[0])
-    new_strap.euler.y = float(new_euler[1])
-    new_strap.euler.z = float(new_euler[2])
+    new_strap.euler.roll = float(new_euler[0])
+    new_strap.euler.pitch = float(new_euler[1])
+    new_strap.euler.yaw = float(new_euler[2])
 
     return new_strap

@@ -24,6 +24,7 @@ from ht_nav_variables.msg import HtNavPoint
 #base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 from ht_strap_package.config import base_path
+from ht_strap_package.config import buffer_size
 
 imu_data_path = base_path / "aob_veri.txt"
 imu_data_ros_path = base_path / "aob_veri_ros2.txt"
@@ -40,8 +41,8 @@ class IMUDataPublisher(Node):
         with open(imu_data_path) as imu_data_txt: # open the file for reading
             self.lines = imu_data_txt.readlines()
 
-        self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', 10)
-        timer_period = 1/100  # seconds
+        self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', buffer_size)
+        timer_period = 1/50  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.zaman_ref = 0.0
@@ -74,8 +75,8 @@ class IMUDataPublisher(Node):
         self.zaman_ref_sec = self.zaman_ref*1e-3
         print(str(self.zaman_ref), str(msg.ang_diff.x), str(msg.ang_diff.y), str(msg.ang_diff.z), str(msg.vel_diff.x), str(msg.vel_diff.y), str(msg.vel_diff.z), sep='\t', file=imu_data_ros_txt)
         self.i += 1
-        #if(self.i % 100 == 0):
-        #    self.get_logger().info('time: "%f"' % self.zaman_ref_sec)
+        if(self.i % 100 == 0):
+            self.get_logger().info('time: "%f"' % self.zaman_ref_sec)
 
 
 

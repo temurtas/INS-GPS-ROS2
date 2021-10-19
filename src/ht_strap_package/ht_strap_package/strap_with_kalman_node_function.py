@@ -25,15 +25,16 @@ from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler
 from ht_strap_package.kalman_operations import kalman_duzeltme
 
 from ht_strap_package.config import base_path
+from ht_strap_package.config import buffer_size
 
 base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 initial_data_path = base_path2 / "ilk_deger.txt"
 
 out_data_mid_txt = base_path2 / "ros_mid_strap_w_kalman_out.txt"
-out_data_mid_strap_txt = base_path2 / "ros_mid_strap_w_kalman_strap_out.txt"
+out_data_mid_strap_txt = base_path2 / "ros_mid_strap_w_kalman_kalman_out.txt"
 
 out_data_mid_ros_txt = open(out_data_mid_txt, 'w')
-out_data_mid_strap_ros_txt = open(out_data_mid_strap_txt, 'w')
+out_data_strap_kalman_ros_txt = open(out_data_mid_strap_txt, 'w')
 
 class StrapKalmanPubSub(Node):
 
@@ -52,7 +53,7 @@ class StrapKalmanPubSub(Node):
         p1, p2, p3, v1, v2, v3, e1, e2, e3 = line.split() # split it by whitespace
        
         # Initialise publishers
-        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', 10)
+        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', buffer_size)
         # Initialise subscribers
 
         self.zaman_ref = 0.0
@@ -125,8 +126,8 @@ class StrapKalmanPubSub(Node):
         self.new_strap.quaternion.w = 0.0
         print(self.zaman_ref, str(self.old_strap.pos.x), str(self.old_strap.pos.y), str(self.old_strap.pos.z), str(self.old_strap.vel.x), str(self.old_strap.vel.y), str(self.old_strap.vel.z), str(self.old_strap.euler.roll), str(self.old_strap.euler.pitch), str(self.old_strap.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
 
-        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, 10)
-        self.strap_kalman_sub = self.create_subscription(HtNavImuData, 'ht_nav_ins_gps_data_topic', self.sub_cb_duzeltme, 10)
+        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, buffer_size)
+        self.strap_kalman_sub = self.create_subscription(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', self.sub_cb_duzeltme, buffer_size)
 
 
     def sub_cb_imu_data(self, msg):
@@ -148,11 +149,11 @@ class StrapKalmanPubSub(Node):
         self.pub_func(msg_pb)
 
     def sub_cb_duzeltme(self, msg):
-        self.get_logger().info('I heard pos_err x as: "%f"' % msg.pos_err.x)
+        self.get_logger().info('I heard bias x as: "%f"' % msg.bias.x)
 
-        self.duzetme_vector.pos_err = msg.pos_err
-        self.duzetme_vector.vel_err = msg.vel_err
-        self.duzetme_vector.att_err = msg.att_err
+        self.duzeltme_vector.pos_err = msg.pos_err
+        self.duzeltme_vector.vel_err = msg.vel_err
+        self.duzeltme_vector.att_err = msg.att_err
         self.duzeltme_vector.bias = msg.bias
         self.duzeltme_vector.drift = msg.drift
 
@@ -177,7 +178,7 @@ class StrapKalmanPubSub(Node):
 
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(self.zaman_ref, str(self.new_strap.pos.x), str(self.new_strap.pos.y), str(self.new_strap.pos.z), str(self.new_strap.vel.x), str(self.new_strap.vel.y), str(self.new_strap.vel.z), str(self.new_strap.euler.roll), str(self.new_strap.euler.pitch), str(self.new_strap.euler.yaw), sep='\t', file=out_data_mid_strap_ros_txt)
+        print(self.zaman_ref, str(msg.bias.x), str(msg.bias.y), str(msg.bias.z), str(msg.drift.x), str(msg.drift.y), str(msg.drift.z), sep='\t', file=out_data_strap_kalman_ros_txt)
 
         
 

@@ -25,6 +25,7 @@ from ht_strap_package.strapdown import strapdown
 from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler, quaternion_normalize 
 
 from ht_strap_package.config import base_path
+from ht_strap_package.config import buffer_size
 
 base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 #kks_data_path = base_path2 / "kks_veri.txt"
@@ -74,8 +75,11 @@ class INSGPSNode(Node):
         self.sigma_bgd = float(self.get_parameter("sigma_bgd").value)
 
         # Initialise publishers
-        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_ins_gps_topic', 10)
+        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', buffer_size)
+        self.deneme_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_deneme_topic', buffer_size)
         # Initialise subscribers
+        self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, buffer_size)
+        self.strap_sub = self.create_subscription(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', self.sub_cb_strap, buffer_size)
 
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -148,9 +152,6 @@ class INSGPSNode(Node):
 
         self.x_k = np.zeros((15,1))
 
-        self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, 10)
-        self.strap_sub = self.create_subscription(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', self.sub_cb_strap, 10)
-
 
     def sub_cb_gps_data(self, msg):
         self.gps_data.gps_pos = msg.gps_pos
@@ -182,6 +183,9 @@ class INSGPSNode(Node):
         msg_pb.drift.z = float(self.x_k[14])
 
         self.x_k = np.zeros((15,1))
+        #self.get_logger().info('I received GPS Data')
+        #self.get_logger().info('I publish x bias as: "%f"' % msg_pb.bias.x)
+        self.deneme_pub.publish(msg_pb)
         self.pub_func(msg_pb)
 
     def sub_cb_strap(self, msg):
@@ -192,7 +196,9 @@ class INSGPSNode(Node):
 
 
     def pub_func(self,msg):
+        #self.get_logger().info('I want to publish Kalman Out')
         self.ins_gps_pub.publish(msg)
+        #self.get_logger().info('I published x drift as: "%f"' % msg.drift.x)
         #self.get_logger().info('I publish z pos as: "%f"' % msg.pos.z)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk

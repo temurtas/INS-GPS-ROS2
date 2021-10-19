@@ -1,0 +1,29 @@
+[0.247s] Invoking command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package': AMENT_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables LD_LIBRARY_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
+[0.423s] running egg_info
+[0.424s] writing ../../build/ht_strap_package/ht_strap_package.egg-info/PKG-INFO
+[0.424s] writing dependency_links to ../../build/ht_strap_package/ht_strap_package.egg-info/dependency_links.txt
+[0.425s] writing entry points to ../../build/ht_strap_package/ht_strap_package.egg-info/entry_points.txt
+[0.425s] writing requirements to ../../build/ht_strap_package/ht_strap_package.egg-info/requires.txt
+[0.425s] writing top-level names to ../../build/ht_strap_package/ht_strap_package.egg-info/top_level.txt
+[0.457s] reading manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.458s] writing manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.458s] running build
+[0.459s] running build_py
+[0.459s] copying ht_strap_package/strap_with_kalman_node_function.py -> /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package
+[0.459s] running install
+[0.460s] running install_lib
+[0.461s] copying /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package/strap_with_kalman_node_function.py -> /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package
+[0.462s] byte-compiling /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/strap_with_kalman_node_function.py to strap_with_kalman_node_function.cpython-38.pyc
+[0.464s] running install_data
+[0.465s] running install_egg_info
+[0.466s] removing '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info' (and everything under it)
+[0.467s] Copying ../../build/ht_strap_package/ht_strap_package.egg-info to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info
+[0.467s] running install_scripts
+[0.483s] Installing gps_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.483s] Installing imu_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.483s] Installing ins_gps_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.483s] Installing listener script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.484s] Installing strap_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.484s] Installing strap_w_kalman_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.484s] writing list of installed files to '/home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log'
+[0.511s] Invoked command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package' returned '0': AMENT_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables LD_LIBRARY_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed

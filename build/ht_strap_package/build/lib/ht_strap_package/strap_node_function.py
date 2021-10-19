@@ -23,6 +23,7 @@ from ht_strap_package.strapdown import strapdown
 from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler, quaternion_normalize 
 
 from ht_strap_package.config import base_path
+from ht_strap_package.config import buffer_size
 
 base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 initial_data_path = base_path2 / "ilk_deger.txt"
@@ -76,7 +77,7 @@ class StrapPubSub(Node):
         self.sigma_bgd = float(self.get_parameter("sigma_bgd").value)
 
         # Initialise publishers
-        self.strap_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_topic', 10)
+        self.strap_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_topic', buffer_size)
         # Initialise subscribers
 
         self.zaman_ref = 0.0
@@ -130,7 +131,7 @@ class StrapPubSub(Node):
         self.new_strap.quaternion.w = 0.0
         print(self.zaman_ref, str(self.old_strap.pos.x), str(self.old_strap.pos.y), str(self.old_strap.pos.z), str(self.old_strap.vel.x), str(self.old_strap.vel.y), str(self.old_strap.vel.z), str(self.old_strap.euler.roll), str(self.old_strap.euler.pitch), str(self.old_strap.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
 
-        self.strap_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, 10)
+        self.strap_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb, buffer_size)
 
 
     def sub_cb(self, msg):
