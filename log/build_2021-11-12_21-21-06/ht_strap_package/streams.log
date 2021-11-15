@@ -1,0 +1,31 @@
+[0.257s] Invoking command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package': PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/turtlesim/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/teleop_twist_keyboard/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/my_teleop/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/cmd_vel_pub/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/cmd_acc_pub/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
+[0.435s] running egg_info
+[0.436s] writing ../../build/ht_strap_package/ht_strap_package.egg-info/PKG-INFO
+[0.437s] writing dependency_links to ../../build/ht_strap_package/ht_strap_package.egg-info/dependency_links.txt
+[0.437s] writing entry points to ../../build/ht_strap_package/ht_strap_package.egg-info/entry_points.txt
+[0.437s] writing requirements to ../../build/ht_strap_package/ht_strap_package.egg-info/requires.txt
+[0.437s] writing top-level names to ../../build/ht_strap_package/ht_strap_package.egg-info/top_level.txt
+[0.468s] reading manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.469s] writing manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.470s] running build
+[0.470s] running build_py
+[0.471s] copying ht_strap_package/imu_data_converter_function.py -> /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package
+[0.471s] running install
+[0.472s] running install_lib
+[0.473s] copying /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package/imu_data_converter_function.py -> /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package
+[0.474s] byte-compiling /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/imu_data_converter_function.py to imu_data_converter_function.cpython-38.pyc
+[0.476s] running install_data
+[0.476s] running install_egg_info
+[0.478s] removing '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info' (and everything under it)
+[0.478s] Copying ../../build/ht_strap_package/ht_strap_package.egg-info to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info
+[0.479s] running install_scripts
+[0.495s] Installing gps_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.495s] Installing imu_data_converter_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.495s] Installing imu_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] Installing ins_gps_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] Installing listener script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] Installing my_teleop script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] Installing strap_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] Installing strap_w_kalman_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.496s] writing list of installed files to '/home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log'
+[0.524s] Invoked command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package' returned '0': PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/turtlesim/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/teleop_twist_keyboard/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/my_teleop/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/cmd_vel_pub/lib/python3.8/site-packages:/home/temurtas/kobra_mk2_ws/install/cmd_acc_pub/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed

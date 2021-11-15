@@ -16,6 +16,8 @@ import rclpy
 from rclpy.node import Node
 from pathlib import Path
 
+from rclpy.qos import qos_profile_sensor_data
+
 from std_msgs.msg import String
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavImuData
@@ -25,6 +27,7 @@ from ht_nav_variables.msg import HtNavPoint
 
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
+from ht_strap_package.config import imu_pub_freq
 
 imu_data_path = base_path / "aob_veri.txt"
 imu_data_ros_path = base_path / "aob_veri_ros2.txt"
@@ -33,7 +36,7 @@ imu_data_ros_txt = open(imu_data_ros_path, 'w')
 
 class IMUDataPublisher(Node):
 
-    def __init__(self):
+    def __init__(self,qos_profile):
         super().__init__('imu_data_publisher')
         self.imu_data = HtNavImuData()
 
@@ -41,8 +44,8 @@ class IMUDataPublisher(Node):
         with open(imu_data_path) as imu_data_txt: # open the file for reading
             self.lines = imu_data_txt.readlines()
 
-        self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', buffer_size)
-        timer_period = 1/50  # seconds
+        self.publisher_ = self.create_publisher(HtNavImuData, 'ht_nav_imu_data_topic', qos_profile=qos_profile)
+        timer_period = 1/imu_pub_freq  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.zaman_ref = 0.0
@@ -75,15 +78,17 @@ class IMUDataPublisher(Node):
         self.zaman_ref_sec = self.zaman_ref*1e-3
         print(str(self.zaman_ref), str(msg.ang_diff.x), str(msg.ang_diff.y), str(msg.ang_diff.z), str(msg.vel_diff.x), str(msg.vel_diff.y), str(msg.vel_diff.z), sep='\t', file=imu_data_ros_txt)
         self.i += 1
-        if(self.i % 100 == 0):
-            self.get_logger().info('time: "%f"' % self.zaman_ref_sec)
+        #if(self.i % 100 == 0):
+        #    self.get_logger().info('time: "%f"' % self.zaman_ref_sec)
 
 
 
 def main(args=None):
     rclpy.init(args=args)
 
-    imu_data_publisher = IMUDataPublisher()
+    custom_qos_profile = qos_profile_sensor_data
+
+    imu_data_publisher = IMUDataPublisher(custom_qos_profile)
 
     rclpy.spin(imu_data_publisher)
 

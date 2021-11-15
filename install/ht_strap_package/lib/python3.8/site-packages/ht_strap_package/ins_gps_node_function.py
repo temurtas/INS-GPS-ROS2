@@ -6,6 +6,8 @@ import math
 import rclpy
 from pathlib import Path
 
+from rclpy.qos import qos_profile_sensor_data
+
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped, Pose2D, Point
 #from nav_msgs.msg import Path
@@ -39,7 +41,7 @@ deneme_txt_1 = open(deneme_txt_1_path, 'w')
 
 class INSGPSNode(Node):
 
-    def __init__(self):
+    def __init__(self, qos_profile):
         ''' 
         Class constructor to initialise the class 
         '''
@@ -75,11 +77,11 @@ class INSGPSNode(Node):
         self.sigma_bgd = float(self.get_parameter("sigma_bgd").value)
 
         # Initialise publishers
-        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', buffer_size)
-        self.deneme_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_deneme_topic', buffer_size)
+        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', qos_profile=qos_profile)
+        self.deneme_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_deneme_topic', qos_profile=qos_profile)
         # Initialise subscribers
-        self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, buffer_size)
-        self.strap_sub = self.create_subscription(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', self.sub_cb_strap, buffer_size)
+        self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, qos_profile=qos_profile)
+        self.strap_sub = self.create_subscription(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', self.sub_cb_strap, qos_profile=qos_profile)
 
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -251,9 +253,11 @@ def main(args=None):
     # Initialise the node
     rclpy.init(args=args)
 
+    custom_qos_profile = qos_profile_sensor_data
+
     try:
         # Initialise the class
-        ins_gps_node = INSGPSNode()
+        ins_gps_node = INSGPSNode(custom_qos_profile)
 
         # Stop the node from exiting
         rclpy.spin(ins_gps_node)

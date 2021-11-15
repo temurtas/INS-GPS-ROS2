@@ -16,6 +16,8 @@ import rclpy
 from rclpy.node import Node
 from pathlib import Path
 
+from rclpy.qos import qos_profile_sensor_data
+
 from std_msgs.msg import String
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavGpsData
@@ -25,6 +27,7 @@ from ht_nav_variables.msg import HtNavPoint
 
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
+from ht_strap_package.config import gps_pub_freq
 
 gps_data_path = base_path / "kks_veri.txt"
 gps_data_ros_path = base_path / "kks_veri_ros2.txt"
@@ -33,7 +36,7 @@ gps_data_ros_txt = open(gps_data_ros_path, 'w')
 
 class GPSDataPublisher(Node):
 
-    def __init__(self):
+    def __init__(self, qos_profile):
         super().__init__('gps_data_publisher')
         self.gps_data = HtNavGpsData()
 
@@ -41,8 +44,8 @@ class GPSDataPublisher(Node):
         with open(gps_data_path) as gps_data_ros_txt: # open the file for reading
             self.lines = gps_data_ros_txt.readlines()
 
-        self.publisher_ = self.create_publisher(HtNavGpsData, 'ht_nav_gps_data_topic', buffer_size)
-        timer_period = 1/50  # seconds
+        self.publisher_ = self.create_publisher(HtNavGpsData, 'ht_nav_gps_data_topic', qos_profile=qos_profile)
+        timer_period = 1/gps_pub_freq  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
         self.zaman_ref = 0.0
@@ -83,7 +86,9 @@ class GPSDataPublisher(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    gps_data_publisher = GPSDataPublisher()
+    custom_qos_profile = qos_profile_sensor_data
+
+    gps_data_publisher = GPSDataPublisher(custom_qos_profile)
 
     rclpy.spin(gps_data_publisher)
 

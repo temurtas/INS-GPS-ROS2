@@ -16,6 +16,9 @@ import rclpy
 from rclpy.node import Node
 from pathlib import Path
 
+from rclpy.qos import qos_profile_sensor_data
+
+
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavEuler
 from ht_nav_variables.msg import HtNavStrapOut
@@ -28,13 +31,14 @@ out_data_txt = open(out_data_path, 'w')
 
 class MinimalSubscriber(Node):
 
-    def __init__(self):
+    def __init__(self,qos_profile):
         super().__init__('minimal_subscriber')
         self.subscription = self.create_subscription(
             HtNavStrapOut,
             'ht_nav_strap_topic',
             self.listener_callback,
-            10)
+            qos_profile=qos_profile)
+
         self.subscription  # prevent unused variable warning
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -49,7 +53,9 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_subscriber = MinimalSubscriber()
+    custom_qos_profile = qos_profile_sensor_data
+
+    minimal_subscriber = MinimalSubscriber(custom_qos_profile)
 
     rclpy.spin(minimal_subscriber)
 

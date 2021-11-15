@@ -6,6 +6,8 @@ import math
 import rclpy
 from pathlib import Path
 
+from rclpy.qos import qos_profile_sensor_data
+
 from rclpy.node import Node
 from geometry_msgs.msg import PoseStamped, Pose2D, Point
 #from nav_msgs.msg import Path
@@ -38,7 +40,7 @@ out_data_strap_kalman_ros_txt = open(out_data_mid_strap_txt, 'w')
 
 class StrapKalmanPubSub(Node):
 
-    def __init__(self):
+    def __init__(self, qos_profile):
         ''' 
         Class constructor to initialise the class 
         '''
@@ -53,8 +55,10 @@ class StrapKalmanPubSub(Node):
         p1, p2, p3, v1, v2, v3, e1, e2, e3 = line.split() # split it by whitespace
        
         # Initialise publishers
-        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', buffer_size)
+        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', qos_profile=qos_profile)
         # Initialise subscribers
+        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
+        self.strap_kalman_sub = self.create_subscription(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', self.sub_cb_duzeltme, qos_profile=qos_profile)
 
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -126,9 +130,6 @@ class StrapKalmanPubSub(Node):
         self.new_strap.quaternion.w = 0.0
         print(self.zaman_ref, str(self.old_strap.pos.x), str(self.old_strap.pos.y), str(self.old_strap.pos.z), str(self.old_strap.vel.x), str(self.old_strap.vel.y), str(self.old_strap.vel.z), str(self.old_strap.euler.roll), str(self.old_strap.euler.pitch), str(self.old_strap.euler.yaw), sep='\t', file=out_data_mid_ros_txt)
 
-        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, buffer_size)
-        self.strap_kalman_sub = self.create_subscription(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', self.sub_cb_duzeltme, buffer_size)
-
 
     def sub_cb_imu_data(self, msg):
         #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
@@ -149,7 +150,7 @@ class StrapKalmanPubSub(Node):
         self.pub_func(msg_pb)
 
     def sub_cb_duzeltme(self, msg):
-        self.get_logger().info('I heard bias x as: "%f"' % msg.bias.x)
+        #self.get_logger().info('I heard bias x as: "%f"' % msg.bias.x)
 
         self.duzeltme_vector.pos_err = msg.pos_err
         self.duzeltme_vector.vel_err = msg.vel_err
@@ -274,9 +275,11 @@ def main(args=None):
     # Initialise the node
     rclpy.init(args=args)
 
+    custom_qos_profile = qos_profile_sensor_data
+
     try:
         # Initialise the class
-        strap_w_kalman_node = StrapKalmanPubSub()
+        strap_w_kalman_node = StrapKalmanPubSub(custom_qos_profile)
 
         # Stop the node from exiting
         rclpy.spin(strap_w_kalman_node)
