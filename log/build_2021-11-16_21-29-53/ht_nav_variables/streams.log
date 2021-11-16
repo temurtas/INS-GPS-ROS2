@@ -1,0 +1,12 @@
+[0.019s] Invoking command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
+[0.121s] [ 12%] Built target ht_nav_variables__rosidl_generator_c
+[0.123s] [ 12%] Built target ht_nav_variables__cpp
+[0.143s] make[2]: *** No rule to make target '/opt/ros/foxy/lib/libfastrtps.so.2.0.2', needed by 'libht_nav_variables__rosidl_typesupport_fastrtps_cpp.so'.  Stop.
+[0.143s] make[1]: *** [CMakeFiles/Makefile2:388: CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/all] Error 2
+[0.143s] make[1]: *** Waiting for unfinished jobs....
+[0.145s] [ 23%] Built target ht_nav_variables__rosidl_typesupport_c
+[0.150s] [ 35%] Built target ht_nav_variables__rosidl_typesupport_introspection_c
+[0.154s] [ 47%] Built target ht_nav_variables__rosidl_typesupport_cpp
+[0.159s] [ 59%] Built target ht_nav_variables__rosidl_typesupport_introspection_cpp
+[0.160s] make: *** [Makefile:141: all] Error 2
+[0.163s] Invoked command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
