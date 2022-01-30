@@ -1,0 +1,33 @@
+[0.238s] Invoking command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package': CMAKE_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables:/home/temurtas/ws/install/dolly_ignition:/home/temurtas/ws/install/vision_opencv:/home/temurtas/ws/install/image_common:/home/temurtas/ws/install/dolly:/home/temurtas/ws/install/dolly_gazebo:/home/temurtas/ws/install/gazebo_ros_pkgs:/home/temurtas/ws/install/gazebo_plugins:/home/temurtas/ws/install/image_transport:/home/temurtas/ws/install/image_geometry:/home/temurtas/ws/install/gazebo_ros:/home/temurtas/ws/install/gazebo_msgs:/home/temurtas/ws/install/gazebo_dev:/home/temurtas/ws/install/dolly_follow:/home/temurtas/ws/install/cv_bridge:/home/temurtas/ws/install/camera_info_manager:/home/temurtas/ws/install/camera_calibration_parsers PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
+[0.427s] running egg_info
+[0.428s] writing ../../build/ht_strap_package/ht_strap_package.egg-info/PKG-INFO
+[0.428s] writing dependency_links to ../../build/ht_strap_package/ht_strap_package.egg-info/dependency_links.txt
+[0.429s] writing entry points to ../../build/ht_strap_package/ht_strap_package.egg-info/entry_points.txt
+[0.429s] writing requirements to ../../build/ht_strap_package/ht_strap_package.egg-info/requires.txt
+[0.429s] writing top-level names to ../../build/ht_strap_package/ht_strap_package.egg-info/top_level.txt
+[0.461s] reading manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.462s] writing manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+[0.463s] running build
+[0.463s] running build_py
+[0.463s] running install
+[0.464s] running install_lib
+[0.466s] running install_data
+[0.467s] running install_egg_info
+[0.468s] removing '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info' (and everything under it)
+[0.469s] Copying ../../build/ht_strap_package/ht_strap_package.egg-info to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info
+[0.469s] running install_scripts
+[0.485s] Installing gps_data_converter_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.485s] Installing gps_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.486s] Installing ideal_gps_data_converter_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.486s] Installing imu_data_converter_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.486s] Installing imu_data_publisher_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.487s] Installing ins_gps_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.487s] Installing joint_listener script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.487s] Installing listener script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.487s] Installing my_teleop script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.487s] Installing pseudo_controller script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.488s] Installing strap_ins_gps_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.488s] Installing strap_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.488s] Installing strap_w_kalman_node script to /home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+[0.488s] writing list of installed files to '/home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log'
+[0.517s] Invoked command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package' returned '0': CMAKE_PREFIX_PATH=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables:/home/temurtas/ws/install/dolly_ignition:/home/temurtas/ws/install/vision_opencv:/home/temurtas/ws/install/image_common:/home/temurtas/ws/install/dolly:/home/temurtas/ws/install/dolly_gazebo:/home/temurtas/ws/install/gazebo_ros_pkgs:/home/temurtas/ws/install/gazebo_plugins:/home/temurtas/ws/install/image_transport:/home/temurtas/ws/install/image_geometry:/home/temurtas/ws/install/gazebo_ros:/home/temurtas/ws/install/gazebo_msgs:/home/temurtas/ws/install/gazebo_dev:/home/temurtas/ws/install/dolly_follow:/home/temurtas/ws/install/cv_bridge:/home/temurtas/ws/install/camera_info_manager:/home/temurtas/ws/install/camera_calibration_parsers PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed

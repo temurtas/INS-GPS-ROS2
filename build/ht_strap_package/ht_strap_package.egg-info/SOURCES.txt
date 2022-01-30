@@ -18,6 +18,7 @@ ht_strap_package/imu_data_converter_function.py
 ht_strap_package/imu_data_publisher_function.py
 ht_strap_package/ins_gps_node_function.py
 ht_strap_package/ins_gps_strap_node_function.py
+ht_strap_package/joint_message_subscriber_function.py
 ht_strap_package/kalman_operations.py
 ht_strap_package/main.py
 ht_strap_package/my_teleop.py

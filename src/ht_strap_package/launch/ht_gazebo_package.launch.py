@@ -69,6 +69,12 @@ def generate_launch_description():
         executable = 'imu_data_converter_node',
     )
 
+    joint_listener_node = Node(
+        package = 'ht_strap_package',
+        name = 'joint_listener_node',
+        executable = 'joint_listener_node',
+        parameters = [config]
+    )
 
     #ld.add_action(bagfile)
     ld.add_action(gazebo)
@@ -78,5 +84,6 @@ def generate_launch_description():
     ld.add_action(ideal_gps_talker_node)
     ld.add_action(strap_kalman_ps_node)
     ld.add_action(talker_node)
+    ld.add_action(joint_listener_node)
 
     return ld

@@ -35,7 +35,9 @@ setup(
                 'ideal_gps_data_converter_node = ht_strap_package.ideal_gps_data_converter_function:main',
                 'ins_gps_node = ht_strap_package.ins_gps_node_function:main',
                 'strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main',
-                'my_teleop = ht_strap_package.my_teleop:main'
+                'my_teleop = ht_strap_package.my_teleop:main',
+                'joint_listener_node = ht_strap_package.joint_message_subscriber_function:main'
+
         ],
     },
 )
