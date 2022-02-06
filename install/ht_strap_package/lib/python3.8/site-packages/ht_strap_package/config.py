@@ -5,13 +5,14 @@ import numpy as np
 
 from pathlib import Path
 
-#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
-#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2_Senaryo2/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
+#base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
+#base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2_Senaryo2/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
 
 
-base_path = Path("/home/temurtas/INS-GPS-ROS2/veri_gazebo/veri_2/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
+base_path = Path("/home/temur/INS-GPS-ROS2/veri_gazebo/veri_5_joint_vel_100Hz/")           #Ubuntu Path  # veri2_Senaryo2 # veri1_to_Dogukan # veri2/input
 
-imu_pub_freq = 50.0
+imu_pub_freq = 100.0
+kalman_prop_const = 5
 gps_pub_freq = 5.0
 
 delta_t = 1/imu_pub_freq

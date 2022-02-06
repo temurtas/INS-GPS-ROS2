@@ -6,7 +6,7 @@
 [0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
 [0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
 [0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
-[0.262s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/temurtas/INS-GPS-ROS2'
+[0.262s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/temur/INS-GPS-ROS2'
 [0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
 [0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
 [0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
@@ -487,7 +487,7 @@
 [0.311s] Level 5:colcon.colcon_core.verb:set package 'ht_nav_variables' build argument 'ament_cmake_args' from command line to 'None'
 [0.311s] Level 5:colcon.colcon_core.verb:set package 'ht_nav_variables' build argument 'catkin_cmake_args' from command line to 'None'
 [0.311s] Level 5:colcon.colcon_core.verb:set package 'ht_nav_variables' build argument 'catkin_skip_building_tests' from command line to 'False'
-[0.311s] DEBUG:colcon.colcon_core.verb:Building package 'ht_nav_variables' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables', 'merge_install': False, 'path': '/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables', 'symlink_install': False, 'test_result_base': None}
+[0.311s] DEBUG:colcon.colcon_core.verb:Building package 'ht_nav_variables' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/temur/INS-GPS-ROS2/build/ht_nav_variables', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/temur/INS-GPS-ROS2/install/ht_nav_variables', 'merge_install': False, 'path': '/home/temur/INS-GPS-ROS2/src/ht_nav_variables', 'symlink_install': False, 'test_result_base': None}
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'cmake_args' from command line to 'None'
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'cmake_target' from command line to 'None'
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'cmake_target_skip_unavailable' from command line to 'False'
@@ -497,100 +497,100 @@
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'ament_cmake_args' from command line to 'None'
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'catkin_cmake_args' from command line to 'None'
 [0.313s] Level 5:colcon.colcon_core.verb:set package 'ht_strap_package' build argument 'catkin_skip_building_tests' from command line to 'False'
-[0.313s] DEBUG:colcon.colcon_core.verb:Building package 'ht_strap_package' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/temurtas/INS-GPS-ROS2/build/ht_strap_package', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package', 'merge_install': False, 'path': '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package', 'symlink_install': False, 'test_result_base': None}
+[0.313s] DEBUG:colcon.colcon_core.verb:Building package 'ht_strap_package' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/temur/INS-GPS-ROS2/build/ht_strap_package', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/temur/INS-GPS-ROS2/install/ht_strap_package', 'merge_install': False, 'path': '/home/temur/INS-GPS-ROS2/src/ht_strap_package', 'symlink_install': False, 'test_result_base': None}
 [0.313s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
 [0.316s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
-[0.316s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables' with build type 'ament_cmake'
-[0.316s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables'
+[0.316s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/temur/INS-GPS-ROS2/src/ht_nav_variables' with build type 'ament_cmake'
+[0.316s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/temur/INS-GPS-ROS2/src/ht_nav_variables'
 [0.321s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
 [0.321s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
 [0.321s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
 [0.326s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
-[0.339s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
-[0.663s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
-[0.854s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables
+[0.339s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temur/INS-GPS-ROS2/install/ht_strap_package:/home/temur/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
+[0.663s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temur/INS-GPS-ROS2/install/ht_strap_package:/home/temur/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
+[0.854s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temur/INS-GPS-ROS2/install/ht_strap_package:/home/temur/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/temur/INS-GPS-ROS2/build/ht_nav_variables
 [0.924s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ht_nav_variables)
-[0.926s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package:/home/temurtas/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables
-[0.929s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables' for CMake module files
-[0.929s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables' for CMake config files
+[0.926s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/temur/INS-GPS-ROS2/install/ht_strap_package:/home/temur/ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/temur/INS-GPS-ROS2/build/ht_nav_variables
+[0.929s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables' for CMake module files
+[0.929s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables' for CMake config files
 [0.930s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'cmake_prefix_path')
-[0.931s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.ps1'
-[0.932s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.dsv'
-[0.932s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.sh'
-[0.933s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib'
+[0.931s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.ps1'
+[0.932s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.dsv'
+[0.932s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.sh'
+[0.933s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib'
 [0.934s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'ld_library_path_lib')
-[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.ps1'
-[0.935s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.dsv'
-[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.sh'
-[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/bin'
-[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/pkgconfig/ht_nav_variables.pc'
-[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.ps1'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.dsv'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.sh'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/bin'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/pkgconfig/ht_nav_variables.pc'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages'
 [0.936s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'pythonpath')
-[0.937s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.ps1'
-[0.937s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.dsv'
-[0.938s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.sh'
-[0.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.ps1'
-[0.940s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.dsv'
-[0.941s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.sh'
-[0.942s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.bash'
-[0.943s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.zsh'
-[0.944s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/colcon-core/packages/ht_nav_variables)
+[0.937s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.ps1'
+[0.937s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.dsv'
+[0.938s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.sh'
+[0.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.ps1'
+[0.940s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.dsv'
+[0.941s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.sh'
+[0.942s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.bash'
+[0.943s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.zsh'
+[0.944s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/colcon-core/packages/ht_nav_variables)
 [1.184s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ht_nav_variables)
-[1.186s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables' for CMake module files
-[1.187s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables' for CMake config files
+[1.186s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables' for CMake module files
+[1.187s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables' for CMake config files
 [1.188s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'cmake_prefix_path')
-[1.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.ps1'
-[1.190s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.dsv'
-[1.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.sh'
-[1.192s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib'
+[1.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.ps1'
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.dsv'
+[1.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/cmake_prefix_path.sh'
+[1.192s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib'
 [1.193s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'ld_library_path_lib')
-[1.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.ps1'
-[1.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.dsv'
-[1.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.sh'
-[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/bin'
-[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/pkgconfig/ht_nav_variables.pc'
-[1.196s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages'
+[1.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.ps1'
+[1.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.dsv'
+[1.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/ld_library_path_lib.sh'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/bin'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/pkgconfig/ht_nav_variables.pc'
+[1.196s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages'
 [1.196s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_nav_variables', 'pythonpath')
-[1.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.ps1'
-[1.197s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.dsv'
-[1.198s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.sh'
-[1.199s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.ps1'
-[1.200s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.dsv'
-[1.200s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.sh'
-[1.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.bash'
-[1.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.zsh'
-[1.201s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/share/colcon-core/packages/ht_nav_variables)
-[1.202s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package' with build type 'ament_python'
+[1.196s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.ps1'
+[1.197s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.dsv'
+[1.198s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/hook/pythonpath.sh'
+[1.199s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.ps1'
+[1.200s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.dsv'
+[1.200s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.sh'
+[1.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.bash'
+[1.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/package.zsh'
+[1.201s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/colcon-core/packages/ht_nav_variables)
+[1.202s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/temur/INS-GPS-ROS2/src/ht_strap_package' with build type 'ament_python'
 [1.202s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_strap_package', 'ament_prefix_path')
-[1.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.ps1'
-[1.204s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.dsv'
-[1.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.sh'
+[1.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.ps1'
+[1.204s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.dsv'
+[1.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/ament_prefix_path.sh'
 [1.205s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
 [1.205s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
 [1.208s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
-[1.419s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package'
+[1.419s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/temur/INS-GPS-ROS2/src/ht_strap_package'
 [1.421s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
 [1.421s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
 [1.426s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
-[1.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package': PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
-[1.726s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package' for CMake module files
-[1.727s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temurtas/INS-GPS-ROS2/src/ht_strap_package' returned '0': PYTHONPATH=/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temurtas/ws/build/opencv_tests:/home/temurtas/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temurtas/ws/install/image_geometry/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temurtas/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temurtas/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temurtas/INS-GPS-ROS2/install/ht_strap_package --record /home/temurtas/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
-[1.728s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package' for CMake config files
-[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib'
-[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/bin'
-[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/pkgconfig/ht_strap_package.pc'
-[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages'
+[1.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/temur/INS-GPS-ROS2/src/ht_strap_package': PYTHONPATH=/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temur/ws/build/opencv_tests:/home/temur/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temur/ws/install/image_geometry/lib/python3.8/site-packages:/home/temur/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temur/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temur/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temur/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temur/INS-GPS-ROS2/install/ht_strap_package --record /home/temur/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
+[1.726s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package' for CMake module files
+[1.727s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/temur/INS-GPS-ROS2/src/ht_strap_package' returned '0': PYTHONPATH=/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages:/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages:/home/temur/ws/build/opencv_tests:/home/temur/ws/install/opencv_tests/lib/python3.8/site-packages:/home/temur/ws/install/image_geometry/lib/python3.8/site-packages:/home/temur/ws/install/gazebo_ros/lib/python3.8/site-packages:/home/temur/ws/install/gazebo_msgs/lib/python3.8/site-packages:/home/temur/ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/ht_strap_package build --build-base /home/temur/INS-GPS-ROS2/build/ht_strap_package/build install --prefix /home/temur/INS-GPS-ROS2/install/ht_strap_package --record /home/temur/INS-GPS-ROS2/build/ht_strap_package/install.log --single-version-externally-managed
+[1.728s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package' for CMake config files
+[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib'
+[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package/bin'
+[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/pkgconfig/ht_strap_package.pc'
+[1.729s] Level 1:colcon.colcon_core.environment:checking '/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages'
 [1.730s] Level 1:colcon.colcon_core.shell:create_environment_hook('ht_strap_package', 'pythonpath')
-[1.731s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.ps1'
-[1.731s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.dsv'
-[1.732s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.sh'
+[1.731s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.ps1'
+[1.731s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.dsv'
+[1.732s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/hook/pythonpath.sh'
 [1.733s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ht_strap_package)
-[1.734s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.ps1'
-[1.735s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.dsv'
-[1.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.sh'
-[1.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.bash'
-[1.737s] INFO:colcon.colcon_core.shell:Creating package script '/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.zsh'
-[1.738s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temurtas/INS-GPS-ROS2/install/ht_strap_package/share/colcon-core/packages/ht_strap_package)
+[1.734s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.ps1'
+[1.735s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.dsv'
+[1.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.sh'
+[1.736s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.bash'
+[1.737s] INFO:colcon.colcon_core.shell:Creating package script '/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/ht_strap_package/package.zsh'
+[1.738s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/temur/INS-GPS-ROS2/install/ht_strap_package/share/colcon-core/packages/ht_strap_package)
 [1.738s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
 [1.739s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
 [1.739s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
@@ -599,13 +599,13 @@
 [1.748s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
 [1.748s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
 [1.770s] DEBUG:colcon.colcon_core.event_reactor:joined thread
-[1.772s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temurtas/INS-GPS-ROS2/install/local_setup.ps1'
-[1.773s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/temurtas/INS-GPS-ROS2/install/_local_setup_util_ps1.py'
-[1.776s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temurtas/INS-GPS-ROS2/install/setup.ps1'
-[1.781s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temurtas/INS-GPS-ROS2/install/local_setup.sh'
-[1.782s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/temurtas/INS-GPS-ROS2/install/_local_setup_util_sh.py'
-[1.782s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temurtas/INS-GPS-ROS2/install/setup.sh'
-[1.787s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temurtas/INS-GPS-ROS2/install/local_setup.bash'
-[1.787s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temurtas/INS-GPS-ROS2/install/setup.bash'
-[1.789s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temurtas/INS-GPS-ROS2/install/local_setup.zsh'
-[1.789s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temurtas/INS-GPS-ROS2/install/setup.zsh'
+[1.772s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temur/INS-GPS-ROS2/install/local_setup.ps1'
+[1.773s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/temur/INS-GPS-ROS2/install/_local_setup_util_ps1.py'
+[1.776s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temur/INS-GPS-ROS2/install/setup.ps1'
+[1.781s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temur/INS-GPS-ROS2/install/local_setup.sh'
+[1.782s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/temur/INS-GPS-ROS2/install/_local_setup_util_sh.py'
+[1.782s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temur/INS-GPS-ROS2/install/setup.sh'
+[1.787s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temur/INS-GPS-ROS2/install/local_setup.bash'
+[1.787s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temur/INS-GPS-ROS2/install/setup.bash'
+[1.789s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/temur/INS-GPS-ROS2/install/local_setup.zsh'
+[1.789s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/temur/INS-GPS-ROS2/install/setup.zsh'

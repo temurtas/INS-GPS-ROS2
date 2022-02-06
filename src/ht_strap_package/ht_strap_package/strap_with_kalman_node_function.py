@@ -29,7 +29,7 @@ from ht_strap_package.kalman_operations import kalman_duzeltme
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
 
-base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 initial_data_path = base_path2 / "ilk_deger.txt"
 
 out_data_mid_txt = base_path2 / "ros_mid_strap_w_kalman_out.txt"

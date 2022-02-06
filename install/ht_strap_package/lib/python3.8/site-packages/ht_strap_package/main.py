@@ -7,7 +7,7 @@ from strapdown import *
 
 #base_path = Path("D:/Drive/Thesis_work/INSGPS/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")
 #base_path = Path("D:/Drive/Thesis_work/INSGPS/INS-GPS-Matlab/veriler/veri2/input/")        #Windows Path
-base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
+base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
 imu_data_path = base_path / "aob_veri.txt"
 initial_data_path = base_path / "ilk_deger.txt"
 kks_data_path = base_path / "kks_veri.txt"

@@ -98,7 +98,7 @@ def q_matrix_construct():
 
 
 def p_update(p_minus, f, q):
-    delta_t = config.delta_t
+    delta_t = config.delta_t * config.kalman_prop_const 
 
     theta = np.eye(15) + delta_t * f
     temp_a = np.dot(theta, p_minus)

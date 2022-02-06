@@ -1,4 +1,4 @@
-[0.015s] Invoking command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/temurtas/INS-GPS-ROS2/src/ht_nav_variables -DCMAKE_INSTALL_PREFIX=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables
+[0.015s] Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/temur/INS-GPS-ROS2/src/ht_nav_variables -DCMAKE_INSTALL_PREFIX=/home/temur/INS-GPS-ROS2/install/ht_nav_variables
 [0.027s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
 [0.052s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
 [0.211s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
@@ -9,11 +9,11 @@
 [0.576s] CMake Error at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:60 (message):
 [0.576s]   execute_process(/usr/bin/python3 -m rosidl_adapter --package-name
 [0.576s]   ht_nav_variables --arguments-file
-[0.576s]   /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter__arguments__ht_nav_variables.json
+[0.576s]   /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter__arguments__ht_nav_variables.json
 [0.576s]   --output-dir
-[0.576s]   /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables
+[0.576s]   /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables
 [0.576s]   --output-file
-[0.576s]   /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables.idls)
+[0.576s]   /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables.idls)
 [0.576s]   returned error code 1:
 [0.576s] 
 [0.576s]   Traceback (most recent call last):
@@ -46,5 +46,5 @@
 [0.578s] 
 [0.578s] 
 [0.578s] -- Configuring incomplete, errors occurred!
-[0.578s] See also "/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".
-[0.587s] Invoked command in '/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/temurtas/INS-GPS-ROS2/src/ht_nav_variables -DCMAKE_INSTALL_PREFIX=/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables
+[0.578s] See also "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".
+[0.587s] Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/temur/INS-GPS-ROS2/src/ht_nav_variables -DCMAKE_INSTALL_PREFIX=/home/temur/INS-GPS-ROS2/install/ht_nav_variables

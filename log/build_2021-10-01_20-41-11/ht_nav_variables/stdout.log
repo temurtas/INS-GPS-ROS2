@@ -6,4 +6,4 @@
 -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
 -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
 -- Configuring incomplete, errors occurred!
-See also "/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".
+See also "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".

@@ -22,8 +22,8 @@ from std_msgs.msg import String
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavGpsData
 from ht_nav_variables.msg import HtNavPoint
-#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
-#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+#base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri2/input/")           #Ubuntu Path
+#base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size

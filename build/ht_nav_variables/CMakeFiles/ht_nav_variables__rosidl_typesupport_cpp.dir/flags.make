@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -Wall -std=gnu++14
 
 CXX_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"ht_nav_variables\" -Dht_nav_variables__rosidl_typesupport_cpp_EXPORTS
 
-CXX_INCLUDES = -I/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp -isystem /opt/ros/foxy/include 
+CXX_INCLUDES = -I/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp -isystem /opt/ros/foxy/include 
 

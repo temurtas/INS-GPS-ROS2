@@ -32,8 +32,9 @@ from ht_strap_package.kalman_operations import kalman_duzeltme
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
 from ht_strap_package.config import DEG2RAD
+from ht_strap_package.config import kalman_prop_const 
 
-base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 #kks_data_path = base_path2 / "kks_veri.txt"
 
 
@@ -174,7 +175,7 @@ class INSGPSNode(Node):
         msg_pb.euler = self.new_strap.euler
         msg_pb.quaternion = self.new_strap.quaternion
 
-        if (self.strap_sayac % 2 == 0):
+        if (self.strap_sayac % kalman_prop_const  == 0):
             self.node_covariance_update()
 
         self.strap_sayac = self.strap_sayac + 1

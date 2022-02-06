@@ -29,7 +29,7 @@ from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler
 from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
 
-base_path2 = base_path # Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 #kks_data_path = base_path2 / "kks_veri.txt"
 
 out_data_ins_gps_mid_txt = base_path2 / "ros_mid_kalman_out.txt"

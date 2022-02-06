@@ -1,2 +1,0 @@
-# This expresses GPS position of the object
-geometry_msgs/Point.msg     gps_pos

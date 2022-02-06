@@ -1,5 +1,0 @@
-# This expresses
-geometry_msgs/Point             pos
-geometry_msgs/Vector3           vel
-ht_euler                        euler
-geometry_msgs/Quaternion        quaternion

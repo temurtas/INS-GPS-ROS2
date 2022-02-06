@@ -25,7 +25,7 @@ from ht_nav_variables.msg import HtNavKalmanOut
 from ht_nav_variables.msg import HtNavStrapOut
 from ht_strap_package.config import base_path
 
-#base_path = Path("/home/temurtas/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
+#base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 out_data_path = base_path / "controller_strap_data_in.txt"
 out_data_txt = open(out_data_path, 'w')

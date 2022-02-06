@@ -4,7 +4,7 @@
   <name>ht_strap_package</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="halil.temurtas@gmail.com">temurtas</maintainer>
+  <maintainer email="halil.temur@gmail.com">temur</maintainer>
   <license>TODO: License declaration</license>
 
   <exec_depend>rclpy</exec_depend>

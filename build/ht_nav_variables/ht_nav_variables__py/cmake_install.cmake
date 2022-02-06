@@ -1,8 +1,8 @@
-# Install script for directory: /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/ht_nav_variables__py
+# Install script for directory: /home/temur/INS-GPS-ROS2/build/ht_nav_variables/ht_nav_variables__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/temurtas/INS-GPS-ROS2/install/ht_nav_variables")
+  set(CMAKE_INSTALL_PREFIX "/home/temur/INS-GPS-ROS2/install/ht_nav_variables")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

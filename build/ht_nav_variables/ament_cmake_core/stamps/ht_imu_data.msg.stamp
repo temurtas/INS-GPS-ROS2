@@ -1,3 +1,0 @@
-# This expresses acceleration in free space broken into its linear and angular parts.
-geometry_msgs/Vector3  vel_diff     # hiz_fark
-geometry_msgs/Vector3  ang_diff     # aci_fark

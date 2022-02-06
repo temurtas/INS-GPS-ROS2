@@ -8,11 +8,11 @@
 CMake Error at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:60 (message):
   execute_process(/usr/bin/python3 -m rosidl_adapter --package-name
   ht_nav_variables --arguments-file
-  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter__arguments__ht_nav_variables.json
+  /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter__arguments__ht_nav_variables.json
   --output-dir
-  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables
+  /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables
   --output-file
-  /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables.idls)
+  /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables.idls)
   returned error code 1:
 
   Error processing 'geometry_msgs/Point.msg gps_pos' of
@@ -49,4 +49,4 @@ Call Stack (most recent call first):
 
 
 -- Configuring incomplete, errors occurred!
-See also "/home/temurtas/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".
+See also "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/CMakeOutput.log".

@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "ht_nav_variables")
 set(ht_nav_variables_VERSION "0.0.0")
-set(ht_nav_variables_MAINTAINER "temurtas <halil.temurtas@gmail.com>")
+set(ht_nav_variables_MAINTAINER "temur <halil.temur@gmail.com>")
 set(ht_nav_variables_BUILD_DEPENDS "rosidl_default_generators")
 set(ht_nav_variables_BUILDTOOL_DEPENDS "ament_cmake")
 set(ht_nav_variables_BUILD_EXPORT_DEPENDS )
