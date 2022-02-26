@@ -28,6 +28,7 @@ ht_strap_package/strap_operations.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py
+ht_strap_package/teleop_controller.py
 launch/ht_gazebo_package.launch.py
 launch/ht_gazebo_strap_package.launch.py
 launch/ht_only_strap_package.launch.py

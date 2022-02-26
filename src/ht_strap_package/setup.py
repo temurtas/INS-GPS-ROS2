@@ -36,6 +36,7 @@ setup(
                 'ins_gps_node = ht_strap_package.ins_gps_node_function:main',
                 'strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main',
                 'my_teleop = ht_strap_package.my_teleop:main',
+                'teleop_controller = ht_strap_package.teleop_controller:main',
                 'joint_listener_node = ht_strap_package.joint_message_subscriber_function:main'
 
         ],

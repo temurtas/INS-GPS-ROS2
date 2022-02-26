@@ -27,8 +27,8 @@ def generate_launch_description():
     teleop = Node(
         package='ht_strap_package',
         #namespace='my_teleop',
-        executable='my_teleop',
-        name='my_teleop',
+        executable='teleop_controller',
+        name='teleop_controller',
         prefix = 'xterm -e',
         output='screen',        
         remappings=[
