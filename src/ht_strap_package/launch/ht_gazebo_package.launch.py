@@ -20,13 +20,16 @@ def generate_launch_description():
     gazebo = launch.actions.ExecuteProcess(
         cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so',
          #'worlds/empty_mk5.world'],
-         'worlds/city_mk5.world'],
+        #  'worlds/city_mk5.world'],
+         'worlds/new_city.world'],
         output='screen'
     )
 
     teleop = Node(
         package='ht_strap_package',
         #namespace='my_teleop',
+        # executable='my_teleop',
+        # name='my_teleop',
         executable='teleop_controller',
         name='teleop_controller',
         prefix = 'xterm -e',

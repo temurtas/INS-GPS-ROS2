@@ -115,7 +115,7 @@ def main():
     pub = node.create_publisher(geometry_msgs.msg.Twist, 'cmd_vel', 10)
 
     steering_angle = 0.0
-    angle_scale_factor = 0.05
+    angle_scale_factor = 0.025
     velocity = 0.0
     veloity_scale_factor = 0.2
     acc_limit = 0.2
