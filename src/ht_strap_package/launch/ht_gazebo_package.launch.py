@@ -65,11 +65,16 @@ def generate_launch_description():
         parameters = [config]
     )
 
-
     talker_node = Node(
         package = 'ht_strap_package',
         name = 'imu_data_converter_node',
         executable = 'imu_data_converter_node',
+    )
+
+    talker_ideal_node = Node(
+        package = 'ht_strap_package',
+        name = 'imu_data_ideal_converter_node',
+        executable = 'imu_data_ideal_converter_node',
     )
 
     joint_listener_node = Node(
@@ -87,6 +92,7 @@ def generate_launch_description():
     ld.add_action(ideal_gps_talker_node)
     ld.add_action(strap_kalman_ps_node)
     ld.add_action(talker_node)
+    ld.add_action(talker_ideal_node)
     ld.add_action(joint_listener_node)
 
     return ld

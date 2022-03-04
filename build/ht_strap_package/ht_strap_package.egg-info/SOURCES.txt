@@ -15,6 +15,7 @@ ht_strap_package/gps_data_converter_function.py
 ht_strap_package/gps_data_publisher_function.py
 ht_strap_package/ideal_gps_data_converter_function.py
 ht_strap_package/imu_data_converter_function.py
+ht_strap_package/imu_data_ideal_converter_function.py
 ht_strap_package/imu_data_publisher_function.py
 ht_strap_package/ins_gps_node_function.py
 ht_strap_package/ins_gps_strap_node_function.py
