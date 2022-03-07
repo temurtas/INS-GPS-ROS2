@@ -77,11 +77,22 @@ def generate_launch_description():
         executable = 'imu_data_ideal_converter_node',
     )
 
+    strap_ideal_node =  Node(
+        package = 'ht_strap_package',
+        name = 'strap_ideal_node',
+        executable = 'strap_ideal_node',
+    )
+
     joint_listener_node = Node(
         package = 'ht_strap_package',
         name = 'joint_listener_node',
-        executable = 'joint_listener_node',
-        parameters = [config]
+        executable = 'joint_listener_node'
+        )
+
+    tire_force_calc_node = Node(
+        package = 'ht_strap_package',
+        name = 'tire_force_calc_node',
+        executable = 'tire_force_calc_node'
     )
 
     #ld.add_action(bagfile)
@@ -94,5 +105,7 @@ def generate_launch_description():
     ld.add_action(talker_node)
     ld.add_action(talker_ideal_node)
     ld.add_action(joint_listener_node)
+    ld.add_action(tire_force_calc_node)
+    ld.add_action(strap_ideal_node)
 
     return ld

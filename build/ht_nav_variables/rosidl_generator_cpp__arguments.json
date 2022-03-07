@@ -12,7 +12,10 @@
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavPoint.idl",
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavVector3.idl",
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavQuaternion.idl",
-    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavDeneme.idl"
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavDeneme.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavWheelVector.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavJointState.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavTireOut.idl"
   ],
   "target_dependencies": [
     "/opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
@@ -39,6 +42,9 @@
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl",
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl",
     "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl",
-    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl"
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl",
+    "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl"
   ]
 }

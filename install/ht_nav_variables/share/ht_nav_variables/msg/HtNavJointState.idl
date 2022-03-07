@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ht_nav_variables/msg/HtNavJointState.msg
+// generated code does not contain a copyright notice
+
+#include "ht_nav_variables/msg/HtNavWheelVector.idl"
+
+module ht_nav_variables {
+  module msg {
+    @verbatim (language="comment", text=
+      " This represents a vector in free space." "\n"
+      " It is only meant to represent a direction. Therefore, it does not" "\n"
+      " make sense to apply a translation to it (e.g., when applying a" "\n"
+      " generic rigid transformation to a Vector3, tf2 will only apply the" "\n"
+      " rotation). If you want your data to be translatable too, use the" "\n"
+      " geometry_msgs/Point message instead.")
+    struct HtNavJointState {
+      ht_nav_variables::msg::HtNavWheelVector steering_angle;
+
+      ht_nav_variables::msg::HtNavWheelVector wheel_rotation;
+    };
+  };
+};

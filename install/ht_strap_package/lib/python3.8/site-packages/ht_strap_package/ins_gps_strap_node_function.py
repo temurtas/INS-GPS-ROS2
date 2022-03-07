@@ -38,10 +38,10 @@ base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/ver
 #kks_data_path = base_path2 / "kks_veri.txt"
 
 
-strap_data_ins_gps_mid_txt = base_path2 / "strap_data_gazebo_ros_kalman_out.txt"
+strap_data_ins_gps_mid_txt = base_path2 / "strap_data_gazebo.txt"
 strap_data_gazebo_ros_txt = open(strap_data_ins_gps_mid_txt, 'w')
 
-ros_gazebo_kalman_out =  base_path2 / "ros_gazebo_kalman_out.txt"
+ros_gazebo_kalman_out =  base_path2 / "kalman_out_gazebo.txt"
 out_data_strap_kalman_ros_txt = open(ros_gazebo_kalman_out, 'w')
 
 class INSGPSNode(Node):

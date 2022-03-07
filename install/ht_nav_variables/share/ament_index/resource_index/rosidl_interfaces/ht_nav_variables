@@ -8,6 +8,8 @@ msg/HtNavGpsData.idl
 msg/HtNavGpsData.msg
 msg/HtNavImuData.idl
 msg/HtNavImuData.msg
+msg/HtNavJointState.idl
+msg/HtNavJointState.msg
 msg/HtNavKalmanOut.idl
 msg/HtNavKalmanOut.msg
 msg/HtNavPoint.idl
@@ -16,5 +18,9 @@ msg/HtNavQuaternion.idl
 msg/HtNavQuaternion.msg
 msg/HtNavStrapOut.idl
 msg/HtNavStrapOut.msg
+msg/HtNavTireOut.idl
+msg/HtNavTireOut.msg
 msg/HtNavVector3.idl
 msg/HtNavVector3.msg
+msg/HtNavWheelVector.idl
+msg/HtNavWheelVector.msg

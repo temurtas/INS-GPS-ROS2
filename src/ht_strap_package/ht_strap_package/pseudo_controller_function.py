@@ -27,10 +27,10 @@ from ht_strap_package.config import base_path
 
 #base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
-out_data_path = base_path / "controller_strap_data_in.txt"
+out_data_path = base_path / "strap_data_controller_input.txt"
 out_data_txt = open(out_data_path, 'w')
 
-out_data_kalman_path = base_path / "controller_kalman_data_in.txt"
+out_data_kalman_path = base_path / "kalman_out_controller_input.txt"
 out_data_kalman_txt = open(out_data_kalman_path, 'w')
 
 

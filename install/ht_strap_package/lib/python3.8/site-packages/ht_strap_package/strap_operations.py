@@ -232,6 +232,14 @@ def quaternion_update(quaternion_old, ang_diff, old_pos, old_vel):
 
     return quaternion_new
 
+def cbn2euler(cbn):
+    euler_out = np.zeros((3,1))
+
+    euler_out[0] = math.atan2(cbn[2,1], cbn[2,2])
+    euler_out[1] = - math.asin(cbn[2,0])
+    euler_out[2] = math.atan2(cbn[1,0], cbn[0,0])
+
+    return euler_out
 
 def euler2quaternion(euler_in):
     quaternion_out = np.zeros((4, 1))
@@ -267,4 +275,20 @@ def quaternion2euler(quaternion_in):
     euler_out[2] = math.atan2(2 * (q0 * q3 + q1 * q2) , (1 - 2 * q2s - 2 * q3s))
 
     return euler_out
+
+def euler2cbn(euler_in):
+    c_nb = np.zeros((3, 3))
+
+    c_nb[0,0] = math.cos(euler_in[1]) * math.cos(euler_in[2])
+    c_nb[0,1] = math.cos(euler_in[1]) * math.sin(euler_in[2])
+    c_nb[0,2] = -math.sin(euler_in[1])
+    c_nb[1,0] = -math.cos(euler_in[0]) * math.sin(euler_in[2]) + math.sin(euler_in[0]) * math.sin(euler_in[1]) * math.cos(euler_in[2])
+    c_nb[1,1] = math.cos(euler_in[0]) * math.cos(euler_in[2]) + math.sin(euler_in[0]) * math.sin(euler_in[1]) * math.sin(euler_in[2])
+    c_nb[1,2] = math.sin(euler_in[0]) * math.cos(euler_in[1])
+    c_nb[2,0] = math.sin(euler_in[0]) * math.sin(euler_in[2]) + math.cos(euler_in[0]) * math.sin(euler_in[1]) * math.cos(euler_in[2])
+    c_nb[2,1] = -math.sin (euler_in[0]) * math.cos(euler_in[2]) + math.cos(euler_in[0]) * math.sin(euler_in[1]) * math.sin(euler_in[2])
+    c_nb[2,2] = math.cos(euler_in[0]) * math.cos(euler_in[1])
+
+    c_bn = c_nb.transpose()
+    return c_bn
 

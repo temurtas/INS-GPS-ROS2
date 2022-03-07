@@ -110,6 +110,9 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c__pyext.dir/rosid
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__type_support.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__type_support.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__type_support.h
@@ -122,7 +125,13 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c__pyext.dir/rosid
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__type_support.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.h
  rosidl_generator_c/ht_nav_variables/msg/rosidl_generator_c__visibility_control.h

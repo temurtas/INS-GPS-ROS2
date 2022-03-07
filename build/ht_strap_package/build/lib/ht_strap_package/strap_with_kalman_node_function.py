@@ -32,10 +32,10 @@ from ht_strap_package.config import buffer_size
 base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 initial_data_path = base_path2 / "ilk_deger.txt"
 
-out_data_mid_txt = base_path2 / "ros_mid_strap_w_kalman_out.txt"
-out_data_mid_strap_txt = base_path2 / "ros_mid_strap_w_kalman_kalman_out.txt"
-
+out_data_mid_txt = base_path2 / "strap_data_txt.txt"
 out_data_mid_ros_txt = open(out_data_mid_txt, 'w')
+
+out_data_mid_strap_txt = base_path2 / "kalman_out_txt.txt"
 out_data_strap_kalman_ros_txt = open(out_data_mid_strap_txt, 'w')
 
 class StrapKalmanPubSub(Node):

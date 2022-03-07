@@ -27,7 +27,7 @@ from ht_strap_package.config import buffer_size
 from ht_strap_package.config import imu_pub_freq
 from ht_strap_package.config import delta_t
 
-imu_data_path = base_path / "aob_veri_ideal_gazebo.txt"
+imu_data_path = base_path / "imu_data_ideal_gazebo.txt"
 
 imu_data_gazebo_txt = open(imu_data_path, 'w')
 

@@ -32,10 +32,10 @@ from ht_strap_package.config import buffer_size
 base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 #kks_data_path = base_path2 / "kks_veri.txt"
 
-out_data_ins_gps_mid_txt = base_path2 / "ros_mid_kalman_out.txt"
+out_data_ins_gps_mid_txt = base_path2 / "kalman_out_txt_mid.txt"
 out_data_ins_gps_mid_ros_txt = open(out_data_ins_gps_mid_txt, 'w')
 
-deneme_txt_1_path = base_path2 / "ros2_kks_veri.txt"
+deneme_txt_1_path = base_path2 / "gps_data_txt_kalman_input.txt"
 deneme_txt_1 = open(deneme_txt_1_path, 'w')
 
 

@@ -26,7 +26,7 @@ from ht_strap_package.config import base_path
 from ht_strap_package.config import delta_t
 from ht_strap_package.config import DEG2RAD
 
-gps_data_path = base_path / "ideal_gps_veri_gazebo.txt"
+gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
 
 gps_data_gazebo_txt = open(gps_data_path, 'w')
 

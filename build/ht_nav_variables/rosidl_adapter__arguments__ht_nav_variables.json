@@ -10,6 +10,9 @@
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavPoint.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavVector3.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavQuaternion.msg",
-    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavDeneme.msg"
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavDeneme.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavWheelVector.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavJointState.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavTireOut.msg"
   ]
 }

@@ -34,6 +34,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/HtNavVector3.msg"
   "msg/HtNavQuaternion.msg"
   "msg/HtNavDeneme.msg"
+  "msg/HtNavWheelVector.msg"
+  "msg/HtNavJointState.msg"
+  "msg/HtNavTireOut.msg"
   )
 
 #set(msg_files

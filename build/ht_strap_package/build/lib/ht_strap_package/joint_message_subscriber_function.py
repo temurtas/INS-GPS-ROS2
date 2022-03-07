@@ -27,7 +27,7 @@ from ht_strap_package.config import base_path
 
 #base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
-out_data_path = base_path / "gazebo_joint_states.txt"
+out_data_path = base_path / "joint_states_gazebo.txt"
 out_data_txt = open(out_data_path, 'w')
 
 class MinimalSubscriber(Node):
