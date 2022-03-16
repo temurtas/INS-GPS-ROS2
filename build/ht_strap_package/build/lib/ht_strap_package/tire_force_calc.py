@@ -3,7 +3,7 @@ import numpy as np
 from ht_strap_package.strap_operations import pos_update, vel_update, quaternion_update, quaternion2euler
 from ht_nav_variables.msg import HtNavTireOut
 import ht_strap_package.config as config
-from ht_strap_package.tire_operations import body2wheels, tire_sideslip_angle_calc, longitudinal_tire_slip_calc
+from ht_strap_package.tire_operations import body2wheels, tire_sideslip_angle_calc, longitudinal_tire_slip_calc, yaw_rate_calc
 
 def tire_force_calc(strap_data, imu_data, joint_state):
     DELTA_T = config.delta_t
@@ -55,29 +55,43 @@ def tire_force_calc(strap_data, imu_data, joint_state):
     wheel_rots[2] = joint_state.wheel_rotation.w3
     wheel_rots[3] = joint_state.wheel_rotation.w4
 
-    v_et = np.zeros((3,4))
+    v_et = np.zeros((3,8))
+    v_et_n = np.zeros((3,4))
 
     v_et = body2wheels(ang_diff, pos, vel, euler, steer_angs)
     
+    v_et1 = np.zeros((3,1))
+    v_et2 = np.zeros((3,1))
+    v_et3 = np.zeros((3,1))
+    v_et4 = np.zeros((3,1))
+
+    v_et1 = v_et[0:3, 0]
+    v_et2 = v_et[0:3, 1]
+    v_et3 = v_et[0:3, 2]
+    v_et4 = v_et[0:3, 3]
+
     v_et1_n = np.zeros((3,1))
     v_et2_n = np.zeros((3,1))
     v_et3_n = np.zeros((3,1))
     v_et4_n = np.zeros((3,1))
 
-    v_et1_n = v_et[0:3, 0]
-    v_et2_n = v_et[0:3, 1]
-    v_et3_n = v_et[0:3, 2]
-    v_et4_n = v_et[0:3, 3]
+    v_et1_n = v_et[0:3, 4]
+    v_et2_n = v_et[0:3, 5]
+    v_et3_n = v_et[0:3, 6]
+    v_et4_n = v_et[0:3, 7]
+
+    v_et_n = np.c_[v_et1_n, v_et2_n, v_et3_n, v_et4_n]
 
     alpha = np.zeros((4,1))
     sigma = np.zeros((4,1))
 
-    alpha = tire_sideslip_angle_calc(v_et, euler, steer_angs)
+    yaw_rate = yaw_rate_calc(ang_diff, pos, vel, euler)
+    alpha = tire_sideslip_angle_calc(v_et_n, euler, steer_angs, yaw_rate)
 
-    sigma[0] = longitudinal_tire_slip_calc(wheel_rots[0], v_et1_n[0])
-    sigma[1] = longitudinal_tire_slip_calc(wheel_rots[1], v_et2_n[0])
-    sigma[2] = longitudinal_tire_slip_calc(wheel_rots[2], v_et3_n[0])
-    sigma[3] = longitudinal_tire_slip_calc(wheel_rots[3], v_et4_n[0])
+    sigma[0] = longitudinal_tire_slip_calc(wheel_rots[0], v_et1[0])
+    sigma[1] = longitudinal_tire_slip_calc(wheel_rots[1], v_et2[0])
+    sigma[2] = longitudinal_tire_slip_calc(wheel_rots[2], v_et3[0])
+    sigma[3] = longitudinal_tire_slip_calc(wheel_rots[3], v_et4[0])
 
 
     # Convert your np variables (float) to custom variable types (float)

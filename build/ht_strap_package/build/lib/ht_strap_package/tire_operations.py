@@ -28,6 +28,31 @@ def wheel_lever_arm_calc(x_len, y_len, z_len):
 
     return r_wb
 
+def yaw_rate_calc(delta_ang, pos, vel, euler):
+    DELTA_T = config.delta_t
+
+    w_ib_b = np.zeros((3,1))
+    w_ib_n = np.zeros((3,1))
+    w_ie_n = np.zeros((3,1))
+    w_en_n = np.zeros((3,1))
+    w_nb_n = np.zeros((3,1))
+    w_in_n = np.zeros((3,1))
+
+    c_bn = np.zeros((3, 3))
+
+    w_ib_b = delta_ang * DELTA_T
+
+    c_bn = euler2cbn(euler)
+    w_ib_n = np.dot(c_bn , w_ib_b)
+    w_ie_n = earth_rate_calc(pos)
+    w_en_n = craft_rate_calc(vel, pos)
+    
+    w_in_n = w_ie_n + w_en_n
+    w_nb_n = w_ib_n - w_in_n
+
+    yaw_rate = w_nb_n[2]
+    
+    return yaw_rate
 
 
 def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
@@ -56,7 +81,7 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     v_et3_n = np.zeros((3,1))
     v_et4_n = np.zeros((3,1))
 
-    v_et = np.zeros((3,4))
+    v_et = np.zeros((3,8))
 
     c_bn = np.zeros((3, 3))
     c_nb = np.zeros((3, 3))
@@ -121,11 +146,11 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     v_et3_t3 =  np.dot(C_b_t3 , temp_vel_t3)
     v_et4_t4 =  np.dot(C_b_t4 , temp_vel_t4)
 
-    v_et = np.c_[v_et1_t1, v_et2_t2, v_et3_t3, v_et4_t4]
+    v_et = np.c_[v_et1_t1, v_et2_t2, v_et3_t3, v_et4_t4, v_et1_n, v_et2_n, v_et3_n, v_et4_n]
 
     return v_et
 
-def tire_sideslip_angle_calc(v_et, euler, steer_ip):
+def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
     DELTA_T = config.delta_t
     rh = config.vehicle_rear_half_m              
     fh = config.vehicle_front_half_m            
@@ -171,12 +196,12 @@ def tire_sideslip_angle_calc(v_et, euler, steer_ip):
     v_et3_n = np.zeros((3,1))
     v_et4_n = np.zeros((3,1))
 
-    v_et1_n = v_et[0:3 , 0]
-    v_et2_n = v_et[0:3 , 1]
-    v_et3_n = v_et[0:3 , 2]
-    v_et4_n = v_et[0:3 , 3]
+    v_et1_n = v_et_n[0:3 , 0]
+    v_et2_n = v_et_n[0:3 , 1]
+    v_et3_n = v_et_n[0:3 , 2]
+    v_et4_n = v_et_n[0:3 , 3]
 
-    yaw_rate = (v_et4_n[2] - v_et3_n[2])/wl
+    # yaw_rate = (v_et4_n[2] - v_et3_n[2])/wl
 
     alpha_t1 = euler_w1[2] - math.atan2(v_et1_n[1] + fh * yaw_rate, v_et1_n[0] - wl/2 * yaw_rate)
     alpha_t2 = euler_w2[2] - math.atan2(v_et2_n[1] + fh * yaw_rate, v_et2_n[0] + wl/2 * yaw_rate)

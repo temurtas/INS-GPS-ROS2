@@ -1,0 +1,4 @@
+Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
+Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
+Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/temur/INS-GPS-ROS2/build/ht_nav_variables
+Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/temur/INS-GPS-ROS2/build/ht_nav_variables
