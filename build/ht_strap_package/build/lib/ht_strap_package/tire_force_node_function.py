@@ -32,8 +32,8 @@ from ht_strap_package.tire_force_calc import tire_force_calc
 
 #base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
-out_data_path = base_path / "strap_data_tire_input.txt"
-strap_input_data_txt = open(out_data_path, 'w')
+# out_data_path = base_path / "strap_data_tire_input.txt"
+# strap_input_data_txt = open(out_data_path, 'w')
 
 out_data_path = base_path / "joint_states_tire_input.txt"
 joint_input_data_txt = open(out_data_path, 'w')
@@ -47,7 +47,7 @@ class TireForceCalculator(Node):
         super().__init__('tire_force_calc_node')
 
        # Initialise publishers
-        self.tire_pub = self.create_publisher(HtNavTireOut, 'ht_nav_tire_data_topic', qos_profile=qos_profile)
+        self.tire_pub = self.create_publisher(HtNavTireOut, 'ht_nav_tire_data', qos_profile=qos_profile)
         # Initialise subscribers
         self.imu_sub = self.create_subscription(
             Imu, 
@@ -57,7 +57,7 @@ class TireForceCalculator(Node):
 
         self.strap_sub = self.create_subscription(
             HtNavStrapOut,
-            'ht_nav_strap_w_kalman_topic',
+            'ht_nav_strap_data',
             self.strap_listener_callback,
             qos_profile=qos_profile)
 
@@ -148,7 +148,7 @@ class TireForceCalculator(Node):
         self.strap_data.euler = msg.euler
         self.strap_data.quaternion = msg.quaternion
 
-        print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_input_data_txt)
+        # print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_input_data_txt)
 
 
     def joint_listener_callback(self, msg):

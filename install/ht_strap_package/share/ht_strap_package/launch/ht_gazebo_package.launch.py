@@ -45,17 +45,17 @@ def generate_launch_description():
         executable = 'pseudo_controller',
     )
 
-    gps_talker_node = Node(
-        package = 'ht_strap_package',
-        name = 'gps_data_converter_node',
-        executable = 'gps_data_converter_node',
-    )
+    # gps_talker_node = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'gps_data_converter_node',
+    #     executable = 'gps_data_converter_node',
+    # )
 
-    ideal_gps_talker_node = Node(
-        package = 'ht_strap_package',
-        name = 'ideal_gps_data_converter_node',
-        executable = 'ideal_gps_data_converter_node',
-    )
+    # ideal_gps_talker_node = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'ideal_gps_data_converter_node',
+    #     executable = 'ideal_gps_data_converter_node',
+    # )
 
 
     strap_kalman_ps_node = Node(
@@ -65,17 +65,17 @@ def generate_launch_description():
         parameters = [config]
     )
 
-    talker_node = Node(
-        package = 'ht_strap_package',
-        name = 'imu_data_converter_node',
-        executable = 'imu_data_converter_node',
-    )
+    # talker_node = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'imu_data_converter_node',
+    #     executable = 'imu_data_converter_node',
+    # )
 
-    talker_ideal_node = Node(
-        package = 'ht_strap_package',
-        name = 'imu_data_ideal_converter_node',
-        executable = 'imu_data_ideal_converter_node',
-    )
+    # talker_ideal_node = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'imu_data_ideal_converter_node',
+    #     executable = 'imu_data_ideal_converter_node',
+    # )
 
     strap_ideal_node =  Node(
         package = 'ht_strap_package',
@@ -83,10 +83,10 @@ def generate_launch_description():
         executable = 'strap_ideal_node',
     )
 
-    joint_listener_node = Node(
+    robot_state_listener = Node(
         package = 'ht_strap_package',
-        name = 'joint_listener_node',
-        executable = 'joint_listener_node'
+        name = 'robot_state_listener',
+        executable = 'robot_state_listener'
         )
 
     tire_force_calc_node = Node(
@@ -99,12 +99,12 @@ def generate_launch_description():
     ld.add_action(gazebo)
     ld.add_action(teleop)
     ld.add_action(listener_node)
-    ld.add_action(gps_talker_node)
-    ld.add_action(ideal_gps_talker_node)
+    # ld.add_action(gps_talker_node)
+    # ld.add_action(ideal_gps_talker_node)
     ld.add_action(strap_kalman_ps_node)
-    ld.add_action(talker_node)
-    ld.add_action(talker_ideal_node)
-    ld.add_action(joint_listener_node)
+    # ld.add_action(talker_node)
+    # ld.add_action(talker_ideal_node)
+    ld.add_action(robot_state_listener)
     ld.add_action(tire_force_calc_node)
     ld.add_action(strap_ideal_node)
 

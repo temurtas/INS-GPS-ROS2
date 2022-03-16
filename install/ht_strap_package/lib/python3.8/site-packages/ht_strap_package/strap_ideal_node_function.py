@@ -22,6 +22,8 @@ from ht_nav_variables.msg import HtNavQuaternion
 from ht_nav_variables.msg import HtNavEuler
 from ht_nav_variables.msg import HtNavStrapOut
 
+from sensor_msgs.msg import Imu
+
 from ht_strap_package.kalman_operations import f_matrix_construct, q_matrix_construct, p_update, kalman_update, p0_matrix_construct
 from ht_strap_package.strapdown import strapdown
 from ht_strap_package.strap_operations import euler2quaternion, quaternion2euler, quaternion_normalize 
@@ -33,6 +35,7 @@ from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
 from ht_strap_package.config import DEG2RAD
 from ht_strap_package.config import kalman_prop_const 
+from ht_strap_package.config import delta_t
 
 base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 #kks_data_path = base_path2 / "kks_veri.txt"
@@ -40,6 +43,9 @@ base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/ver
 
 strap_data_ins_gps_mid_txt = base_path2 / "strap_data_ideal_gazebo.txt"
 strap_data_gazebo_ros_txt = open(strap_data_ins_gps_mid_txt, 'w')
+
+imu_data_path = base_path2 / "imu_data_ideal_gazebo.txt"
+imu_data_gazebo_txt = open(imu_data_path, 'w')
 
 
 class IdealStrapNode(Node):
@@ -51,9 +57,10 @@ class IdealStrapNode(Node):
         super().__init__('ins_gps_node')
 
         # Initialise publishers
-        self.strap_ideal_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_data_ideal_topic', qos_profile=qos_profile)
+        self.strap_ideal_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_data_ideal', qos_profile=qos_profile)
         # Initialise subscribers
-        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_ideal_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
+        # self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_ideal_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
+        self.strap_imu_sub = self.create_subscription(Imu, 'kobra_mk5/imu_data_ideal', self.sub_cb_imu_data, qos_profile=qos_profile)
 
         self.strap_sayac = 0
         self.zaman_ref = 0.0
@@ -90,8 +97,16 @@ class IdealStrapNode(Node):
     def sub_cb_imu_data(self, msg):
         #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
         
-        self.imu_data.vel_diff = msg.vel_diff
-        self.imu_data.ang_diff = msg.ang_diff
+        # self.imu_data.vel_diff = msg.vel_diff
+        # self.imu_data.ang_diff = msg.ang_diff
+
+        self.imu_data.vel_diff.x = -msg.linear_acceleration.y * delta_t 
+        self.imu_data.vel_diff.y = -msg.linear_acceleration.x * delta_t
+        self.imu_data.vel_diff.z = -msg.linear_acceleration.z * delta_t
+
+        self.imu_data.ang_diff.x = -msg.angular_velocity.y * delta_t
+        self.imu_data.ang_diff.y = -msg.angular_velocity.x * delta_t
+        self.imu_data.ang_diff.z = -msg.angular_velocity.z * delta_t
 
         self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)
 
@@ -106,6 +121,11 @@ class IdealStrapNode(Node):
         self.strap_sayac = self.strap_sayac + 1
 
         self.strap_pub_func(msg_pb)
+
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+
 
 
     def strap_pub_func(self,msg):

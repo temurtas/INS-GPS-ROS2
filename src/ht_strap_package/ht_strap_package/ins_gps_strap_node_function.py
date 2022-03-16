@@ -15,6 +15,8 @@ from std_msgs.msg import Float64
 from visualization_msgs.msg import Marker
 from builtin_interfaces.msg import Duration
 from std_msgs.msg import String
+from sensor_msgs.msg import Imu
+from sensor_msgs.msg import NavSatFix
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavImuData
 from ht_nav_variables.msg import HtNavGpsData
@@ -33,16 +35,20 @@ from ht_strap_package.config import base_path
 from ht_strap_package.config import buffer_size
 from ht_strap_package.config import DEG2RAD
 from ht_strap_package.config import kalman_prop_const 
+from ht_strap_package.config import delta_t
 
-base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
-#kks_data_path = base_path2 / "kks_veri.txt"
-
-
+base_path2 = base_path 
 strap_data_ins_gps_mid_txt = base_path2 / "strap_data_gazebo.txt"
 strap_data_gazebo_ros_txt = open(strap_data_ins_gps_mid_txt, 'w')
 
 ros_gazebo_kalman_out =  base_path2 / "kalman_out_gazebo.txt"
 out_data_strap_kalman_ros_txt = open(ros_gazebo_kalman_out, 'w')
+
+imu_data_path = base_path2 / "imu_data_gazebo.txt"
+imu_data_gazebo_txt = open(imu_data_path, 'w')
+
+gps_data_path = base_path2 / "gps_data_gazebo.txt"
+gps_data_gazebo_txt = open(gps_data_path, 'w')
 
 class INSGPSNode(Node):
 
@@ -82,11 +88,13 @@ class INSGPSNode(Node):
         self.sigma_bgd = float(self.get_parameter("sigma_bgd").value)
 
         # Initialise publishers
-        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_ins_gps_data_topic', qos_profile=qos_profile)
-        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_w_kalman_topic', qos_profile=qos_profile)
+        self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_kalman_out', qos_profile=qos_profile)
+        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_data', qos_profile=qos_profile)
         # Initialise subscribers
-        self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, qos_profile=qos_profile)
-        self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
+        # self.gps_sub = self.create_subscription(HtNavGpsData, 'ht_nav_gps_data_topic', self.sub_cb_gps_data, qos_profile=qos_profile)
+        # self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
+        self.gps_sub = self.create_subscription(NavSatFix, 'kobra_mk5/gps_data', self.sub_cb_gps_data, qos_profile=qos_profile)
+        self.strap_imu_sub = self.create_subscription(Imu, 'kobra_mk5/imu_data', self.sub_cb_imu_data, qos_profile=qos_profile)
 
         self.strap_sayac = 0
         self.kalman_sayac = 0
@@ -162,8 +170,16 @@ class INSGPSNode(Node):
     def sub_cb_imu_data(self, msg):
         #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
         
-        self.imu_data.vel_diff = msg.vel_diff
-        self.imu_data.ang_diff = msg.ang_diff
+        # self.imu_data.vel_diff = msg.vel_diff
+        # self.imu_data.ang_diff = msg.ang_diff
+
+        self.imu_data.vel_diff.x = -msg.linear_acceleration.y * delta_t 
+        self.imu_data.vel_diff.y = -msg.linear_acceleration.x * delta_t
+        self.imu_data.vel_diff.z = -msg.linear_acceleration.z * delta_t
+
+        self.imu_data.ang_diff.x = -msg.angular_velocity.y * delta_t
+        self.imu_data.ang_diff.y = -msg.angular_velocity.x * delta_t
+        self.imu_data.ang_diff.z = -msg.angular_velocity.z * delta_t
 
         self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)
 
@@ -181,11 +197,24 @@ class INSGPSNode(Node):
         self.strap_sayac = self.strap_sayac + 1
 
         self.strap_pub_func(msg_pb)
+        
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+
 
     def sub_cb_gps_data(self, msg):
-        self.gps_data.gps_pos = msg.gps_pos
-        self.gps_data.gps_vel = msg.gps_vel
+        # self.gps_data.gps_pos = msg.gps_pos
+        # self.gps_data.gps_vel = msg.gps_vel
         
+        self.gps_data.gps_pos.x = msg.latitude * DEG2RAD
+        self.gps_data.gps_pos.y = msg.longitude * DEG2RAD
+        self.gps_data.gps_pos.z = msg.altitude
+
+        self.gps_data.gps_vel.x = 0.0
+        self.gps_data.gps_vel.y = 0.0
+        self.gps_data.gps_vel.z = 0.0
+
         #print(str(self.gps_data.gps_pos.x), str(self.gps_data.gps_pos.y), str(self.gps_data.gps_pos.z), str(self.gps_data.gps_vel.x), str(self.gps_data.gps_vel.y), str(self.gps_data.gps_vel.z), sep='\t', file=deneme_txt_1)
 
         self.node_kalman_update()
@@ -214,6 +243,11 @@ class INSGPSNode(Node):
 
         self.x_k = np.zeros((15,1))
         self.kalman_pub_func(msg_pb)
+
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(self.gps_data.gps_pos.x), str(self.gps_data.gps_pos.y), str(self.gps_data.gps_pos.z), str(self.gps_data.gps_vel.x), str(self.gps_data.gps_vel.y), str(self.gps_data.gps_vel.z), sep='\t', file=gps_data_gazebo_txt)
+
 
     def kalman_pub_func(self,msg):
         #self.get_logger().info('I want to publish Kalman Out')
