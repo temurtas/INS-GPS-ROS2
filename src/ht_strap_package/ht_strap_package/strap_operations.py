@@ -221,8 +221,10 @@ def quaternion_update(quaternion_old, ang_diff, old_pos, old_vel):
     quaternion_2[2] = temp_2[1]
     quaternion_2[3] = temp_2[2]
 
-    quaternion_1[0] = 1
-    temp_1 = 0.5 * ang_diff_temp
+    att_inc_norm = math.sqrt ( ang_diff_temp[0]*ang_diff_temp[0] + ang_diff_temp[1]*ang_diff_temp[1] + ang_diff_temp[2]*ang_diff_temp[2])
+
+    quaternion_1[0] = math.cos(att_inc_norm * 0.5)
+    temp_1 = (math.sin(att_inc_norm * 0.5)) / (att_inc_norm) * ang_diff_temp
     quaternion_1[1] = temp_1[0]
     quaternion_1[2] = temp_1[1]
     quaternion_1[3] = temp_1[2]

@@ -27,9 +27,9 @@ from ht_strap_package.config import buffer_size
 from ht_strap_package.config import imu_pub_freq
 from ht_strap_package.config import delta_t
 
-imu_data_path = base_path / "imu_data_ideal_gazebo.txt"
+# imu_data_path = base_path / "imu_data_ideal_gazebo.txt"
 
-imu_data_gazebo_txt = open(imu_data_path, 'w')
+# imu_data_gazebo_txt = open(imu_data_path, 'w')
 
 class IMUDataIdealConverter(Node):
 
@@ -70,7 +70,7 @@ class IMUDataIdealConverter(Node):
         #self.get_logger().info('I publish x vel_diff as: "%f"' % msg.vel_diff.x)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(str(self.zaman_ref), str(msg.ang_diff.x), str(msg.ang_diff.y), str(msg.ang_diff.z), str(msg.vel_diff.x), str(msg.vel_diff.y), str(msg.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+        # print(str(self.zaman_ref), str(msg.ang_diff.x), str(msg.ang_diff.y), str(msg.ang_diff.z), str(msg.vel_diff.x), str(msg.vel_diff.y), str(msg.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
  
 
 

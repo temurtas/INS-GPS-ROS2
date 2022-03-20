@@ -26,6 +26,7 @@ ht_strap_package/pseudo_controller_function.py
 ht_strap_package/robot_state_listener_function.py
 ht_strap_package/strap_ideal_node_function.py
 ht_strap_package/strap_node_function.py
+ht_strap_package/strap_onlyins_node_function.py
 ht_strap_package/strap_operations.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py

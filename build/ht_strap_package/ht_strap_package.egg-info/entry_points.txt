@@ -13,6 +13,7 @@ robot_state_listener = ht_strap_package.robot_state_listener_function:main
 strap_ideal_node = ht_strap_package.strap_ideal_node_function:main
 strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main
 strap_node = ht_strap_package.strap_node_function:main
+strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main
 strap_w_kalman_node = ht_strap_package.strap_with_kalman_node_function:main
 teleop_controller = ht_strap_package.teleop_controller:main
 tire_force_calc_node = ht_strap_package.tire_force_node_function:main

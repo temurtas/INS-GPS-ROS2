@@ -83,6 +83,12 @@ def generate_launch_description():
         executable = 'strap_ideal_node',
     )
 
+    strap_onlyins_node =  Node(
+        package = 'ht_strap_package',
+        name = 'strap_onlyins_node',
+        executable = 'strap_onlyins_node',
+    )
+    
     robot_state_listener = Node(
         package = 'ht_strap_package',
         name = 'robot_state_listener',
@@ -107,5 +113,6 @@ def generate_launch_description():
     ld.add_action(robot_state_listener)
     ld.add_action(tire_force_calc_node)
     ld.add_action(strap_ideal_node)
+    ld.add_action(strap_onlyins_node)
 
     return ld

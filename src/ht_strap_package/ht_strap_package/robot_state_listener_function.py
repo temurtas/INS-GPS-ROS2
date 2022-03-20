@@ -41,8 +41,8 @@ from ht_strap_package.config import delta_t
 gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
 gps_data_gazebo_txt = open(gps_data_path, 'w')
 
-out_data_ideal_path = base_path / "strap_data_ideal_gazebo.txt"
-out_data_ideal_txt = open(out_data_ideal_path, 'w')
+# out_data_ideal_path = base_path / "strap_data_ideal_gazebo.txt"
+# out_data_ideal_txt = open(out_data_ideal_path, 'w')
 
 class RobotStateListener(Node):
 
@@ -61,6 +61,12 @@ class RobotStateListener(Node):
             self.gps_sub_cb,
             qos_profile=qos_profile)
         
+        self.strap_ideal_subscription = self.create_subscription(
+            HtNavStrapOut,
+            'ht_nav_strap_data_onlyins',
+            self.onlyins_listener_callback,
+            qos_profile=qos_profile)
+            
         self.strap_ideal_subscription = self.create_subscription(
             HtNavStrapOut,
             'ht_nav_strap_data_ideal',
@@ -119,7 +125,14 @@ class RobotStateListener(Node):
         #self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_ideal_txt)
+        # print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_ideal_txt)
+
+    def onlyins_listener_callback(self, msg):
+        #self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        # print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=out_data_ideal_txt)
+
 
     def sub_cb_imu_data(self, msg):
         self.imu_data.vel_diff.x = -msg.linear_acceleration.y * delta_t 

@@ -1,5 +1,6 @@
 <sdf version='1.7'>
   <world name='default'>
+    
     <gui fullscreen='0'>
       <plugin name='keyboard' filename='libKeyboardGUIPlugin.so'/>
       <camera name='user_camera'>
@@ -15,6 +16,15 @@
       <pose>0 0 0 0 0 0</pose>
       <uri>model://kobra_mk5</uri>
     </include>
+    
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>NED</world_frame_orientation> 
+      <latitude_deg>39.8904</latitude_deg>
+      <longitude_deg>32.7815</longitude_deg>
+      <elevation>934</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
 
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
@@ -89,13 +99,6 @@
       <device>default</device>
     </audio>
     <wind/>
-    <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>39.8904</latitude_deg>
-      <longitude_deg>32.7815</longitude_deg>
-      <elevation>934</elevation>
-      <heading_deg>0</heading_deg>
-    </spherical_coordinates>
     <model name='Gas Station'>
       <static>1</static>
       <link name='link'>
@@ -958,82 +961,7 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='kobra_mk5'>
-        <pose>0.306591 -0.368903 0.011641 -2e-06 -0 -0.116657</pose>
-        <scale>1 1 1</scale>
-        <link name='camera_link'>
-          <pose>0.265854 -0.716521 1.51164 0 -2e-06 -1.68745</pose>
-          <velocity>8e-06 7e-06 2.2e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-4e-06 0.000494 3.9e-05 0.00024 0.000433 -0.000279</acceleration>
-          <wrench>-4e-06 0.000494 3.9e-05 0 -0 0</wrench>
-        </link>
-        <link name='chassis'>
-          <pose>0.306591 -0.368903 0.011641 -2e-06 -0 -0.116657</pose>
-          <velocity>5e-06 3e-06 2.1e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-0.00042 0.000734 5.4e-05 0.000304 0.000522 -0.000275</acceleration>
-          <wrench>-0.55663 0.973389 0.071384 0 -0 0</wrench>
-        </link>
-        <link name='front_left_wheel'>
-          <pose>0.897312 -1.85778 0.311646 2.8701 1e-06 -0.116657</pose>
-          <velocity>9e-06 6e-06 3.1e-05 -2e-05 2.7e-05 0.000171</velocity>
-          <acceleration>-8.8e-05 0.000241 -0.000601 -0.000777 -0.000266 0.082452</acceleration>
-          <wrench>-0.000969 0.002651 -0.006615 0 -0 0</wrench>
-        </link>
-        <link name='front_right_wheel'>
-          <pose>-0.612357 -1.68086 0.311646 0.521217 1e-06 -0.116657</pose>
-          <velocity>8e-06 2e-06 3.2e-05 -7e-06 2.5e-05 0.000167</velocity>
-          <acceleration>-7.7e-05 0.000503 0.000226 -0.001604 -0.000308 0.080302</acceleration>
-          <wrench>-0.000846 0.005528 0.002486 0 -0 0</wrench>
-        </link>
-        <link name='gps_link'>
-          <pose>0.306591 -0.368903 0.01164 -2e-06 -0 -0.116657</pose>
-          <velocity>5e-06 3e-06 2.1e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-0.000576 0.00085 0.00011 0.000232 0.000423 -0.000285</acceleration>
-          <wrench>-0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='gps_link_ideal'>
-          <pose>0.306591 -0.368903 0.01164 -2e-06 -0 -0.116657</pose>
-          <velocity>5e-06 3e-06 2.1e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-0.000576 0.00085 0.00011 0.000232 0.000423 -0.000285</acceleration>
-          <wrench>-0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='imu_link'>
-          <pose>0.306591 -0.368903 0.01164 -2e-06 -0 -0.116657</pose>
-          <velocity>5e-06 3e-06 2.1e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-0.000576 0.00085 0.00011 0.000232 0.000423 -0.000285</acceleration>
-          <wrench>-0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='imu_link_ideal'>
-          <pose>0.306591 -0.368903 0.01164 -2e-06 -0 -0.116657</pose>
-          <velocity>5e-06 3e-06 2.1e-05 -3e-06 1e-06 3e-06</velocity>
-          <acceleration>-0.000576 0.00085 0.00011 0.000232 0.000423 -0.000285</acceleration>
-          <wrench>-0 0 0 0 -0 0</wrench>
-        </link>
-        <link name='rear_axle'>
-          <pose>0.475362 1.07124 0.311642 -3e-06 -5e-06 -0.116657</pose>
-          <velocity>2e-06 4e-06 2e-05 4e-06 -5e-06 3e-06</velocity>
-          <acceleration>-2.5e-05 0.000708 0.000333 0.135608 -0.01534 -0.0002</acceleration>
-          <wrench>-0.000762 0.021249 0.009985 0 -0 0</wrench>
-        </link>
-        <link name='rear_left_wheel'>
-          <pose>1.25602 0.979757 0.311647 1.09699 -4e-06 -0.116657</pose>
-          <velocity>2e-06 7e-06 2.5e-05 -2e-05 2e-06 3e-06</velocity>
-          <acceleration>-1.5e-05 0.000552 0.000265 -0.001793 -0.000197 -0.0002</acceleration>
-          <wrench>-0.000167 0.006067 0.00292 0 -0 0</wrench>
-        </link>
-        <link name='rear_right_wheel'>
-          <pose>-0.305296 1.16273 0.311647 -0.285188 8e-06 -0.116657</pose>
-          <velocity>2e-06 3e-06 2.5e-05 -6e-06 3e-06 3e-06</velocity>
-          <acceleration>-3e-06 0.000715 0.000269 -0.002305 -0.000209 -0.000201</acceleration>
-          <wrench>-3.4e-05 0.007868 0.00296 0 -0 0</wrench>
-        </link>
-        <link name='steering_wheel'>
-          <pose>0.588815 -1.03414 0.999885 -1.3021 3.7e-05 -0.116647</pose>
-          <velocity>8e-06 7e-06 2.2e-05 4.7e-05 0.000431 0.000122</velocity>
-          <acceleration>-0.000308 0.000606 -0.000463 0.01969 0.166406 0.040068</acceleration>
-          <wrench>-0.000308 0.000606 -0.000463 0 -0 0</wrench>
-        </link>
-      </model>
+      
       <model name='law_office'>
         <pose>-7.241 171.814 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -5066,7 +4994,7 @@
               <name>FastFood/Diffuse</name>
             </script>
             <shader type='normal_map_tangent_space'>
-              <normal_map>FastFood_Normal.png</normal_map>
+              <normal_map>model://fast_food/materials/textures/FastFood_Normal.png</normal_map>
             </shader>
           </material>
         </visual>
@@ -5154,7 +5082,7 @@
               <name>House_1/Diffuse</name>
             </script>
             <shader type='normal_map_tangent_space'>
-              <normal_map>House_1_Normal.png</normal_map>
+              <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
             </shader>
           </material>
         </visual>
@@ -5593,7 +5521,7 @@
               <name>GasStation/Diffuse</name>
             </script>
             <shader type='normal_map_tangent_space'>
-              <normal_map>GasStation_Normal.png</normal_map>
+              <normal_map>model://gas_station/materials/textures/GasStation_Normal.png</normal_map>
             </shader>
           </material>
         </visual>
@@ -5938,7 +5866,7 @@
               <name>FastFood/Diffuse</name>
             </script>
             <shader type='normal_map_tangent_space'>
-              <normal_map>FastFood_Normal.png</normal_map>
+              <normal_map>model://fast_food/materials/textures/FastFood_Normal.png</normal_map>
             </shader>
           </material>
         </visual>
@@ -7190,7 +7118,7 @@
               <name>House_1/Diffuse</name>
             </script>
             <shader type='normal_map_tangent_space'>
-              <normal_map>House_1_Normal.png</normal_map>
+              <normal_map>model://house_1/materials/textures/House_1_Normal.png</normal_map>
             </shader>
           </material>
         </visual>

@@ -143,9 +143,12 @@ class INSGPSNode(Node):
         self.new_strap = HtNavStrapOut()
 
         # initialization 
-        self.old_strap.pos.x = 39.89044287479834 * DEG2RAD
-        self.old_strap.pos.y = 32.781467396951804 * DEG2RAD
-        self.old_strap.pos.z = 934.0
+        # self.old_strap.pos.x = 39.89044287479834 * DEG2RAD
+        # self.old_strap.pos.y = 32.781467396951804 * DEG2RAD
+        # self.old_strap.pos.z = 934.00
+        self.old_strap.pos.x = 0.696218877917194
+        self.old_strap.pos.y = 0.572145046188725
+        self.old_strap.pos.z = 934.011640024371
         self.old_strap.vel.x = 0.0
         self.old_strap.vel.y = 0.0
         self.old_strap.vel.z = 0.0

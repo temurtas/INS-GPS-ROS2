@@ -158,8 +158,8 @@ class TireForceCalculator(Node):
         
         self.joint_state.steering_angle.w1 = msg.position[0]
         self.joint_state.steering_angle.w2 = msg.position[1]
-        self.joint_state.steering_angle.w3 = msg.position[2]
-        self.joint_state.steering_angle.w4 = msg.position[3]
+        self.joint_state.steering_angle.w3 = 0.0 # msg.position[2]
+        self.joint_state.steering_angle.w4 = 0.0 # msg.position[3]
 
         self.joint_state.wheel_rotation.w1 = msg.velocity[0]
         self.joint_state.wheel_rotation.w2 = msg.velocity[1]

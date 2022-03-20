@@ -1,9 +1,12 @@
 # We need install numpy in order to import it
+from cmath import pi
 import numpy as np
 import math
 import ht_strap_package.config as config
 
 from ht_strap_package.strap_operations import euler2cbn, earth_rate_calc, craft_rate_calc, cbn2euler
+
+from ht_strap_package.config import base_path
 
 
 def steering2Cwb(steer_ang):
@@ -156,6 +159,16 @@ def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
     fh = config.vehicle_front_half_m            
     wl = config.vehicle_width_m         
 
+    # out_data_path = base_path / "debug_tire_lin_vel.txt"
+    # tire_lin_vel = open(out_data_path, 'a')
+
+    alpha_t = np.zeros((4, 1))
+
+    C_b_t1 = np.zeros((3, 3))
+    C_b_t2 = np.zeros((3, 3))
+    C_b_t3 = np.zeros((3, 3))
+    C_b_t4 = np.zeros((3, 3))
+
     C_t1_b = np.zeros((3, 3))
     C_t2_b = np.zeros((3, 3))
     C_t3_b = np.zeros((3, 3))
@@ -175,14 +188,24 @@ def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
     C_t2_b = steering2Cwb(steer_ip[1])
     C_t3_b = steering2Cwb(steer_ip[2])
     C_t4_b = steering2Cwb(steer_ip[3])    
+
+    C_b_t1 = C_t1_b.transpose()
+    C_b_t2 = C_t2_b.transpose()
+    C_b_t3 = C_t3_b.transpose()
+    C_b_t4 = C_t4_b.transpose()
     
     C_b_n = np.zeros((3, 3))
     C_b_n = euler2cbn(euler)
 
-    C_t1_n = np.dot(C_b_n, C_t1_b)
-    C_t2_n = np.dot(C_b_n, C_t2_b)
-    C_t3_n = np.dot(C_b_n, C_t3_b)
-    C_t4_n = np.dot(C_b_n, C_t4_b)
+    # C_t1_n = np.dot(C_b_n, C_t1_b)
+    # C_t2_n = np.dot(C_b_n, C_t2_b)
+    # C_t3_n = np.dot(C_b_n, C_t3_b)
+    # C_t4_n = np.dot(C_b_n, C_t4_b)
+
+    C_t1_n = np.dot(C_b_n, C_b_t1)
+    C_t2_n = np.dot(C_b_n, C_b_t2)
+    C_t3_n = np.dot(C_b_n, C_b_t3)
+    C_t4_n = np.dot(C_b_n, C_b_t4)
 
     euler_w1 =  cbn2euler(C_t1_n)
     euler_w2 =  cbn2euler(C_t2_n)
@@ -203,12 +226,23 @@ def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
 
     # yaw_rate = (v_et4_n[2] - v_et3_n[2])/wl
 
-    alpha_t1 = euler_w1[2] - math.atan2(v_et1_n[1] + fh * yaw_rate, v_et1_n[0] - wl/2 * yaw_rate)
-    alpha_t2 = euler_w2[2] - math.atan2(v_et2_n[1] + fh * yaw_rate, v_et2_n[0] + wl/2 * yaw_rate)
-    alpha_t3 = euler_w3[2] - math.atan2(v_et3_n[1] + rh * yaw_rate, v_et3_n[0] - wl/2 * yaw_rate)
-    alpha_t4 = euler_w4[2] - math.atan2(v_et4_n[1] + rh * yaw_rate, v_et4_n[0] + wl/2 * yaw_rate)
+    alpha_t[0] = euler_w1[2, 0] - math.atan2(v_et1_n[1] + fh * yaw_rate, v_et1_n[0] - wl/2 * yaw_rate)
+    alpha_t[1] = euler_w2[2, 0] - math.atan2(v_et2_n[1] + fh * yaw_rate, v_et2_n[0] + wl/2 * yaw_rate)
+    alpha_t[2] = euler_w3[2, 0] - math.atan2(v_et3_n[1] + rh * yaw_rate, v_et3_n[0] - wl/2 * yaw_rate)
+    alpha_t[3] = euler_w4[2, 0] - math.atan2(v_et4_n[1] + rh * yaw_rate, v_et4_n[0] + wl/2 * yaw_rate)
 
-    alpha = np.concatenate((alpha_t1, alpha_t2, alpha_t3, alpha_t4), axis = 0)
+    # print(str(v_et1_n[0]), str(v_et2_n[0]), str(v_et3_n[0]), str(v_et4_n[0]), str(v_et1_n[1]), str(v_et2_n[1]), str(v_et3_n[1]), str(v_et4_n[1]), sep='\t', file=tire_lin_vel)
+    # print(str(euler_w1[2,0]), str(euler_w2[2,0]), str(euler_w3[2,0]), str(euler_w4[2,0]), str(C_b_t1[0,0]), str(C_b_t1[1,1]), str(C_b_t1[2,2]), str(v_et4_n[1]), sep='\t', file=tire_lin_vel)
+
+
+    for x in range(4):
+        if(alpha_t[x] > 6.0):
+            alpha_t[x] = alpha_t[x] - 2*pi
+        elif(alpha_t[x] < -6.0):
+            alpha_t[x] = alpha_t[x] + 2*pi
+
+
+    alpha = np.concatenate((alpha_t[0], alpha_t[1], alpha_t[2], alpha_t[3]), axis = 0)
 
     return alpha
 

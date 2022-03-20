@@ -47,6 +47,8 @@ strap_data_gazebo_ros_txt = open(strap_data_ins_gps_mid_txt, 'w')
 imu_data_path = base_path2 / "imu_data_ideal_gazebo.txt"
 imu_data_gazebo_txt = open(imu_data_path, 'w')
 
+# imu_data_pp_path = base_path2 / "imu_data_pp_ideal_gazebo.txt"
+# imu_data_pp_gazebo_txt = open(imu_data_pp_path, 'w')
 
 class IdealStrapNode(Node):
 
@@ -61,6 +63,12 @@ class IdealStrapNode(Node):
         # Initialise subscribers
         # self.strap_imu_sub = self.create_subscription(HtNavImuData, 'ht_nav_imu_data_ideal_topic', self.sub_cb_imu_data, qos_profile=qos_profile)
         self.strap_imu_sub = self.create_subscription(Imu, 'kobra_mk5/imu_data_ideal', self.sub_cb_imu_data, qos_profile=qos_profile)
+        # self.strap_imu_sub_pp = self.create_subscription(Imu, 'kobra_mk5/imu_data_ideal_pp', self.sub_cb_imu_data_pp, qos_profile=qos_profile)
+
+
+        # Iniitalize variables
+        self.strap_imu_sub  # prevent unused variable warning
+        # self.strap_imu_sub_pp  # prevent unused variable warning
 
         self.strap_sayac = 0
         self.zaman_ref = 0.0
@@ -74,13 +82,24 @@ class IdealStrapNode(Node):
         self.imu_data.ang_diff.y = 0.0
         self.imu_data.ang_diff.z = 0.0
 
+        # self.imu_data_pp = HtNavImuData()
+        # self.imu_data_pp.vel_diff.x = 0.0
+        # self.imu_data_pp.vel_diff.y = 0.0
+        # self.imu_data_pp.vel_diff.z = 0.0
+        # self.imu_data_pp.ang_diff.x = 0.0
+        # self.imu_data_pp.ang_diff.y = 0.0
+        # self.imu_data_pp.ang_diff.z = 0.0
+
         self.old_strap = HtNavStrapOut()
         self.new_strap = HtNavStrapOut()
 
         # initialization 
-        self.old_strap.pos.x = 39.89044287479834 * DEG2RAD
-        self.old_strap.pos.y = 32.781467396951804 * DEG2RAD
-        self.old_strap.pos.z = 934.0
+        # self.old_strap.pos.x = 39.89044287479834 * DEG2RAD
+        # self.old_strap.pos.y = 32.781467396951804 * DEG2RAD
+        # self.old_strap.pos.z = 934.00
+        self.old_strap.pos.x = 0.696218877917194
+        self.old_strap.pos.y = 0.572145046188725
+        self.old_strap.pos.z = 934.011640024371
         self.old_strap.vel.x = 0.0
         self.old_strap.vel.y = 0.0
         self.old_strap.vel.z = 0.0
@@ -126,6 +145,38 @@ class IdealStrapNode(Node):
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
 
+
+    # def sub_cb_imu_data_pp(self, msg):
+    #     #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
+        
+    #     # self.imu_data.vel_diff = msg.vel_diff
+    #     # self.imu_data.ang_diff = msg.ang_diff
+
+    #     self.imu_data_pp.vel_diff.x = -msg.linear_acceleration.y * delta_t 
+    #     self.imu_data_pp.vel_diff.y = -msg.linear_acceleration.x * delta_t
+    #     self.imu_data_pp.vel_diff.z = -msg.linear_acceleration.z * delta_t
+
+    #     self.imu_data_pp.ang_diff.x = -msg.angular_velocity.y * delta_t
+    #     self.imu_data_pp.ang_diff.y = -msg.angular_velocity.x * delta_t
+    #     self.imu_data_pp.ang_diff.z = -msg.angular_velocity.z * delta_t
+
+    #     # self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)
+
+    #     # self.old_strap = self.new_strap
+
+    #     # msg_pb = HtNavStrapOut()
+    #     # msg_pb.pos = self.new_strap.pos
+    #     # msg_pb.vel = self.new_strap.vel
+    #     # msg_pb.euler = self.new_strap.euler
+    #     # msg_pb.quaternion = self.new_strap.quaternion
+
+    #     self.strap_sayac = self.strap_sayac + 1
+
+    #     # self.strap_pub_func(msg_pb)
+
+    #     self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+    #     self.zaman_ref = self.zaman_ref - self.zaman_ilk
+    #     print(str(self.zaman_ref), str(self.imu_data_pp.ang_diff.x), str(self.imu_data_pp.ang_diff.y), str(self.imu_data_pp.ang_diff.z), str(self.imu_data_pp.vel_diff.x), str(self.imu_data_pp.vel_diff.y), str(self.imu_data_pp.vel_diff.z), sep='\t', file=imu_data_pp_gazebo_txt)
 
 
     def strap_pub_func(self,msg):
