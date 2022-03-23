@@ -81,6 +81,10 @@ def earth_rate_calc(pos):
     w_ie_n[1] = 0
     w_ie_n[2] = - w_ie * math.sin(lh)
 
+    # w_ie_n[0] = 0.0
+    # w_ie_n[1] = 0.0
+    # w_ie_n[2] = 0.0    
+
     return w_ie_n
 
 
