@@ -23,11 +23,13 @@ ht_strap_package/kalman_operations.py
 ht_strap_package/main.py
 ht_strap_package/my_teleop.py
 ht_strap_package/pseudo_controller_function.py
+ht_strap_package/robot_listener_function.py
 ht_strap_package/robot_state_listener_function.py
 ht_strap_package/strap_ideal_node_function.py
 ht_strap_package/strap_node_function.py
 ht_strap_package/strap_onlyins_node_function.py
 ht_strap_package/strap_operations.py
+ht_strap_package/strap_operations_inertial.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py

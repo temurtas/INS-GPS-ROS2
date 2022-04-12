@@ -95,22 +95,30 @@ def generate_launch_description():
         executable = 'robot_state_listener'
         )
 
+    robot_listener = Node(
+        package = 'ht_strap_package',
+        name = 'robot_listener',
+        executable = 'robot_listener'
+        )
+
     tire_force_calc_node = Node(
         package = 'ht_strap_package',
         name = 'tire_force_calc_node',
         executable = 'tire_force_calc_node'
     )
 
-    #ld.add_action(bagfile)
+    # ld.add_action(talker_node)
+    # ld.add_action(talker_ideal_node)
+    # ld.add_action(bagfile)
+    # ld.add_action(gps_talker_node)
+    # ld.add_action(ideal_gps_talker_node)
+    
     ld.add_action(gazebo)
     ld.add_action(teleop)
     ld.add_action(listener_node)
-    # ld.add_action(gps_talker_node)
-    # ld.add_action(ideal_gps_talker_node)
     ld.add_action(strap_kalman_ps_node)
-    # ld.add_action(talker_node)
-    # ld.add_action(talker_ideal_node)
     ld.add_action(robot_state_listener)
+    ld.add_action(robot_listener)
     ld.add_action(tire_force_calc_node)
     ld.add_action(strap_ideal_node)
     ld.add_action(strap_onlyins_node)

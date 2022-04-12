@@ -44,9 +44,9 @@ DEG2RAD = 0.0174532925199433
 RAD2DEG = 57.2957795130823
 
 
-vehicle_rear_half_m   = 1.41  # m      
-vehicle_front_half_m  = 1.45  # m         
-vehicle_width_m       = 1.52  # m
+vehicle_rear_half_m   = 1.144 # 1.41 - 0.266  # m      
+vehicle_front_half_m  = 1.716 # 1.45 + 0.266  # m         
+vehicle_width_m       = 1.572 # m
 R_0                   = 0.3   # m
 vehicle_mass          = 1326.0 # kg 
 

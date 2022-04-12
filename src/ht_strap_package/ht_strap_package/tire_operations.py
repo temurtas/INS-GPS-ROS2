@@ -4,7 +4,7 @@ import numpy as np
 import math
 import ht_strap_package.config as config
 
-from ht_strap_package.strap_operations import euler2cbn, earth_rate_calc, craft_rate_calc, cbn2euler
+from ht_strap_package.strap_operations import euler2cbn, earth_rate_calc, craft_rate_calc, cbn2euler, euler_rate_calc
 
 from ht_strap_package.config import base_path
 
@@ -40,25 +40,40 @@ def yaw_rate_calc(delta_ang, pos, vel, euler):
     w_en_n = np.zeros((3,1))
     w_nb_n = np.zeros((3,1))
     w_in_n = np.zeros((3,1))
+    w_nb_b = np.zeros((3,1))
+    w_in_b = np.zeros((3,1))
+    euler_rate = np.zeros((3,1))
 
     c_bn = np.zeros((3, 3))
 
-    w_ib_b = delta_ang * DELTA_T
+    w_ib_b = delta_ang / DELTA_T # rad/sec
 
     c_bn = euler2cbn(euler)
     w_ib_n = np.dot(c_bn , w_ib_b)
     w_ie_n = earth_rate_calc(pos)
     w_en_n = craft_rate_calc(vel, pos)
     
-    w_in_n = w_ie_n + w_en_n
+    w_in_n = w_en_n # w_ie_n + w_en_n
     w_nb_n = w_ib_n - w_in_n
 
-    yaw_rate = w_nb_n[2]
+    c_nb = np.transpose(c_bn)
+    w_in_b = np.dot(c_nb, w_in_n)
+
+    w_nb_b = w_ib_b - w_in_b
+
+    euler_rate = euler_rate_calc(euler, w_ib_b)
+    # euler_rate = euler_rate_calc(euler, w_nb_b)
+
+    yaw_rate = euler_rate[2]
     
     return yaw_rate
 
 
 def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
+
+    out_data_path = base_path / "debug_wheel_vel.txt"
+    wheel_vel = open(out_data_path, 'a')
+
     DELTA_T = config.delta_t
     rh = config.vehicle_rear_half_m              
     fh = config.vehicle_front_half_m            
@@ -114,7 +129,7 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     r_bt3_b = wheel_lever_arm_calc(-rh, -wl/2, 0)
     r_bt4_b = wheel_lever_arm_calc(-rh,  wl/2, 0)
 
-    w_ib_b = delta_ang * DELTA_T
+    w_ib_b = delta_ang / DELTA_T
 
     c_bn = euler2cbn(euler)
 
@@ -122,7 +137,7 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     
     w_ib_n = np.dot(c_bn , w_ib_b)
     w_ie_n = earth_rate_calc(pos)
-    w_eb_n = w_ib_n - w_ie_n
+    w_eb_n = w_ib_n # - w_ie_n
 
     r_bt1_n = np.dot(c_bn , r_bt1_b)
     r_bt2_n = np.dot(c_bn , r_bt2_b)
@@ -133,6 +148,13 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     temp_vel_t2 = np.cross(w_eb_n, r_bt2_n ,axis=0)
     temp_vel_t3 = np.cross(w_eb_n, r_bt3_n ,axis=0)
     temp_vel_t4 = np.cross(w_eb_n, r_bt4_n ,axis=0)
+
+    print(str(r_bt1_b[0,0]), str(r_bt1_b[1,0]), str(r_bt1_b[2,0]), str(r_bt2_b[0,0]), str(r_bt2_b[1,0]), str(r_bt2_b[2,0]), str(pos[0,0]), str(pos[1,0]), str(pos[2,0]), sep='\t', file=wheel_vel)
+    print(str(r_bt3_b[0,0]), str(r_bt3_b[1,0]), str(r_bt3_b[2,0]), str(r_bt4_b[0,0]), str(r_bt4_b[1,0]), str(r_bt4_b[2,0]), str(euler[0,0]), str(euler[1,0]), str(euler[2,0]), sep='\t', file=wheel_vel)
+    print(str(w_ib_b[0,0]), str(w_ib_b[1,0]), str(w_ib_b[2,0]), str(w_eb_n[0,0]), str(w_eb_n[1,0]), str(w_eb_n[2,0]), sep='\t', file=wheel_vel)
+    print(str(temp_vel_t1[0,0]), str(temp_vel_t1[1,0]), str(temp_vel_t1[2,0]), str(temp_vel_t2[0,0]), str(temp_vel_t2[1,0]), str(temp_vel_t2[2,0]), sep='\t', file=wheel_vel)
+    print(str(temp_vel_t3[0,0]), str(temp_vel_t3[1,0]), str(temp_vel_t3[2,0]), str(temp_vel_t4[0,0]), str(temp_vel_t4[1,0]), str(temp_vel_t4[2,0]), sep='\t', file=wheel_vel)
+    print(str(v_eb_n[0,0]), str(v_eb_n[1,0]), str(v_eb_n[2,0]), sep='\t', file=wheel_vel)
 
     v_et1_n = v_eb_n + temp_vel_t1
     v_et2_n = v_eb_n + temp_vel_t2
@@ -149,6 +171,11 @@ def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
     v_et3_t3 =  np.dot(C_b_t3 , temp_vel_t3)
     v_et4_t4 =  np.dot(C_b_t4 , temp_vel_t4)
 
+    print(str(v_et1_t1[0,0]), str(v_et1_t1[1,0]), str(v_et1_t1[2,0]), str(v_et2_t2[0,0]), str(v_et2_t2[1,0]), str(v_et2_t2[2,0]), \
+        str(v_et3_t3[0,0]), str(v_et3_t3[1,0]), str(v_et3_t3[2,0]), str(v_et4_t4[0,0]), str(v_et4_t4[1,0]), str(v_et4_t4[2,0]), \
+        str(v_et1_n[0,0]), str(v_et1_n[1,0]), str(v_et1_n[2,0]), str(v_et2_n[0,0]), str(v_et2_n[1,0]), str(v_et2_n[2,0]), \
+        str(v_et3_n[0,0]), str(v_et3_n[1,0]), str(v_et3_n[2,0]), str(v_et4_n[0,0]), str(v_et4_n[1,0]), str(v_et4_n[2,0]), sep='\t', file=wheel_vel)
+
     v_et = np.c_[v_et1_t1, v_et2_t2, v_et3_t3, v_et4_t4, v_et1_n, v_et2_n, v_et3_n, v_et4_n]
 
     return v_et
@@ -159,8 +186,8 @@ def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
     fh = config.vehicle_front_half_m            
     wl = config.vehicle_width_m         
 
-    # out_data_path = base_path / "debug_tire_lin_vel.txt"
-    # tire_lin_vel = open(out_data_path, 'a')
+    out_data_path = base_path / "debug_tire_lin_vel.txt"
+    tire_lin_vel = open(out_data_path, 'a')
 
     alpha_t = np.zeros((4, 1))
 
@@ -231,7 +258,12 @@ def tire_sideslip_angle_calc(v_et_n, euler, steer_ip, yaw_rate):
     alpha_t[2] = euler_w3[2, 0] - math.atan2(v_et3_n[1] + rh * yaw_rate, v_et3_n[0] - wl/2 * yaw_rate)
     alpha_t[3] = euler_w4[2, 0] - math.atan2(v_et4_n[1] + rh * yaw_rate, v_et4_n[0] + wl/2 * yaw_rate)
 
-    # print(str(v_et1_n[0]), str(v_et2_n[0]), str(v_et3_n[0]), str(v_et4_n[0]), str(v_et1_n[1]), str(v_et2_n[1]), str(v_et3_n[1]), str(v_et4_n[1]), sep='\t', file=tire_lin_vel)
+    print(str(steer_ip[0,0]), str(steer_ip[1,0]), str(steer_ip[2,0]), str(steer_ip[3,0]), str(euler[0,0]), str(euler[1,0]), str(euler[2,0]), sep='\t', file=tire_lin_vel)
+
+    print(str(v_et1_n[0]), str(v_et1_n[1]), str(v_et1_n[2]), str(v_et2_n[0]), str(v_et2_n[1]), str(v_et2_n[2]), \
+        str(v_et3_n[0]), str(v_et3_n[1]), str(v_et3_n[2]), str(v_et4_n[0]), str(v_et4_n[1]), str(v_et4_n[2]),  \
+        str(euler_w1[0,0]), str(euler_w1[1,0]), str(euler_w1[2,0]), str(euler_w2[0,0]), str(euler_w2[1,0]), str(euler_w2[2,0]), \
+        str(euler_w3[0,0]), str(euler_w3[1,0]), str(euler_w3[2,0]), str(euler_w4[0,0]), str(euler_w4[1,0]), str(euler_w4[2,0]), sep='\t', file=tire_lin_vel)
     # print(str(euler_w1[2,0]), str(euler_w2[2,0]), str(euler_w3[2,0]), str(euler_w4[2,0]), str(C_b_t1[0,0]), str(C_b_t1[1,1]), str(C_b_t1[2,2]), str(v_et4_n[1]), sep='\t', file=tire_lin_vel)
 
 

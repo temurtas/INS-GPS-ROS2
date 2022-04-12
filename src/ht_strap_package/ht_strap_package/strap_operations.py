@@ -298,3 +298,19 @@ def euler2cbn(euler_in):
     c_bn = c_nb.transpose()
     return c_bn
 
+def euler_rate_calc(euler, w_nb_b):
+    euler_rate = np.zeros((3,1))
+    temp_matrix = np.zeros((3, 3))
+    
+    temp_matrix[0, 0] = 1
+    temp_matrix[0, 1] = math.sin(euler[0]) * math.tan(euler[1])
+    temp_matrix[0, 2] = math.cos(euler[0]) * math.tan(euler[1])
+    temp_matrix[1, 1] = math.cos(euler[0])
+    temp_matrix[1, 2] = - math.sin(euler[0])
+    temp_matrix[2, 1] = math.sin(euler[0]) / math.cos(euler[1])
+    temp_matrix[2, 2] = math.cos(euler[0]) / math.cos(euler[1])
+
+    euler_rate = np.dot(temp_matrix, w_nb_b)
+
+    return euler_rate
+

@@ -9,6 +9,7 @@ ins_gps_node = ht_strap_package.ins_gps_node_function:main
 listener = ht_strap_package.subscriber_member_function:main
 my_teleop = ht_strap_package.my_teleop:main
 pseudo_controller = ht_strap_package.pseudo_controller_function:main
+robot_listener = ht_strap_package.robot_listener_function:main
 robot_state_listener = ht_strap_package.robot_state_listener_function:main
 strap_ideal_node = ht_strap_package.strap_ideal_node_function:main
 strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main
