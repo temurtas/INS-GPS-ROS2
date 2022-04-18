@@ -78,6 +78,7 @@ rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vect
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h: rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h: rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h: rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl
+rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h: rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C introspection for ROS interfaces"
 	/usr/bin/python3 /opt/ros/foxy/lib/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c --generator-arguments-file /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c__arguments.json
 
@@ -117,6 +118,9 @@ rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_stat
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_introspection_c.h
 
+rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_introspection_c.h
+
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c
 
@@ -155,6 +159,9 @@ rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_stat
 
 rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c
+
+rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c.o: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c
@@ -325,6 +332,19 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_types
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c -o CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c.s
 
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/flags.make
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c > CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.i
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c -o CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.s
+
 # Object files for target ht_nav_variables__rosidl_typesupport_introspection_c
 ht_nav_variables__rosidl_typesupport_introspection_c_OBJECTS = \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c.o" \
@@ -339,7 +359,8 @@ ht_nav_variables__rosidl_typesupport_introspection_c_OBJECTS = \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_deneme__type_support.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_state__type_support.c.o" \
-"CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c.o"
+"CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c.o" \
+"CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o"
 
 # External object files for target ht_nav_variables__rosidl_typesupport_introspection_c
 ht_nav_variables__rosidl_typesupport_introspection_c_EXTERNAL_OBJECTS =
@@ -357,13 +378,14 @@ libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_va
 libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.c.o
 libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_state__type_support.c.o
 libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c.o
+libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c.o
 libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/build.make
 libht_nav_variables__rosidl_typesupport_introspection_c.so: libht_nav_variables__rosidl_generator_c.so
 libht_nav_variables__rosidl_typesupport_introspection_c.so: /opt/ros/foxy/lib/librosidl_typesupport_introspection_c.so
 libht_nav_variables__rosidl_typesupport_introspection_c.so: /opt/ros/foxy/lib/librosidl_runtime_c.so
 libht_nav_variables__rosidl_typesupport_introspection_c.so: /opt/ros/foxy/lib/librcutils.so
 libht_nav_variables__rosidl_typesupport_introspection_c.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking C shared library libht_nav_variables__rosidl_typesupport_introspection_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C shared library libht_nav_variables__rosidl_typesupport_introspection_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -388,6 +410,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosi
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_introspection_c.h
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_state__rosidl_typesupport_introspection_c.h
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_introspection_c.h
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_introspection_c.h
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_euler__type_support.c
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_gps_data__type_support.c
@@ -401,6 +424,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosi
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.c
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_joint_state__type_support.c
 CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.c
+CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c
 	cd /home/temur/INS-GPS-ROS2/build/ht_nav_variables && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/temur/INS-GPS-ROS2/src/ht_nav_variables /home/temur/INS-GPS-ROS2/src/ht_nav_variables /home/temur/INS-GPS-ROS2/build/ht_nav_variables /home/temur/INS-GPS-ROS2/build/ht_nav_variables /home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/depend
 

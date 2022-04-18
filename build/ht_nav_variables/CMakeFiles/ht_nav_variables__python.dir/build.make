@@ -226,6 +226,19 @@ CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c -o CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.s
 
+CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o: CMakeFiles/ht_nav_variables__python.dir/flags.make
+CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c
+
+CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c > CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.i
+
+CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c -o CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.s
+
 # Object files for target ht_nav_variables__python
 ht_nav_variables__python_OBJECTS = \
 "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector_s.c.o" \
@@ -240,7 +253,8 @@ ht_nav_variables__python_OBJECTS = \
 "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_deneme_s.c.o" \
 "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c.o" \
 "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_joint_state_s.c.o" \
-"CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.o"
+"CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.o" \
+"CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o"
 
 # External object files for target ht_nav_variables__python
 ht_nav_variables__python_EXTERNAL_OBJECTS =
@@ -258,6 +272,7 @@ rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c.o
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_joint_state_s.c.o
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.o
+rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/build.make
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: libht_nav_variables__rosidl_generator_c.so
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: /usr/lib/x86_64-linux-gnu/libpython3.8.so
@@ -267,7 +282,7 @@ rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: /opt/ros/fo
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: /opt/ros/foxy/lib/librcpputils.so
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: /opt/ros/foxy/lib/librcutils.so
 rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so: CMakeFiles/ht_nav_variables__python.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C shared library rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking C shared library rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ht_nav_variables__python.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

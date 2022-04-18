@@ -41,6 +41,9 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__builder.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
+  "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
+  "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
+  "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
@@ -55,6 +58,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_out.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_tire_out.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vector3.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
+  "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_wheel_vector.hpp" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp"
   )
 

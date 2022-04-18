@@ -403,6 +403,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ht_nav_variables/msg" TYPE FILE FILES "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ht_nav_variables/msg" TYPE FILE FILES "/home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavErrorVector.msg")
 endif()
 
@@ -452,6 +456,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ht_nav_variables/msg" TYPE FILE FILES "/home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavTireOut.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ht_nav_variables/msg" TYPE FILE FILES "/home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavVehicleDebug.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

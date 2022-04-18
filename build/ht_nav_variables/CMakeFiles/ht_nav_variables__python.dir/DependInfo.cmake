@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.o"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vector3_s.c" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vector3_s.c.o"
+  "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o"
   "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c" "/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

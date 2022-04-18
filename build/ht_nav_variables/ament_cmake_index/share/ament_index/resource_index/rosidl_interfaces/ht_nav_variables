@@ -22,5 +22,7 @@ msg/HtNavTireOut.idl
 msg/HtNavTireOut.msg
 msg/HtNavVector3.idl
 msg/HtNavVector3.msg
+msg/HtNavVehicleDebug.idl
+msg/HtNavVehicleDebug.msg
 msg/HtNavWheelVector.idl
 msg/HtNavWheelVector.msg

@@ -10,4 +10,5 @@ from ht_nav_variables.msg._ht_nav_quaternion import HtNavQuaternion  # noqa: F40
 from ht_nav_variables.msg._ht_nav_strap_out import HtNavStrapOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_tire_out import HtNavTireOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_vector3 import HtNavVector3  # noqa: F401
+from ht_nav_variables.msg._ht_nav_vehicle_debug import HtNavVehicleDebug  # noqa: F401
 from ht_nav_variables.msg._ht_nav_wheel_vector import HtNavWheelVector  # noqa: F401

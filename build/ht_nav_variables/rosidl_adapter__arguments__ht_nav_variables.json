@@ -13,6 +13,7 @@
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavDeneme.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavWheelVector.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavJointState.msg",
-    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavTireOut.msg"
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavTireOut.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavVehicleDebug.msg"
   ]
 }

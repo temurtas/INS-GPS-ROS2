@@ -7,6 +7,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_point__struct.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__type_support.h
@@ -15,6 +16,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_gps_data__functions.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.h
@@ -26,6 +28,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__functions.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__type_support.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_point__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_euler__functions.c
@@ -53,6 +56,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_gps_data__type_support.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__type_support.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_wheel_vector.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_quaternion.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_strap_out.h
@@ -62,6 +66,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_gps_data.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/rosidl_generator_c__visibility_control.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_point.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_vehicle_debug.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_euler.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_joint_state.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_tire_out.h
@@ -70,6 +75,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/libht_nav_variables__rosidl_generator_c.so
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_fastrtps_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_strap_out__rosidl_typesupport_fastrtps_c.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_fastrtps_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__rosidl_typesupport_fastrtps_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__rosidl_typesupport_fastrtps_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_gps_data__rosidl_typesupport_fastrtps_c.h
@@ -88,6 +94,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_fastrtps_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__rosidl_typesupport_fastrtps_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__rosidl_typesupport_fastrtps_cpp.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_fastrtps_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_strap_out__rosidl_typesupport_fastrtps_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__rosidl_typesupport_fastrtps_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_euler__rosidl_typesupport_fastrtps_cpp.hpp
@@ -108,6 +115,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__type_support.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__rosidl_typesupport_introspection_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_introspection_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__type_support.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_introspection_c.h
@@ -116,6 +124,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__rosidl_typesupport_introspection_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_introspection_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_euler__rosidl_typesupport_introspection_c.h
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_c.h
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__rosidl_typesupport_introspection_c.h
@@ -152,11 +161,13 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__builder.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__builder.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__builder.hpp
@@ -164,6 +175,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_euler__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_error_vector__traits.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_joint_state__builder.hpp
@@ -173,6 +185,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_kalman_out.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_euler.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_tire_out.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_joint_state.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_strap_out.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/ht_nav_point.hpp
@@ -185,9 +198,11 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_deneme__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vector3__type_support.cpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__type_support.cpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_quaternion__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_gps_data__rosidl_typesupport_introspection_cpp.hpp
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.cpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_point__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_strap_out__rosidl_typesupport_introspection_cpp.hpp
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/include/ht_nav_variables/msg/detail/ht_nav_kalman_out__rosidl_typesupport_introspection_cpp.hpp
@@ -223,8 +238,10 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_gps_data.py
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_euler.py
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_vehicle_debug.py
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_kalman_out_s.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_quaternion_s.c
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_vector3_s.c
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_strap_out.py
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/lib/python3.8/site-packages/ht_nav_variables/msg/_ht_nav_error_vector.py
@@ -254,6 +271,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavWheelVector.idl
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavJointState.idl
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavTireOut.idl
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavVehicleDebug.idl
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavErrorVector.msg
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavEuler.msg
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavGpsData.msg
@@ -267,6 +285,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavWheelVector.msg
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavJointState.msg
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavTireOut.msg
+/home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/msg/HtNavVehicleDebug.msg
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ament_index/resource_index/package_run_dependencies/ht_nav_variables
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ament_index/resource_index/parent_prefix_path/ht_nav_variables
 /home/temur/INS-GPS-ROS2/install/ht_nav_variables/share/ht_nav_variables/environment/ament_prefix_path.sh

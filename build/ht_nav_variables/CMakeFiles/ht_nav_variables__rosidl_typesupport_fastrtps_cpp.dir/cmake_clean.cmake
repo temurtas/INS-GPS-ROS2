@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_strap_out__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_tire_out__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_vector3__type_support.cpp.o"
+  "CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_vehicle_debug__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_wheel_vector__type_support.cpp.o"
   "libht_nav_variables__rosidl_typesupport_fastrtps_cpp.pdb"
   "libht_nav_variables__rosidl_typesupport_fastrtps_cpp.so"
@@ -26,6 +27,7 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_strap_out__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_tire_out__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_vector3__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_vehicle_debug__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/dds_fastrtps/ht_nav_wheel_vector__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__rosidl_typesupport_fastrtps_cpp.hpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_fastrtps_cpp.hpp"
@@ -39,6 +41,7 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__rosidl_typesupport_fastrtps_cpp.hpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__rosidl_typesupport_fastrtps_cpp.hpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__rosidl_typesupport_fastrtps_cpp.hpp"
   "rosidl_typesupport_fastrtps_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_fastrtps_cpp.hpp"
 )
 

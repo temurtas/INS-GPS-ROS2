@@ -22,13 +22,14 @@ from sensor_msgs.msg import Imu
 from sensor_msgs.msg import JointState
 #from ht_nav_variables.msg import HtNavDeneme
 from ht_nav_variables.msg import HtNavTireOut
+from ht_nav_variables.msg import HtNavVehicleDebug
 from ht_nav_variables.msg import HtNavImuData
 from ht_nav_variables.msg import HtNavJointState
 from ht_nav_variables.msg import HtNavStrapOut
 from ht_strap_package.config import base_path
 from ht_strap_package.config import delta_t
 
-from ht_strap_package.tire_force_calc import tire_force_calc
+from ht_strap_package.tire_force_calc import tire_force_calc, tire_force_calc_old
 
 #base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
@@ -48,6 +49,12 @@ class TireForceCalculator(Node):
 
        # Initialise publishers
         self.tire_pub = self.create_publisher(HtNavTireOut, 'ht_nav_tire_data', qos_profile=qos_profile)
+        
+        self.fl_pva_pub = self.create_publisher(JointState, 'front_left_calc_link_states', qos_profile=qos_profile)
+        self.fr_pva_pub = self.create_publisher(JointState, 'front_right_calc_link_states', qos_profile=qos_profile)
+        self.rl_pva_pub = self.create_publisher(JointState, 'rear_left_calc_link_states', qos_profile=qos_profile)
+        self.rr_pva_pub = self.create_publisher(JointState, 'rear_right_calc_link_states', qos_profile=qos_profile)
+
         # Initialise subscribers
         self.imu_sub = self.create_subscription(
             Imu, 
@@ -68,6 +75,11 @@ class TireForceCalculator(Node):
             qos_profile=qos_profile)
         
         # Iniitalize variables
+        self.tire_pub  # prevent unused variable warning
+        self.fl_pva_pub  # prevent unused variable warning
+        self.fr_pva_pub  # prevent unused variable warning
+        self.rl_pva_pub  # prevent unused variable warning
+        self.rr_pva_pub  # prevent unused variable warning
         self.imu_sub  # prevent unused variable warning
         self.strap_sub  # prevent unused variable warning
         self.joint_sub  # prevent unused variable warning
@@ -107,6 +119,8 @@ class TireForceCalculator(Node):
         self.joint_state.wheel_rotation.w2 = 0.0
         self.joint_state.wheel_rotation.w3 = 0.0
         self.joint_state.wheel_rotation.w4 = 0.0
+
+        self.tire_debug = HtNavVehicleDebug()
 
         self.tire_out = HtNavTireOut()
         self.tire_out.effective_radius_est = 0.0
@@ -168,18 +182,72 @@ class TireForceCalculator(Node):
 
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
 
-        self.tire_out = tire_force_calc(self.strap_data, self.imu_data, self.joint_state)
-        msg_pb = self.tire_out
+        msg_pb = HtNavVehicleDebug()
+        self.tire_debug = tire_force_calc(self.strap_data, self.imu_data, self.joint_state)
+        msg_pb = self.tire_debug
+
+        # msg_pb = HtNavVehicleDebug()
+        # self.tire_debug.wheel_variables = tire_force_calc_old(self.strap_data, self.imu_data, self.joint_state)
+        # msg_pb = self.tire_debug
+        
+        # msg_pb = HtNavTireOut()
+        # self.tire_out = tire_force_calc_old(self.strap_data, self.imu_data, self.joint_state)
+        # msg_pb = self.tire_out       
 
         self.pub_func(msg_pb)
 
     def pub_func(self,msg):
-        self.tire_pub.publish(msg)
+        # HtNavTireOut  wheel_variables
+        # HtNavStrapOut imu_link_pva
+        # HtNavStrapOut fl_wheel_pva
+        # HtNavStrapOut fr_wheel_pva
+        # HtNavStrapOut rl_wheel_pva
+        # HtNavStrapOut rr_wheel_pva
+        
+        msg_tire_out = msg.wheel_variables
+        # msg_tire_out = HtNavTireOut()
+        # msg_tire_out = msg
+        self.tire_pub.publish(msg_tire_out)
+
+        msg_fl = JointState()
+        msg_fr = JointState()
+        msg_rl = JointState()
+        msg_rr = JointState()
+        
+        # Publish Calculated Front-Left Wheel Link States
+        msg_fl.position = [msg.fl_wheel_pva.pos.x, msg.fl_wheel_pva.pos.y, msg.fl_wheel_pva.pos.z]
+        msg_fl.velocity = [msg.fl_wheel_pva.vel.x, msg.fl_wheel_pva.vel.y, msg.fl_wheel_pva.vel.z]
+        msg_fl.effort = [msg.fl_wheel_pva.euler.roll, msg.fl_wheel_pva.euler.pitch, msg.fl_wheel_pva.euler.yaw]
+                
+        self.fl_pva_pub.publish(msg_fl)
+
+        # Publish Calculated Front-Right Wheel Link States
+        msg_fr.position = [msg.fr_wheel_pva.pos.x, msg.fr_wheel_pva.pos.y, msg.fr_wheel_pva.pos.z]
+        msg_fr.velocity = [msg.fr_wheel_pva.vel.x, msg.fr_wheel_pva.vel.y, msg.fr_wheel_pva.vel.z]
+        msg_fr.effort = [msg.fr_wheel_pva.euler.roll, msg.fr_wheel_pva.euler.pitch, msg.fr_wheel_pva.euler.yaw]
+                
+        self.fr_pva_pub.publish(msg_fr)
+
+        # Publish Calculated Rear-Left Wheel Link States
+        msg_rl.position = [msg.rl_wheel_pva.pos.x, msg.rl_wheel_pva.pos.y, msg.rl_wheel_pva.pos.z]
+        msg_rl.velocity = [msg.rl_wheel_pva.vel.x, msg.rl_wheel_pva.vel.y, msg.rl_wheel_pva.vel.z]
+        msg_rl.effort = [msg.rl_wheel_pva.euler.roll, msg.rl_wheel_pva.euler.pitch, msg.rl_wheel_pva.euler.yaw]
+
+        self.rl_pva_pub.publish(msg_rl)
+
+        # Publish Calculated Rear-Right Wheel Link States
+        msg_rr.position = [msg.rr_wheel_pva.pos.x, msg.rr_wheel_pva.pos.y, msg.rr_wheel_pva.pos.z]
+        msg_rr.velocity = [msg.rr_wheel_pva.vel.x, msg.rr_wheel_pva.vel.y, msg.rr_wheel_pva.vel.z]
+        msg_rr.effort = [msg.rr_wheel_pva.euler.roll, msg.rr_wheel_pva.euler.pitch, msg.rr_wheel_pva.euler.yaw]
+        
+        self.rr_pva_pub.publish(msg_rr)
+
         #self.get_logger().info('I publish x vel_diff as: "%f"' % msg.vel_diff.x)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         
-        print(str(self.zaman_ref), str(msg.wheel_side_slip_ang.w1), str(msg.wheel_side_slip_ang.w2) , str(msg.wheel_side_slip_ang.w3), str(msg.wheel_side_slip_ang.w4), str(msg.wheel_longitudinal_slip_ratio.w1), str(msg.wheel_longitudinal_slip_ratio.w2) , str(msg.wheel_longitudinal_slip_ratio.w3), str(msg.wheel_longitudinal_slip_ratio.w4) , sep='\t', file=tire_out_data_txt)
+        print(str(self.zaman_ref), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
+            str(msg_tire_out.tire_lateral_forces.w1), str(msg_tire_out.tire_lateral_forces.w2) , str(msg_tire_out.tire_lateral_forces.w3), str(msg_tire_out.tire_lateral_forces.w4), str(msg_tire_out.tire_longitudinal_forces.w1), str(msg_tire_out.tire_longitudinal_forces.w2) , str(msg_tire_out.tire_longitudinal_forces.w3), str(msg_tire_out.tire_longitudinal_forces.w4) , sep='\t', file=tire_out_data_txt)
 
 
 

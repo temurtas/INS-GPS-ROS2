@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o"
+  "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o"
   "libht_nav_variables__rosidl_generator_c.pdb"
   "libht_nav_variables__rosidl_generator_c.so"
@@ -62,6 +63,10 @@ file(REMOVE_RECURSE
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.h"
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__struct.h"
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__type_support.h"
+  "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c"
+  "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.h"
+  "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.h"
+  "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__type_support.h"
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c"
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"
   "rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.h"
@@ -78,6 +83,7 @@ file(REMOVE_RECURSE
   "rosidl_generator_c/ht_nav_variables/msg/ht_nav_strap_out.h"
   "rosidl_generator_c/ht_nav_variables/msg/ht_nav_tire_out.h"
   "rosidl_generator_c/ht_nav_variables/msg/ht_nav_vector3.h"
+  "rosidl_generator_c/ht_nav_variables/msg/ht_nav_vehicle_debug.h"
   "rosidl_generator_c/ht_nav_variables/msg/ht_nav_wheel_vector.h"
 )
 

@@ -246,6 +246,26 @@ rosidl_typesupport_c/visibility_control.h
 rosidl_typesupport_interface/macros.h
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_interface/macros.h
 
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp
+cstddef
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/cstddef
+rosidl_runtime_c/message_type_support_struct.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_runtime_c/message_type_support_struct.h
+ht_nav_variables/msg/rosidl_typesupport_c__visibility_control.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/ht_nav_variables/msg/rosidl_typesupport_c__visibility_control.h
+ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.h
+rosidl_typesupport_c/identifier.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_c/identifier.h
+rosidl_typesupport_c/message_type_support_dispatch.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_c/message_type_support_dispatch.h
+rosidl_typesupport_c/type_support_map.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_c/type_support_map.h
+rosidl_typesupport_c/visibility_control.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_c/visibility_control.h
+rosidl_typesupport_interface/macros.h
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/rosidl_typesupport_interface/macros.h
+
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp
 cstddef
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_c/ht_nav_variables/msg/cstddef
@@ -405,6 +425,18 @@ stddef.h
 -
 stdint.h
 -
+
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.h
+stdbool.h
+-
+stddef.h
+-
+stdint.h
+-
+ht_nav_variables/msg/detail/ht_nav_tire_out__struct.h
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.h
+ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
 
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.h
 stdbool.h

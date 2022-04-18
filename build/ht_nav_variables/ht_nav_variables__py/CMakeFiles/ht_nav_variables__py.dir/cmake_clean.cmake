@@ -27,6 +27,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vector3.py"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vector3_s.c"
+  "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug.py"
+  "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector.py"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c"
   "CMakeFiles/ht_nav_variables__py"

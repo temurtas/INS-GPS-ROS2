@@ -47,6 +47,18 @@ rl_out_data_txt = open(rl_out_data_path, 'w')
 imu_out_data_path = base_path / "imu_link_pva.txt"
 imu_out_data_txt = open(imu_out_data_path, 'w')
 
+fr_calc_data_path = base_path / "front_right_wheel_pva_calc.txt"
+fr_calc_data_txt = open(fr_calc_data_path, 'w')
+
+fl_calc_data_path = base_path / "front_left_wheel_pva_calc.txt"
+fl_calc_data_txt = open(fl_calc_data_path, 'w')
+
+rr_calc_data_path = base_path / "rear_right_wheel_pva_calc.txt"
+rr_calc_data_txt = open(rr_calc_data_path, 'w')
+
+rl_calc_data_path = base_path / "rear_left_wheel_pva_calc.txt"
+rl_calc_data_txt = open(rl_calc_data_path, 'w')
+
 # gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
 # gps_data_gazebo_txt = open(gps_data_path, 'w')
 
@@ -92,6 +104,32 @@ class RobotStateListener(Node):
             JointState, 
             'kobra_mk5/imu_link_states', 
             self.imu_link_listener_callback, 
+            qos_profile=qos_profile)
+
+        # Calculated States
+
+        self.joint_state_subscription = self.create_subscription(
+            JointState, 
+            'front_left_calc_link_states', 
+            self.front_left_link_calc_listener_callback, 
+            qos_profile=qos_profile)
+
+        self.joint_state_subscription = self.create_subscription(
+            JointState, 
+            'front_right_calc_link_states', 
+            self.front_right_link_calc_listener_callback, 
+            qos_profile=qos_profile)
+
+        self.joint_state_subscription = self.create_subscription(
+            JointState, 
+            'rear_left_calc_link_states', 
+            self.rear_left_link_calc_listener_callback, 
+            qos_profile=qos_profile)
+
+        self.joint_state_subscription = self.create_subscription(
+            JointState, 
+            'rear_right_calc_link_states', 
+            self.rear_right_link_calc_listener_callback, 
             qos_profile=qos_profile)
 
         # FRONT_RIGHT, # Front right wheel # front_right_link_states
@@ -154,6 +192,30 @@ class RobotStateListener(Node):
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=imu_out_data_txt)
+
+    def front_right_link_calc_listener_callback(self, msg):
+        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_calc_data_txt)
+
+    def front_left_link_calc_listener_callback(self, msg):
+        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_calc_data_txt)
+
+    def rear_right_link_calc_listener_callback(self, msg):
+        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_calc_data_txt)
+
+    def rear_left_link_calc_listener_callback(self, msg):
+        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_calc_data_txt)
 
 
     def gps_sub_cb(self, msg):      

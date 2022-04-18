@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o"
+  "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o"
   "libht_nav_variables__rosidl_typesupport_cpp.pdb"
   "libht_nav_variables__rosidl_typesupport_cpp.so"
@@ -26,6 +27,7 @@ file(REMOVE_RECURSE
   "rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp"
   "rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp"
   "rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp"
+  "rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp"
   "rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp"
 )
 

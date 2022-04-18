@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c.o"
   "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out_s.c.o"
   "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vector3_s.c.o"
+  "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug_s.c.o"
   "CMakeFiles/ht_nav_variables__python.dir/rosidl_generator_py/ht_nav_variables/msg/_ht_nav_wheel_vector_s.c.o"
   "rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.pdb"
   "rosidl_generator_py/ht_nav_variables/libht_nav_variables__python.so"

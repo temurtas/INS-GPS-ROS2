@@ -36,6 +36,9 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__builder.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp"
+  "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp"
+  "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp"
+  "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp"
@@ -51,6 +54,7 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_out.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_tire_out.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vector3.hpp"
+  "rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp"
   "rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_wheel_vector.hpp"
 )
 
