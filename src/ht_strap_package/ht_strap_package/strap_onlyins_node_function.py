@@ -44,8 +44,8 @@ base_path2 = base_path # Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/ver
 strap_data_ins_gps_mid_txt = base_path2 / "strap_data_onlyins_gazebo.txt"
 strap_data_gazebo_ros_txt = open(strap_data_ins_gps_mid_txt, 'w')
 
-# imu_data_path = base_path2 / "imu_data_ideal_gazebo.txt"
-# imu_data_gazebo_txt = open(imu_data_path, 'w')
+imu_data_path = base_path2 / "imu_data_ideal_gazebo.txt"
+imu_data_gazebo_txt = open(imu_data_path, 'w')
 
 
 class IdealStrapNode(Node):
@@ -114,8 +114,7 @@ class IdealStrapNode(Node):
         self.imu_data.ang_diff.y = -msg.angular_velocity.x * delta_t
         self.imu_data.ang_diff.z = -msg.angular_velocity.z * delta_t
 
-        self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)
-
+        self.new_strap = self.node_strapdown(self.old_strap, self.imu_data)  # <HT>
         self.old_strap = self.new_strap
 
         msg_pb = HtNavStrapOut()
@@ -130,7 +129,7 @@ class IdealStrapNode(Node):
 
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        # print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+        print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
 
 
 

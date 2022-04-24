@@ -88,6 +88,26 @@ def nav2wheels(euler, C_tk_b, tire_pva):
     return v_etk_tk
 
 
+def nav2wheels_ideal(tire_pva):
+    euler = np.zeros((3,1)) 
+    v_etk_n = np.zeros((3,1)) 
+    v_etk_tk = np.zeros((3,1)) 
+
+    euler[0] = tire_pva.euler.roll
+    euler[1] = tire_pva.euler.pitch
+    euler[2] = tire_pva.euler.yaw
+    
+    c_tkn = euler2cbn(euler)
+    c_ntk = c_tkn.transpose()
+
+    v_etk_n[0] = tire_pva.vel.x
+    v_etk_n[1] = tire_pva.vel.y
+    v_etk_n[2] = tire_pva.vel.z
+    
+    v_etk_tk =  np.dot(c_ntk , v_etk_n)
+
+    return v_etk_tk
+
 def body2wheels(delta_ang, pos, v_eb_n, euler, steer_ip):
 
     # out_data_path = base_path / "debug_wheel_vel.txt"
@@ -502,25 +522,3 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
 
     return tire_out
 
-
-def tire_sideslip_angle_calc(tire_debug, yaw_rate):
-    DELTA_T = config.delta_t
-    rh = config.vehicle_rear_half_m              
-    fh = config.vehicle_front_half_m            
-    wl = config.vehicle_width_m         
-
-    # tire_debug = HtNavVehicleDebug()
-
-    # float64       time
-    # HtNavTireOut  wheel_variables
-    # HtNavStrapOut imu_link_pva
-    # HtNavStrapOut fl_wheel_pva
-    # HtNavStrapOut fr_wheel_pva
-    # HtNavStrapOut rl_wheel_pva
-    # HtNavStrapOut rr_wheel_pva
-
-    # tire_pva = HtNavStrapOut()
-    # HtNavVector3          pos
-    # HtNavVector3          vel
-    # HtNavEuler            euler
-    # HtNavQuaternion       quaternion

@@ -21,7 +21,8 @@ def generate_launch_description():
         cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so',
          #'worlds/empty_mk5.world'],
         #  'worlds/city_mk5.world'],
-         'worlds/new_city_2.world'],
+        #  'worlds/new_city_2.world'],
+         'worlds/empty_mk5.world'],
         output='screen'
     )
 

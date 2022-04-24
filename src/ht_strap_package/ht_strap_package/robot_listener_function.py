@@ -24,6 +24,17 @@ from sensor_msgs.msg import Imu
 
 from ht_strap_package.config import base_path
 
+
+# We need install numpy in order to import it
+from cmath import pi
+import numpy as np
+import math
+import ht_strap_package.config as config
+
+from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavVehicleDebug, HtNavWheelVector, HtNavTireOut
+from ht_strap_package.strap_operations import euler2cbn
+from ht_strap_package.tire_operations import tire_sideslip_angle_calc, longitudinal_tire_slip_calc, nav2wheels, tire_dugoff_force_calc, steering2Cwb
+
 # base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
 # FRONT_RIGHT, 
@@ -61,6 +72,9 @@ rl_calc_data_txt = open(rl_calc_data_path, 'w')
 
 # gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
 # gps_data_gazebo_txt = open(gps_data_path, 'w')
+
+tire_out_data_ideal_path = base_path / "tire_variables_ideal_gazebo.txt"
+tire_out_data_ideal_txt = open(tire_out_data_ideal_path, 'w')
 
 joint_state_data_path = base_path / "joint_states.txt"
 joint_input_data_txt = open(joint_state_data_path, 'w')
@@ -157,40 +171,313 @@ class RobotStateListener(Node):
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
 
+        Ref2NedEuler = np.zeros((3, 1))
+        self.CRef2NED = np.zeros((3, 3))
+
+        Ref2NedEuler[0] = pi
+        Ref2NedEuler[1] = 0.0
+        Ref2NedEuler[2] = - pi / 2
+        self.CRef2NED = euler2cbn(Ref2NedEuler)
+
+        Enu2NEDEuler = np.zeros((3, 1))
+        self.CENU2NED = np.zeros((3, 3))
+
+        Enu2NEDEuler[0] = pi
+        Enu2NEDEuler[1] = 0.0
+        Enu2NEDEuler[2] = - pi / 2
+        self.CENU2NED = euler2cbn(Enu2NEDEuler)
+
+        self.imu_link_pva = HtNavStrapOut()
+        self.fl_wheel_pva = HtNavStrapOut()
+        self.fr_wheel_pva = HtNavStrapOut()
+        self.rl_wheel_pva = HtNavStrapOut()
+        self.rr_wheel_pva = HtNavStrapOut()
+
+        self.joint_state = HtNavJointState()
+        self.joint_state.steering_angle.w1 = 0.0
+        self.joint_state.steering_angle.w2 = 0.0
+        self.joint_state.steering_angle.w3 = 0.0
+        self.joint_state.steering_angle.w4 = 0.0
+
+        self.joint_state.wheel_rotation.w1 = 0.0
+        self.joint_state.wheel_rotation.w2 = 0.0
+        self.joint_state.wheel_rotation.w3 = 0.0
+        self.joint_state.wheel_rotation.w4 = 0.0
+ 
+        self.tire_debug = HtNavVehicleDebug()
+
+    
+
     def joint_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+        self.joint_state.steering_angle.w1 = msg.position[0]
+        self.joint_state.steering_angle.w2 = msg.position[1]
+        self.joint_state.steering_angle.w3 = 0.0 # msg.position[2]
+        self.joint_state.steering_angle.w4 = 0.0 # msg.position[3]
+
+        self.joint_state.wheel_rotation.w1 = msg.velocity[0]
+        self.joint_state.wheel_rotation.w2 = msg.velocity[1]
+        self.joint_state.wheel_rotation.w3 = msg.velocity[2]
+        self.joint_state.wheel_rotation.w4 = msg.velocity[3]
+
+        wheel_rots = np.zeros((4, 1))
+        wheel_rots[0] = self.joint_state.wheel_rotation.w1
+        wheel_rots[1] = self.joint_state.wheel_rotation.w2
+        wheel_rots[2] = self.joint_state.wheel_rotation.w3
+        wheel_rots[3] = self.joint_state.wheel_rotation.w4
+   
+        steer_angs = np.zeros((4, 1))
+        steer_angs[0] = self.joint_state.steering_angle.w1
+        steer_angs[1] = self.joint_state.steering_angle.w2
+        steer_angs[2] = self.joint_state.steering_angle.w3
+        steer_angs[3] = self.joint_state.steering_angle.w4
+
+        C_t1_b = np.zeros((3, 3))
+        C_t2_b = np.zeros((3, 3))
+        C_t3_b = np.zeros((3, 3))
+        C_t4_b = np.zeros((3, 3))
+
+        C_t1_b = steering2Cwb(steer_angs[0])
+        C_t2_b = steering2Cwb(steer_angs[1])
+        C_t3_b = steering2Cwb(steer_angs[2])
+        C_t4_b = steering2Cwb(steer_angs[3])  
+
+        # float64       time
+        # HtNavTireOut  wheel_variables
+        # HtNavStrapOut imu_link_pva
+        # HtNavStrapOut fl_wheel_pva
+        # HtNavStrapOut fr_wheel_pva
+        # HtNavStrapOut rl_wheel_pva
+        # HtNavStrapOut rr_wheel_pva
+
+        self.tire_debug.fl_wheel_pva = self.fl_wheel_pva
+        self.tire_debug.fr_wheel_pva = self.fr_wheel_pva
+        self.tire_debug.rl_wheel_pva = self.rl_wheel_pva
+        self.tire_debug.rr_wheel_pva = self.rr_wheel_pva
+
+        # Calculate Slip ratio and Slip Angles     
+        alpha_t = HtNavWheelVector()
+        sigma_t = HtNavWheelVector()
+
+        yaw_rate = 0.0
+        alpha_t = tire_sideslip_angle_calc(self.tire_debug, yaw_rate)
+
+        # Transfer navigation solution to wheel base
+        v_et1 = np.zeros((3,1))
+        v_et2 = np.zeros((3,1))
+        v_et3 = np.zeros((3,1))
+        v_et4 = np.zeros((3,1))
+
+        euler = np.zeros((3,1))
+        euler[0] = self.imu_link_pva.euler.roll
+        euler[1] = self.imu_link_pva.euler.pitch
+        euler[2] = self.imu_link_pva.euler.yaw
+
+        v_et1 = nav2wheels(euler, C_t1_b, self.fl_wheel_pva)
+        v_et2 = nav2wheels(euler, C_t2_b, self.fr_wheel_pva)
+        v_et3 = nav2wheels(euler, C_t3_b, self.rl_wheel_pva)
+        v_et4 = nav2wheels(euler, C_t4_b, self.rr_wheel_pva)
+
+        sigma_t.w1 = float(longitudinal_tire_slip_calc(wheel_rots[0], v_et1[0]))
+        sigma_t.w2 = float(longitudinal_tire_slip_calc(wheel_rots[1], v_et2[0]))
+        sigma_t.w3 = float(longitudinal_tire_slip_calc(wheel_rots[2], v_et3[0]))
+        sigma_t.w4 = float(longitudinal_tire_slip_calc(wheel_rots[3], v_et4[0]))
+
+        # Calculate Tire Forces
+        tire_out = HtNavTireOut()
+        tire_out = tire_dugoff_force_calc(alpha_t, sigma_t)
+        
+        # float64          effective_radius_est
+        # float64          vehicle_mass_est
+        # HtNavWheelVector wheel_side_slip_ang
+        # HtNavWheelVector wheel_longitudinal_slip_ratio
+        # HtNavWheelVector tire_lateral_forces
+        # HtNavWheelVector tire_longitudinal_forces
+
+        self.tire_debug.wheel_variables = tire_out
+    
+        msg_tire_out = self.tire_debug.wheel_variables
+        print(str(self.zaman_ref), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
+            str(msg_tire_out.tire_lateral_forces.w1), str(msg_tire_out.tire_lateral_forces.w2) , str(msg_tire_out.tire_lateral_forces.w3), str(msg_tire_out.tire_lateral_forces.w4), str(msg_tire_out.tire_longitudinal_forces.w1), str(msg_tire_out.tire_longitudinal_forces.w2) , str(msg_tire_out.tire_longitudinal_forces.w3), str(msg_tire_out.tire_longitudinal_forces.w4) , sep='\t', file=tire_out_data_ideal_txt)
+
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
         
     def front_right_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        self.fr_wheel_pva.pos.x = float(msg.position[0])
+        self.fr_wheel_pva.pos.y = float(msg.position[1])
+        self.fr_wheel_pva.pos.z = float(msg.position[2])
+
+        temp_vel = np.zeros((3, 1))
+        temp_vel2 = np.zeros((3, 1))
+        temp_vel[0] = msg.velocity[0]
+        temp_vel[1] = msg.velocity[1]
+        temp_vel[2] = msg.velocity[2]
+
+        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+
+        self.fr_wheel_pva.vel.x = float(temp_vel2[0])
+        self.fr_wheel_pva.vel.y = float(temp_vel2[1])
+        self.fr_wheel_pva.vel.z = float(temp_vel2[2])
+        
+        temp_euler = np.zeros((3, 1))
+        temp_euler2 = np.zeros((3, 1))
+        temp_euler[0] = msg.effort[0]
+        temp_euler[1] = msg.effort[1]
+        temp_euler[2] = msg.effort[2]
+
+        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+
+        self.fr_wheel_pva.euler.roll  = float(temp_euler2[0])
+        self.fr_wheel_pva.euler.pitch = float(temp_euler2[1])
+        self.fr_wheel_pva.euler.yaw   = float(temp_euler2[2])
+
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_out_data_txt)
 
     def front_left_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+        self.fl_wheel_pva.pos.x = float(msg.position[0])
+        self.fl_wheel_pva.pos.y = float(msg.position[1])
+        self.fl_wheel_pva.pos.z = float(msg.position[2])
+
+        temp_vel = np.zeros((3, 1))
+        temp_vel2 = np.zeros((3, 1))
+        temp_vel[0] = msg.velocity[0]
+        temp_vel[1] = msg.velocity[1]
+        temp_vel[2] = msg.velocity[2]
+
+        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+
+        self.fl_wheel_pva.vel.x = float(temp_vel2[0])
+        self.fl_wheel_pva.vel.y = float(temp_vel2[1])
+        self.fl_wheel_pva.vel.z = float(temp_vel2[2])
+        
+        temp_euler = np.zeros((3, 1))
+        temp_euler2 = np.zeros((3, 1))
+        temp_euler[0] = msg.effort[0]
+        temp_euler[1] = msg.effort[1]
+        temp_euler[2] = msg.effort[2]
+
+        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+
+        self.fl_wheel_pva.euler.roll  = float(temp_euler2[0])
+        self.fl_wheel_pva.euler.pitch = float(temp_euler2[1])
+        self.fl_wheel_pva.euler.yaw   = float(temp_euler2[2])
+        
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_out_data_txt)
 
     def rear_right_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+        self.rr_wheel_pva.pos.x = float(msg.position[0])
+        self.rr_wheel_pva.pos.y = float(msg.position[1])
+        self.rr_wheel_pva.pos.z = float(msg.position[2])
+
+        temp_vel = np.zeros((3, 1))
+        temp_vel2 = np.zeros((3, 1))
+        temp_vel[0] = msg.velocity[0]
+        temp_vel[1] = msg.velocity[1]
+        temp_vel[2] = msg.velocity[2]
+
+        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+
+        self.rr_wheel_pva.vel.x = float(temp_vel2[0])
+        self.rr_wheel_pva.vel.y = float(temp_vel2[1])
+        self.rr_wheel_pva.vel.z = float(temp_vel2[2])
+        
+        temp_euler = np.zeros((3, 1))
+        temp_euler2 = np.zeros((3, 1))
+        temp_euler[0] = msg.effort[0]
+        temp_euler[1] = msg.effort[1]
+        temp_euler[2] = msg.effort[2]
+
+        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+
+        self.rr_wheel_pva.euler.roll  = float(temp_euler2[0])
+        self.rr_wheel_pva.euler.pitch = float(temp_euler2[1])
+        self.rr_wheel_pva.euler.yaw   = float(temp_euler2[2])        
+        
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_out_data_txt)
 
     def rear_left_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        self.rl_wheel_pva.pos.x = float(msg.position[0])
+        self.rl_wheel_pva.pos.y = float(msg.position[1])
+        self.rl_wheel_pva.pos.z = float(msg.position[2])
+
+        temp_vel = np.zeros((3, 1))
+        temp_vel2 = np.zeros((3, 1))
+        temp_vel[0] = msg.velocity[0]
+        temp_vel[1] = msg.velocity[1]
+        temp_vel[2] = msg.velocity[2]
+
+        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+
+        self.rl_wheel_pva.vel.x = float(temp_vel2[0])
+        self.rl_wheel_pva.vel.y = float(temp_vel2[1])
+        self.rl_wheel_pva.vel.z = float(temp_vel2[2])
+        
+        temp_euler = np.zeros((3, 1))
+        temp_euler2 = np.zeros((3, 1))
+        temp_euler[0] = msg.effort[0]
+        temp_euler[1] = msg.effort[1]
+        temp_euler[2] = msg.effort[2]
+
+        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+
+        self.rl_wheel_pva.euler.roll  = float(temp_euler2[0])
+        self.rl_wheel_pva.euler.pitch = float(temp_euler2[1])
+        self.rl_wheel_pva.euler.yaw   = float(temp_euler2[2])
+
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_out_data_txt)
 
     def imu_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+        self.imu_link_pva.pos.x = float(msg.position[0])
+        self.imu_link_pva.pos.y = float(msg.position[1])
+        self.imu_link_pva.pos.z = float(msg.position[2])
+
+        temp_vel = np.zeros((3, 1))
+        temp_vel2 = np.zeros((3, 1))
+        temp_vel[0] = msg.velocity[0]
+        temp_vel[1] = msg.velocity[1]
+        temp_vel[2] = msg.velocity[2]
+
+        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+
+        self.imu_link_pva.vel.x = float(temp_vel2[0])
+        self.imu_link_pva.vel.y = float(temp_vel2[1])
+        self.imu_link_pva.vel.z = float(temp_vel2[2])
+        
+        temp_euler = np.zeros((3, 1))
+        temp_euler2 = np.zeros((3, 1))
+        temp_euler[0] = msg.effort[0]
+        temp_euler[1] = msg.effort[1]
+        temp_euler[2] = msg.effort[2]
+
+        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+
+        self.imu_link_pva.euler.roll  = float(temp_euler2[0])
+        self.imu_link_pva.euler.pitch = float(temp_euler2[1])
+        self.imu_link_pva.euler.yaw   = float(temp_euler2[2])        
+        
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=imu_out_data_txt)
 
     def front_right_link_calc_listener_callback(self, msg):

@@ -1,0 +1,41 @@
+running egg_info
+writing ../../build/ht_strap_package/ht_strap_package.egg-info/PKG-INFO
+writing dependency_links to ../../build/ht_strap_package/ht_strap_package.egg-info/dependency_links.txt
+writing entry points to ../../build/ht_strap_package/ht_strap_package.egg-info/entry_points.txt
+writing requirements to ../../build/ht_strap_package/ht_strap_package.egg-info/requires.txt
+writing top-level names to ../../build/ht_strap_package/ht_strap_package.egg-info/top_level.txt
+reading manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+writing manifest file '../../build/ht_strap_package/ht_strap_package.egg-info/SOURCES.txt'
+running build
+running build_py
+copying ht_strap_package/robot_listener_function.py -> /home/temur/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package
+running install
+running install_lib
+copying /home/temur/INS-GPS-ROS2/build/ht_strap_package/build/lib/ht_strap_package/robot_listener_function.py -> /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package
+byte-compiling /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/robot_listener_function.py to robot_listener_function.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/ht_strap_package/ht_strap_package.egg-info to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package-0.0.0-py3.8.egg-info
+running install_scripts
+Installing gps_data_converter_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing gps_data_publisher_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing ideal_gps_data_converter_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing imu_data_converter_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing imu_data_ideal_converter_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing imu_data_publisher_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing ins_gps_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing listener script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing my_teleop script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing pseudo_controller script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing robot_listener script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing robot_state_listener script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing strap_ideal_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing strap_ins_gps_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing strap_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing strap_onlyins_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing strap_w_kalman_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing teleop_constant script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing teleop_controller script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+Installing tire_force_calc_node script to /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/ht_strap_package
+writing list of installed files to '/home/temur/INS-GPS-ROS2/build/ht_strap_package/install.log'

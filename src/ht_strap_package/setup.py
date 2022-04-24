@@ -39,6 +39,7 @@ setup(
                 'strap_ideal_node = ht_strap_package.strap_ideal_node_function:main',
                 'strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main',
                 'my_teleop = ht_strap_package.my_teleop:main',
+                'teleop_constant = ht_strap_package.teleop_constant:main',
                 'teleop_controller = ht_strap_package.teleop_controller:main',
                 'robot_listener = ht_strap_package.robot_listener_function:main',
                 'robot_state_listener = ht_strap_package.robot_state_listener_function:main',
