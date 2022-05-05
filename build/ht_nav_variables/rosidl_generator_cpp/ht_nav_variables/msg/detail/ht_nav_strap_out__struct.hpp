@@ -47,7 +47,11 @@ struct HtNavStrapOut_
     euler(_init),
     quaternion(_init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   explicit HtNavStrapOut_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
@@ -56,10 +60,17 @@ struct HtNavStrapOut_
     euler(_alloc, _init),
     quaternion(_alloc, _init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _pos_type =
     ht_nav_variables::msg::HtNavVector3_<ContainerAllocator>;
   _pos_type pos;
@@ -74,6 +85,12 @@ struct HtNavStrapOut_
   _quaternion_type quaternion;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__pos(
     const ht_nav_variables::msg::HtNavVector3_<ContainerAllocator> & _arg)
   {
@@ -141,6 +158,9 @@ struct HtNavStrapOut_
   // comparison operators
   bool operator==(const HtNavStrapOut_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->pos != other.pos) {
       return false;
     }

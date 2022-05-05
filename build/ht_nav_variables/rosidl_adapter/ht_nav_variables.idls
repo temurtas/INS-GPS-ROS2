@@ -4,6 +4,7 @@
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavImuData.idl
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavKalmanOut.idl
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavStrapOut.idl
+/home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavStrapCarOut.idl
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavPoint.idl
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavVector3.idl
 /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_adapter/ht_nav_variables:msg/HtNavQuaternion.idl

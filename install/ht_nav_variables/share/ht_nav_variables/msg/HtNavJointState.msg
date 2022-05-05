@@ -5,5 +5,6 @@
 # rotation). If you want your data to be translatable too, use the
 # geometry_msgs/Point message instead.
 
+float64               time
 HtNavWheelVector steering_angle
 HtNavWheelVector wheel_rotation

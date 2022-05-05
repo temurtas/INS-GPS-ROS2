@@ -7,6 +7,7 @@ from ht_nav_variables.msg._ht_nav_joint_state import HtNavJointState  # noqa: F4
 from ht_nav_variables.msg._ht_nav_kalman_out import HtNavKalmanOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_point import HtNavPoint  # noqa: F401
 from ht_nav_variables.msg._ht_nav_quaternion import HtNavQuaternion  # noqa: F401
+from ht_nav_variables.msg._ht_nav_strap_car_out import HtNavStrapCarOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_strap_out import HtNavStrapOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_tire_out import HtNavTireOut  # noqa: F401
 from ht_nav_variables.msg._ht_nav_vector3 import HtNavVector3  # noqa: F401

@@ -26,6 +26,7 @@ extern "C"
 // Struct defined in msg/HtNavGpsData in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavGpsData
 {
+  double time;
   ht_nav_variables__msg__HtNavPoint gps_pos;
   ht_nav_variables__msg__HtNavVector3 gps_vel;
 } ht_nav_variables__msg__HtNavGpsData;

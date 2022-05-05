@@ -37,7 +37,22 @@ void HtNavKalmanOut_fini_function(void * message_memory)
   typed_message->~HtNavKalmanOut();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavKalmanOut_message_member_array[5] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavKalmanOut_message_member_array[6] = {
+  {
+    "time",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavKalmanOut, time),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
   {
     "pos_err",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
@@ -118,7 +133,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavKalmanOu
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers HtNavKalmanOut_message_members = {
   "ht_nav_variables::msg",  // message namespace
   "HtNavKalmanOut",  // message name
-  5,  // number of fields
+  6,  // number of fields
   sizeof(ht_nav_variables::msg::HtNavKalmanOut),
   HtNavKalmanOut_message_member_array,  // message members
   HtNavKalmanOut_init_function,  // function to initialize message memory (memory has to be allocated)

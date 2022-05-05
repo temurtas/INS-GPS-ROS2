@@ -11,6 +11,7 @@ setup.py
 config/params.yaml
 ht_strap_package/__init__.py
 ht_strap_package/config.py
+ht_strap_package/data_collector_function.py
 ht_strap_package/gps_data_converter_function.py
 ht_strap_package/gps_data_publisher_function.py
 ht_strap_package/ideal_gps_data_converter_function.py
@@ -18,8 +19,10 @@ ht_strap_package/imu_data_converter_function.py
 ht_strap_package/imu_data_ideal_converter_function.py
 ht_strap_package/imu_data_publisher_function.py
 ht_strap_package/ins_gps_node_function.py
+ht_strap_package/ins_gps_strap_cartesian_node_function.py
 ht_strap_package/ins_gps_strap_node_function.py
 ht_strap_package/kalman_operations.py
+ht_strap_package/kalman_operations_cartesian.py
 ht_strap_package/main.py
 ht_strap_package/my_teleop.py
 ht_strap_package/pseudo_controller_function.py
@@ -29,7 +32,9 @@ ht_strap_package/strap_ideal_node_function.py
 ht_strap_package/strap_node_function.py
 ht_strap_package/strap_onlyins_node_function.py
 ht_strap_package/strap_operations.py
+ht_strap_package/strap_operations_cartesian.py
 ht_strap_package/strap_operations_inertial.py
+ht_strap_package/strap_tf_operations.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py
@@ -39,6 +44,7 @@ ht_strap_package/tire_force_calc.py
 ht_strap_package/tire_force_node_function.py
 ht_strap_package/tire_operations.py
 launch/ht_gazebo_constant_circle.launch.py
+launch/ht_gazebo_data_collect.launch.py
 launch/ht_gazebo_package.launch.py
 launch/ht_gazebo_strap_package.launch.py
 launch/ht_gazebo_vehicle_only.launch.py

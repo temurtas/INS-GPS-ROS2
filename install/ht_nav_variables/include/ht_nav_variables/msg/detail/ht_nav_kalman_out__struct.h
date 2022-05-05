@@ -28,6 +28,7 @@ extern "C"
 // Struct defined in msg/HtNavKalmanOut in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavKalmanOut
 {
+  double time;
   ht_nav_variables__msg__HtNavErrorVector pos_err;
   ht_nav_variables__msg__HtNavErrorVector vel_err;
   ht_nav_variables__msg__HtNavErrorVector att_err;

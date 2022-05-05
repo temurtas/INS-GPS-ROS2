@@ -24,6 +24,7 @@ ht_nav_variables__msg__HtNavStrapOut__init(ht_nav_variables__msg__HtNavStrapOut 
   if (!msg) {
     return false;
   }
+  // time
   // pos
   if (!ht_nav_variables__msg__HtNavVector3__init(&msg->pos)) {
     ht_nav_variables__msg__HtNavStrapOut__fini(msg);
@@ -53,6 +54,7 @@ ht_nav_variables__msg__HtNavStrapOut__fini(ht_nav_variables__msg__HtNavStrapOut 
   if (!msg) {
     return;
   }
+  // time
   // pos
   ht_nav_variables__msg__HtNavVector3__fini(&msg->pos);
   // vel

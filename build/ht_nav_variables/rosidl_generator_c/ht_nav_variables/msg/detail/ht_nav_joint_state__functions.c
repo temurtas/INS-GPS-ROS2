@@ -20,6 +20,7 @@ ht_nav_variables__msg__HtNavJointState__init(ht_nav_variables__msg__HtNavJointSt
   if (!msg) {
     return false;
   }
+  // time
   // steering_angle
   if (!ht_nav_variables__msg__HtNavWheelVector__init(&msg->steering_angle)) {
     ht_nav_variables__msg__HtNavJointState__fini(msg);
@@ -39,6 +40,7 @@ ht_nav_variables__msg__HtNavJointState__fini(ht_nav_variables__msg__HtNavJointSt
   if (!msg) {
     return;
   }
+  // time
   // steering_angle
   ht_nav_variables__msg__HtNavWheelVector__fini(&msg->steering_angle);
   // wheel_rotation

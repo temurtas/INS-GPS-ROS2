@@ -78,6 +78,8 @@ cdr_serialize(
   const ht_nav_variables::msg::HtNavJointState & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
+  // Member: time
+  cdr << ros_message.time;
   // Member: steering_angle
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
     ros_message.steering_angle,
@@ -95,6 +97,9 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   ht_nav_variables::msg::HtNavJointState & ros_message)
 {
+  // Member: time
+  cdr >> ros_message.time;
+
   // Member: steering_angle
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.steering_angle);
@@ -119,6 +124,12 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
+  // Member: time
+  {
+    size_t item_size = sizeof(ros_message.time);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // Member: steering_angle
 
   current_alignment +=
@@ -147,6 +158,14 @@ max_serialized_size_HtNavJointState(
   (void)wchar_size;
   (void)full_bounded;
 
+
+  // Member: time
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
 
   // Member: steering_angle
   {

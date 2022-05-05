@@ -47,7 +47,11 @@ struct HtNavKalmanOut_
     bias(_init),
     drift(_init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   explicit HtNavKalmanOut_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
@@ -57,10 +61,17 @@ struct HtNavKalmanOut_
     bias(_alloc, _init),
     drift(_alloc, _init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _pos_err_type =
     ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator>;
   _pos_err_type pos_err;
@@ -78,6 +89,12 @@ struct HtNavKalmanOut_
   _drift_type drift;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__pos_err(
     const ht_nav_variables::msg::HtNavErrorVector_<ContainerAllocator> & _arg)
   {
@@ -151,6 +168,9 @@ struct HtNavKalmanOut_
   // comparison operators
   bool operator==(const HtNavKalmanOut_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->pos_err != other.pos_err) {
       return false;
     }

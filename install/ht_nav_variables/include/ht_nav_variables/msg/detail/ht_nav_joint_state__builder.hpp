@@ -39,13 +39,29 @@ private:
 class Init_HtNavJointState_steering_angle
 {
 public:
-  Init_HtNavJointState_steering_angle()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavJointState_steering_angle(::ht_nav_variables::msg::HtNavJointState & msg)
+  : msg_(msg)
   {}
   Init_HtNavJointState_wheel_rotation steering_angle(::ht_nav_variables::msg::HtNavJointState::_steering_angle_type arg)
   {
     msg_.steering_angle = std::move(arg);
     return Init_HtNavJointState_wheel_rotation(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavJointState msg_;
+};
+
+class Init_HtNavJointState_time
+{
+public:
+  Init_HtNavJointState_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavJointState_steering_angle time(::ht_nav_variables::msg::HtNavJointState::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavJointState_steering_angle(msg_);
   }
 
 private:
@@ -63,7 +79,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavJointState>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavJointState_steering_angle();
+  return ht_nav_variables::msg::builder::Init_HtNavJointState_time();
 }
 
 }  // namespace ht_nav_variables

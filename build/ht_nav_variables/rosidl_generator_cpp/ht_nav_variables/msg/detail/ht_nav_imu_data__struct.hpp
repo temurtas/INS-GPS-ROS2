@@ -41,17 +41,28 @@ struct HtNavImuData_
   : vel_diff(_init),
     ang_diff(_init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   explicit HtNavImuData_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : vel_diff(_alloc, _init),
     ang_diff(_alloc, _init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _vel_diff_type =
     ht_nav_variables::msg::HtNavVector3_<ContainerAllocator>;
   _vel_diff_type vel_diff;
@@ -60,6 +71,12 @@ struct HtNavImuData_
   _ang_diff_type ang_diff;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__vel_diff(
     const ht_nav_variables::msg::HtNavVector3_<ContainerAllocator> & _arg)
   {
@@ -115,6 +132,9 @@ struct HtNavImuData_
   // comparison operators
   bool operator==(const HtNavImuData_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->vel_diff != other.vel_diff) {
       return false;
     }

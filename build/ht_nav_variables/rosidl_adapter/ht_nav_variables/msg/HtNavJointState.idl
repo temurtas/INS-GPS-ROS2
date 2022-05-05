@@ -14,6 +14,8 @@ module ht_nav_variables {
       " rotation). If you want your data to be translatable too, use the" "\n"
       " geometry_msgs/Point message instead.")
     struct HtNavJointState {
+      double time;
+
       ht_nav_variables::msg::HtNavWheelVector steering_angle;
 
       ht_nav_variables::msg::HtNavWheelVector wheel_rotation;

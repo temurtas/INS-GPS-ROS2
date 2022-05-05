@@ -16,6 +16,8 @@ msg/HtNavPoint.idl
 msg/HtNavPoint.msg
 msg/HtNavQuaternion.idl
 msg/HtNavQuaternion.msg
+msg/HtNavStrapCarOut.idl
+msg/HtNavStrapCarOut.msg
 msg/HtNavStrapOut.idl
 msg/HtNavStrapOut.msg
 msg/HtNavTireOut.idl

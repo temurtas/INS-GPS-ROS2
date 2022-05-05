@@ -39,13 +39,29 @@ private:
 class Init_HtNavImuData_vel_diff
 {
 public:
-  Init_HtNavImuData_vel_diff()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavImuData_vel_diff(::ht_nav_variables::msg::HtNavImuData & msg)
+  : msg_(msg)
   {}
   Init_HtNavImuData_ang_diff vel_diff(::ht_nav_variables::msg::HtNavImuData::_vel_diff_type arg)
   {
     msg_.vel_diff = std::move(arg);
     return Init_HtNavImuData_ang_diff(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavImuData msg_;
+};
+
+class Init_HtNavImuData_time
+{
+public:
+  Init_HtNavImuData_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavImuData_vel_diff time(::ht_nav_variables::msg::HtNavImuData::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavImuData_vel_diff(msg_);
   }
 
 private:
@@ -63,7 +79,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavImuData>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavImuData_vel_diff();
+  return ht_nav_variables::msg::builder::Init_HtNavImuData_time();
 }
 
 }  // namespace ht_nav_variables

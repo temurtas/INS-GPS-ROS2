@@ -11,6 +11,8 @@ module ht_nav_variables {
     @verbatim (language="comment", text=
       " This expresses")
     struct HtNavStrapOut {
+      double time;
+
       ht_nav_variables::msg::HtNavVector3 pos;
 
       ht_nav_variables::msg::HtNavVector3 vel;

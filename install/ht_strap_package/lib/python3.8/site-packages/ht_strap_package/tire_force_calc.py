@@ -1,6 +1,7 @@
 # We need install numpy in order to import it
 import numpy as np
-from ht_strap_package.strap_operations import pos_update, vel_update, quaternion_update, quaternion2euler
+from ht_strap_package.strap_tf_operations import *
+from ht_strap_package.strap_operations import pos_update, vel_update, quaternion_update
 from ht_nav_variables.msg import HtNavTireOut, HtNavStrapOut
 from ht_nav_variables.msg import HtNavVehicleDebug, HtNavWheelVector
 import ht_strap_package.config as config

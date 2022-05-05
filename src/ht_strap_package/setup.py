@@ -24,6 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+                'data_collector = ht_strap_package.data_collector_function:main',
                 'strap_node = ht_strap_package.strap_node_function:main',
                 'strap_w_kalman_node = ht_strap_package.strap_with_kalman_node_function:main',
                 'imu_data_publisher_node = ht_strap_package.imu_data_publisher_function:main',
@@ -36,6 +37,7 @@ setup(
                 'ideal_gps_data_converter_node = ht_strap_package.ideal_gps_data_converter_function:main',
                 'ins_gps_node = ht_strap_package.ins_gps_node_function:main',
                 'strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main',
+                'strap_ins_gps_cartesian_node = ht_strap_package.ins_gps_strap_cartesian_node_function:main',
                 'strap_ideal_node = ht_strap_package.strap_ideal_node_function:main',
                 'strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main',
                 'my_teleop = ht_strap_package.my_teleop:main',

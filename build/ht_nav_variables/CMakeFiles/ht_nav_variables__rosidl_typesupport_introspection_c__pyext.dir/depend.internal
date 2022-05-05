@@ -122,6 +122,9 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c__pyext.dir/rosid
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__type_support.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.h
+ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__type_support.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
  rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h

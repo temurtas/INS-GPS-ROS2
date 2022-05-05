@@ -23,6 +23,7 @@ ht_nav_variables__msg__HtNavKalmanOut__init(ht_nav_variables__msg__HtNavKalmanOu
   if (!msg) {
     return false;
   }
+  // time
   // pos_err
   if (!ht_nav_variables__msg__HtNavErrorVector__init(&msg->pos_err)) {
     ht_nav_variables__msg__HtNavKalmanOut__fini(msg);
@@ -57,6 +58,7 @@ ht_nav_variables__msg__HtNavKalmanOut__fini(ht_nav_variables__msg__HtNavKalmanOu
   if (!msg) {
     return;
   }
+  // time
   // pos_err
   ht_nav_variables__msg__HtNavErrorVector__fini(&msg->pos_err);
   // vel_err

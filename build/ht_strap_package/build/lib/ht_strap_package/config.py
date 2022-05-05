@@ -14,7 +14,7 @@ base_path = Path("/home/temur/INS-GPS-ROS2/veri_gazebo/veri_deneme/")           
 # veri_4_joint_vel_25Hz
 # veri_5_joint_vel_100Hz
 
-imu_pub_freq = 100.0
+imu_pub_freq = 99.75808 # 100.0
 kalman_prop_const = 5
 gps_pub_freq = 5.0
 
@@ -27,7 +27,7 @@ buffer_size = 30
 pos_std = 5                         # m
 h_std = 7                           # m
 vel_std = 0.25                      # m/s
-att_std = np.deg2rad(1)             # deg
+att_std = np.deg2rad(1.0)           # deg->rad
 bias_std = 9.81 * 1e-3              # mg
 drift_std = np.deg2rad(1) / 3600    # deg/hr
 
@@ -39,6 +39,13 @@ sigma_rg = np.deg2rad(1) / 3600     # deg / hr
 sigma_bad = 9.81 * 2e-3             # mg
 sigma_bgd = np.deg2rad(5) / 3600    # deg / hr
 
+# IMU Modelling Specs
+acc_bias_std    = 1.0   # mg 
+gyro_drift_std  = 1.0   # deg/hr
+acc_sf_std      = 0.0   # ppm
+gyro_sf_std     = 0.0   # ppm
+acc_rw_std      = 0.065 # ft/s/rt-hr
+gyro_rw_std     = 0.125 # deg/rt-hr 
 
 PI_NUMBER = 3.14159265358979
 DEG2RAD = 0.0174532925199433

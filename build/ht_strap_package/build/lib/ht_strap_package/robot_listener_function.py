@@ -32,7 +32,7 @@ import math
 import ht_strap_package.config as config
 
 from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavVehicleDebug, HtNavWheelVector, HtNavTireOut
-from ht_strap_package.strap_operations import euler2cbn
+from ht_strap_package.strap_tf_operations import *
 from ht_strap_package.tire_operations import tire_sideslip_angle_calc, longitudinal_tire_slip_calc, nav2wheels, tire_dugoff_force_calc, steering2Cwb
 
 # base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
@@ -205,13 +205,18 @@ class RobotStateListener(Node):
         self.joint_state.wheel_rotation.w4 = 0.0
  
         self.tire_debug = HtNavVehicleDebug()
-
+    
+        self.gazebo_time = 0.0
     
 
     def joint_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
         
         self.joint_state.steering_angle.w1 = msg.position[0]
         self.joint_state.steering_angle.w2 = msg.position[1]
@@ -303,12 +308,16 @@ class RobotStateListener(Node):
         print(str(self.zaman_ref), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
             str(msg_tire_out.tire_lateral_forces.w1), str(msg_tire_out.tire_lateral_forces.w2) , str(msg_tire_out.tire_lateral_forces.w3), str(msg_tire_out.tire_lateral_forces.w4), str(msg_tire_out.tire_longitudinal_forces.w1), str(msg_tire_out.tire_longitudinal_forces.w2) , str(msg_tire_out.tire_longitudinal_forces.w3), str(msg_tire_out.tire_longitudinal_forces.w4) , sep='\t', file=tire_out_data_ideal_txt)
 
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
         
     def front_right_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
         self.fr_wheel_pva.pos.x = float(msg.position[0])
         self.fr_wheel_pva.pos.y = float(msg.position[1])
@@ -338,13 +347,17 @@ class RobotStateListener(Node):
         self.fr_wheel_pva.euler.pitch = float(temp_euler2[1])
         self.fr_wheel_pva.euler.yaw   = float(temp_euler2[2])
 
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_out_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_out_data_txt)
 
     def front_left_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
         self.fl_wheel_pva.pos.x = float(msg.position[0])
         self.fl_wheel_pva.pos.y = float(msg.position[1])
         self.fl_wheel_pva.pos.z = float(msg.position[2])
@@ -373,13 +386,17 @@ class RobotStateListener(Node):
         self.fl_wheel_pva.euler.pitch = float(temp_euler2[1])
         self.fl_wheel_pva.euler.yaw   = float(temp_euler2[2])
         
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_out_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_out_data_txt)
 
     def rear_right_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
         self.rr_wheel_pva.pos.x = float(msg.position[0])
         self.rr_wheel_pva.pos.y = float(msg.position[1])
         self.rr_wheel_pva.pos.z = float(msg.position[2])
@@ -408,12 +425,16 @@ class RobotStateListener(Node):
         self.rr_wheel_pva.euler.pitch = float(temp_euler2[1])
         self.rr_wheel_pva.euler.yaw   = float(temp_euler2[2])        
         
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_out_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_out_data_txt)
 
     def rear_left_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
         self.rl_wheel_pva.pos.x = float(msg.position[0])
         self.rl_wheel_pva.pos.y = float(msg.position[1])
@@ -443,13 +464,17 @@ class RobotStateListener(Node):
         self.rl_wheel_pva.euler.pitch = float(temp_euler2[1])
         self.rl_wheel_pva.euler.yaw   = float(temp_euler2[2])
 
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_out_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_out_data_txt)
 
     def imu_link_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
         self.imu_link_pva.pos.x = float(msg.position[0])
         self.imu_link_pva.pos.y = float(msg.position[1])
         self.imu_link_pva.pos.z = float(msg.position[2])
@@ -478,7 +503,7 @@ class RobotStateListener(Node):
         self.imu_link_pva.euler.pitch = float(temp_euler2[1])
         self.imu_link_pva.euler.yaw   = float(temp_euler2[2])        
         
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=imu_out_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=imu_out_data_txt)
 
     def front_right_link_calc_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])

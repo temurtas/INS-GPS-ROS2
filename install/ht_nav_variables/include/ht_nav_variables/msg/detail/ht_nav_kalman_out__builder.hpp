@@ -87,13 +87,29 @@ private:
 class Init_HtNavKalmanOut_pos_err
 {
 public:
-  Init_HtNavKalmanOut_pos_err()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavKalmanOut_pos_err(::ht_nav_variables::msg::HtNavKalmanOut & msg)
+  : msg_(msg)
   {}
   Init_HtNavKalmanOut_vel_err pos_err(::ht_nav_variables::msg::HtNavKalmanOut::_pos_err_type arg)
   {
     msg_.pos_err = std::move(arg);
     return Init_HtNavKalmanOut_vel_err(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavKalmanOut msg_;
+};
+
+class Init_HtNavKalmanOut_time
+{
+public:
+  Init_HtNavKalmanOut_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavKalmanOut_pos_err time(::ht_nav_variables::msg::HtNavKalmanOut::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavKalmanOut_pos_err(msg_);
   }
 
 private:
@@ -111,7 +127,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavKalmanOut>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavKalmanOut_pos_err();
+  return ht_nav_variables::msg::builder::Init_HtNavKalmanOut_time();
 }
 
 }  // namespace ht_nav_variables

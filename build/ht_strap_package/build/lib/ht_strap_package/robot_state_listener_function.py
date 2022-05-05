@@ -91,6 +91,8 @@ class RobotStateListener(Node):
         self.zaman_ref = 0.0
         self.zaman_ilk = self.get_clock().now().nanoseconds * 1e-6 #msec
 
+        self.gazebo_time  = 0.0
+
     def listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
@@ -108,7 +110,12 @@ class RobotStateListener(Node):
         
         # print(str(self.zaman_ref), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=out_data_txt)
 
-    def gps_sub_cb(self, msg):      
+    def gps_sub_cb(self, msg):   
+
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
         self.gps_data_ideal.gps_pos.x = msg.latitude * DEG2RAD
         self.gps_data_ideal.gps_pos.y = msg.longitude * DEG2RAD
         self.gps_data_ideal.gps_pos.z = msg.altitude
@@ -119,7 +126,7 @@ class RobotStateListener(Node):
 
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(str(self.zaman_ref), str(self.gps_data_ideal.gps_pos.x), str(self.gps_data_ideal.gps_pos.y), str(self.gps_data_ideal.gps_pos.z), str(self.gps_data_ideal.gps_vel.x), str(self.gps_data_ideal.gps_vel.y), str(self.gps_data_ideal.gps_vel.z), sep='\t', file=gps_data_gazebo_txt)
+        print(str(self.gazebo_time), str(self.gps_data_ideal.gps_pos.x), str(self.gps_data_ideal.gps_pos.y), str(self.gps_data_ideal.gps_pos.z), str(self.gps_data_ideal.gps_vel.x), str(self.gps_data_ideal.gps_vel.y), str(self.gps_data_ideal.gps_vel.z), sep='\t', file=gps_data_gazebo_txt)
 
     def ideal_listener_callback(self, msg):
         #self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)

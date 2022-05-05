@@ -45,7 +45,22 @@ void HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_fini_fun
   ht_nav_variables__msg__HtNavKalmanOut__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[5] = {
+static rosidl_typesupport_introspection_c__MessageMember HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[6] = {
+  {
+    "time",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavKalmanOut, time),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
+  },
   {
     "pos_err",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
@@ -126,7 +141,7 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavKalmanOut__rosidl_
 static const rosidl_typesupport_introspection_c__MessageMembers HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_members = {
   "ht_nav_variables__msg",  // message namespace
   "HtNavKalmanOut",  // message name
-  5,  // number of fields
+  6,  // number of fields
   sizeof(ht_nav_variables__msg__HtNavKalmanOut),
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array,  // message members
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -144,8 +159,6 @@ static rosidl_message_type_support_t HtNavKalmanOut__rosidl_typesupport_introspe
 ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_ht_nav_variables
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavKalmanOut)() {
-  HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[0].members_ =
-    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavErrorVector)();
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[1].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavErrorVector)();
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[2].members_ =
@@ -153,6 +166,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[3].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavErrorVector)();
   HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[4].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavErrorVector)();
+  HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_member_array[5].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavErrorVector)();
   if (!HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_type_support_handle.typesupport_identifier) {
     HtNavKalmanOut__rosidl_typesupport_introspection_c__HtNavKalmanOut_message_type_support_handle.typesupport_identifier =

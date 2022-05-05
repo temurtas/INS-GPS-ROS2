@@ -21,6 +21,7 @@ ht_nav_variables__msg__HtNavGpsData__init(ht_nav_variables__msg__HtNavGpsData * 
   if (!msg) {
     return false;
   }
+  // time
   // gps_pos
   if (!ht_nav_variables__msg__HtNavPoint__init(&msg->gps_pos)) {
     ht_nav_variables__msg__HtNavGpsData__fini(msg);
@@ -40,6 +41,7 @@ ht_nav_variables__msg__HtNavGpsData__fini(ht_nav_variables__msg__HtNavGpsData * 
   if (!msg) {
     return;
   }
+  // time
   // gps_pos
   ht_nav_variables__msg__HtNavPoint__fini(&msg->gps_pos);
   // gps_vel

@@ -20,6 +20,7 @@ ht_nav_variables__msg__HtNavImuData__init(ht_nav_variables__msg__HtNavImuData * 
   if (!msg) {
     return false;
   }
+  // time
   // vel_diff
   if (!ht_nav_variables__msg__HtNavVector3__init(&msg->vel_diff)) {
     ht_nav_variables__msg__HtNavImuData__fini(msg);
@@ -39,6 +40,7 @@ ht_nav_variables__msg__HtNavImuData__fini(ht_nav_variables__msg__HtNavImuData * 
   if (!msg) {
     return;
   }
+  // time
   // vel_diff
   ht_nav_variables__msg__HtNavVector3__fini(&msg->vel_diff);
   // ang_diff

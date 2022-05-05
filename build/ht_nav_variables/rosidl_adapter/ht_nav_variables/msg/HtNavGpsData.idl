@@ -10,6 +10,8 @@ module ht_nav_variables {
     @verbatim (language="comment", text=
       " This expresses GPS position of the object")
     struct HtNavGpsData {
+      double time;
+
       ht_nav_variables::msg::HtNavPoint gps_pos;
 
       ht_nav_variables::msg::HtNavVector3 gps_vel;

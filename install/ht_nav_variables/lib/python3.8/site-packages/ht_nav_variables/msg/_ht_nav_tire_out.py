@@ -57,6 +57,7 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
     """Message class 'HtNavTireOut'."""
 
     __slots__ = [
+        '_time',
         '_effective_radius_est',
         '_vehicle_mass_est',
         '_wheel_side_slip_ang',
@@ -66,6 +67,7 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
     ]
 
     _fields_and_field_types = {
+        'time': 'double',
         'effective_radius_est': 'double',
         'vehicle_mass_est': 'double',
         'wheel_side_slip_ang': 'ht_nav_variables/HtNavWheelVector',
@@ -75,6 +77,7 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
@@ -87,6 +90,7 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.time = kwargs.get('time', float())
         self.effective_radius_est = kwargs.get('effective_radius_est', float())
         self.vehicle_mass_est = kwargs.get('vehicle_mass_est', float())
         from ht_nav_variables.msg import HtNavWheelVector
@@ -127,6 +131,8 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.time != other.time:
+            return False
         if self.effective_radius_est != other.effective_radius_est:
             return False
         if self.vehicle_mass_est != other.vehicle_mass_est:
@@ -145,6 +151,19 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @property
+    def time(self):
+        """Message field 'time'."""
+        return self._time
+
+    @time.setter
+    def time(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'time' field must be of type 'float'"
+        self._time = value
 
     @property
     def effective_radius_est(self):

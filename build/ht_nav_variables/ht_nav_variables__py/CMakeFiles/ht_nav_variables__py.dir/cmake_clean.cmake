@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_point_s.c"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_quaternion.py"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_quaternion_s.c"
+  "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_car_out.py"
+  "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_car_out_s.c"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out.py"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_strap_out_s.c"
   "../rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out.py"

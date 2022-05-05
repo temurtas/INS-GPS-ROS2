@@ -77,6 +77,10 @@ CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_n
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__builder.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__builder.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp
@@ -132,6 +136,7 @@ rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapte
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
@@ -211,6 +216,18 @@ rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp: r
 
 rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp
 
 rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp
@@ -333,6 +350,10 @@ ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_ou
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__builder.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__builder.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp

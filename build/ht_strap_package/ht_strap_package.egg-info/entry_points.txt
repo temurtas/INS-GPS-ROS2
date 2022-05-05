@@ -1,4 +1,5 @@
 [console_scripts]
+data_collector = ht_strap_package.data_collector_function:main
 gps_data_converter_node = ht_strap_package.gps_data_converter_function:main
 gps_data_publisher_node = ht_strap_package.gps_data_publisher_function:main
 ideal_gps_data_converter_node = ht_strap_package.ideal_gps_data_converter_function:main
@@ -12,6 +13,7 @@ pseudo_controller = ht_strap_package.pseudo_controller_function:main
 robot_listener = ht_strap_package.robot_listener_function:main
 robot_state_listener = ht_strap_package.robot_state_listener_function:main
 strap_ideal_node = ht_strap_package.strap_ideal_node_function:main
+strap_ins_gps_cartesian_node = ht_strap_package.ins_gps_strap_cartesian_node_function:main
 strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main
 strap_node = ht_strap_package.strap_node_function:main
 strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main

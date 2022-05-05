@@ -25,6 +25,7 @@ extern "C"
 // Struct defined in msg/HtNavJointState in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavJointState
 {
+  double time;
   ht_nav_variables__msg__HtNavWheelVector steering_angle;
   ht_nav_variables__msg__HtNavWheelVector wheel_rotation;
 } ht_nav_variables__msg__HtNavJointState;

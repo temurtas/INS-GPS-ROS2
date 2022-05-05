@@ -57,16 +57,19 @@ class HtNavImuData(metaclass=Metaclass_HtNavImuData):
     """Message class 'HtNavImuData'."""
 
     __slots__ = [
+        '_time',
         '_vel_diff',
         '_ang_diff',
     ]
 
     _fields_and_field_types = {
+        'time': 'double',
         'vel_diff': 'ht_nav_variables/HtNavVector3',
         'ang_diff': 'ht_nav_variables/HtNavVector3',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
     )
@@ -75,6 +78,7 @@ class HtNavImuData(metaclass=Metaclass_HtNavImuData):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.time = kwargs.get('time', float())
         from ht_nav_variables.msg import HtNavVector3
         self.vel_diff = kwargs.get('vel_diff', HtNavVector3())
         from ht_nav_variables.msg import HtNavVector3
@@ -109,6 +113,8 @@ class HtNavImuData(metaclass=Metaclass_HtNavImuData):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.time != other.time:
+            return False
         if self.vel_diff != other.vel_diff:
             return False
         if self.ang_diff != other.ang_diff:
@@ -119,6 +125,19 @@ class HtNavImuData(metaclass=Metaclass_HtNavImuData):
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @property
+    def time(self):
+        """Message field 'time'."""
+        return self._time
+
+    @time.setter
+    def time(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'time' field must be of type 'float'"
+        self._time = value
 
     @property
     def vel_diff(self):

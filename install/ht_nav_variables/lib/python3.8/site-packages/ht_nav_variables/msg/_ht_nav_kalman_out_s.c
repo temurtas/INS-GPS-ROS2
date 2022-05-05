@@ -60,6 +60,15 @@ bool ht_nav_variables__msg__ht_nav_kalman_out__convert_from_py(PyObject * _pymsg
     assert(strncmp("ht_nav_variables.msg._ht_nav_kalman_out.HtNavKalmanOut", full_classname_dest, 54) == 0);
   }
   ht_nav_variables__msg__HtNavKalmanOut * ros_message = _ros_message;
+  {  // time
+    PyObject * field = PyObject_GetAttrString(_pymsg, "time");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->time = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
   {  // pos_err
     PyObject * field = PyObject_GetAttrString(_pymsg, "pos_err");
     if (!field) {
@@ -137,6 +146,17 @@ PyObject * ht_nav_variables__msg__ht_nav_kalman_out__convert_to_py(void * raw_ro
     }
   }
   ht_nav_variables__msg__HtNavKalmanOut * ros_message = (ht_nav_variables__msg__HtNavKalmanOut *)raw_ros_message;
+  {  // time
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->time);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "time", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
   {  // pos_err
     PyObject * field = NULL;
     field = ht_nav_variables__msg__ht_nav_error_vector__convert_to_py(&ros_message->pos_err);

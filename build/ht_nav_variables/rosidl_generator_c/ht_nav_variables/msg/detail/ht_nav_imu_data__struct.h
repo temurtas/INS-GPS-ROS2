@@ -25,6 +25,7 @@ extern "C"
 // Struct defined in msg/HtNavImuData in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavImuData
 {
+  double time;
   ht_nav_variables__msg__HtNavVector3 vel_diff;
   ht_nav_variables__msg__HtNavVector3 ang_diff;
 } ht_nav_variables__msg__HtNavImuData;

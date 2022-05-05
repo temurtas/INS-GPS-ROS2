@@ -57,16 +57,19 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
     """Message class 'HtNavJointState'."""
 
     __slots__ = [
+        '_time',
         '_steering_angle',
         '_wheel_rotation',
     ]
 
     _fields_and_field_types = {
+        'time': 'double',
         'steering_angle': 'ht_nav_variables/HtNavWheelVector',
         'wheel_rotation': 'ht_nav_variables/HtNavWheelVector',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
     )
@@ -75,6 +78,7 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.time = kwargs.get('time', float())
         from ht_nav_variables.msg import HtNavWheelVector
         self.steering_angle = kwargs.get('steering_angle', HtNavWheelVector())
         from ht_nav_variables.msg import HtNavWheelVector
@@ -109,6 +113,8 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.time != other.time:
+            return False
         if self.steering_angle != other.steering_angle:
             return False
         if self.wheel_rotation != other.wheel_rotation:
@@ -119,6 +125,19 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @property
+    def time(self):
+        """Message field 'time'."""
+        return self._time
+
+    @time.setter
+    def time(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'time' field must be of type 'float'"
+        self._time = value
 
     @property
     def steering_angle(self):

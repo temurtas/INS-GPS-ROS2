@@ -48,6 +48,7 @@ struct HtNavTireOut_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
+      this->time = 0.0;
       this->effective_radius_est = 0.0;
       this->vehicle_mass_est = 0.0;
     }
@@ -62,12 +63,16 @@ struct HtNavTireOut_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
+      this->time = 0.0;
       this->effective_radius_est = 0.0;
       this->vehicle_mass_est = 0.0;
     }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _effective_radius_est_type =
     double;
   _effective_radius_est_type effective_radius_est;
@@ -88,6 +93,12 @@ struct HtNavTireOut_
   _tire_longitudinal_forces_type tire_longitudinal_forces;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__effective_radius_est(
     const double & _arg)
   {
@@ -167,6 +178,9 @@ struct HtNavTireOut_
   // comparison operators
   bool operator==(const HtNavTireOut_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->effective_radius_est != other.effective_radius_est) {
       return false;
     }

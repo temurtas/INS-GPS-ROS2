@@ -103,13 +103,29 @@ private:
 class Init_HtNavTireOut_effective_radius_est
 {
 public:
-  Init_HtNavTireOut_effective_radius_est()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavTireOut_effective_radius_est(::ht_nav_variables::msg::HtNavTireOut & msg)
+  : msg_(msg)
   {}
   Init_HtNavTireOut_vehicle_mass_est effective_radius_est(::ht_nav_variables::msg::HtNavTireOut::_effective_radius_est_type arg)
   {
     msg_.effective_radius_est = std::move(arg);
     return Init_HtNavTireOut_vehicle_mass_est(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavTireOut msg_;
+};
+
+class Init_HtNavTireOut_time
+{
+public:
+  Init_HtNavTireOut_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavTireOut_effective_radius_est time(::ht_nav_variables::msg::HtNavTireOut::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavTireOut_effective_radius_est(msg_);
   }
 
 private:
@@ -127,7 +143,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavTireOut>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavTireOut_effective_radius_est();
+  return ht_nav_variables::msg::builder::Init_HtNavTireOut_time();
 }
 
 }  // namespace ht_nav_variables

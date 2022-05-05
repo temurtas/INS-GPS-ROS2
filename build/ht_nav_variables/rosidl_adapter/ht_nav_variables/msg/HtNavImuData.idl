@@ -9,6 +9,8 @@ module ht_nav_variables {
     @verbatim (language="comment", text=
       " This expresses acceleration in free space broken into its linear and angular parts.")
     struct HtNavImuData {
+      double time;
+
       @verbatim (language="comment", text=
         " hiz_fark")
       ht_nav_variables::msg::HtNavVector3 vel_diff;

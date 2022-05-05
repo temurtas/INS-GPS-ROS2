@@ -54,6 +54,15 @@ bool ht_nav_variables__msg__ht_nav_imu_data__convert_from_py(PyObject * _pymsg, 
     assert(strncmp("ht_nav_variables.msg._ht_nav_imu_data.HtNavImuData", full_classname_dest, 50) == 0);
   }
   ht_nav_variables__msg__HtNavImuData * ros_message = _ros_message;
+  {  // time
+    PyObject * field = PyObject_GetAttrString(_pymsg, "time");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->time = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
   {  // vel_diff
     PyObject * field = PyObject_GetAttrString(_pymsg, "vel_diff");
     if (!field) {
@@ -98,6 +107,17 @@ PyObject * ht_nav_variables__msg__ht_nav_imu_data__convert_to_py(void * raw_ros_
     }
   }
   ht_nav_variables__msg__HtNavImuData * ros_message = (ht_nav_variables__msg__HtNavImuData *)raw_ros_message;
+  {  // time
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->time);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "time", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
   {  // vel_diff
     PyObject * field = NULL;
     field = ht_nav_variables__msg__ht_nav_vector3__convert_to_py(&ros_message->vel_diff);

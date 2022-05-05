@@ -41,17 +41,28 @@ struct HtNavJointState_
   : steering_angle(_init),
     wheel_rotation(_init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   explicit HtNavJointState_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : steering_angle(_alloc, _init),
     wheel_rotation(_alloc, _init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _steering_angle_type =
     ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator>;
   _steering_angle_type steering_angle;
@@ -60,6 +71,12 @@ struct HtNavJointState_
   _wheel_rotation_type wheel_rotation;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__steering_angle(
     const ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator> & _arg)
   {
@@ -115,6 +132,9 @@ struct HtNavJointState_
   // comparison operators
   bool operator==(const HtNavJointState_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->steering_angle != other.steering_angle) {
       return false;
     }

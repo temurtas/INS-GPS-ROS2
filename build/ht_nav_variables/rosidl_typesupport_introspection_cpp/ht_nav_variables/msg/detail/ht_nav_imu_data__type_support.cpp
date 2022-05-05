@@ -37,7 +37,22 @@ void HtNavImuData_fini_function(void * message_memory)
   typed_message->~HtNavImuData();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavImuData_message_member_array[2] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavImuData_message_member_array[3] = {
+  {
+    "time",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavImuData, time),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
   {
     "vel_diff",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
@@ -73,7 +88,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavImuData_
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers HtNavImuData_message_members = {
   "ht_nav_variables::msg",  // message namespace
   "HtNavImuData",  // message name
-  2,  // number of fields
+  3,  // number of fields
   sizeof(ht_nav_variables::msg::HtNavImuData),
   HtNavImuData_message_member_array,  // message members
   HtNavImuData_init_function,  // function to initialize message memory (memory has to be allocated)

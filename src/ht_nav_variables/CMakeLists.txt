@@ -30,6 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/HtNavImuData.msg"
   "msg/HtNavKalmanOut.msg"
   "msg/HtNavStrapOut.msg"
+  "msg/HtNavStrapCarOut.msg"
   "msg/HtNavPoint.msg"
   "msg/HtNavVector3.msg"
   "msg/HtNavQuaternion.msg"

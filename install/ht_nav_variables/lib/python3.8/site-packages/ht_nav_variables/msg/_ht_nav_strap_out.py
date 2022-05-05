@@ -65,6 +65,7 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     """Message class 'HtNavStrapOut'."""
 
     __slots__ = [
+        '_time',
         '_pos',
         '_vel',
         '_euler',
@@ -72,6 +73,7 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     ]
 
     _fields_and_field_types = {
+        'time': 'double',
         'pos': 'ht_nav_variables/HtNavVector3',
         'vel': 'ht_nav_variables/HtNavVector3',
         'euler': 'ht_nav_variables/HtNavEuler',
@@ -79,6 +81,7 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavVector3'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavEuler'),  # noqa: E501
@@ -89,6 +92,7 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.time = kwargs.get('time', float())
         from ht_nav_variables.msg import HtNavVector3
         self.pos = kwargs.get('pos', HtNavVector3())
         from ht_nav_variables.msg import HtNavVector3
@@ -127,6 +131,8 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.time != other.time:
+            return False
         if self.pos != other.pos:
             return False
         if self.vel != other.vel:
@@ -141,6 +147,19 @@ class HtNavStrapOut(metaclass=Metaclass_HtNavStrapOut):
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @property
+    def time(self):
+        """Message field 'time'."""
+        return self._time
+
+    @time.setter
+    def time(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'time' field must be of type 'float'"
+        self._time = value
 
     @property
     def pos(self):

@@ -5,6 +5,7 @@
 # rotation). If you want your data to be translatable too, use the
 # geometry_msgs/Point message instead.
 
+float64          time
 float64          effective_radius_est
 float64          vehicle_mass_est
 HtNavWheelVector wheel_side_slip_ang

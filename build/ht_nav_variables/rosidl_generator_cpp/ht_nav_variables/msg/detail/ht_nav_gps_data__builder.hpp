@@ -39,13 +39,29 @@ private:
 class Init_HtNavGpsData_gps_pos
 {
 public:
-  Init_HtNavGpsData_gps_pos()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavGpsData_gps_pos(::ht_nav_variables::msg::HtNavGpsData & msg)
+  : msg_(msg)
   {}
   Init_HtNavGpsData_gps_vel gps_pos(::ht_nav_variables::msg::HtNavGpsData::_gps_pos_type arg)
   {
     msg_.gps_pos = std::move(arg);
     return Init_HtNavGpsData_gps_vel(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavGpsData msg_;
+};
+
+class Init_HtNavGpsData_time
+{
+public:
+  Init_HtNavGpsData_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavGpsData_gps_pos time(::ht_nav_variables::msg::HtNavGpsData::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavGpsData_gps_pos(msg_);
   }
 
 private:
@@ -63,7 +79,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavGpsData>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavGpsData_gps_pos();
+  return ht_nav_variables::msg::builder::Init_HtNavGpsData_time();
 }
 
 }  // namespace ht_nav_variables

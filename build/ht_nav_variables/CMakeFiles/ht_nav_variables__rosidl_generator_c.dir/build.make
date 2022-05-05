@@ -76,6 +76,7 @@ rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
+rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
@@ -155,6 +156,18 @@ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h: rosid
 
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h
+
+rosidl_generator_c/ht_nav_variables/msg/ht_nav_strap_car_out.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/ht_nav_strap_car_out.h
+
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.h
+
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.h
+
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__type_support.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__type_support.h
 
 rosidl_generator_c/ht_nav_variables/msg/ht_nav_point.h: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/ht_nav_point.h
@@ -270,6 +283,9 @@ rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.c: r
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c
 
+rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c
+
 rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c: rosidl_generator_c/ht_nav_variables/msg/ht_nav_error_vector.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c
 
@@ -372,9 +388,22 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c.s
 
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c
+
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c > CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.i
+
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.s
+
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.i: cmake_force
@@ -387,7 +416,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.i: cmake_force
@@ -400,7 +429,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.i: cmake_force
@@ -413,7 +442,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_deneme__functions.c.i: cmake_force
@@ -426,7 +455,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.c.i: cmake_force
@@ -439,7 +468,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_joint_state__functions.c.i: cmake_force
@@ -452,7 +481,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_tire_out__functions.c.i: cmake_force
@@ -465,7 +494,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_va
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.o   -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c
 
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__functions.c.i: cmake_force
@@ -484,6 +513,7 @@ ht_nav_variables__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c.o" \
+"CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o" \
 "CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o" \
@@ -502,6 +532,7 @@ libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.c.o
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.c.o
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c.o
+libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c.o
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c.o
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c.o
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c.o
@@ -514,7 +545,7 @@ libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_
 libht_nav_variables__rosidl_generator_c.so: /opt/ros/foxy/lib/librosidl_runtime_c.so
 libht_nav_variables__rosidl_generator_c.so: /opt/ros/foxy/lib/librcutils.so
 libht_nav_variables__rosidl_generator_c.so: CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C shared library libht_nav_variables__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C shared library libht_nav_variables__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -550,6 +581,10 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__type_support.h
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/ht_nav_strap_car_out.h
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.h
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.h
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__type_support.h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/ht_nav_point.h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__struct.h
@@ -588,6 +623,7 @@ CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/h
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_imu_data__functions.c
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_kalman_out__functions.c
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_out__functions.c
+CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_strap_car_out__functions.c
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_point__functions.c
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_vector3__functions.c
 CMakeFiles/ht_nav_variables__rosidl_generator_c.dir/depend: rosidl_generator_c/ht_nav_variables/msg/detail/ht_nav_quaternion__functions.c

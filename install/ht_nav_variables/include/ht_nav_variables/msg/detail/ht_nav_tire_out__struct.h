@@ -27,6 +27,7 @@ extern "C"
 // Struct defined in msg/HtNavTireOut in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavTireOut
 {
+  double time;
   double effective_radius_est;
   double vehicle_mass_est;
   ht_nav_variables__msg__HtNavWheelVector wheel_side_slip_ang;

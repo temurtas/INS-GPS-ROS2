@@ -59,6 +59,7 @@ CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/H
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavImuData.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavKalmanOut.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavStrapOut.msg
+CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavStrapCarOut.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavPoint.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavVector3.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavQuaternion.msg

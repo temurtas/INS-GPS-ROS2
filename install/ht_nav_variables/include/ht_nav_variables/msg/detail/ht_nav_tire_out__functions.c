@@ -22,6 +22,7 @@ ht_nav_variables__msg__HtNavTireOut__init(ht_nav_variables__msg__HtNavTireOut * 
   if (!msg) {
     return false;
   }
+  // time
   // effective_radius_est
   // vehicle_mass_est
   // wheel_side_slip_ang
@@ -53,6 +54,7 @@ ht_nav_variables__msg__HtNavTireOut__fini(ht_nav_variables__msg__HtNavTireOut * 
   if (!msg) {
     return;
   }
+  // time
   // effective_radius_est
   // vehicle_mass_est
   // wheel_side_slip_ang

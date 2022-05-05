@@ -60,6 +60,11 @@ static bool _HtNavImuData__cdr_serialize(
     return false;
   }
   const _HtNavImuData__ros_msg_type * ros_message = static_cast<const _HtNavImuData__ros_msg_type *>(untyped_ros_message);
+  // Field name: time
+  {
+    cdr << ros_message->time;
+  }
+
   // Field name: vel_diff
   {
     const message_type_support_callbacks_t * callbacks =
@@ -100,6 +105,11 @@ static bool _HtNavImuData__cdr_deserialize(
     return false;
   }
   _HtNavImuData__ros_msg_type * ros_message = static_cast<_HtNavImuData__ros_msg_type *>(untyped_ros_message);
+  // Field name: time
+  {
+    cdr >> ros_message->time;
+  }
+
   // Field name: vel_diff
   {
     const message_type_support_callbacks_t * callbacks =
@@ -145,6 +155,12 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavImuData(
   (void)padding;
   (void)wchar_size;
 
+  // field.name time
+  {
+    size_t item_size = sizeof(ros_message->time);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // field.name vel_diff
 
   current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavVector3(
@@ -177,6 +193,13 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavImuData(
   (void)wchar_size;
   (void)full_bounded;
 
+  // member: time
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
   // member: vel_diff
   {
     size_t array_size = 1;

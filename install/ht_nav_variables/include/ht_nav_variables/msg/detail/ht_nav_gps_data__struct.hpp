@@ -42,17 +42,28 @@ struct HtNavGpsData_
   : gps_pos(_init),
     gps_vel(_init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   explicit HtNavGpsData_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : gps_pos(_alloc, _init),
     gps_vel(_alloc, _init)
   {
-    (void)_init;
+    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
+      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
+    {
+      this->time = 0.0;
+    }
   }
 
   // field types and members
+  using _time_type =
+    double;
+  _time_type time;
   using _gps_pos_type =
     ht_nav_variables::msg::HtNavPoint_<ContainerAllocator>;
   _gps_pos_type gps_pos;
@@ -61,6 +72,12 @@ struct HtNavGpsData_
   _gps_vel_type gps_vel;
 
   // setters for named parameter idiom
+  Type & set__time(
+    const double & _arg)
+  {
+    this->time = _arg;
+    return *this;
+  }
   Type & set__gps_pos(
     const ht_nav_variables::msg::HtNavPoint_<ContainerAllocator> & _arg)
   {
@@ -116,6 +133,9 @@ struct HtNavGpsData_
   // comparison operators
   bool operator==(const HtNavGpsData_ & other) const
   {
+    if (this->time != other.time) {
+      return false;
+    }
     if (this->gps_pos != other.gps_pos) {
       return false;
     }

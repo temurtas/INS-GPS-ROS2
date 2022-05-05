@@ -71,13 +71,29 @@ private:
 class Init_HtNavStrapOut_pos
 {
 public:
-  Init_HtNavStrapOut_pos()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_HtNavStrapOut_pos(::ht_nav_variables::msg::HtNavStrapOut & msg)
+  : msg_(msg)
   {}
   Init_HtNavStrapOut_vel pos(::ht_nav_variables::msg::HtNavStrapOut::_pos_type arg)
   {
     msg_.pos = std::move(arg);
     return Init_HtNavStrapOut_vel(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavStrapOut msg_;
+};
+
+class Init_HtNavStrapOut_time
+{
+public:
+  Init_HtNavStrapOut_time()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_HtNavStrapOut_pos time(::ht_nav_variables::msg::HtNavStrapOut::_time_type arg)
+  {
+    msg_.time = std::move(arg);
+    return Init_HtNavStrapOut_pos(msg_);
   }
 
 private:
@@ -95,7 +111,7 @@ template<>
 inline
 auto build<::ht_nav_variables::msg::HtNavStrapOut>()
 {
-  return ht_nav_variables::msg::builder::Init_HtNavStrapOut_pos();
+  return ht_nav_variables::msg::builder::Init_HtNavStrapOut_time();
 }
 
 }  // namespace ht_nav_variables

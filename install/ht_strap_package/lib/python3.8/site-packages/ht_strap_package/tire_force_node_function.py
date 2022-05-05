@@ -142,6 +142,8 @@ class TireForceCalculator(Node):
         self.tire_out.tire_longitudinal_forces.w3 = 0.0
         self.tire_out.tire_longitudinal_forces.w4 = 0.0
 
+        self.gazebo_time = 0.0
+
         
     def imu_data_sub_cb(self, msg):      
         self.imu_data.vel_diff.x = -msg.linear_acceleration.y * delta_t 
@@ -169,7 +171,13 @@ class TireForceCalculator(Node):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
         
+        self.joint_state.time = self.gazebo_time
+
         self.joint_state.steering_angle.w1 = msg.position[0]
         self.joint_state.steering_angle.w2 = msg.position[1]
         self.joint_state.steering_angle.w3 = 0.0 # msg.position[2]
@@ -180,9 +188,10 @@ class TireForceCalculator(Node):
         self.joint_state.wheel_rotation.w3 = msg.velocity[2]
         self.joint_state.wheel_rotation.w4 = msg.velocity[3]
 
-        print(str(self.zaman_ref), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
+        print(str(self.gazebo_time), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
 
         msg_pb = HtNavVehicleDebug()
+        msg_pb.time = self.gazebo_time
         self.tire_debug = tire_force_calc(self.strap_data, self.imu_data, self.joint_state)
         msg_pb = self.tire_debug
 
@@ -246,7 +255,7 @@ class TireForceCalculator(Node):
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         
-        print(str(self.zaman_ref), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
+        print(str(msg.time), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
             str(msg_tire_out.tire_lateral_forces.w1), str(msg_tire_out.tire_lateral_forces.w2) , str(msg_tire_out.tire_lateral_forces.w3), str(msg_tire_out.tire_lateral_forces.w4), str(msg_tire_out.tire_longitudinal_forces.w1), str(msg_tire_out.tire_longitudinal_forces.w2) , str(msg_tire_out.tire_longitudinal_forces.w3), str(msg_tire_out.tire_longitudinal_forces.w4) , sep='\t', file=tire_out_data_txt)
 
 

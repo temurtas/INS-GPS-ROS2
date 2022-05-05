@@ -9,6 +9,8 @@ module ht_nav_variables {
     @verbatim (language="comment", text=
       " This expresses")
     struct HtNavKalmanOut {
+      double time;
+
       ht_nav_variables::msg::HtNavErrorVector pos_err;
 
       ht_nav_variables::msg::HtNavErrorVector vel_err;

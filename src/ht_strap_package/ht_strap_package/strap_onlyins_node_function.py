@@ -24,10 +24,9 @@ from ht_nav_variables.msg import HtNavStrapOut
 
 from sensor_msgs.msg import Imu
 
+from ht_strap_package.strap_tf_operations import *
 from ht_strap_package.kalman_operations import f_matrix_construct, q_matrix_construct, p_update, kalman_update, p0_matrix_construct
-from ht_strap_package.strapdown import strapdown
-from ht_strap_package.strap_operations_inertial import euler2quaternion, quaternion2euler, quaternion_normalize 
-from ht_strap_package.strap_operations_inertial import pos_update, vel_update, quaternion_update, quaternion2euler
+from ht_strap_package.strap_operations_inertial import pos_update, vel_update, quaternion_update, quaternion_normalize
 from ht_strap_package.strapdown import strapdown
 from ht_strap_package.kalman_operations import kalman_duzeltme
 
@@ -100,12 +99,17 @@ class IdealStrapNode(Node):
 
         self.new_strap = self.old_strap
 
+        self.gazebo_time = 0.0
+
     def sub_cb_imu_data(self, msg):
         #self.get_logger().info('I heard vel_diff x as: "%f"' % msg.vel_diff.x)
         
         # self.imu_data.vel_diff = msg.vel_diff
         # self.imu_data.ang_diff = msg.ang_diff
-
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+        
         self.imu_data.vel_diff.x = -msg.linear_acceleration.y * delta_t 
         self.imu_data.vel_diff.y = -msg.linear_acceleration.x * delta_t
         self.imu_data.vel_diff.z = -msg.linear_acceleration.z * delta_t
@@ -118,6 +122,7 @@ class IdealStrapNode(Node):
         self.old_strap = self.new_strap
 
         msg_pb = HtNavStrapOut()
+        msg_pb.time = self.gazebo_time
         msg_pb.pos = self.new_strap.pos
         msg_pb.vel = self.new_strap.vel
         msg_pb.euler = self.new_strap.euler
@@ -129,7 +134,7 @@ class IdealStrapNode(Node):
 
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+        print(str(self.gazebo_time), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
 
 
 
@@ -138,7 +143,7 @@ class IdealStrapNode(Node):
         #self.get_logger().info('I publish z pos as: "%f"' % msg.pos.z)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        print(self.zaman_ref, str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_data_gazebo_ros_txt)
+        print(str(msg.time), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_data_gazebo_ros_txt)
 
     def node_strapdown(self, old_strap, imu_data):
     

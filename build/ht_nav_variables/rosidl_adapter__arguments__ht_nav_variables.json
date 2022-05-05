@@ -7,6 +7,7 @@
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavImuData.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavKalmanOut.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavStrapOut.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavStrapCarOut.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavPoint.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavVector3.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavQuaternion.msg",

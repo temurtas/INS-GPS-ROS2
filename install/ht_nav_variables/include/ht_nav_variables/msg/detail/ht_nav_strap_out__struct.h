@@ -29,6 +29,7 @@ extern "C"
 // Struct defined in msg/HtNavStrapOut in the package ht_nav_variables.
 typedef struct ht_nav_variables__msg__HtNavStrapOut
 {
+  double time;
   ht_nav_variables__msg__HtNavVector3 pos;
   ht_nav_variables__msg__HtNavVector3 vel;
   ht_nav_variables__msg__HtNavEuler euler;
