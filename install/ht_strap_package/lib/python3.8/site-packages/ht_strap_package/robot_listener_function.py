@@ -31,9 +31,9 @@ import numpy as np
 import math
 import ht_strap_package.config as config
 
-from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavVehicleDebug, HtNavWheelVector, HtNavTireOut
+from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavVehicleDebug, HtNavWheelVector, HtNavTireOut, HtNavImuData
 from ht_strap_package.strap_tf_operations import *
-from ht_strap_package.tire_operations import tire_sideslip_angle_calc, longitudinal_tire_slip_calc, nav2wheels, tire_dugoff_force_calc, steering2Cwb
+from ht_strap_package.tire_operations import *
 
 # base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
@@ -78,6 +78,9 @@ tire_out_data_ideal_txt = open(tire_out_data_ideal_path, 'w')
 
 joint_state_data_path = base_path / "joint_states.txt"
 joint_input_data_txt = open(joint_state_data_path, 'w')
+
+yaw_rate_path = base_path / "yaw_rate_debug.txt"
+yaw_rate_txt = open(yaw_rate_path, 'w')
 
 class RobotStateListener(Node):
 
@@ -205,7 +208,15 @@ class RobotStateListener(Node):
         self.joint_state.wheel_rotation.w4 = 0.0
  
         self.tire_debug = HtNavVehicleDebug()
-    
+
+        self.imu_data = HtNavImuData()
+        self.imu_data.vel_diff.x = 0.0
+        self.imu_data.vel_diff.y = 0.0
+        self.imu_data.vel_diff.z = 0.0
+        self.imu_data.ang_diff.x = 0.0
+        self.imu_data.ang_diff.y = 0.0
+        self.imu_data.ang_diff.z = 0.0
+
         self.gazebo_time = 0.0
     
 
@@ -267,8 +278,45 @@ class RobotStateListener(Node):
         alpha_t = HtNavWheelVector()
         sigma_t = HtNavWheelVector()
 
-        yaw_rate = 0.0
-        alpha_t = tire_sideslip_angle_calc(self.tire_debug, yaw_rate)
+        pos = np.zeros((3,1))
+        pos[0] = self.imu_link_pva.pos.x
+        pos[1] = self.imu_link_pva.pos.y
+        pos[2] = self.imu_link_pva.pos.z
+
+        vel = np.zeros((3,1))
+        vel[0] = self.imu_link_pva.vel.x
+        vel[1] = self.imu_link_pva.vel.y
+        vel[2] = self.imu_link_pva.vel.z
+
+        euler = np.zeros((3,1))
+        euler[0] = self.imu_link_pva.euler.roll
+        euler[1] = self.imu_link_pva.euler.pitch
+        euler[2] = self.imu_link_pva.euler.yaw
+
+        delta_ang = np.zeros((3,1))
+        delta_ang[0] = self.imu_data.ang_diff.x
+        delta_ang[1] = self.imu_data.ang_diff.y
+        delta_ang[2] = self.imu_data.ang_diff.z
+
+        # self.get_logger().info('I heard z delta_ang as: "%f"' % delta_ang[2])
+
+        # yaw_rate = 0.0
+        yaw_rate = yaw_rate_calc(delta_ang, pos, vel, euler)
+        DELTA_T = config.delta_t
+
+        w_ib_b = np.zeros((3,1))
+        
+        euler_rate = np.zeros((3,1))
+        w_ib_b = delta_ang / DELTA_T # rad/sec
+
+        euler_rate = euler_rate_calc(euler, w_ib_b)
+
+        rh = config.vehicle_cg_2_rear_half_m              
+        fh = config.vehicle_cg_2_front_half_m            
+        wl = config.vehicle_width_m       
+
+
+        alpha_t = tire_sideslip_angle_calc(self.tire_debug)
 
         # Transfer navigation solution to wheel base
         v_et1 = np.zeros((3,1))
@@ -276,15 +324,28 @@ class RobotStateListener(Node):
         v_et3 = np.zeros((3,1))
         v_et4 = np.zeros((3,1))
 
-        euler = np.zeros((3,1))
-        euler[0] = self.imu_link_pva.euler.roll
-        euler[1] = self.imu_link_pva.euler.pitch
-        euler[2] = self.imu_link_pva.euler.yaw
-
         v_et1 = nav2wheels(euler, C_t1_b, self.fl_wheel_pva)
         v_et2 = nav2wheels(euler, C_t2_b, self.fr_wheel_pva)
         v_et3 = nav2wheels(euler, C_t3_b, self.rl_wheel_pva)
         v_et4 = nav2wheels(euler, C_t4_b, self.rr_wheel_pva)
+
+        v_etk_n = np.zeros((3,1)) 
+        v_etk_tk = np.zeros((3,1)) 
+        C_b_tk = np.zeros((3,3)) 
+
+        c_bn = euler2cbn(euler)
+        c_nb = c_bn.transpose()
+
+        C_b_tk = C_t1_b.transpose()
+
+        v_etk_n[0] = self.fl_wheel_pva.vel.x
+        v_etk_n[1] = self.fl_wheel_pva.vel.y
+        v_etk_n[2] = self.fl_wheel_pva.vel.z
+        
+        temp_vel_t1 = np.dot(c_nb, v_etk_n)
+        v_etk_tk =  np.dot(C_b_tk , temp_vel_t1)
+
+        print(str(self.gazebo_time), str(float(v_etk_n[0])), str(float(v_etk_n[1])), str(float(v_etk_n[2])), str(float(v_etk_tk[0])), str(float(v_etk_tk[1])), str(float(v_etk_tk[2])),  sep='\t', file=yaw_rate_txt)
 
         sigma_t.w1 = float(longitudinal_tire_slip_calc(wheel_rots[0], v_et1[0]))
         sigma_t.w2 = float(longitudinal_tire_slip_calc(wheel_rots[1], v_et2[0]))
@@ -364,15 +425,13 @@ class RobotStateListener(Node):
 
         temp_vel = np.zeros((3, 1))
         temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[0]
-        temp_vel[1] = msg.velocity[1]
-        temp_vel[2] = msg.velocity[2]
+        temp_vel[0] = msg.velocity[1]
+        temp_vel[1] = msg.velocity[0]
+        temp_vel[2] = - msg.velocity[2]
 
-        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
-
-        self.fl_wheel_pva.vel.x = float(temp_vel2[0])
-        self.fl_wheel_pva.vel.y = float(temp_vel2[1])
-        self.fl_wheel_pva.vel.z = float(temp_vel2[2])
+        self.fl_wheel_pva.vel.x = -msg.velocity[1] # float(temp_vel[0])
+        self.fl_wheel_pva.vel.y = -msg.velocity[0] # float(temp_vel[1])
+        self.fl_wheel_pva.vel.z = -msg.velocity[2] # float(temp_vel[2])
         
         temp_euler = np.zeros((3, 1))
         temp_euler2 = np.zeros((3, 1))
@@ -518,7 +577,6 @@ class RobotStateListener(Node):
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_calc_data_txt)
 
     def rear_right_link_calc_listener_callback(self, msg):
-        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         print(str(self.zaman_ref), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_calc_data_txt)
@@ -545,13 +603,17 @@ class RobotStateListener(Node):
 
 
     def sub_cb_imu_data(self, msg):
-        # self.imu_data.vel_diff.x = -msg.linear_acceleration.y  
-        # self.imu_data.vel_diff.y = -msg.linear_acceleration.x 
-        # self.imu_data.vel_diff.z = -msg.linear_acceleration.z 
+        DELTA_T = config.delta_t
 
-        # self.imu_data.ang_diff.x = -msg.angular_velocity.y 
-        # self.imu_data.ang_diff.y = -msg.angular_velocity.x 
-        # self.imu_data.ang_diff.z = -msg.angular_velocity.z 
+        self.imu_data.vel_diff.x = -msg.linear_acceleration.y * DELTA_T
+        self.imu_data.vel_diff.y = -msg.linear_acceleration.x * DELTA_T
+        self.imu_data.vel_diff.z = -msg.linear_acceleration.z * DELTA_T
+
+        # self.get_logger().info('I heard z gyro as: "%f"' % msg.angular_velocity.z)
+
+        self.imu_data.ang_diff.x = -msg.angular_velocity.y * DELTA_T
+        self.imu_data.ang_diff.y = -msg.angular_velocity.x * DELTA_T
+        self.imu_data.ang_diff.z = -msg.angular_velocity.z * DELTA_T
 
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk

@@ -103,12 +103,12 @@ def euler_rate_calc(euler, w_nb_b):
     temp_matrix = np.zeros((3, 3))
     
     temp_matrix[0, 0] = 1
-    temp_matrix[0, 1] = math.sin(euler[0]) * math.tan(euler[1])
-    temp_matrix[0, 2] = math.cos(euler[0]) * math.tan(euler[1])
-    temp_matrix[1, 1] = math.cos(euler[0])
-    temp_matrix[1, 2] = - math.sin(euler[0])
-    temp_matrix[2, 1] = math.sin(euler[0]) / math.cos(euler[1])
-    temp_matrix[2, 2] = math.cos(euler[0]) / math.cos(euler[1])
+    temp_matrix[0, 1] = math.sin(float(euler[0])) * math.tan(float(euler[1]))
+    temp_matrix[0, 2] = math.cos(float(euler[0])) * math.tan(float(euler[1]))
+    temp_matrix[1, 1] = math.cos(float(euler[0]))
+    temp_matrix[1, 2] = - math.sin(float(euler[0]))
+    temp_matrix[2, 1] = math.sin(float(euler[0])) / math.cos(float(euler[1]))
+    temp_matrix[2, 2] = math.cos(float(euler[0])) / math.cos(float(euler[1]))
 
     euler_rate = np.dot(temp_matrix, w_nb_b)
 

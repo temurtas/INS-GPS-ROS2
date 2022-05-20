@@ -263,7 +263,7 @@ def tire_force_calc(strap_data, imu_data, joint_state):
 
     yaw_rate = yaw_rate_calc(ang_diff, pos, vel, euler)
     yaw_rate = 0.0
-    alpha_t = tire_sideslip_angle_calc(tire_debug, yaw_rate)
+    alpha_t = tire_sideslip_angle_calc(tire_debug)
 
     sigma_t.w1 = float(longitudinal_tire_slip_calc(wheel_rots[0], v_et1[0]))
     sigma_t.w2 = float(longitudinal_tire_slip_calc(wheel_rots[1], v_et2[0]))

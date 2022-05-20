@@ -36,36 +36,11 @@ def yaw_rate_calc(delta_ang, pos, vel, euler):
     DELTA_T = config.delta_t
 
     w_ib_b = np.zeros((3,1))
-    w_ib_n = np.zeros((3,1))
-    w_ie_n = np.zeros((3,1))
-    w_en_n = np.zeros((3,1))
-    w_nb_n = np.zeros((3,1))
-    w_in_n = np.zeros((3,1))
-    w_nb_b = np.zeros((3,1))
-    w_in_b = np.zeros((3,1))
-    euler_rate = np.zeros((3,1))
-
-    c_bn = np.zeros((3, 3))
-
-    w_ib_b = delta_ang / DELTA_T # rad/sec
-
-    c_bn = euler2cbn(euler)
-    w_ib_n = np.dot(c_bn , w_ib_b)
-    w_ie_n = earth_rate_calc(pos)
-    w_en_n = craft_rate_calc(vel, pos)
-    
-    w_in_n = w_en_n # w_ie_n + w_en_n
-    w_nb_n = w_ib_n - w_in_n
-
-    c_nb = np.transpose(c_bn)
-    w_in_b = np.dot(c_nb, w_in_n)
-
-    w_nb_b = w_ib_b - w_in_b
-
+    w_ib_b = delta_ang / DELTA_T
     euler_rate = euler_rate_calc(euler, w_ib_b)
     # euler_rate = euler_rate_calc(euler, w_nb_b)
 
-    yaw_rate = euler_rate[2]
+    yaw_rate = float(euler_rate[2])
     
     return yaw_rate
 
@@ -333,7 +308,7 @@ def longitudinal_tire_slip_calc_old(w_tk, v_tk_x):
     return sigma_x
 
 
-def tire_sideslip_angle_calc(tire_debug, yaw_rate):
+def tire_sideslip_angle_calc(tire_debug):
     DELTA_T = config.delta_t
     rh = config.vehicle_rear_half_m              
     fh = config.vehicle_front_half_m            
@@ -358,10 +333,15 @@ def tire_sideslip_angle_calc(tire_debug, yaw_rate):
     alpha = HtNavWheelVector()
 
     alpha_t = np.zeros((4,1))
-    alpha_t[0] = tire_debug.fl_wheel_pva.euler.yaw - math.atan2(tire_debug.fl_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fl_wheel_pva.vel.x - wl/2 * yaw_rate)
-    alpha_t[1] = tire_debug.fr_wheel_pva.euler.yaw - math.atan2(tire_debug.fr_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fr_wheel_pva.vel.x + wl/2 * yaw_rate)
-    alpha_t[2] = tire_debug.rl_wheel_pva.euler.yaw - math.atan2(tire_debug.rl_wheel_pva.vel.y + rh * yaw_rate, tire_debug.rl_wheel_pva.vel.x - wl/2 * yaw_rate)
-    alpha_t[3] = tire_debug.rr_wheel_pva.euler.yaw - math.atan2(tire_debug.rr_wheel_pva.vel.y + rh * yaw_rate, tire_debug.rr_wheel_pva.vel.x + wl/2 * yaw_rate)
+    # alpha_t[0] = tire_debug.fl_wheel_pva.euler.yaw - math.atan2(tire_debug.fl_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fl_wheel_pva.vel.x - wl/2 * yaw_rate)
+    # alpha_t[1] = tire_debug.fr_wheel_pva.euler.yaw - math.atan2(tire_debug.fr_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fr_wheel_pva.vel.x + wl/2 * yaw_rate)
+    # alpha_t[2] = tire_debug.rl_wheel_pva.euler.yaw - math.atan2(tire_debug.rl_wheel_pva.vel.y + rh * yaw_rate, tire_debug.rl_wheel_pva.vel.x - wl/2 * yaw_rate)
+    # alpha_t[3] = tire_debug.rr_wheel_pva.euler.yaw - math.atan2(tire_debug.rr_wheel_pva.vel.y + rh * yaw_rate, tire_debug.rr_wheel_pva.vel.x + wl/2 * yaw_rate)
+
+    alpha_t[0] = tire_debug.fl_wheel_pva.euler.yaw - math.atan2(tire_debug.fl_wheel_pva.vel.y , tire_debug.fl_wheel_pva.vel.x)
+    alpha_t[1] = tire_debug.fr_wheel_pva.euler.yaw - math.atan2(tire_debug.fr_wheel_pva.vel.y , tire_debug.fr_wheel_pva.vel.x)
+    alpha_t[2] = tire_debug.rl_wheel_pva.euler.yaw - math.atan2(tire_debug.rl_wheel_pva.vel.y , tire_debug.rl_wheel_pva.vel.x)
+    alpha_t[3] = tire_debug.rr_wheel_pva.euler.yaw - math.atan2(tire_debug.rr_wheel_pva.vel.y , tire_debug.rr_wheel_pva.vel.x)
 
     for x in range(4):
         if(alpha_t[x] > 6.0):
@@ -377,6 +357,54 @@ def tire_sideslip_angle_calc(tire_debug, yaw_rate):
 
     return alpha
 
+def tire_sideslip_angle_calc_yaw_rate(tire_debug, yaw_rate):
+    DELTA_T = config.delta_t
+    rh = config.vehicle_cg_2_rear_half_m              
+    fh = config.vehicle_cg_2_front_half_m            
+    wl = config.vehicle_width_m         
+
+    # tire_debug = HtNavVehicleDebug()
+
+    # float64       time
+    # HtNavTireOut  wheel_variables
+    # HtNavStrapOut imu_link_pva
+    # HtNavStrapOut fl_wheel_pva
+    # HtNavStrapOut fr_wheel_pva
+    # HtNavStrapOut rl_wheel_pva
+    # HtNavStrapOut rr_wheel_pva
+
+    # tire_pva = HtNavStrapOut()
+    # HtNavVector3          pos
+    # HtNavVector3          vel
+    # HtNavEuler            euler
+    # HtNavQuaternion       quaternion
+
+    alpha = HtNavWheelVector()
+
+    alpha_t = np.zeros((4,1))
+    alpha_t[0] = tire_debug.fl_wheel_pva.euler.yaw - math.atan2(tire_debug.fl_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fl_wheel_pva.vel.x - wl/2 * yaw_rate)
+    alpha_t[1] = tire_debug.fr_wheel_pva.euler.yaw - math.atan2(tire_debug.fr_wheel_pva.vel.y + fh * yaw_rate, tire_debug.fr_wheel_pva.vel.x + wl/2 * yaw_rate)
+    alpha_t[2] = tire_debug.rl_wheel_pva.euler.yaw - math.atan2(tire_debug.rl_wheel_pva.vel.y - rh * yaw_rate, tire_debug.rl_wheel_pva.vel.x - wl/2 * yaw_rate)
+    alpha_t[3] = tire_debug.rr_wheel_pva.euler.yaw - math.atan2(tire_debug.rr_wheel_pva.vel.y - rh * yaw_rate, tire_debug.rr_wheel_pva.vel.x + wl/2 * yaw_rate)
+
+    # alpha_t[0] = tire_debug.fl_wheel_pva.euler.yaw - math.atan2(tire_debug.fl_wheel_pva.vel.y , tire_debug.fl_wheel_pva.vel.x)
+    # alpha_t[1] = tire_debug.fr_wheel_pva.euler.yaw - math.atan2(tire_debug.fr_wheel_pva.vel.y , tire_debug.fr_wheel_pva.vel.x)
+    # alpha_t[2] = tire_debug.rl_wheel_pva.euler.yaw - math.atan2(tire_debug.rl_wheel_pva.vel.y , tire_debug.rl_wheel_pva.vel.x)
+    # alpha_t[3] = tire_debug.rr_wheel_pva.euler.yaw - math.atan2(tire_debug.rr_wheel_pva.vel.y , tire_debug.rr_wheel_pva.vel.x)
+
+    for x in range(4):
+        if(alpha_t[x] > 6.0):
+            alpha_t[x] = alpha_t[x] - 2*pi
+        elif(alpha_t[x] < -6.0):
+            alpha_t[x] = alpha_t[x] + 2*pi
+
+
+    alpha.w1 = float(alpha_t[0])
+    alpha.w2 = float(alpha_t[1])
+    alpha.w3 = float(alpha_t[2])
+    alpha.w4 = float(alpha_t[3])
+
+    return alpha
 
 def longitudinal_tire_slip_calc(w_tk, v_tk_x):
     R_0 = config.R_0
@@ -418,7 +446,7 @@ def tire_pva_calc(delta_ang, pos, v_eb_n, euler, C_tk_b, r_btk_b):
     c_bn = euler2cbn(euler)
     c_nb = c_bn.transpose()
 
-    C_tk_n = np.dot(c_bn, C_b_tk)
+    C_tk_n = np.dot(c_bn, C_tk_b) # C_b_tk) C_tk_n = C_b_n * C_tk_b
     euler_wk =  cbn2euler(C_tk_n)
     
     # transport velocity solution from IMU to wheel

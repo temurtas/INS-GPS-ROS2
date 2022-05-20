@@ -38,6 +38,7 @@ setup(
                 'ins_gps_node = ht_strap_package.ins_gps_node_function:main',
                 'strap_ins_gps_node = ht_strap_package.ins_gps_strap_node_function:main',
                 'strap_ins_gps_cartesian_node = ht_strap_package.ins_gps_strap_cartesian_node_function:main',
+                'strap_ins_gps_cartesian_pv_node = ht_strap_package.ins_gps_strap_cartesian_pv_node_function:main',
                 'strap_ideal_node = ht_strap_package.strap_ideal_node_function:main',
                 'strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main',
                 'my_teleop = ht_strap_package.my_teleop:main',

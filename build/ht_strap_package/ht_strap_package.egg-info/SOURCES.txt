@@ -20,6 +20,7 @@ ht_strap_package/imu_data_ideal_converter_function.py
 ht_strap_package/imu_data_publisher_function.py
 ht_strap_package/ins_gps_node_function.py
 ht_strap_package/ins_gps_strap_cartesian_node_function.py
+ht_strap_package/ins_gps_strap_cartesian_pv_node_function.py
 ht_strap_package/ins_gps_strap_node_function.py
 ht_strap_package/kalman_operations.py
 ht_strap_package/kalman_operations_cartesian.py

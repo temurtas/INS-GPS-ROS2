@@ -145,12 +145,12 @@ def main():
                 steering_angle = steering_angle
 
             twist = geometry_msgs.msg.Twist()
-            twist.linear.x = velocity
+            twist.linear.x = velocity * 1.5
             twist.linear.y = acc_limit
             twist.linear.z = jerk_limit
             twist.angular.x = 0.0
             twist.angular.y = 0.0
-            twist.angular.z = steering_angle
+            twist.angular.z = steering_angle / 2
             pub.publish(twist)
 
     except Exception as e:

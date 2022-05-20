@@ -18,7 +18,7 @@ def car_pos_update(vel, old_car_pos):
     # Update height using (5.56)
     new_x = old_x + delta_t * vel[1] 
     new_y = old_y + delta_t * vel[0] 
-    new_z = old_z - delta_t * vel[2]
+    new_z = old_z + delta_t * vel[2] # Down position, not height 
 
     new_car_pos[0] = new_x
     new_car_pos[1] = new_y
@@ -109,7 +109,7 @@ def g_calc(pos):
 
     g[2] = 0.0
     g[2] = 0.0
-    g[2] = 9.81
+    g[2] = 9.80
     return g
 
 # ########### ATTITUDE UPDATE ###########
