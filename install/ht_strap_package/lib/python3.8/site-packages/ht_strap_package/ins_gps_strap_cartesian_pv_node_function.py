@@ -388,7 +388,7 @@ class INSGPSNode(Node):
         self.p_matrix, self.x_k = kalman_update_pv(self.p_matrix, self.x_k, self.y)
 
         print(str(self.gps_data.time), str(self.x_k[0,0]), str(self.x_k[1,0]), str(self.x_k[2,0]), str(self.x_k[3,0]), str(self.x_k[4,0]), str(self.x_k[5,0]), str(self.x_k[6,0]), str(self.x_k[7,0]), str(self.x_k[8,0]), str(self.x_k[9,0]), str(self.x_k[10,0]), str(self.x_k[11,0]), str(self.x_k[12,0]), str(self.x_k[13,0]), str(self.x_k[14,0]), sep='\t', file=kalman_dx_txt)
-        print(str(self.gps_data.time), str(self.y[0]), str(self.y[1]), str(self.y[2]), str(self.y[3]), str(self.y[4]), str(self.y[5]), sep='\t', file=kalman_y_txt)
+        print(str(self.gps_data.time), str(float(self.y[0])), str(float(self.y[1])), str(float(self.y[2])), str(float(self.y[3])), str(float(self.y[4])), str(float(self.y[5])), sep='\t', file=kalman_y_txt)
 
         self.new_strap = kalman_duzeltme_pv(self.old_strap, self.x_k)
         self.old_strap = self.new_strap

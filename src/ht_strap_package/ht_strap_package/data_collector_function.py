@@ -61,6 +61,9 @@ imu_out_data_txt = open(imu_out_data_path, 'w')
 imu_link_data_path = base_path / "imu_link_data_sync.txt"
 imu_link_data_txt = open(imu_link_data_path, 'w')
 
+imu_link_data_path2 = base_path / "imu_data_link_body_sync.txt"
+imu_link_data2_txt = open(imu_link_data_path2, 'w')
+
 imu_data_path = base_path / "imu_data_sync.txt"
 imu_data_txt = open(imu_data_path, 'w')
 
@@ -123,6 +126,12 @@ class DataCollector(Node):
             self.imu_link_meas_listener_callback, 
             qos_profile=qos_profile)
 
+        self.imu_link_meas_subscription2 = self.create_subscription(
+            JointState, 
+            'kobra_mk5/imu_data_link_body', 
+            self.imu_link_meas_listener_callback2, 
+            qos_profile=qos_profile)
+
         # Initialise subscribers
         self.gps_sub = self.create_subscription(
             NavSatFix, 
@@ -179,6 +188,7 @@ class DataCollector(Node):
         Enu2NEDEuler[2] = - pi / 2
         self.CENU2NED = euler2cbn(Enu2NEDEuler)
 
+        self.imu_link_meas2 = HtNavStrapOut()
         self.imu_link_meas = HtNavStrapOut()
         self.imu_link_pva  = HtNavStrapOut()
         self.fl_wheel_pva  = HtNavStrapOut()
@@ -529,6 +539,35 @@ class DataCollector(Node):
         
         print(str(self.imu_link_meas.time), str(self.imu_link_meas.pos.x), str(self.imu_link_meas.pos.y), str(self.imu_link_meas.pos.z), str(self.imu_link_meas.vel.x), str(self.imu_link_meas.vel.y), str(self.imu_link_meas.vel.z), str(self.imu_link_meas.euler.roll), str(self.imu_link_meas.euler.pitch), str(self.imu_link_meas.euler.yaw), sep='\t', file=imu_link_data_txt)
 
+
+    def imu_link_meas_listener_callback2(self, msg):
+        # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        self.imu_link_meas2.time = self.gazebo_time
+
+        #   pos   : ang_vel  = link->WorldAngularVel();
+        #   vel   : lin_acc  = link->WorldLinearAccel ();
+        #   euler : ang_acc  = link->WorldAngularAccel();
+
+        self.imu_link_meas2.pos.x = float(msg.position[0])
+        self.imu_link_meas2.pos.y = float(msg.position[1])
+        self.imu_link_meas2.pos.z = float(msg.position[2])
+
+        self.imu_link_meas2.vel.x = float(msg.velocity[0])
+        self.imu_link_meas2.vel.y = float(msg.velocity[1])
+        self.imu_link_meas2.vel.z = float(msg.velocity[2])
+    
+        self.imu_link_meas2.euler.roll  = float(msg.effort[0])
+        self.imu_link_meas2.euler.pitch = float(msg.effort[1])
+        self.imu_link_meas2.euler.yaw   = float(msg.effort[2])        
+        
+        print(str(self.imu_link_meas2.time), str(self.imu_link_meas2.pos.x), str(self.imu_link_meas2.pos.y), str(self.imu_link_meas2.pos.z), str(self.imu_link_meas2.vel.x), str(self.imu_link_meas2.vel.y), str(self.imu_link_meas2.vel.z), str(self.imu_link_meas2.euler.roll), str(self.imu_link_meas2.euler.pitch), str(self.imu_link_meas2.euler.yaw), sep='\t', file=imu_link_data2_txt)
 
     def sub_cb_imu_data(self, msg):
         temp_time_sec = float(msg.header.stamp.sec)

@@ -23,8 +23,8 @@ def p0_matrix_construct():
 
     p0 = np.zeros((15, 15))
 
-    p0[0, 0] = pos_std * pos_std / 6.6e6 / 6.6e6
-    p0[1, 1] = pos_std * pos_std / 4.8e6 / 4.8e6
+    p0[0, 0] = pos_std * pos_std 
+    p0[1, 1] = pos_std * pos_std 
     p0[2, 2] = pos_std * pos_std
 
     p0[3, 3] = vel_std * vel_std

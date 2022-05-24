@@ -16,8 +16,8 @@ def car_pos_update(vel, old_car_pos):
     old_z = old_car_pos[2]
 
     # Update height using (5.56)
-    new_x = old_x + delta_t * vel[1] 
-    new_y = old_y + delta_t * vel[0] 
+    new_x = old_x + delta_t * vel[0] 
+    new_y = old_y + delta_t * vel[1] 
     new_z = old_z + delta_t * vel[2] # Down position, not height 
 
     new_car_pos[0] = new_x
