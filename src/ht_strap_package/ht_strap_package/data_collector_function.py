@@ -18,6 +18,8 @@ from pathlib import Path
 
 from rclpy.qos import qos_profile_sensor_data
 
+from gazebo_msgs.msg import ContactsState
+
 from sensor_msgs.msg import NavSatFix
 from sensor_msgs.msg import JointState
 from sensor_msgs.msg import Imu
@@ -70,6 +72,9 @@ imu_data_txt = open(imu_data_path, 'w')
 imu_ideal_data_path = base_path / "imu_data_ideal_sync.txt"
 imu_data_ideal_txt = open(imu_ideal_data_path, 'w')
 
+gps_link_data_path = base_path / "gps_link_data_sync.txt"
+gps_link_data_txt = open(gps_link_data_path, 'w')
+
 gps_data_path = base_path / "gps_data_sync.txt"
 gps_data_txt = open(gps_data_path, 'w')
 
@@ -78,6 +83,18 @@ gps_data_ideal_txt = open(gps_data_ideal_path, 'w')
 
 joint_state_data_path = base_path / "joint_states_sync.txt"
 joint_input_data_txt = open(joint_state_data_path, 'w')
+
+fl_contact_states_path = base_path / "fl_contact_states_sync.txt"
+fl_contact_states_txt = open(fl_contact_states_path, 'w')
+
+fr_contact_states_path = base_path / "fr_contact_states_sync.txt"
+fr_contact_states_txt = open(fr_contact_states_path, 'w')
+
+rl_contact_states_path = base_path / "rl_contact_states_sync.txt"
+rl_contact_states_txt = open(rl_contact_states_path, 'w')
+
+rr_contact_states_path = base_path / "rr_contact_states_sync.txt"
+rr_contact_states_txt = open(rr_contact_states_path, 'w')
 
 class DataCollector(Node):
 
@@ -141,28 +158,76 @@ class DataCollector(Node):
         
         self.strap_imu_sub = self.create_subscription(
             Imu, 
-            'kobra_mk5/imu_data', 
+            'kobra_mk5/imu_data_body', 
             self.sub_cb_imu_data, 
             qos_profile=qos_profile)
+
+        # self.strap_imu_sub = self.create_subscription(
+        #     Imu, 
+        #     'kobra_mk5/imu_data', 
+        #     self.sub_cb_imu_data, 
+        #     qos_profile=qos_profile)
 
         self.gps_ideal_subscription = self.create_subscription(
             NavSatFix,
             'kobra_mk5/ideal_gps_data',
             self.ideal_gps_sub_cb,
             qos_profile=qos_profile)
-                  
+        
         self.strap_imu_sub = self.create_subscription(
             Imu, 
-            'kobra_mk5/imu_data_ideal', 
+            'kobra_mk5/imu_data_body_ideal', 
             self.sub_cb_imu_data_ideal, 
             qos_profile=qos_profile)
 
+        # self.strap_imu_sub = self.create_subscription(
+        #     Imu, 
+        #     'kobra_mk5/imu_data_ideal', 
+        #     self.sub_cb_imu_data_ideal, 
+        #     qos_profile=qos_profile)
+
+        self.gps_link_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/link_gps_data', 
+            self.gps_link_cb, 
+            qos_profile=qos_profile)
+
+        self.fl_contact_sub = self.create_subscription(
+            ContactsState, 
+            'kobra_mk5/front_left_contact_forces', 
+            self.fl_contact_cb, 
+            qos_profile=qos_profile)
+
+        self.fr_contact_sub = self.create_subscription(
+            ContactsState, 
+            'kobra_mk5/front_right_contact_forces', 
+            self.fr_contact_cb, 
+            qos_profile=qos_profile)
+
+        self.rl_contact_sub = self.create_subscription(
+            ContactsState, 
+            'kobra_mk5/rear_left_contact_forces', 
+            self.rl_contact_cb, 
+            qos_profile=qos_profile)
+
+        self.rr_contact_sub = self.create_subscription(
+            ContactsState, 
+            'kobra_mk5/rear_right_contact_forces', 
+            self.rr_contact_cb, 
+            qos_profile=qos_profile)
+
+        self.fl_contact_sub  # prevent unused variable warning
+        self.fr_contact_sub  # prevent unused variable warning
+        self.rl_contact_sub  # prevent unused variable warning
+        self.rr_contact_sub  # prevent unused variable warning
 
         self.fr_link_subscription  # prevent unused variable warning
         self.fl_link_subscription  # prevent unused variable warning
         self.rr_link_subscription  # prevent unused variable warning
         self.fl_link_subscription  # prevent unused variable warning
         self.imu_link_subscription  # prevent unused variable warning
+        self.gps_link_sub  # prevent unused variable warning
+
         self.imu_link_meas_subscription  # prevent unused variable warning
 
         self.joint_state_subscription  # prevent unused variable warning
@@ -206,7 +271,15 @@ class DataCollector(Node):
         self.joint_state.wheel_rotation.w2 = 0.0
         self.joint_state.wheel_rotation.w3 = 0.0
         self.joint_state.wheel_rotation.w4 = 0.0
- 
+
+        self.gps_link_data = HtNavGpsData()
+        self.gps_link_data.gps_pos.x = 0.0
+        self.gps_link_data.gps_pos.y = 0.0
+        self.gps_link_data.gps_pos.z = 0.0
+        self.gps_link_data.gps_vel.x = 0.0
+        self.gps_link_data.gps_vel.y = 0.0
+        self.gps_link_data.gps_vel.z = 0.0
+
         self.gps_data = HtNavGpsData()
         self.gps_data.gps_pos.x = 0.0
         self.gps_data.gps_pos.y = 0.0
@@ -590,6 +663,27 @@ class DataCollector(Node):
         print(str(self.imu_data.time), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_txt)
 
 
+    def gps_link_cb(self, msg):       
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        self.gps_link_data.time = self.gazebo_time
+
+        self.gps_link_data.gps_pos.x = float(msg.position[0])
+        self.gps_link_data.gps_pos.y = float(msg.position[1])
+        self.gps_link_data.gps_pos.z = float(msg.position[2])
+
+        self.gps_link_data.gps_vel.x = float(msg.velocity[0])
+        self.gps_link_data.gps_vel.y = float(msg.velocity[1])
+        self.gps_link_data.gps_vel.z = float(msg.velocity[2])
+
+        self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+        self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+        print(str(self.gps_link_data.time), str(self.gps_link_data.gps_pos.x), str(self.gps_link_data.gps_pos.y), str(self.gps_link_data.gps_pos.z), str(self.gps_link_data.gps_vel.x), str(self.gps_link_data.gps_vel.y), str(self.gps_link_data.gps_vel.z), sep='\t', file=gps_link_data_txt)
+
+
     def sub_cb_gps_data(self, msg):       
         temp_time_sec = float(msg.header.stamp.sec)
         temp_time_nsec = float(msg.header.stamp.nanosec)
@@ -650,6 +744,63 @@ class DataCollector(Node):
 
         print(str(self.imu_data_ideal.time), str(self.imu_data_ideal.ang_diff.x), str(self.imu_data_ideal.ang_diff.y), str(self.imu_data_ideal.ang_diff.z), str(self.imu_data_ideal.vel_diff.x), str(self.imu_data_ideal.vel_diff.y), str(self.imu_data_ideal.vel_diff.z), sep='\t', file=imu_data_ideal_txt)
 
+
+    def fl_contact_cb(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        # self.get_logger().info('I heard fl contact force x as: 1')
+        # self.get_logger().info('I heard fl contact size as: "%f"' % len(msg.states))
+
+        # self.get_logger().info('I heard fl contact info as: "%s"' % msg.states[0].info)
+
+        # self.get_logger().info('I heard fl contact pos size: "%f"' % len(msg.states[0].contact_positions))
+
+        # self.get_logger().info('I heard fl contact pos x: "%f"' % msg.states[0].contact_positions[0].x)
+
+        # self.get_logger().info('I heard fl contact force 1 x as: "%f"' % msg.states[0].wrenches[0].force.x)
+        # self.get_logger().info('I heard fl contact force 2 x as: "%f"' % msg.states[1].wrenches[0].force.x)
+
+        ix = 0
+        while ix < len(msg.states):
+            print(str(self.imu_data_ideal.time), str(ix+1), str(msg.states[ix].contact_positions[0].x), str(msg.states[ix].contact_positions[0].y), str(msg.states[ix].contact_positions[0].z), \
+                str(msg.states[ix].wrenches[0].force.x), str(msg.states[ix].wrenches[0].force.y), str(msg.states[ix].wrenches[0].force.z), sep='\t', file=fl_contact_states_txt) 
+            ix = ix + 1
+
+
+    def fr_contact_cb(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        ix = 0
+        while ix < len(msg.states):
+            print(str(self.imu_data_ideal.time), str(ix+1), str(msg.states[ix].contact_positions[0].x), str(msg.states[ix].contact_positions[0].y), str(msg.states[ix].contact_positions[0].z), \
+                str(msg.states[ix].wrenches[0].force.x), str(msg.states[ix].wrenches[0].force.y), str(msg.states[ix].wrenches[0].force.z), sep='\t', file=fr_contact_states_txt) 
+            ix = ix + 1
+
+    def rl_contact_cb(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        ix = 0
+        while ix < len(msg.states):
+            print(str(self.imu_data_ideal.time), str(ix+1), str(msg.states[ix].contact_positions[0].x), str(msg.states[ix].contact_positions[0].y), str(msg.states[ix].contact_positions[0].z), \
+                str(msg.states[ix].wrenches[0].force.x), str(msg.states[ix].wrenches[0].force.y), str(msg.states[ix].wrenches[0].force.z), sep='\t', file=rl_contact_states_txt) 
+            ix = ix + 1
+
+    def rr_contact_cb(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+        ix = 0
+        while ix < len(msg.states):
+            print(str(self.imu_data_ideal.time), str(ix+1), str(msg.states[ix].contact_positions[0].x), str(msg.states[ix].contact_positions[0].y), str(msg.states[ix].contact_positions[0].z), \
+                str(msg.states[ix].wrenches[0].force.x), str(msg.states[ix].wrenches[0].force.y), str(msg.states[ix].wrenches[0].force.z), sep='\t', file=rr_contact_states_txt) 
+            ix = ix + 1
 
 def main(args=None):
     rclpy.init(args=args)

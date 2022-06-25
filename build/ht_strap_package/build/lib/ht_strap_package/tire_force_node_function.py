@@ -29,7 +29,7 @@ from ht_nav_variables.msg import HtNavStrapOut
 from ht_strap_package.config import base_path
 from ht_strap_package.config import delta_t
 
-from ht_strap_package.tire_force_calc import tire_force_calc, tire_force_calc_old
+from ht_strap_package.tire_force_calc import *
 
 #base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
@@ -56,9 +56,15 @@ class TireForceCalculator(Node):
         self.rr_pva_pub = self.create_publisher(JointState, 'rear_right_calc_link_states', qos_profile=qos_profile)
 
         # Initialise subscribers
+        # self.imu_sub = self.create_subscription(
+        #     Imu, 
+        #     'kobra_mk5/imu_data', 
+        #     self.imu_data_sub_cb, 
+        #     qos_profile=qos_profile)
+
         self.imu_sub = self.create_subscription(
             Imu, 
-            'kobra_mk5/imu_data', 
+            'kobra_mk5/imu_data_body', 
             self.imu_data_sub_cb, 
             qos_profile=qos_profile)
 
@@ -158,11 +164,14 @@ class TireForceCalculator(Node):
         #self.get_logger().info('I heard x pos as: "%f"' % msg.pos.x)
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
-        
+
+        self.strap_data.time = msg.time
         self.strap_data.pos = msg.pos
         self.strap_data.vel = msg.vel
         self.strap_data.euler = msg.euler
         self.strap_data.quaternion = msg.quaternion
+
+        # self.get_logger().info('I heard x pos as: "%f"' % self.strap_data.pos.x)
 
         # print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_input_data_txt)
 
@@ -191,9 +200,12 @@ class TireForceCalculator(Node):
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)
 
         msg_pb = HtNavVehicleDebug()
-        msg_pb.time = self.gazebo_time
+
+        # self.get_logger().info('I sent x vel as: "%f"' % self.strap_data.vel.x)
+
         self.tire_debug = tire_force_calc(self.strap_data, self.imu_data, self.joint_state)
         msg_pb = self.tire_debug
+        msg_pb.time = self.gazebo_time
 
         # msg_pb = HtNavVehicleDebug()
         # self.tire_debug.wheel_variables = tire_force_calc_old(self.strap_data, self.imu_data, self.joint_state)

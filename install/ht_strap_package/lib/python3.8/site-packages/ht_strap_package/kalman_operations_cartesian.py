@@ -4,7 +4,7 @@ import math
 import ht_strap_package.config as config
 from ht_strap_package.strap_operations_cartesian import *
 from ht_strap_package.strap_tf_operations import *
-from ht_nav_variables.msg import HtNavStrapCarOut
+from ht_nav_variables.msg import HtNavStrapOut
 
 
 def p0_matrix_construct():
@@ -450,9 +450,9 @@ def kalman_duzeltme(old_strap, delta_x):
     new_pos_ip[2] = old_strap.pos.z
 
     new_car_pos_ip = np.zeros((3,1))
-    new_car_pos_ip[0] = old_strap.car_pos.x
-    new_car_pos_ip[1] = old_strap.car_pos.y
-    new_car_pos_ip[2] = old_strap.car_pos.z
+    new_car_pos_ip[0] = old_strap.pos.x
+    new_car_pos_ip[1] = old_strap.pos.y
+    new_car_pos_ip[2] = old_strap.pos.z
 
     new_vel_ip = np.zeros((3,1))
     new_vel_ip[0] = old_strap.vel.x
@@ -489,14 +489,14 @@ def kalman_duzeltme(old_strap, delta_x):
 
     new_euler = quaternion2euler(new_quaternion)
 
-    new_strap = HtNavStrapCarOut()
+    new_strap = HtNavStrapOut()
     new_strap.pos.x = float(new_pos[0])
     new_strap.pos.y = float(new_pos[1])
     new_strap.pos.z = float(new_pos[2])
 
-    new_strap.car_pos.x = float(new_car_pos[0])
-    new_strap.car_pos.y = float(new_car_pos[1])
-    new_strap.car_pos.z = float(new_car_pos[2])
+    new_strap.pos.x = float(new_car_pos[0])
+    new_strap.pos.y = float(new_car_pos[1])
+    new_strap.pos.z = float(new_car_pos[2])
 
     new_strap.vel.x = float(new_vel[0])
     new_strap.vel.y = float(new_vel[1])
@@ -521,9 +521,9 @@ def kalman_duzeltme_pv(old_strap, delta_x):
     new_pos_ip[2] = old_strap.pos.z
 
     new_car_pos_ip = np.zeros((3,1))
-    new_car_pos_ip[0] = old_strap.car_pos.x
-    new_car_pos_ip[1] = old_strap.car_pos.y
-    new_car_pos_ip[2] = old_strap.car_pos.z
+    new_car_pos_ip[0] = old_strap.pos.x
+    new_car_pos_ip[1] = old_strap.pos.y
+    new_car_pos_ip[2] = old_strap.pos.z
 
     new_vel_ip = np.zeros((3,1))
     new_vel_ip[0] = old_strap.vel.x
@@ -556,7 +556,7 @@ def kalman_duzeltme_pv(old_strap, delta_x):
 
     new_euler = quaternion2euler(new_quaternion)
 
-    new_strap = HtNavStrapCarOut()
+    new_strap = HtNavStrapOut()
     new_strap.pos.x = float(new_pos[0])
     new_strap.pos.y = float(new_pos[1])
     new_strap.pos.z = float(new_pos[2])

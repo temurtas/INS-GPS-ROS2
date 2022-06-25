@@ -33,7 +33,7 @@ import ht_strap_package.config as config
 
 from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavVehicleDebug, HtNavWheelVector, HtNavTireOut, HtNavImuData
 from ht_strap_package.strap_tf_operations import *
-from ht_strap_package.tire_operations import *
+from ht_strap_package.tire_operations_cartesian import *
 
 # base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 

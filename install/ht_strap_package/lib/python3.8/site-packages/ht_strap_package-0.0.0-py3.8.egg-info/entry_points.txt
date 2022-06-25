@@ -21,5 +21,6 @@ strap_onlyins_node = ht_strap_package.strap_onlyins_node_function:main
 strap_w_kalman_node = ht_strap_package.strap_with_kalman_node_function:main
 teleop_constant = ht_strap_package.teleop_constant:main
 teleop_controller = ht_strap_package.teleop_controller:main
+teleop_scn_pub = ht_strap_package.teleop_scn_pub:main
 tire_force_calc_node = ht_strap_package.tire_force_node_function:main
 

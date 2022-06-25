@@ -14,7 +14,7 @@ base_path = Path("/home/temur/INS-GPS-ROS2/veri_gazebo/veri_deneme/")           
 # veri_4_joint_vel_25Hz
 # veri_5_joint_vel_100Hz
 
-imu_pub_freq = 99.75808 # 100.0
+imu_pub_freq = 100.0 #99.75808 # 100.0
 kalman_prop_const = 5
 gps_pub_freq = 5.0
 
@@ -83,7 +83,7 @@ vehicle_mass          = 1326.0 # kg
 
 F_z = vehicle_mass/4 * 9.81
 mu = 0.7; # Dry Asphalt %http://hyperphysics.phy-astr.gsu.edu/
-C_sigma = 1.98e5
-C_alpha = 1.56e5
+C_sigma = 1.78e5;        # 1.98e5
+C_alpha = 3.56e5; # 89e3 # 1.56e5
 
 

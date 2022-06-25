@@ -41,9 +41,11 @@ ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py
 ht_strap_package/teleop_constant.py
 ht_strap_package/teleop_controller.py
+ht_strap_package/teleop_scn_pub.py
 ht_strap_package/tire_force_calc.py
 ht_strap_package/tire_force_node_function.py
 ht_strap_package/tire_operations.py
+ht_strap_package/tire_operations_cartesian.py
 launch/ht_gazebo_constant_circle.launch.py
 launch/ht_gazebo_data_collect.launch.py
 launch/ht_gazebo_package.launch.py

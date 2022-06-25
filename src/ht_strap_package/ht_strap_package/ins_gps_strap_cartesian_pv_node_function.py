@@ -23,7 +23,7 @@ from ht_nav_variables.msg import HtNavImuData
 from ht_nav_variables.msg import HtNavGpsData
 from ht_nav_variables.msg import HtNavQuaternion
 from ht_nav_variables.msg import HtNavEuler
-from ht_nav_variables.msg import HtNavStrapCarOut
+from ht_nav_variables.msg import HtNavStrapOut
 from ht_nav_variables.msg import HtNavKalmanOut 
 
 from ht_strap_package.strap_tf_operations import *
@@ -73,11 +73,12 @@ class INSGPSNode(Node):
 
         # Initialise publishers
         self.ins_gps_pub = self.create_publisher(HtNavKalmanOut, 'ht_nav_kalman_out', qos_profile=qos_profile)
-        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapCarOut, 'ht_nav_strap_data', qos_profile=qos_profile)
+        self.strap_w_kalman_pub = self.create_publisher(HtNavStrapOut, 'ht_nav_strap_data', qos_profile=qos_profile)
         # Initialise subscribers
         # self.gps_sub = self.create_subscription(NavSatFix, 'kobra_mk5/gps_data', self.sub_cb_gps_data, qos_profile=qos_profile)
         self.gps_sub = self.create_subscription(JointState, 'kobra_mk5/link_gps_data', self.sub_cb_gps_data, qos_profile=qos_profile)
-        self.strap_imu_sub = self.create_subscription(Imu, 'kobra_mk5/imu_data', self.sub_cb_imu_data, qos_profile=qos_profile)
+        self.strap_imu_sub = self.create_subscription(Imu,  'kobra_mk5/imu_data_body', self.sub_cb_imu_data, qos_profile=qos_profile)
+        # self.strap_imu_sub = self.create_subscription(Imu, 'kobra_mk5/imu_data', self.sub_cb_imu_data, qos_profile=qos_profile)
 
         self.strap_sayac = 0
         self.kalman_sayac = 0
@@ -122,8 +123,8 @@ class INSGPSNode(Node):
         self.old_duzeltme.drift.y = 0.0
         self.old_duzeltme.drift.z = 0.0
 
-        self.old_strap = HtNavStrapCarOut()
-        self.new_strap = HtNavStrapCarOut()
+        self.old_strap = HtNavStrapOut()
+        self.new_strap = HtNavStrapOut()
 
         # initialization 
         # self.old_strap.pos.x = 39.89044287479834 * DEG2RAD
@@ -234,7 +235,7 @@ class INSGPSNode(Node):
         self.old_strap = self.new_strap
 
         # Construct the message to be published
-        msg_pb = HtNavStrapCarOut()
+        msg_pb = HtNavStrapOut()
         msg_pb.time  = self.gazebo_time
         msg_pb.pos   = self.new_strap.pos
         msg_pb.vel   = self.new_strap.vel
@@ -438,13 +439,13 @@ class INSGPSNode(Node):
         new_vel_temp = vel_update(old_vel_temp, vel_diff_temp, old_pos_temp, old_quaternion_temp)
 
         # POSITION UPDATE
-        new_pos_temp = car_pos_update(new_vel_temp, old_pos_temp)
+        new_pos_temp = pos_update(new_vel_temp, old_pos_temp)
 
         # ATTITUDE UPDATE
         new_quaternion_temp = quaternion_update(old_quaternion_temp, ang_diff_temp, new_pos_temp, new_vel_temp)
         new_euler_temp = quaternion2euler(new_quaternion_temp)
         # Convert your np variables (float) to custom variable types (float)
-        new_strap = HtNavStrapCarOut()
+        new_strap = HtNavStrapOut()
         
         new_strap.pos.x = float(new_pos_temp[0])
         new_strap.pos.y = float(new_pos_temp[1])

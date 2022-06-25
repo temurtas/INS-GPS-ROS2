@@ -29,9 +29,11 @@ def generate_launch_description():
         package='ht_strap_package',
         #namespace='my_teleop',
         # executable='teleop_controller',
-        # name='teleop_controller',
-        executable='teleop_constant',
-        name='teleop_constant',
+        # name='teleop_controller', 
+        # executable='teleop_constant',
+        # name='teleop_constant',
+        executable='teleop_scn_pub',
+        name='teleop_scn_pub',
         prefix = 'xterm -e',
         output='screen',        
         remappings=[
@@ -58,12 +60,12 @@ def generate_launch_description():
     # )
 
 
-    strap_kalman_ps_node = Node(
-        package = 'ht_strap_package',
-        name = 'strap_ins_gps_node',
-        executable = 'strap_ins_gps_node',
-        parameters = [config]
-    )
+    # strap_kalman_ps_node = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'strap_ins_gps_node',
+    #     executable = 'strap_ins_gps_node',
+    #     parameters = [config]
+    # )
 
     strap_kalman_cartesian_node = Node(
         package = 'ht_strap_package',
@@ -83,23 +85,23 @@ def generate_launch_description():
     #     executable = 'imu_data_ideal_converter_node',
     # )
 
-    strap_ideal_node =  Node(
-        package = 'ht_strap_package',
-        name = 'strap_ideal_node',
-        executable = 'strap_ideal_node',
-    )
+    # strap_ideal_node =  Node(
+    #     package = 'ht_strap_package',
+    #     name = 'strap_ideal_node',
+    #     executable = 'strap_ideal_node',
+    # )
 
-    strap_onlyins_node =  Node(
-        package = 'ht_strap_package',
-        name = 'strap_onlyins_node',
-        executable = 'strap_onlyins_node',
-    )
+    # strap_onlyins_node =  Node(
+    #     package = 'ht_strap_package',
+    #     name = 'strap_onlyins_node',
+    #     executable = 'strap_onlyins_node',
+    # )
     
-    robot_state_listener = Node(
-        package = 'ht_strap_package',
-        name = 'robot_state_listener',
-        executable = 'robot_state_listener'
-        )
+    # robot_state_listener = Node(
+    #     package = 'ht_strap_package',
+    #     name = 'robot_state_listener',
+    #     executable = 'robot_state_listener'
+    #     )
 
     robot_listener = Node(
         package = 'ht_strap_package',
@@ -129,11 +131,11 @@ def generate_launch_description():
     ld.add_action(teleop)
     ld.add_action(listener_node)
     # ld.add_action(strap_kalman_ps_node)
-    ld.add_action(robot_state_listener)
+    # ld.add_action(robot_state_listener)
     ld.add_action(robot_listener)
     ld.add_action(tire_force_calc_node)
-    ld.add_action(strap_ideal_node)
-    ld.add_action(strap_onlyins_node)
+    # ld.add_action(strap_ideal_node)
+    # ld.add_action(strap_onlyins_node)
     ld.add_action(strap_kalman_cartesian_node)
     ld.add_action(data_collector)
 

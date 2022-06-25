@@ -7,7 +7,7 @@ from ht_strap_package.strap_tf_operations import *
 
 # ########### POSITION UPDATE ###########
 
-def car_pos_update(vel, old_car_pos):
+def pos_update(vel, old_car_pos):
     new_car_pos = np.zeros((3, 1))
     delta_t = config.delta_t
 
@@ -26,7 +26,7 @@ def car_pos_update(vel, old_car_pos):
 
     return new_car_pos
 
-def pos_update(vel, old_pos):
+def pos_update_llh(vel, old_pos):
     new_pos = np.zeros((3, 1))
     delta_t = config.delta_t
 
