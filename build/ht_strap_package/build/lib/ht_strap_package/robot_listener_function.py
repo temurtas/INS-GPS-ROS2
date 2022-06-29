@@ -380,33 +380,33 @@ class RobotStateListener(Node):
         temp_time_nsec = float(msg.header.stamp.nanosec)
         self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
-        self.fr_wheel_pva.pos.x = float(msg.position[0])
-        self.fr_wheel_pva.pos.y = float(msg.position[1])
-        self.fr_wheel_pva.pos.z = float(msg.position[2])
+        self.fr_wheel_pva.pos.x = -float(msg.position[1])
+        self.fr_wheel_pva.pos.y = -float(msg.position[0])
+        self.fr_wheel_pva.pos.z = -float(msg.position[2])
 
-        temp_vel = np.zeros((3, 1))
-        temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[0]
-        temp_vel[1] = msg.velocity[1]
-        temp_vel[2] = msg.velocity[2]
+        # temp_vel = np.zeros((3, 1))
+        # temp_vel2 = np.zeros((3, 1))
+        # temp_vel[0] = msg.velocity[0]
+        # temp_vel[1] = msg.velocity[1]
+        # temp_vel[2] = msg.velocity[2]
 
-        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+        # temp_vel2 = np.dot(self.CRef2NED , temp_vel)
 
-        self.fr_wheel_pva.vel.x = float(temp_vel2[0])
-        self.fr_wheel_pva.vel.y = float(temp_vel2[1])
-        self.fr_wheel_pva.vel.z = float(temp_vel2[2])
+        self.fr_wheel_pva.vel.x = -float(msg.velocity[1]) # float(temp_vel[0])
+        self.fr_wheel_pva.vel.y = -float(msg.velocity[0]) # float(temp_vel[1])
+        self.fr_wheel_pva.vel.z = -float(msg.velocity[2]) # float(temp_vel[2])
         
-        temp_euler = np.zeros((3, 1))
-        temp_euler2 = np.zeros((3, 1))
-        temp_euler[0] = msg.effort[0]
-        temp_euler[1] = msg.effort[1]
-        temp_euler[2] = msg.effort[2]
+        # temp_euler = np.zeros((3, 1))
+        # temp_euler2 = np.zeros((3, 1))
+        # temp_euler[0] = msg.effort[0]
+        # temp_euler[1] = msg.effort[1]
+        # temp_euler[2] = msg.effort[2]
 
-        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+        # temp_euler2 = np.dot(self.CENU2NED , temp_euler)
 
-        self.fr_wheel_pva.euler.roll  = float(temp_euler2[0])
-        self.fr_wheel_pva.euler.pitch = float(temp_euler2[1])
-        self.fr_wheel_pva.euler.yaw   = float(temp_euler2[2])
+        self.fr_wheel_pva.euler.roll  = -float(msg.effort[1]) # float(temp_euler2[0])
+        self.fr_wheel_pva.euler.pitch = -float(msg.effort[0]) # float(temp_euler2[1])
+        self.fr_wheel_pva.euler.yaw   = -float(msg.effort[2]) # float(temp_euler2[2])
 
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_out_data_txt)
 
@@ -419,31 +419,32 @@ class RobotStateListener(Node):
         temp_time_nsec = float(msg.header.stamp.nanosec)
         self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
-        self.fl_wheel_pva.pos.x = float(msg.position[0])
-        self.fl_wheel_pva.pos.y = float(msg.position[1])
-        self.fl_wheel_pva.pos.z = float(msg.position[2])
+        # ENU --> NED
+        self.fl_wheel_pva.pos.x = -float(msg.position[1])
+        self.fl_wheel_pva.pos.y = -float(msg.position[0])
+        self.fl_wheel_pva.pos.z = -float(msg.position[2])
 
-        temp_vel = np.zeros((3, 1))
-        temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[1]
-        temp_vel[1] = msg.velocity[0]
-        temp_vel[2] = - msg.velocity[2]
+        # temp_vel = np.zeros((3, 1))
+        # temp_vel2 = np.zeros((3, 1))
+        # temp_vel[0] = msg.velocity[1]
+        # temp_vel[1] = msg.velocity[0]
+        # temp_vel[2] = - msg.velocity[2]
 
-        self.fl_wheel_pva.vel.x = -msg.velocity[1] # float(temp_vel[0])
-        self.fl_wheel_pva.vel.y = -msg.velocity[0] # float(temp_vel[1])
-        self.fl_wheel_pva.vel.z = -msg.velocity[2] # float(temp_vel[2])
+        self.fl_wheel_pva.vel.x = -float(msg.velocity[1]) # float(temp_vel[0])
+        self.fl_wheel_pva.vel.y = -float(msg.velocity[0]) # float(temp_vel[1])
+        self.fl_wheel_pva.vel.z = -float(msg.velocity[2]) # float(temp_vel[2])
         
-        temp_euler = np.zeros((3, 1))
-        temp_euler2 = np.zeros((3, 1))
-        temp_euler[0] = msg.effort[0]
-        temp_euler[1] = msg.effort[1]
-        temp_euler[2] = msg.effort[2]
+        # temp_euler = np.zeros((3, 1))
+        # temp_euler2 = np.zeros((3, 1))
+        # temp_euler[0] = msg.effort[0]
+        # temp_euler[1] = msg.effort[1]
+        # temp_euler[2] = msg.effort[2]
 
-        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+        # temp_euler2 = np.dot(self.CENU2NED , temp_euler)
 
-        self.fl_wheel_pva.euler.roll  = float(temp_euler2[0])
-        self.fl_wheel_pva.euler.pitch = float(temp_euler2[1])
-        self.fl_wheel_pva.euler.yaw   = float(temp_euler2[2])
+        self.fl_wheel_pva.euler.roll  = -float(msg.effort[1]) # float(temp_euler2[0])
+        self.fl_wheel_pva.euler.pitch = -float(msg.effort[0]) # float(temp_euler2[1])
+        self.fl_wheel_pva.euler.yaw   = -float(msg.effort[2]) # float(temp_euler2[2])
         
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_out_data_txt)
 
@@ -456,33 +457,33 @@ class RobotStateListener(Node):
         temp_time_nsec = float(msg.header.stamp.nanosec)
         self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
-        self.rr_wheel_pva.pos.x = float(msg.position[0])
-        self.rr_wheel_pva.pos.y = float(msg.position[1])
-        self.rr_wheel_pva.pos.z = float(msg.position[2])
+        self.rr_wheel_pva.pos.x = -float(msg.position[1])
+        self.rr_wheel_pva.pos.y = -float(msg.position[0])
+        self.rr_wheel_pva.pos.z = -float(msg.position[2])
 
-        temp_vel = np.zeros((3, 1))
-        temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[0]
-        temp_vel[1] = msg.velocity[1]
-        temp_vel[2] = msg.velocity[2]
+        # temp_vel = np.zeros((3, 1))
+        # temp_vel2 = np.zeros((3, 1))
+        # temp_vel[0] = msg.velocity[0]
+        # temp_vel[1] = msg.velocity[1]
+        # temp_vel[2] = msg.velocity[2]
 
-        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+        # temp_vel2 = np.dot(self.CRef2NED , temp_vel)
 
-        self.rr_wheel_pva.vel.x = float(temp_vel2[0])
-        self.rr_wheel_pva.vel.y = float(temp_vel2[1])
-        self.rr_wheel_pva.vel.z = float(temp_vel2[2])
+        self.rr_wheel_pva.vel.x = -float(msg.velocity[1]) # float(temp_vel[0])
+        self.rr_wheel_pva.vel.y = -float(msg.velocity[0]) # float(temp_vel[1])
+        self.rr_wheel_pva.vel.z = -float(msg.velocity[2]) # float(temp_vel[2])
         
-        temp_euler = np.zeros((3, 1))
-        temp_euler2 = np.zeros((3, 1))
-        temp_euler[0] = msg.effort[0]
-        temp_euler[1] = msg.effort[1]
-        temp_euler[2] = msg.effort[2]
+        # temp_euler = np.zeros((3, 1))
+        # temp_euler2 = np.zeros((3, 1))
+        # temp_euler[0] = msg.effort[0]
+        # temp_euler[1] = msg.effort[1]
+        # temp_euler[2] = msg.effort[2]
 
-        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+        # temp_euler2 = np.dot(self.CENU2NED , temp_euler)
 
-        self.rr_wheel_pva.euler.roll  = float(temp_euler2[0])
-        self.rr_wheel_pva.euler.pitch = float(temp_euler2[1])
-        self.rr_wheel_pva.euler.yaw   = float(temp_euler2[2])        
+        self.rr_wheel_pva.euler.roll  = -float(msg.effort[1]) # float(temp_euler2[0])
+        self.rr_wheel_pva.euler.pitch = -float(msg.effort[0]) # float(temp_euler2[1])
+        self.rr_wheel_pva.euler.yaw   = -float(msg.effort[2]) # float(temp_euler2[2])        
         
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_out_data_txt)
 
@@ -495,33 +496,33 @@ class RobotStateListener(Node):
         temp_time_nsec = float(msg.header.stamp.nanosec)
         self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
-        self.rl_wheel_pva.pos.x = float(msg.position[0])
-        self.rl_wheel_pva.pos.y = float(msg.position[1])
-        self.rl_wheel_pva.pos.z = float(msg.position[2])
+        self.rl_wheel_pva.pos.x = -float(msg.position[1])
+        self.rl_wheel_pva.pos.y = -float(msg.position[0])
+        self.rl_wheel_pva.pos.z = -float(msg.position[2])
 
-        temp_vel = np.zeros((3, 1))
-        temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[0]
-        temp_vel[1] = msg.velocity[1]
-        temp_vel[2] = msg.velocity[2]
+        # temp_vel = np.zeros((3, 1))
+        # temp_vel2 = np.zeros((3, 1))
+        # temp_vel[0] = msg.velocity[0]
+        # temp_vel[1] = msg.velocity[1]
+        # temp_vel[2] = msg.velocity[2]
 
-        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+        # temp_vel2 = np.dot(self.CRef2NED , temp_vel)
 
-        self.rl_wheel_pva.vel.x = float(temp_vel2[0])
-        self.rl_wheel_pva.vel.y = float(temp_vel2[1])
-        self.rl_wheel_pva.vel.z = float(temp_vel2[2])
+        self.rl_wheel_pva.vel.x = -float(msg.velocity[1]) # float(temp_vel[0])
+        self.rl_wheel_pva.vel.y = -float(msg.velocity[0]) # float(temp_vel[1])
+        self.rl_wheel_pva.vel.z = -float(msg.velocity[2]) # float(temp_vel[2])
         
-        temp_euler = np.zeros((3, 1))
-        temp_euler2 = np.zeros((3, 1))
-        temp_euler[0] = msg.effort[0]
-        temp_euler[1] = msg.effort[1]
-        temp_euler[2] = msg.effort[2]
+        # temp_euler = np.zeros((3, 1))
+        # temp_euler2 = np.zeros((3, 1))
+        # temp_euler[0] = msg.effort[0]
+        # temp_euler[1] = msg.effort[1]
+        # temp_euler[2] = msg.effort[2]
 
-        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+        # temp_euler2 = np.dot(self.CENU2NED , temp_euler)
 
-        self.rl_wheel_pva.euler.roll  = float(temp_euler2[0])
-        self.rl_wheel_pva.euler.pitch = float(temp_euler2[1])
-        self.rl_wheel_pva.euler.yaw   = float(temp_euler2[2])
+        self.rl_wheel_pva.euler.roll  = -float(msg.effort[1]) # float(temp_euler2[0])
+        self.rl_wheel_pva.euler.pitch = -float(msg.effort[0]) # float(temp_euler2[1])
+        self.rl_wheel_pva.euler.yaw   = -float(msg.effort[2]) # float(temp_euler2[2])
 
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_out_data_txt)
 
@@ -534,33 +535,33 @@ class RobotStateListener(Node):
         temp_time_nsec = float(msg.header.stamp.nanosec)
         self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
 
-        self.imu_link_pva.pos.x = float(msg.position[0])
-        self.imu_link_pva.pos.y = float(msg.position[1])
-        self.imu_link_pva.pos.z = float(msg.position[2])
+        self.imu_link_pva.pos.x = -float(msg.position[1])
+        self.imu_link_pva.pos.y = -float(msg.position[0])
+        self.imu_link_pva.pos.z = -float(msg.position[2])
 
-        temp_vel = np.zeros((3, 1))
-        temp_vel2 = np.zeros((3, 1))
-        temp_vel[0] = msg.velocity[0]
-        temp_vel[1] = msg.velocity[1]
-        temp_vel[2] = msg.velocity[2]
+        # temp_vel = np.zeros((3, 1))
+        # temp_vel2 = np.zeros((3, 1))
+        # temp_vel[0] = msg.velocity[0]
+        # temp_vel[1] = msg.velocity[1]
+        # temp_vel[2] = msg.velocity[2]
 
-        temp_vel2 = np.dot(self.CRef2NED , temp_vel)
+        # temp_vel2 = np.dot(self.CRef2NED , temp_vel)
 
-        self.imu_link_pva.vel.x = float(temp_vel2[0])
-        self.imu_link_pva.vel.y = float(temp_vel2[1])
-        self.imu_link_pva.vel.z = float(temp_vel2[2])
+        self.imu_link_pva.vel.x = -float(msg.velocity[1]) # float(temp_vel[0])
+        self.imu_link_pva.vel.y = -float(msg.velocity[0]) # float(temp_vel[1])
+        self.imu_link_pva.vel.z = -float(msg.velocity[2]) # float(temp_vel[2])
         
-        temp_euler = np.zeros((3, 1))
-        temp_euler2 = np.zeros((3, 1))
-        temp_euler[0] = msg.effort[0]
-        temp_euler[1] = msg.effort[1]
-        temp_euler[2] = msg.effort[2]
+        # temp_euler = np.zeros((3, 1))
+        # temp_euler2 = np.zeros((3, 1))
+        # temp_euler[0] = msg.effort[0]
+        # temp_euler[1] = msg.effort[1]
+        # temp_euler[2] = msg.effort[2]
 
-        temp_euler2 = np.dot(self.CENU2NED , temp_euler)
+        # temp_euler2 = np.dot(self.CENU2NED , temp_euler)
 
-        self.imu_link_pva.euler.roll  = float(temp_euler2[0])
-        self.imu_link_pva.euler.pitch = float(temp_euler2[1])
-        self.imu_link_pva.euler.yaw   = float(temp_euler2[2])        
+        self.imu_link_pva.euler.roll  = -float(msg.effort[1]) # float(temp_euler2[0])
+        self.imu_link_pva.euler.pitch = -float(msg.effort[0]) # float(temp_euler2[1])
+        self.imu_link_pva.euler.yaw   = -float(msg.effort[2]) # float(temp_euler2[2])        
         
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=imu_out_data_txt)
 

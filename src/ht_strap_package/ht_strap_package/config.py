@@ -81,7 +81,9 @@ vehicle_width_m       = 1.572 # m
 R_0                   = 0.31265 # 0.3   # m
 vehicle_mass          = 1326.0 # kg 
 
-F_z = vehicle_mass/4 * 9.81
+F_z_front = (vehicle_mass/2 + 1 + 22)/2 * 9.81
+F_z_rear  = (vehicle_mass/2 + 30 + 22)/2 * 9.81
+
 mu = 0.7; # Dry Asphalt %http://hyperphysics.phy-astr.gsu.edu/
 C_sigma = 1.78e5;        # 1.98e5
 C_alpha = 3.56e5; # 89e3 # 1.56e5

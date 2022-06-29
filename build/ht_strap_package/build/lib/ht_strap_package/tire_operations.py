@@ -492,7 +492,8 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
     C_alpha = config.C_alpha              
     C_sigma = config.C_sigma              
     mu = config.mu            
-    F_z = config.F_z        
+    F_z_front = config.F_z_front        
+    F_z_rear = config.F_z_rear    
     R_0 = config.R_0
     vehicle_mass = config.vehicle_mass
  
@@ -517,6 +518,11 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
     F_y_t = np.zeros((4,1))
 
     for i in range(4):
+        if (i < 2):
+            F_z = F_z_front
+        else:
+            F_z = F_z_rear
+
         lambda_temp = (mu * F_z * (1 + sigma[i])) / (2 * np.sqrt( np.power(C_sigma * sigma[i],2) + np.power(C_alpha * np.tan(alpha[i]),2) ) )
         if lambda_temp >= 1:
             f_lambda = 1

@@ -63,7 +63,7 @@ class TeleopScnPub(Node):
         scn_num = self.scn_num_
         if (scn_num == 1):
             self.in_velocity = 10.0
-            self.in_steer_ang = 0.25 
+            self.in_steer_ang = 0.1 
             self.velocity_ = 0.0
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 2):
@@ -85,7 +85,12 @@ class TeleopScnPub(Node):
             self.in_velocity = 0.0
             self.in_steer_ang = 0.0
             self.velocity_ = 0.0
-            self.steering_angle_ = 0.0       
+            self.steering_angle_ = 0.0   
+        elif (scn_num == 6):
+            self.in_velocity = 10.0
+            self.in_steer_ang = 0.0
+            self.velocity_ = 10.0
+            self.steering_angle_ = 0.0    
 
         # self.pub_func(msg_pb)
 
@@ -153,7 +158,12 @@ class TeleopScnPub(Node):
             elif (self.steering_angle_ < -1e-15 and  self.steering_angle_ > -self.steer_limit and self.steer_diff > -1e-15):
                 self.steering_angle_ = self.steering_angle_ + self.delta_t * 0.1
             
-            self.steer_diff = self.steering_angle_ - old_steer            
+            self.steer_diff = self.steering_angle_ - old_steer      
+        
+        elif (scn_num == 6):
+            self.velocity_ = self.in_velocity
+            self.steering_angle_ = self.in_steer_ang
+
 
         velocity = self.velocity_
         steering_angle = self.steering_angle_
