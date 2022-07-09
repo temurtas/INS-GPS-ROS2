@@ -82,6 +82,21 @@ joint_input_data_txt = open(joint_state_data_path, 'w')
 yaw_rate_path = base_path / "yaw_rate_debug.txt"
 yaw_rate_txt = open(yaw_rate_path, 'w')
 
+##################
+
+# fr_contact_out_data_path = base_path / "front_right_wheel_contact_pva.txt"
+# fr_contact_out_data_txt = open(fr_contact_out_data_path, 'w')
+
+# fl_contact_out_data_path = base_path / "front_left_wheel_contact_pva.txt"
+# fl_contact_out_data_txt = open(fl_contact_out_data_path, 'w')
+
+# rr_contact_out_data_path = base_path / "rear_right_wheel_contact_pva.txt"
+# rr_contact_out_data_txt = open(rr_contact_out_data_path, 'w')
+
+# rl_contact_out_data_path = base_path / "rear_left_wheel_contact_pva.txt"
+# rl_contact_out_data_txt = open(rl_contact_out_data_path, 'w')
+
+#################
 class RobotStateListener(Node):
 
     def __init__(self,qos_profile):
@@ -148,6 +163,31 @@ class RobotStateListener(Node):
             'rear_right_calc_link_states', 
             self.rear_right_link_calc_listener_callback, 
             qos_profile=qos_profile)
+
+        #####################################################
+        # self.joint_state_subscription = self.create_subscription(
+        #     JointState, 
+        #     'kobra_mk5_contact/front_right_link_states', 
+        #     self.front_right_contact_link_listener_callback, 
+        #     qos_profile=qos_profile)
+
+        # self.joint_state_subscription = self.create_subscription(
+        #     JointState, 
+        #     'kobra_mk5_contact/front_left_link_states', 
+        #     self.front_left_contact_link_listener_callback, 
+        #     qos_profile=qos_profile)
+
+        # self.joint_state_subscription = self.create_subscription(
+        #     JointState, 
+        #     'kobra_mk5_contact/rear_right_link_states', 
+        #     self.rear_right_contact_link_listener_callback, 
+        #     qos_profile=qos_profile)
+
+        # self.joint_state_subscription = self.create_subscription(
+        #     JointState, 
+        #     'kobra_mk5_contact/rear_left_link_states', 
+        #     self.rear_left_contact_link_listener_callback, 
+        #     qos_profile=qos_profile)
 
         # FRONT_RIGHT, # Front right wheel # front_right_link_states
         # FRONT_LEFT,  # Front left wheel  # front_left_link_states
@@ -218,6 +258,13 @@ class RobotStateListener(Node):
         self.imu_data.ang_diff.z = 0.0
 
         self.gazebo_time = 0.0
+
+        ##############
+        # self.fl_contact_wheel_pva = HtNavStrapOut()
+        # self.fr_contact_wheel_pva = HtNavStrapOut()
+        # self.rl_contact_wheel_pva = HtNavStrapOut()
+        # self.rr_contact_wheel_pva = HtNavStrapOut()
+        ######################
     
 
     def joint_listener_callback(self, msg):
@@ -619,6 +666,99 @@ class RobotStateListener(Node):
         self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
         self.zaman_ref = self.zaman_ref - self.zaman_ilk
         # print(str(self.zaman_ref), str(self.imu_data.ang_diff.x), str(self.imu_data.ang_diff.y), str(self.imu_data.ang_diff.z), str(self.imu_data.vel_diff.x), str(self.imu_data.vel_diff.y), str(self.imu_data.vel_diff.z), sep='\t', file=imu_data_gazebo_txt)
+
+    # def front_right_contact_link_listener_callback(self, msg):
+    #     # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+    #     self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+    #     self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+    #     temp_time_sec = float(msg.header.stamp.sec)
+    #     temp_time_nsec = float(msg.header.stamp.nanosec)
+    #     self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+    #     self.fr_contact_wheel_pva.pos.x = -float(msg.position[1])
+    #     self.fr_contact_wheel_pva.pos.y = -float(msg.position[0])
+    #     self.fr_contact_wheel_pva.pos.z = -float(msg.position[2])
+
+    #     self.fr_contact_wheel_pva.vel.x = -float(msg.velocity[1]) 
+    #     self.fr_contact_wheel_pva.vel.y = -float(msg.velocity[0]) 
+    #     self.fr_contact_wheel_pva.vel.z = -float(msg.velocity[2]) 
+
+    #     self.fr_contact_wheel_pva.euler.roll  = -float(msg.effort[1])
+    #     self.fr_contact_wheel_pva.euler.pitch = -float(msg.effort[0])
+    #     self.fr_contact_wheel_pva.euler.yaw   = -float(msg.effort[2])
+
+    #     print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fr_contact_out_data_txt)
+
+    # def front_left_contact_link_listener_callback(self, msg):
+    #     # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+    #     self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+    #     self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+    #     temp_time_sec = float(msg.header.stamp.sec)
+    #     temp_time_nsec = float(msg.header.stamp.nanosec)
+    #     self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+    #     # ENU --> NED
+    #     self.fl_contact_wheel_pva.pos.x = -float(msg.position[1])
+    #     self.fl_contact_wheel_pva.pos.y = -float(msg.position[0])
+    #     self.fl_contact_wheel_pva.pos.z = -float(msg.position[2])
+
+    #     self.fl_contact_wheel_pva.vel.x = -float(msg.velocity[1]) 
+    #     self.fl_contact_wheel_pva.vel.y = -float(msg.velocity[0]) 
+    #     self.fl_contact_wheel_pva.vel.z = -float(msg.velocity[2]) 
+        
+    #     self.fl_contact_wheel_pva.euler.roll  = -float(msg.effort[1]) 
+    #     self.fl_contact_wheel_pva.euler.pitch = -float(msg.effort[0]) 
+    #     self.fl_contact_wheel_pva.euler.yaw   = -float(msg.effort[2]) 
+        
+    #     print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=fl_contact_out_data_txt)
+
+    # def rear_right_contact_link_listener_callback(self, msg):
+    #     # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+    #     self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+    #     self.zaman_ref = self.zaman_ref - self.zaman_ilk
+        
+    #     temp_time_sec = float(msg.header.stamp.sec)
+    #     temp_time_nsec = float(msg.header.stamp.nanosec)
+    #     self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+    #     self.rr_contact_wheel_pva.pos.x = -float(msg.position[1])
+    #     self.rr_contact_wheel_pva.pos.y = -float(msg.position[0])
+    #     self.rr_contact_wheel_pva.pos.z = -float(msg.position[2])
+
+    #     self.rr_contact_wheel_pva.vel.x = -float(msg.velocity[1]) 
+    #     self.rr_contact_wheel_pva.vel.y = -float(msg.velocity[0]) 
+    #     self.rr_contact_wheel_pva.vel.z = -float(msg.velocity[2]) 
+
+    #     self.rr_contact_wheel_pva.euler.roll  = -float(msg.effort[1]) 
+    #     self.rr_contact_wheel_pva.euler.pitch = -float(msg.effort[0]) 
+    #     self.rr_contact_wheel_pva.euler.yaw   = -float(msg.effort[2])         
+        
+    #     print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rr_contact_out_data_txt)
+
+    # def rear_left_contact_link_listener_callback(self, msg):
+    #     # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])
+    #     self.zaman_ref = self.get_clock().now().nanoseconds * 1e-6 #msec
+    #     self.zaman_ref = self.zaman_ref - self.zaman_ilk
+
+    #     temp_time_sec = float(msg.header.stamp.sec)
+    #     temp_time_nsec = float(msg.header.stamp.nanosec)
+    #     self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3
+
+    #     self.rl_contact_wheel_pva.pos.x = -float(msg.position[1])
+    #     self.rl_contact_wheel_pva.pos.y = -float(msg.position[0])
+    #     self.rl_contact_wheel_pva.pos.z = -float(msg.position[2])
+
+    #     self.rl_contact_wheel_pva.vel.x = -float(msg.velocity[1]) 
+    #     self.rl_contact_wheel_pva.vel.y = -float(msg.velocity[0]) 
+    #     self.rl_contact_wheel_pva.vel.z = -float(msg.velocity[2]) 
+
+    #     self.rl_wheel_pva.euler.roll  = -float(msg.effort[1]) 
+    #     self.rl_wheel_pva.euler.pitch = -float(msg.effort[0]) 
+    #     self.rl_wheel_pva.euler.yaw   = -float(msg.effort[2]) 
+
+    #     print(str(self.gazebo_time), str(msg.position[0]), str(msg.position[1]), str(msg.position[2]), str(msg.velocity[0]), str(msg.velocity[1]), str(msg.velocity[2]), str(msg.effort[0]), str(msg.effort[1]), str(msg.effort[2]), sep='\t', file=rl_contact_out_data_txt)
 
 
 def main(args=None):
