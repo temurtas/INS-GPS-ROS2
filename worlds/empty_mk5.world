@@ -6,9 +6,19 @@
         <solver>
           <type>world</type>
           <iters>500</iters>
+          <!-- <friction_model>cone_model</friction_model> -->
+          <friction_model>pyramid_model</friction_model>
         </solver>
       </ode>
     </physics>
+    <!-- <physics type="bullet">
+      <bullet>
+        <solver>
+          <type>sequential_impulse</type>
+          <iters>500</iters>
+        </solver>
+      </bullet>
+    </physics> -->
       <!-- ground plane -->
     <include>
       <uri>model://ground_plane</uri>
