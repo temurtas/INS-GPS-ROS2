@@ -8,6 +8,8 @@
           <iters>500</iters>
           <!-- <friction_model>cone_model</friction_model> -->
           <friction_model>pyramid_model</friction_model>
+          <!-- <friction_model>box_model</friction_model> -->
+          <!-- <friction_model>cone_model</friction_model> -->
         </solver>
         <constraints>
           <contact_max_correcting_vel>10000.0</contact_max_correcting_vel>

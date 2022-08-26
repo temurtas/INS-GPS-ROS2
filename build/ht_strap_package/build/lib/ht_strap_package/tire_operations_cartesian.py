@@ -119,6 +119,9 @@ def longitudinal_tire_slip_calc(w_tk, v_tk_x):
     # to-do eff_radius_calc()
     R_eff = R_0
 
+    # The true slip is calculated as follows: Consider changing
+    # sigma_x = math.fabs(R_eff * w_tk) / math.fabs(R_eff * w_tk) - 1.0 
+
     if ( math.fabs(v_tk_x) > math.fabs(R_eff*w_tk) ):   # During Braking
         sigma_x = (math.fabs(R_eff * w_tk) - math.fabs(v_tk_x)) / math.fabs(v_tk_x)
     else:
