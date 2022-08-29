@@ -113,7 +113,7 @@ class TeleopScnPub(Node):
             
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 2):
-            self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.25 
+            self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.25 / 2 
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 3):
             self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.25
