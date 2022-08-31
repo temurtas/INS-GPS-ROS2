@@ -56,11 +56,12 @@ class TeleopScnPub(Node):
         # 3 : Circular Motion with Constant Acceleration
         # 4 : Slalom Motion with Constant Velocity
         # 5 : Slalom Motion with Constant Acceleration
-
-        
+        # 6 : Straight Motion with Constant Acceleration & Decelaration
 
         self.steer_limit = 0.1
         self.steer_diff = 0.0
+        self.vel_diff = 0.0
+        self.max_velocity = 25.0
 
         scn_num = self.scn_num_
         if (scn_num == 1):
@@ -69,8 +70,8 @@ class TeleopScnPub(Node):
             self.velocity_ = self.delta_t * 2.0
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 2):
-            self.in_velocity = 0 # self.delta_t * 2.0
-            self.in_steer_ang = self.delta_t * 2.0
+            self.in_velocity = self.delta_t * 2.0
+            self.in_steer_ang = 0.0 #self.delta_t * 2.0
             self.velocity_ = 0.0
             self.steering_angle_ = 0.0
         elif (scn_num == 3):
@@ -89,9 +90,9 @@ class TeleopScnPub(Node):
             self.velocity_ = 0.0
             self.steering_angle_ = 0.0   
         elif (scn_num == 6):
-            self.in_velocity = 10.0
+            self.in_velocity = self.delta_t * 2.0
             self.in_steer_ang = 0.0
-            self.velocity_ = 10.0
+            self.velocity_ = self.in_velocity
             self.steering_angle_ = 0.0    
 
         # self.pub_func(msg_pb)
@@ -163,9 +164,18 @@ class TeleopScnPub(Node):
             self.steer_diff = self.steering_angle_ - old_steer      
         
         elif (scn_num == 6):
-            self.velocity_ = self.in_velocity
             self.steering_angle_ = self.in_steer_ang
+            old_vel = self.velocity_
+            if(self.velocity_ > -1e-15 and self.velocity_ < self.max_velocity and self.vel_diff > -1e-15):
+                self.velocity_ = self.velocity_ + self.delta_t * 0.2 
+            elif(self.velocity_ > self.max_velocity): 
+                self.velocity_ = self.velocity_ - self.delta_t * 0.2 
+            elif (self.velocity_ > -1e-15 and  self.velocity_ < self.max_velocity and self.vel_diff < -1e-15):
+                self.velocity_ = self.velocity_ - self.delta_t * 0.2 
+            elif (self.velocity_ < -1e-15 ):
+                self.velocity_ = self.velocity_ +  self.delta_t * 0.2
 
+            self.vel_diff = self.velocity_ - old_vel      
 
         velocity = self.velocity_
         steering_angle = self.steering_angle_
@@ -176,6 +186,14 @@ class TeleopScnPub(Node):
         twist.angular.x = 0.0
         twist.angular.y = 0.0
         twist.angular.z = steering_angle
+
+        self.sim_time = self.get_clock().now().nanoseconds * 1e-6 #msec
+        time_diff = self.sim_time - self.zaman_ilk
+        
+        # if( time_diff * 1e-3 > 20.0):
+        #     twist.linear.z  = 1.0  # for new ackermann plugin: lin_vel_stop_: stops the linear velocity controller 
+        #     twist.angular.x = 1.0  # for new ackermann plugin: steer_stop_: stops the steering angle controller
+
 
         self.cmd_pub.publish(twist)
         # self.get_logger().info('Publishing: "%s"' % msg.data)

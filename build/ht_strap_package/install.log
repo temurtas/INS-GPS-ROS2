@@ -1,6 +1,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/tire_operations_cartesian.py
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/tire_force_calc.py
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/imu_data_converter_function.py
+/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/deneme.py
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/strap_operations.py
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/my_teleop.py
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/strapdown.py
@@ -38,6 +39,7 @@
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/tire_operations_cartesian.cpython-38.pyc
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/tire_force_calc.cpython-38.pyc
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/imu_data_converter_function.cpython-38.pyc
+/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/deneme.cpython-38.pyc
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/strap_operations.cpython-38.pyc
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/my_teleop.cpython-38.pyc
 /home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/__pycache__/strapdown.cpython-38.pyc

@@ -12,6 +12,7 @@ config/params.yaml
 ht_strap_package/__init__.py
 ht_strap_package/config.py
 ht_strap_package/data_collector_function.py
+ht_strap_package/deneme.py
 ht_strap_package/gps_data_converter_function.py
 ht_strap_package/gps_data_publisher_function.py
 ht_strap_package/ideal_gps_data_converter_function.py
