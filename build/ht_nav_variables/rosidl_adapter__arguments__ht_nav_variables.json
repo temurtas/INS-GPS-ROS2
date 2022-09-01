@@ -1,6 +1,8 @@
 {
   "package_name": "ht_nav_variables",
   "non_idl_tuples": [
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavContactState.msg",
+    "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavContactStates.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavErrorVector.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavEuler.msg",
     "/home/temur/INS-GPS-ROS2/src/ht_nav_variables:msg/HtNavGpsData.msg",

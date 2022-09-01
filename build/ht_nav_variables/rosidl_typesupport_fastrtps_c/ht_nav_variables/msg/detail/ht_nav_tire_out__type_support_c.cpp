@@ -34,7 +34,7 @@ extern "C"
 {
 #endif
 
-#include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"  // tire_lateral_forces, tire_longitudinal_forces, wheel_longitudinal_slip_ratio, wheel_side_slip_ang
+#include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"  // tire_lateral_forces, tire_longitudinal_forces, tire_normal_forces, wheel_longitudinal_slip_ratio, wheel_side_slip_ang
 
 // forward declare type support functions
 size_t get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
@@ -131,6 +131,20 @@ static bool _HtNavTireOut__cdr_serialize(
     }
   }
 
+  // Field name: tire_normal_forces
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavWheelVector
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->tire_normal_forces, cdr))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -214,6 +228,20 @@ static bool _HtNavTireOut__cdr_deserialize(
     }
   }
 
+  // Field name: tire_normal_forces
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavWheelVector
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->tire_normal_forces))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -265,6 +293,10 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavTireOut(
 
   current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
     &(ros_message->tire_longitudinal_forces), current_alignment);
+  // field.name tire_normal_forces
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
+    &(ros_message->tire_normal_forces), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -344,6 +376,17 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavTireOut(
     }
   }
   // member: tire_longitudinal_forces
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
+        full_bounded, current_alignment);
+    }
+  }
+  // member: tire_normal_forces
   {
     size_t array_size = 1;
 

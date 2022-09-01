@@ -57,75 +57,109 @@ include CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/lib/python3.8/site-packages/rosidl_typesupport_cpp/__init__.py
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/action__type_support.cpp.em
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/idl__type_support.cpp.em
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/msg__type_support.cpp.em
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/srv__type_support.cpp.em
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavErrorVector.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavEuler.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavGpsData.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/lib/python3.8/site-packages/rosidl_typesupport_cpp/__init__.py
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/action__type_support.cpp.em
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/idl__type_support.cpp.em
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/msg__type_support.cpp.em
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: /opt/ros/foxy/share/rosidl_typesupport_cpp/resource/srv__type_support.cpp.em
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavContactState.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavContactStates.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavErrorVector.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavEuler.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavGpsData.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp: rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ type support dispatch for ROS interfaces"
 	/usr/bin/python3 /opt/ros/foxy/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp --generator-arguments-file /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp__arguments.json --typesupports rosidl_typesupport_fastrtps_cpp rosidl_typesupport_introspection_cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp
+
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp
 
-rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
+rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp > CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.i
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.s
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp > CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.i
+
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.s
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.i: cmake_force
@@ -138,7 +172,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.i: cmake_force
@@ -151,7 +185,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.i: cmake_force
@@ -164,7 +198,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_imu_data__type_support.cpp.i: cmake_force
@@ -177,7 +211,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_kalman_out__type_support.cpp.i: cmake_force
@@ -190,7 +224,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_out__type_support.cpp.i: cmake_force
@@ -203,7 +237,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_strap_car_out__type_support.cpp.i: cmake_force
@@ -216,7 +250,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_point__type_support.cpp.i: cmake_force
@@ -229,7 +263,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vector3__type_support.cpp.i: cmake_force
@@ -242,7 +276,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_quaternion__type_support.cpp.i: cmake_force
@@ -255,7 +289,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_deneme__type_support.cpp.i: cmake_force
@@ -268,7 +302,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_wheel_vector__type_support.cpp.i: cmake_force
@@ -281,7 +315,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_joint_state__type_support.cpp.i: cmake_force
@@ -294,7 +328,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_tire_out__type_support.cpp.i: cmake_force
@@ -307,7 +341,7 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/flags.make
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.o -c /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp
 
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug__type_support.cpp.i: cmake_force
@@ -320,6 +354,8 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/h
 
 # Object files for target ht_nav_variables__rosidl_typesupport_cpp
 ht_nav_variables__rosidl_typesupport_cpp_OBJECTS = \
+"CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o" \
+"CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o" \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o" \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o" \
 "CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o" \
@@ -339,6 +375,8 @@ ht_nav_variables__rosidl_typesupport_cpp_OBJECTS = \
 # External object files for target ht_nav_variables__rosidl_typesupport_cpp
 ht_nav_variables__rosidl_typesupport_cpp_EXTERNAL_OBJECTS =
 
+libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp.o
+libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp.o
 libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp.o
 libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp.o
 libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp.o
@@ -361,7 +399,7 @@ libht_nav_variables__rosidl_typesupport_cpp.so: /opt/ros/foxy/lib/librosidl_runt
 libht_nav_variables__rosidl_typesupport_cpp.so: /opt/ros/foxy/lib/librcpputils.so
 libht_nav_variables__rosidl_typesupport_cpp.so: /opt/ros/foxy/lib/librcutils.so
 libht_nav_variables__rosidl_typesupport_cpp.so: CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX shared library libht_nav_variables__rosidl_typesupport_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX shared library libht_nav_variables__rosidl_typesupport_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -373,6 +411,8 @@ CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/clean
 
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_state__type_support.cpp
+CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_contact_states__type_support.cpp
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_error_vector__type_support.cpp
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_euler__type_support.cpp
 CMakeFiles/ht_nav_variables__rosidl_typesupport_cpp.dir/depend: rosidl_typesupport_cpp/ht_nav_variables/msg/ht_nav_gps_data__type_support.cpp

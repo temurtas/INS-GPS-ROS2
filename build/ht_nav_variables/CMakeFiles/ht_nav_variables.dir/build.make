@@ -53,6 +53,8 @@ CMAKE_BINARY_DIR = /home/temur/INS-GPS-ROS2/build/ht_nav_variables
 # Include the progress variables for this target.
 include CMakeFiles/ht_nav_variables.dir/progress.make
 
+CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavContactState.msg
+CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavContactStates.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavErrorVector.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavEuler.msg
 CMakeFiles/ht_nav_variables: /home/temur/INS-GPS-ROS2/src/ht_nav_variables/msg/HtNavGpsData.msg

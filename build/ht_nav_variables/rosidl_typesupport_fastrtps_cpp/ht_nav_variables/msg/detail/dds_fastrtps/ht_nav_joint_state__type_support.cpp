@@ -62,6 +62,29 @@ max_serialized_size_HtNavWheelVector(
 }  // namespace msg
 }  // namespace ht_nav_variables
 
+namespace ht_nav_variables
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const ht_nav_variables::msg::HtNavWheelVector &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  ht_nav_variables::msg::HtNavWheelVector &);
+size_t get_serialized_size(
+  const ht_nav_variables::msg::HtNavWheelVector &,
+  size_t current_alignment);
+size_t
+max_serialized_size_HtNavWheelVector(
+  bool & full_bounded,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace ht_nav_variables
+
 
 namespace ht_nav_variables
 {
@@ -88,6 +111,10 @@ cdr_serialize(
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
     ros_message.wheel_rotation,
     cdr);
+  // Member: normal_force
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.normal_force,
+    cdr);
   return true;
 }
 
@@ -107,6 +134,10 @@ cdr_deserialize(
   // Member: wheel_rotation
   ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.wheel_rotation);
+
+  // Member: normal_force
+  ht_nav_variables::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.normal_force);
 
   return true;
 }
@@ -140,6 +171,11 @@ get_serialized_size(
   current_alignment +=
     ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
     ros_message.wheel_rotation, current_alignment);
+  // Member: normal_force
+
+  current_alignment +=
+    ht_nav_variables::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.normal_force, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -180,6 +216,18 @@ max_serialized_size_HtNavJointState(
   }
 
   // Member: wheel_rotation
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        ht_nav_variables::msg::typesupport_fastrtps_cpp::max_serialized_size_HtNavWheelVector(
+        full_bounded, current_alignment);
+    }
+  }
+
+  // Member: normal_force
   {
     size_t array_size = 1;
 

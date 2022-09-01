@@ -24,6 +24,8 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(rclcpp REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/HtNavContactState.msg"
+  "msg/HtNavContactStates.msg"
   "msg/HtNavErrorVector.msg"
   "msg/HtNavEuler.msg"
   "msg/HtNavGpsData.msg"

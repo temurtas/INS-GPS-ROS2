@@ -37,7 +37,7 @@ void HtNavTireOut_fini_function(void * message_memory)
   typed_message->~HtNavTireOut();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavTireOut_message_member_array[7] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavTireOut_message_member_array[8] = {
   {
     "time",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
@@ -142,13 +142,28 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember HtNavTireOut_
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "tire_normal_forces",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<ht_nav_variables::msg::HtNavWheelVector>(),  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables::msg::HtNavTireOut, tire_normal_forces),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers HtNavTireOut_message_members = {
   "ht_nav_variables::msg",  // message namespace
   "HtNavTireOut",  // message name
-  7,  // number of fields
+  8,  // number of fields
   sizeof(ht_nav_variables::msg::HtNavTireOut),
   HtNavTireOut_message_member_array,  // message members
   HtNavTireOut_init_function,  // function to initialize message memory (memory has to be allocated)

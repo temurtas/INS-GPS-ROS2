@@ -24,6 +24,8 @@ bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pym
 PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
 bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
 PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool ht_nav_variables__msg__ht_nav_tire_out__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -124,6 +126,17 @@ bool ht_nav_variables__msg__ht_nav_tire_out__convert_from_py(PyObject * _pymsg, 
       return false;
     }
     if (!ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(field, &ros_message->tire_longitudinal_forces)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
+  {  // tire_normal_forces
+    PyObject * field = PyObject_GetAttrString(_pymsg, "tire_normal_forces");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(field, &ros_message->tire_normal_forces)) {
       Py_DECREF(field);
       return false;
     }
@@ -234,6 +247,20 @@ PyObject * ht_nav_variables__msg__ht_nav_tire_out__convert_to_py(void * raw_ros_
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "tire_longitudinal_forces", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // tire_normal_forces
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(&ros_message->tire_normal_forces);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "tire_normal_forces", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

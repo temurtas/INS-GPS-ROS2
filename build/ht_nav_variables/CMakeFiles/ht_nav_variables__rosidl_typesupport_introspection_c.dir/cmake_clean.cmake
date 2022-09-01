@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_state__type_support.c.o"
+  "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_states__type_support.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_deneme__type_support.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__type_support.c.o"
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_euler__type_support.c.o"
@@ -16,6 +18,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/ht_nav_variables__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_wheel_vector__type_support.c.o"
   "libht_nav_variables__rosidl_typesupport_introspection_c.pdb"
   "libht_nav_variables__rosidl_typesupport_introspection_c.so"
+  "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_state__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_state__type_support.c"
+  "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_states__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_contact_states__type_support.c"
   "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_deneme__rosidl_typesupport_introspection_c.h"
   "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_deneme__type_support.c"
   "rosidl_typesupport_introspection_c/ht_nav_variables/msg/detail/ht_nav_error_vector__rosidl_typesupport_introspection_c.h"

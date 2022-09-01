@@ -17,6 +17,7 @@ from rclpy.node import Node
 from pathlib import Path
 
 from rclpy.qos import qos_profile_sensor_data
+import math
 
 from sensor_msgs.msg import Imu
 from sensor_msgs.msg import JointState
@@ -26,6 +27,8 @@ from ht_nav_variables.msg import HtNavVehicleDebug
 from ht_nav_variables.msg import HtNavImuData
 from ht_nav_variables.msg import HtNavJointState
 from ht_nav_variables.msg import HtNavStrapOut
+from ht_nav_variables.msg import HtNavContactState
+from ht_nav_variables.msg import HtNavContactStates
 from ht_strap_package.config import base_path
 from ht_strap_package.config import delta_t
 
@@ -80,6 +83,36 @@ class TireForceCalculator(Node):
             self.joint_listener_callback, 
             qos_profile=qos_profile)
         
+        self.fl_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/front_left_wheel_contact_states', 
+            self.fl_contact_surface_listener_callback, 
+            qos_profile=qos_profile)
+        
+        self.fr_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/front_right_wheel_contact_states', 
+            self.fr_contact_surface_listener_callback, 
+            qos_profile=qos_profile)
+
+        self.rl_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/rear_left_wheel_contact_states', 
+            self.rl_contact_surface_listener_callback, 
+            qos_profile=qos_profile)
+
+        self.rr_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/rear_right_wheel_contact_states', 
+            self.rr_contact_surface_listener_callback, 
+            qos_profile=qos_profile)
+
+
+        self.fl_surface_sub  # prevent unused variable warning
+        self.fr_surface_sub  # prevent unused variable warning
+        self.rl_surface_sub  # prevent unused variable warning
+        self.rr_surface_sub  # prevent unused variable warning
+
         # Iniitalize variables
         self.tire_pub  # prevent unused variable warning
         self.fl_pva_pub  # prevent unused variable warning
@@ -148,6 +181,8 @@ class TireForceCalculator(Node):
         self.tire_out.tire_longitudinal_forces.w3 = 0.0
         self.tire_out.tire_longitudinal_forces.w4 = 0.0
 
+        self.contact_states = HtNavContactStates()
+
         self.gazebo_time = 0.0
 
         
@@ -174,6 +209,99 @@ class TireForceCalculator(Node):
         # self.get_logger().info('I heard x pos as: "%f"' % self.strap_data.pos.x)
 
         # print(str(self.zaman_ref), str(msg.pos.x), str(msg.pos.y), str(msg.pos.z), str(msg.vel.x), str(msg.vel.y), str(msg.vel.z), str(msg.euler.roll), str(msg.euler.pitch), str(msg.euler.yaw), sep='\t', file=strap_input_data_txt)
+
+
+    def fl_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        self.joint_state.normal_force.w1 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.fl_wheel_contact_states = wheel_contact_state
+
+    def fr_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        self.joint_state.normal_force.w2 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.fr_wheel_contact_states = wheel_contact_state
+
+    def rl_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        self.joint_state.normal_force.w3 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.rl_wheel_contact_states = wheel_contact_state
+
+    def rr_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        self.joint_state.normal_force.w4 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.rr_wheel_contact_states = wheel_contact_state
 
 
     def joint_listener_callback(self, msg):

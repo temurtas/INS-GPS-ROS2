@@ -64,6 +64,7 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
         '_wheel_longitudinal_slip_ratio',
         '_tire_lateral_forces',
         '_tire_longitudinal_forces',
+        '_tire_normal_forces',
     ]
 
     _fields_and_field_types = {
@@ -74,12 +75,14 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
         'wheel_longitudinal_slip_ratio': 'ht_nav_variables/HtNavWheelVector',
         'tire_lateral_forces': 'ht_nav_variables/HtNavWheelVector',
         'tire_longitudinal_forces': 'ht_nav_variables/HtNavWheelVector',
+        'tire_normal_forces': 'ht_nav_variables/HtNavWheelVector',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
@@ -101,6 +104,8 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
         self.tire_lateral_forces = kwargs.get('tire_lateral_forces', HtNavWheelVector())
         from ht_nav_variables.msg import HtNavWheelVector
         self.tire_longitudinal_forces = kwargs.get('tire_longitudinal_forces', HtNavWheelVector())
+        from ht_nav_variables.msg import HtNavWheelVector
+        self.tire_normal_forces = kwargs.get('tire_normal_forces', HtNavWheelVector())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -144,6 +149,8 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
         if self.tire_lateral_forces != other.tire_lateral_forces:
             return False
         if self.tire_longitudinal_forces != other.tire_longitudinal_forces:
+            return False
+        if self.tire_normal_forces != other.tire_normal_forces:
             return False
         return True
 
@@ -246,3 +253,17 @@ class HtNavTireOut(metaclass=Metaclass_HtNavTireOut):
                 isinstance(value, HtNavWheelVector), \
                 "The 'tire_longitudinal_forces' field must be a sub message of type 'HtNavWheelVector'"
         self._tire_longitudinal_forces = value
+
+    @property
+    def tire_normal_forces(self):
+        """Message field 'tire_normal_forces'."""
+        return self._tire_normal_forces
+
+    @tire_normal_forces.setter
+    def tire_normal_forces(self, value):
+        if __debug__:
+            from ht_nav_variables.msg import HtNavWheelVector
+            assert \
+                isinstance(value, HtNavWheelVector), \
+                "The 'tire_normal_forces' field must be a sub message of type 'HtNavWheelVector'"
+        self._tire_normal_forces = value

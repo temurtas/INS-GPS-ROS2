@@ -12,6 +12,7 @@
 // Include directives for member types
 // Member `steering_angle`
 // Member `wheel_rotation`
+// Member `normal_force`
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"
 
 bool
@@ -31,6 +32,11 @@ ht_nav_variables__msg__HtNavJointState__init(ht_nav_variables__msg__HtNavJointSt
     ht_nav_variables__msg__HtNavJointState__fini(msg);
     return false;
   }
+  // normal_force
+  if (!ht_nav_variables__msg__HtNavWheelVector__init(&msg->normal_force)) {
+    ht_nav_variables__msg__HtNavJointState__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -45,6 +51,8 @@ ht_nav_variables__msg__HtNavJointState__fini(ht_nav_variables__msg__HtNavJointSt
   ht_nav_variables__msg__HtNavWheelVector__fini(&msg->steering_angle);
   // wheel_rotation
   ht_nav_variables__msg__HtNavWheelVector__fini(&msg->wheel_rotation);
+  // normal_force
+  ht_nav_variables__msg__HtNavWheelVector__fini(&msg->normal_force);
 }
 
 ht_nav_variables__msg__HtNavJointState *

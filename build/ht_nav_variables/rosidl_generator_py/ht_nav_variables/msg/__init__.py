@@ -1,3 +1,5 @@
+from ht_nav_variables.msg._ht_nav_contact_state import HtNavContactState  # noqa: F401
+from ht_nav_variables.msg._ht_nav_contact_states import HtNavContactStates  # noqa: F401
 from ht_nav_variables.msg._ht_nav_deneme import HtNavDeneme  # noqa: F401
 from ht_nav_variables.msg._ht_nav_error_vector import HtNavErrorVector  # noqa: F401
 from ht_nav_variables.msg._ht_nav_euler import HtNavEuler  # noqa: F401

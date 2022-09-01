@@ -20,16 +20,32 @@ namespace msg
 namespace builder
 {
 
+class Init_HtNavTireOut_tire_normal_forces
+{
+public:
+  explicit Init_HtNavTireOut_tire_normal_forces(::ht_nav_variables::msg::HtNavTireOut & msg)
+  : msg_(msg)
+  {}
+  ::ht_nav_variables::msg::HtNavTireOut tire_normal_forces(::ht_nav_variables::msg::HtNavTireOut::_tire_normal_forces_type arg)
+  {
+    msg_.tire_normal_forces = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavTireOut msg_;
+};
+
 class Init_HtNavTireOut_tire_longitudinal_forces
 {
 public:
   explicit Init_HtNavTireOut_tire_longitudinal_forces(::ht_nav_variables::msg::HtNavTireOut & msg)
   : msg_(msg)
   {}
-  ::ht_nav_variables::msg::HtNavTireOut tire_longitudinal_forces(::ht_nav_variables::msg::HtNavTireOut::_tire_longitudinal_forces_type arg)
+  Init_HtNavTireOut_tire_normal_forces tire_longitudinal_forces(::ht_nav_variables::msg::HtNavTireOut::_tire_longitudinal_forces_type arg)
   {
     msg_.tire_longitudinal_forces = std::move(arg);
-    return std::move(msg_);
+    return Init_HtNavTireOut_tire_normal_forces(msg_);
   }
 
 private:

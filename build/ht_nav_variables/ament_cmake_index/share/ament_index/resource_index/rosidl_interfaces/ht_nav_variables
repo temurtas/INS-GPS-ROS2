@@ -1,3 +1,7 @@
+msg/HtNavContactState.idl
+msg/HtNavContactState.msg
+msg/HtNavContactStates.idl
+msg/HtNavContactStates.msg
 msg/HtNavDeneme.idl
 msg/HtNavDeneme.msg
 msg/HtNavErrorVector.idl

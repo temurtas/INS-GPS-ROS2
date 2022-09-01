@@ -20,6 +20,7 @@ extern "C"
 // Include directives for member types
 // Member 'steering_angle'
 // Member 'wheel_rotation'
+// Member 'normal_force'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.h"
 
 // Struct defined in msg/HtNavJointState in the package ht_nav_variables.
@@ -28,6 +29,7 @@ typedef struct ht_nav_variables__msg__HtNavJointState
   double time;
   ht_nav_variables__msg__HtNavWheelVector steering_angle;
   ht_nav_variables__msg__HtNavWheelVector wheel_rotation;
+  ht_nav_variables__msg__HtNavWheelVector normal_force;
 } ht_nav_variables__msg__HtNavJointState;
 
 // Struct for a sequence of ht_nav_variables__msg__HtNavJointState.

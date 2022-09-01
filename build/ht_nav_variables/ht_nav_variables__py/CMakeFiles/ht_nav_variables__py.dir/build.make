@@ -56,6 +56,8 @@ include ht_nav_variables__py/CMakeFiles/ht_nav_variables__py.dir/progress.make
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_introspection_c.c
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_c.c
+ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state.py
+ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states.py
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector.py
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_euler.py
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data.py
@@ -72,6 +74,8 @@ ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out.py
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug.py
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/__init__.py
+ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state_s.c
+ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states_s.c
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector_s.c
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_euler_s.c
 ht_nav_variables__py/CMakeFiles/ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c
@@ -102,6 +106,8 @@ rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_f
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/rosidl_generator_py/resource/_msg.py.em
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/rosidl_generator_py/resource/_srv.py.em
+rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/ht_nav_variables/msg/HtNavContactState.idl
+rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/ht_nav_variables/msg/HtNavContactStates.idl
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/ht_nav_variables/msg/HtNavErrorVector.idl
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/ht_nav_variables/msg/HtNavEuler.idl
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/ht_nav_variables/msg/HtNavGpsData.idl
@@ -125,6 +131,12 @@ rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_i
 
 rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_c.c: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_c.c
+
+rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state.py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state.py
+
+rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states.py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states.py
 
 rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector.py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector.py
@@ -173,6 +185,12 @@ rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug.py: rosidl_genera
 
 rosidl_generator_py/ht_nav_variables/msg/__init__.py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/__init__.py
+
+rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state_s.c: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state_s.c
+
+rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states_s.c: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states_s.c
 
 rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector_s.c: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector_s.c
@@ -223,6 +241,8 @@ ht_nav_variables__py: ht_nav_variables__py/CMakeFiles/ht_nav_variables__py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_fastrtps_c.c
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_introspection_c.c
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/_ht_nav_variables_s.ep.rosidl_typesupport_c.c
+ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state.py
+ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states.py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector.py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_euler.py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data.py
@@ -239,6 +259,8 @@ ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_joint_sta
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_tire_out.py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_vehicle_debug.py
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/__init__.py
+ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_state_s.c
+ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_contact_states_s.c
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_error_vector_s.c
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_euler_s.c
 ht_nav_variables__py: rosidl_generator_py/ht_nav_variables/msg/_ht_nav_gps_data_s.c

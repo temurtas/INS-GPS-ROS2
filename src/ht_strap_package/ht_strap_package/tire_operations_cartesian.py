@@ -120,12 +120,22 @@ def longitudinal_tire_slip_calc(w_tk, v_tk_x):
     R_eff = R_0
 
     # The true slip is calculated as follows: Consider changing
-    # sigma_x = math.fabs(R_eff * w_tk) / math.fabs(v_tk_x) - 1.0 
-
-    if ( math.fabs(v_tk_x) > math.fabs(R_eff*w_tk) ):   # During Braking
-        sigma_x = (math.fabs(R_eff * w_tk) - math.fabs(v_tk_x)) / math.fabs(v_tk_x)
+    if (v_tk_x == 0.0):
+        lin_vel = 1e-5
     else:
-        sigma_x = (math.fabs(R_eff * w_tk) - math.fabs(v_tk_x)) / math.fabs(R_eff * w_tk)
+        lin_vel = math.fabs(v_tk_x)
+
+    sigma_x = math.fabs(R_eff * w_tk) / lin_vel - 1.0 
+
+    if (sigma_x > 1.0):
+        sigma_x = 1.0
+    elif (sigma_x < -1.0):
+        sigma_x = -1.0
+
+    # if ( math.fabs(v_tk_x) > math.fabs(R_eff*w_tk) ):   # During Braking
+    #     sigma_x = (math.fabs(R_eff * w_tk) - math.fabs(v_tk_x)) / math.fabs(v_tk_x)
+    # else:
+    #     sigma_x = (math.fabs(R_eff * w_tk) - math.fabs(v_tk_x)) / math.fabs(R_eff * w_tk)
 
     return sigma_x
 
@@ -206,7 +216,7 @@ def tire_pva_calc(delta_ang, pos, v_eb_n, euler, C_tk_b, r_btk_b):
     return tire_pva
 
 
-def tire_dugoff_force_calc(alpha_t, sigma_t):
+def tire_dugoff_force_calc(F_z_total, alpha_t, sigma_t):
     C_alpha = config.C_alpha              
     C_sigma = config.C_sigma              
     mu = config.mu           
@@ -217,6 +227,7 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
  
     alpha = np.zeros((4,1))
     sigma = np.zeros((4,1))
+    F_z    = np.zeros((4,1))
 
     tire_out = HtNavTireOut()
     F_x = HtNavWheelVector()
@@ -232,16 +243,21 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
     sigma[2] = sigma_t.w3
     sigma[3] = sigma_t.w4
 
+    F_z[0] = F_z_total.w1
+    F_z[1] = F_z_total.w2
+    F_z[2] = F_z_total.w3
+    F_z[3] = F_z_total.w4
+
     F_x_t = np.zeros((4,1))
     F_y_t = np.zeros((4,1))
 
     for i in range(4):
-        if (i < 2):
-            F_z = F_z_front
-        else:
-            F_z = F_z_rear
+        # if (i < 2):
+        #     F_z = F_z_front
+        # else:
+        #     F_z = F_z_rear
 
-        lambda_temp = (mu * F_z * (1 + sigma[i])) / (2 * np.sqrt( np.power(C_sigma * sigma[i],2) + np.power(C_alpha * np.tan(alpha[i]),2) ) )
+        lambda_temp = (mu * F_z[i] * (1 + sigma[i])) / (2 * np.sqrt( np.power(C_sigma * sigma[i],2) + np.power(C_alpha * np.tan(alpha[i]),2) ) )
         if lambda_temp >= 1:
             f_lambda = 1
         else:
@@ -270,8 +286,111 @@ def tire_dugoff_force_calc(alpha_t, sigma_t):
     tire_out.vehicle_mass_est               = float(vehicle_mass)
     tire_out.wheel_side_slip_ang            = alpha_t
     tire_out.wheel_longitudinal_slip_ratio  = sigma_t
-    tire_out.tire_lateral_forces            = F_y
     tire_out.tire_longitudinal_forces       = F_x
+    tire_out.tire_lateral_forces            = F_y
+    tire_out.tire_normal_forces             = F_z_total
+
+    return tire_out
+
+def tire_pacejka_force_calc(F_z_total, alpha_t, sigma_t):
+    C_alpha = config.C_alpha              
+    C_sigma = config.C_sigma              
+    mu = config.mu           
+    F_z_front = config.F_z_front        
+    F_z_rear = config.F_z_rear        
+    R_0 = config.R_0
+    vehicle_mass = config.vehicle_mass
+ 
+    alpha = np.zeros((4,1))
+    sigma = np.zeros((4,1))
+    F_z    = np.zeros((4,1))
+
+    tire_out = HtNavTireOut()
+    F_x = HtNavWheelVector()
+    F_y = HtNavWheelVector()
+
+    alpha[0] = alpha_t.w1
+    alpha[1] = alpha_t.w2
+    alpha[2] = alpha_t.w3
+    alpha[3] = alpha_t.w4
+
+    sigma[0] = sigma_t.w1
+    sigma[1] = sigma_t.w2
+    sigma[2] = sigma_t.w3
+    sigma[3] = sigma_t.w4
+
+    F_z[0] = F_z_total.w1
+    F_z[1] = F_z_total.w2
+    F_z[2] = F_z_total.w3
+    F_z[3] = F_z_total.w4
+
+    F_x_t = np.zeros((4,1))
+    F_y_t = np.zeros((4,1))
+
+    for i in range(4):
+        # if (i < 2):
+        #     F_z = F_z_front
+        # else:
+        #     F_z = F_z_rear
+
+        D_x0 = mu * F_z[i] 
+        D_y0 = mu * F_z[i]
+
+        C_F_alpha = 4.15 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
+        C_F_sigma = 8 * F_z[i]      # c_8 * F_z;
+        # C_F_gamma = F_z;          # c_5 * F_z;
+
+        # C_F_alpha_0 = C_F_alpha;
+        # C_F_sigma_0 = C_F_sigma;
+        
+        C_x = 1.44
+        C_y = 1
+  
+        B_x0 = C_F_sigma / C_x / D_x0
+        B_y0 = C_F_alpha / C_y / D_y0
+
+        E_x0 = -1
+        E_y0 = -1
+
+        E_x = E_x0
+        E_y = E_y0
+
+        # Combined Slips
+        # alpha = alpha_k + C_F_gamma / C_F_alpha * gamma_k;
+        # sigma_cx = sigma_k / (1 + sigma_k);
+        # sigma_cy = tan(alpha) / (1 + sigma_k);
+        # sigma = sqrt(sigma_cx^2 + sigma_cy^2);
+
+        F_x0 = D_x0 * math.sin(C_x * math.atan(B_x0 * sigma[i] - E_x0 * sigma[i] - E_x * (B_x0 * sigma[i] - math.atan(B_x0 * sigma[i])) ) )
+        F_y0 = D_y0 * math.sin(C_y * math.atan(B_y0 * alpha[i] - E_y0 * alpha[i] - E_y * (B_y0 * alpha[i] - math.atan(B_y0 * alpha[i])) ) )
+
+        F_x_t[i] = F_x0
+        F_y_t[i] = F_y0
+        
+    # float64          effective_radius_est
+    # float64          vehicle_mass_est
+    # HtNavWheelVector wheel_side_slip_ang
+    # HtNavWheelVector wheel_longitudinal_slip_ratio
+    # HtNavWheelVector tire_lateral_forces
+    # HtNavWheelVector tire_longitudinal_forces
+
+    F_x.w1 = float(F_x_t[0])
+    F_x.w2 = float(F_x_t[1])
+    F_x.w3 = float(F_x_t[2])
+    F_x.w4 = float(F_x_t[3])
+
+    F_y.w1 = float(F_y_t[0])
+    F_y.w2 = float(F_y_t[1])
+    F_y.w3 = float(F_y_t[2])
+    F_y.w4 = float(F_y_t[3])
+
+    tire_out.effective_radius_est           = float(R_0)
+    tire_out.vehicle_mass_est               = float(vehicle_mass)
+    tire_out.wheel_side_slip_ang            = alpha_t
+    tire_out.wheel_longitudinal_slip_ratio  = sigma_t
+    tire_out.tire_longitudinal_forces       = F_x
+    tire_out.tire_lateral_forces            = F_y
+    tire_out.tire_normal_forces             = F_z_total
 
     return tire_out
 

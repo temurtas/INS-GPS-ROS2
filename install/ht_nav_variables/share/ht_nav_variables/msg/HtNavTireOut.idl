@@ -27,6 +27,8 @@ module ht_nav_variables {
       ht_nav_variables::msg::HtNavWheelVector tire_lateral_forces;
 
       ht_nav_variables::msg::HtNavWheelVector tire_longitudinal_forces;
+
+      ht_nav_variables::msg::HtNavWheelVector tire_normal_forces;
     };
   };
 };

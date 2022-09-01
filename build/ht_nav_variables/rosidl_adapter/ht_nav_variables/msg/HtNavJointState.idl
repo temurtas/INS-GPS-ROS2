@@ -19,6 +19,8 @@ module ht_nav_variables {
       ht_nav_variables::msg::HtNavWheelVector steering_angle;
 
       ht_nav_variables::msg::HtNavWheelVector wheel_rotation;
+
+      ht_nav_variables::msg::HtNavWheelVector normal_force;
     };
   };
 };

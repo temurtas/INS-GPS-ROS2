@@ -15,9 +15,11 @@
 // Include directives for member types
 // Member `steering_angle`
 // Member `wheel_rotation`
+// Member `normal_force`
 #include "ht_nav_variables/msg/ht_nav_wheel_vector.h"
 // Member `steering_angle`
 // Member `wheel_rotation`
+// Member `normal_force`
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
@@ -39,7 +41,7 @@ void HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_fini_f
   ht_nav_variables__msg__HtNavJointState__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array[3] = {
+static rosidl_typesupport_introspection_c__MessageMember HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array[4] = {
   {
     "time",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
@@ -84,13 +86,28 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavJointState__rosidl
     NULL,  // get_const(index) function pointer
     NULL,  // get(index) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "normal_force",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavJointState, normal_force),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_members = {
   "ht_nav_variables__msg",  // message namespace
   "HtNavJointState",  // message name
-  3,  // number of fields
+  4,  // number of fields
   sizeof(ht_nav_variables__msg__HtNavJointState),
   HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array,  // message members
   HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -111,6 +128,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
   HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array[1].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
   HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array[2].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
+  HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_member_array[3].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
   if (!HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_type_support_handle.typesupport_identifier) {
     HtNavJointState__rosidl_typesupport_introspection_c__HtNavJointState_message_type_support_handle.typesupport_identifier =

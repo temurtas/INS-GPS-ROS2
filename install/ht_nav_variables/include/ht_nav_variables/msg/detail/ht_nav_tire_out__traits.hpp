@@ -15,6 +15,7 @@
 // Member 'wheel_longitudinal_slip_ratio'
 // Member 'tire_lateral_forces'
 // Member 'tire_longitudinal_forces'
+// Member 'tire_normal_forces'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp"
 
 namespace rosidl_generator_traits

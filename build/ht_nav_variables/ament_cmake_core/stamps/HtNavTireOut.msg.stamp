@@ -12,3 +12,4 @@ HtNavWheelVector wheel_side_slip_ang
 HtNavWheelVector wheel_longitudinal_slip_ratio
 HtNavWheelVector tire_lateral_forces
 HtNavWheelVector tire_longitudinal_forces
+HtNavWheelVector tire_normal_forces

@@ -8,3 +8,4 @@
 float64               time
 HtNavWheelVector steering_angle
 HtNavWheelVector wheel_rotation
+HtNavWheelVector normal_force

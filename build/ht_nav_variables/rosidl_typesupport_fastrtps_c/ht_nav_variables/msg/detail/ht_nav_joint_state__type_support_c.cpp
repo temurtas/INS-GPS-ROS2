@@ -34,7 +34,7 @@ extern "C"
 {
 #endif
 
-#include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"  // steering_angle, wheel_rotation
+#include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"  // normal_force, steering_angle, wheel_rotation
 
 // forward declare type support functions
 size_t get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
@@ -93,6 +93,20 @@ static bool _HtNavJointState__cdr_serialize(
     }
   }
 
+  // Field name: normal_force
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavWheelVector
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->normal_force, cdr))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -138,6 +152,20 @@ static bool _HtNavJointState__cdr_deserialize(
     }
   }
 
+  // Field name: normal_force
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, ht_nav_variables, msg, HtNavWheelVector
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->normal_force))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -169,6 +197,10 @@ size_t get_serialized_size_ht_nav_variables__msg__HtNavJointState(
 
   current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
     &(ros_message->wheel_rotation), current_alignment);
+  // field.name normal_force
+
+  current_alignment += get_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
+    &(ros_message->normal_force), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -212,6 +244,17 @@ size_t max_serialized_size_ht_nav_variables__msg__HtNavJointState(
     }
   }
   // member: wheel_rotation
+  {
+    size_t array_size = 1;
+
+
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment +=
+        max_serialized_size_ht_nav_variables__msg__HtNavWheelVector(
+        full_bounded, current_alignment);
+    }
+  }
+  // member: normal_force
   {
     size_t array_size = 1;
 

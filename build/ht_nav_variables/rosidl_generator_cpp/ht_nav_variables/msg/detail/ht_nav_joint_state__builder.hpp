@@ -20,16 +20,32 @@ namespace msg
 namespace builder
 {
 
+class Init_HtNavJointState_normal_force
+{
+public:
+  explicit Init_HtNavJointState_normal_force(::ht_nav_variables::msg::HtNavJointState & msg)
+  : msg_(msg)
+  {}
+  ::ht_nav_variables::msg::HtNavJointState normal_force(::ht_nav_variables::msg::HtNavJointState::_normal_force_type arg)
+  {
+    msg_.normal_force = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ht_nav_variables::msg::HtNavJointState msg_;
+};
+
 class Init_HtNavJointState_wheel_rotation
 {
 public:
   explicit Init_HtNavJointState_wheel_rotation(::ht_nav_variables::msg::HtNavJointState & msg)
   : msg_(msg)
   {}
-  ::ht_nav_variables::msg::HtNavJointState wheel_rotation(::ht_nav_variables::msg::HtNavJointState::_wheel_rotation_type arg)
+  Init_HtNavJointState_normal_force wheel_rotation(::ht_nav_variables::msg::HtNavJointState::_wheel_rotation_type arg)
   {
     msg_.wheel_rotation = std::move(arg);
-    return std::move(msg_);
+    return Init_HtNavJointState_normal_force(msg_);
   }
 
 private:

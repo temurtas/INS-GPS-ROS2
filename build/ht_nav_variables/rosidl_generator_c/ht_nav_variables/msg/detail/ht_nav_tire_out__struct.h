@@ -22,6 +22,7 @@ extern "C"
 // Member 'wheel_longitudinal_slip_ratio'
 // Member 'tire_lateral_forces'
 // Member 'tire_longitudinal_forces'
+// Member 'tire_normal_forces'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.h"
 
 // Struct defined in msg/HtNavTireOut in the package ht_nav_variables.
@@ -34,6 +35,7 @@ typedef struct ht_nav_variables__msg__HtNavTireOut
   ht_nav_variables__msg__HtNavWheelVector wheel_longitudinal_slip_ratio;
   ht_nav_variables__msg__HtNavWheelVector tire_lateral_forces;
   ht_nav_variables__msg__HtNavWheelVector tire_longitudinal_forces;
+  ht_nav_variables__msg__HtNavWheelVector tire_normal_forces;
 } ht_nav_variables__msg__HtNavTireOut;
 
 // Struct for a sequence of ht_nav_variables__msg__HtNavTireOut.

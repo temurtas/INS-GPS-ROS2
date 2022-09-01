@@ -38,8 +38,8 @@ from ht_strap_package.config import delta_t
 # out_data_path = base_path / "joint_states_gazebo.txt"
 # out_data_txt = open(out_data_path, 'w')
 
-gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
-gps_data_gazebo_txt = open(gps_data_path, 'w')
+# gps_data_path = base_path / "gps_data_ideal_gazebo.txt"
+# gps_data_gazebo_txt = open(gps_data_path, 'w')
 
 # out_data_ideal_path = base_path / "strap_data_ideal_gazebo.txt"
 # out_data_ideal_txt = open(out_data_ideal_path, 'w')
@@ -55,11 +55,11 @@ class RobotStateListener(Node):
             self.listener_callback, 
             qos_profile=qos_profile)
         
-        self.gps_ideal_subscription = self.create_subscription(
-            NavSatFix,
-            'kobra_mk5/ideal_gps_data',
-            self.gps_sub_cb,
-            qos_profile=qos_profile)
+        # self.gps_ideal_subscription = self.create_subscription(
+        #     NavSatFix,
+        #     'kobra_mk5/ideal_gps_data',
+        #     self.gps_sub_cb,
+        #     qos_profile=qos_profile)
         
         self.strap_ideal_subscription = self.create_subscription(
             HtNavStrapOut,
@@ -80,7 +80,7 @@ class RobotStateListener(Node):
             qos_profile=qos_profile)
 
         self.joint_state_subscription  # prevent unused variable warning
-        self.gps_ideal_subscription  # prevent unused variable warning
+        # self.gps_ideal_subscription  # prevent unused variable warning
         self.strap_ideal_subscription  # prevent unused variable warning
         self.strap_imu_sub  # prevent unused variable warning
 

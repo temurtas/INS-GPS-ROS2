@@ -17,6 +17,7 @@
 // Include directives for member types
 // Member 'steering_angle'
 // Member 'wheel_rotation'
+// Member 'normal_force'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp"
 
 #ifndef _WIN32
@@ -39,7 +40,8 @@ struct HtNavJointState_
 
   explicit HtNavJointState_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : steering_angle(_init),
-    wheel_rotation(_init)
+    wheel_rotation(_init),
+    normal_force(_init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -50,7 +52,8 @@ struct HtNavJointState_
 
   explicit HtNavJointState_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : steering_angle(_alloc, _init),
-    wheel_rotation(_alloc, _init)
+    wheel_rotation(_alloc, _init),
+    normal_force(_alloc, _init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -69,6 +72,9 @@ struct HtNavJointState_
   using _wheel_rotation_type =
     ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator>;
   _wheel_rotation_type wheel_rotation;
+  using _normal_force_type =
+    ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator>;
+  _normal_force_type normal_force;
 
   // setters for named parameter idiom
   Type & set__time(
@@ -87,6 +93,12 @@ struct HtNavJointState_
     const ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator> & _arg)
   {
     this->wheel_rotation = _arg;
+    return *this;
+  }
+  Type & set__normal_force(
+    const ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator> & _arg)
+  {
+    this->normal_force = _arg;
     return *this;
   }
 
@@ -139,6 +151,9 @@ struct HtNavJointState_
       return false;
     }
     if (this->wheel_rotation != other.wheel_rotation) {
+      return false;
+    }
+    if (this->normal_force != other.normal_force) {
       return false;
     }
     return true;

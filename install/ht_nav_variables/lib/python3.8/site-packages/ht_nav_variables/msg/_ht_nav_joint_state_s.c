@@ -20,6 +20,8 @@ bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pym
 PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
 bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
 PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
+bool ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(PyObject * _pymsg, void * _ros_message);
+PyObject * ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool ht_nav_variables__msg__ht_nav_joint_state__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -85,6 +87,17 @@ bool ht_nav_variables__msg__ht_nav_joint_state__convert_from_py(PyObject * _pyms
     }
     Py_DECREF(field);
   }
+  {  // normal_force
+    PyObject * field = PyObject_GetAttrString(_pymsg, "normal_force");
+    if (!field) {
+      return false;
+    }
+    if (!ht_nav_variables__msg__ht_nav_wheel_vector__convert_from_py(field, &ros_message->normal_force)) {
+      Py_DECREF(field);
+      return false;
+    }
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -140,6 +153,20 @@ PyObject * ht_nav_variables__msg__ht_nav_joint_state__convert_to_py(void * raw_r
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "wheel_rotation", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // normal_force
+    PyObject * field = NULL;
+    field = ht_nav_variables__msg__ht_nav_wheel_vector__convert_to_py(&ros_message->normal_force);
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "normal_force", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

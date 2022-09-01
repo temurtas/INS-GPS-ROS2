@@ -53,6 +53,14 @@ CMAKE_BINARY_DIR = /home/temur/INS-GPS-ROS2/build/ht_nav_variables
 # Include the progress variables for this target.
 include CMakeFiles/ht_nav_variables__cpp.dir/progress.make
 
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__builder.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__struct.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__traits.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_states.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__builder.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__struct.hpp
+CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__traits.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp
@@ -115,217 +123,251 @@ CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/deta
 CMakeFiles/ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp
 
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/lib/rosidl_generator_cpp/rosidl_generator_cpp
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/lib/python3.8/site-packages/rosidl_generator_cpp/__init__.py
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__builder.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__struct.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__traits.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__builder.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__struct.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__traits.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__builder.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__struct.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__traits.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__builder.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavErrorVector.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavEuler.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavGpsData.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/lib/rosidl_generator_cpp/rosidl_generator_cpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/lib/python3.8/site-packages/rosidl_generator_cpp/__init__.py
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__builder.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__struct.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/action__traits.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__builder.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__struct.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/idl__traits.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__builder.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__struct.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/msg__traits.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__builder.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: /opt/ros/foxy/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavContactState.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavContactStates.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavErrorVector.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavEuler.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavGpsData.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavImuData.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavKalmanOut.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapOut.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavStrapCarOut.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavPoint.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavVector3.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavQuaternion.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavDeneme.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavWheelVector.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavJointState.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavTireOut.idl
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp: rosidl_adapter/ht_nav_variables/msg/HtNavVehicleDebug.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/temur/INS-GPS-ROS2/build/ht_nav_variables/rosidl_generator_cpp__arguments.json
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__builder.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__struct.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__traits.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_states.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_states.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__builder.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__struct.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__traits.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_euler.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_euler.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_euler.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_euler__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_gps_data.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_gps_data.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_gps_data.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_gps_data__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_imu_data.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_imu_data.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_imu_data.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_imu_data__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_kalman_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_kalman_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_kalman_out.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_kalman_out__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_out.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_out__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_strap_car_out.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_strap_car_out__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_point.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_point__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vector3.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vector3.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vector3.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vector3__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_quaternion.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_quaternion.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_quaternion.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_quaternion__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_deneme.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_deneme.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_deneme.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_deneme__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_wheel_vector.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_wheel_vector.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_wheel_vector.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_joint_state.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_joint_state.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_joint_state.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_joint_state__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_tire_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_tire_out.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_tire_out.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_tire_out__traits.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_vehicle_debug.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__builder.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__struct.hpp
 
-rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
+rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_vehicle_debug__traits.hpp
 
 ht_nav_variables__cpp: CMakeFiles/ht_nav_variables__cpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_state.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__builder.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__struct.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_state__traits.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_contact_states.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__builder.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__struct.hpp
+ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_contact_states__traits.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/ht_nav_error_vector.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__builder.hpp
 ht_nav_variables__cpp: rosidl_generator_cpp/ht_nav_variables/msg/detail/ht_nav_error_vector__struct.hpp

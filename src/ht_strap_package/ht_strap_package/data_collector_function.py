@@ -36,6 +36,8 @@ import ht_strap_package.config as config
 from ht_nav_variables.msg import HtNavStrapOut, HtNavJointState, HtNavGpsData, HtNavImuData
 from ht_strap_package.strap_tf_operations import *
 from ht_strap_package.config import DEG2RAD
+from ht_nav_variables.msg import HtNavContactState
+from ht_nav_variables.msg import HtNavContactStates
 
 # base_path = Path("/home/temur/INS-GPS-ws/INS-GPS-Matlab/veriler/veri1_to_Dogukan/")           #Ubuntu Path
 
@@ -150,11 +152,11 @@ class DataCollector(Node):
             qos_profile=qos_profile)
 
         # Initialise subscribers
-        self.gps_sub = self.create_subscription(
-            NavSatFix, 
-            'kobra_mk5/gps_data', 
-            self.sub_cb_gps_data, 
-            qos_profile=qos_profile)
+        # self.gps_sub = self.create_subscription(
+        #     NavSatFix, 
+        #     'kobra_mk5/gps_data', 
+        #     self.sub_cb_gps_data, 
+        #     qos_profile=qos_profile)
         
         self.strap_imu_sub = self.create_subscription(
             Imu, 
@@ -168,11 +170,11 @@ class DataCollector(Node):
         #     self.sub_cb_imu_data, 
         #     qos_profile=qos_profile)
 
-        self.gps_ideal_subscription = self.create_subscription(
-            NavSatFix,
-            'kobra_mk5/ideal_gps_data',
-            self.ideal_gps_sub_cb,
-            qos_profile=qos_profile)
+        # self.gps_ideal_subscription = self.create_subscription(
+        #     NavSatFix,
+        #     'kobra_mk5/ideal_gps_data',
+        #     self.ideal_gps_sub_cb,
+        #     qos_profile=qos_profile)
         
         self.strap_imu_sub = self.create_subscription(
             Imu, 
@@ -192,34 +194,65 @@ class DataCollector(Node):
             self.gps_link_cb, 
             qos_profile=qos_profile)
 
-        self.fl_contact_sub = self.create_subscription(
-            ContactsState, 
-            'kobra_mk5/front_left_contact_forces', 
-            self.fl_contact_cb, 
+        # self.fl_contact_sub = self.create_subscription(
+        #     ContactsState, 
+        #     'kobra_mk5/front_left_contact_forces', 
+        #     self.fl_contact_cb, 
+        #     qos_profile=qos_profile)
+
+        # self.fr_contact_sub = self.create_subscription(
+        #     ContactsState, 
+        #     'kobra_mk5/front_right_contact_forces', 
+        #     self.fr_contact_cb, 
+        #     qos_profile=qos_profile)
+
+        # self.rl_contact_sub = self.create_subscription(
+        #     ContactsState, 
+        #     'kobra_mk5/rear_left_contact_forces', 
+        #     self.rl_contact_cb, 
+        #     qos_profile=qos_profile)
+
+        # self.rr_contact_sub = self.create_subscription(
+        #     ContactsState, 
+        #     'kobra_mk5/rear_right_contact_forces', 
+        #     self.rr_contact_cb, 
+        #     qos_profile=qos_profile)
+
+        self.fl_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/front_left_wheel_contact_states', 
+            self.fl_contact_surface_listener_callback, 
+            qos_profile=qos_profile)
+        
+        self.fr_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/front_right_wheel_contact_states', 
+            self.fr_contact_surface_listener_callback, 
             qos_profile=qos_profile)
 
-        self.fr_contact_sub = self.create_subscription(
-            ContactsState, 
-            'kobra_mk5/front_right_contact_forces', 
-            self.fr_contact_cb, 
+        self.rl_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/rear_left_wheel_contact_states', 
+            self.rl_contact_surface_listener_callback, 
             qos_profile=qos_profile)
 
-        self.rl_contact_sub = self.create_subscription(
-            ContactsState, 
-            'kobra_mk5/rear_left_contact_forces', 
-            self.rl_contact_cb, 
+        self.rr_surface_sub = self.create_subscription(
+            JointState, 
+            'kobra_mk5/rear_right_wheel_contact_states', 
+            self.rr_contact_surface_listener_callback, 
             qos_profile=qos_profile)
 
-        self.rr_contact_sub = self.create_subscription(
-            ContactsState, 
-            'kobra_mk5/rear_right_contact_forces', 
-            self.rr_contact_cb, 
-            qos_profile=qos_profile)
+        self.contact_states = HtNavContactStates()
 
-        self.fl_contact_sub  # prevent unused variable warning
-        self.fr_contact_sub  # prevent unused variable warning
-        self.rl_contact_sub  # prevent unused variable warning
-        self.rr_contact_sub  # prevent unused variable warning
+        self.fl_surface_sub  # prevent unused variable warning
+        self.fr_surface_sub  # prevent unused variable warning
+        self.rl_surface_sub  # prevent unused variable warning
+        self.rr_surface_sub  # prevent unused variable warning
+        
+        # self.fl_contact_sub  # prevent unused variable warning
+        # self.fr_contact_sub  # prevent unused variable warning
+        # self.rl_contact_sub  # prevent unused variable warning
+        # self.rr_contact_sub  # prevent unused variable warning
 
         self.fr_link_subscription  # prevent unused variable warning
         self.fl_link_subscription  # prevent unused variable warning
@@ -231,7 +264,7 @@ class DataCollector(Node):
         self.imu_link_meas_subscription  # prevent unused variable warning
 
         self.joint_state_subscription  # prevent unused variable warning
-        self.gps_ideal_subscription  # prevent unused variable warning
+        # self.gps_ideal_subscription  # prevent unused variable warning
         self.strap_imu_sub  # prevent unused variable warning
 
         self.zaman_ref = 0.0
@@ -314,6 +347,107 @@ class DataCollector(Node):
     
         self.gazebo_time = 0.0
     
+
+    def fl_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        # self.joint_state.normal_force.w1 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.fl_wheel_contact_states = wheel_contact_state
+        
+        print(str(wheel_contact_state.time), str(wheel_contact_state.ideal_contact_forces.x), str(wheel_contact_state.ideal_contact_forces.y), str(wheel_contact_state.ideal_contact_forces.z), \
+                str(wheel_contact_state.ideal_slip.x), str(wheel_contact_state.ideal_slip.y), str(wheel_contact_state.ideal_slip.z), sep='\t', file=fl_contact_states_txt) 
+
+    def fr_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        # self.joint_state.normal_force.w2 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.fr_wheel_contact_states = wheel_contact_state
+        print(str(wheel_contact_state.time), str(wheel_contact_state.ideal_contact_forces.x), str(wheel_contact_state.ideal_contact_forces.y), str(wheel_contact_state.ideal_contact_forces.z), \
+                str(wheel_contact_state.ideal_slip.x), str(wheel_contact_state.ideal_slip.y), str(wheel_contact_state.ideal_slip.z), sep='\t', file=fr_contact_states_txt) 
+
+    def rl_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        # self.joint_state.normal_force.w3 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.rl_wheel_contact_states = wheel_contact_state
+        print(str(wheel_contact_state.time), str(wheel_contact_state.ideal_contact_forces.x), str(wheel_contact_state.ideal_contact_forces.y), str(wheel_contact_state.ideal_contact_forces.z), \
+                str(wheel_contact_state.ideal_slip.x), str(wheel_contact_state.ideal_slip.y), str(wheel_contact_state.ideal_slip.z), sep='\t', file=rl_contact_states_txt) 
+
+    def rr_contact_surface_listener_callback(self, msg):
+        temp_time_sec = float(msg.header.stamp.sec)
+        temp_time_nsec = float(msg.header.stamp.nanosec)
+        self.gazebo_time = temp_time_sec*1e6 + temp_time_nsec*1e-3        
+        
+        wheel_contact_state = HtNavContactState()
+        wheel_contact_state.time = self.gazebo_time
+
+        wheel_contact_state.ideal_contact_forces.x = msg.position[0]
+        wheel_contact_state.ideal_contact_forces.y = msg.position[1]
+        wheel_contact_state.ideal_contact_forces.z = msg.position[2]
+        
+        wheel_contact_state.ideal_pacejka_forces.x = msg.effort[0]
+        wheel_contact_state.ideal_pacejka_forces.y = msg.effort[1]
+        wheel_contact_state.ideal_pacejka_forces.z = msg.position[2] # Pacejka inputs the normal force
+
+        wheel_contact_state.ideal_slip.x = msg.velocity[1] # sigma_x
+        wheel_contact_state.ideal_slip.y = msg.velocity[0] # alpha_x
+        wheel_contact_state.ideal_slip.z = 0.0             # camber angle slip (gamma_x) is assummed to be zero
+
+        # self.joint_state.normal_force.w4 = abs(wheel_contact_state.ideal_contact_forces.z)
+        self.contact_states.rr_wheel_contact_states = wheel_contact_state
+        print(str(wheel_contact_state.time), str(wheel_contact_state.ideal_contact_forces.x), str(wheel_contact_state.ideal_contact_forces.y), str(wheel_contact_state.ideal_contact_forces.z), \
+                str(wheel_contact_state.ideal_slip.x), str(wheel_contact_state.ideal_slip.y), str(wheel_contact_state.ideal_slip.z), sep='\t', file=rr_contact_states_txt) 
 
     def joint_listener_callback(self, msg):
         # self.get_logger().info('I heard joint namse as: "%f"' % msg.velocity[1])

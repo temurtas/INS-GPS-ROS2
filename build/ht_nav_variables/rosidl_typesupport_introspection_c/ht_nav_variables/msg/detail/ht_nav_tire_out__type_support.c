@@ -17,11 +17,13 @@
 // Member `wheel_longitudinal_slip_ratio`
 // Member `tire_lateral_forces`
 // Member `tire_longitudinal_forces`
+// Member `tire_normal_forces`
 #include "ht_nav_variables/msg/ht_nav_wheel_vector.h"
 // Member `wheel_side_slip_ang`
 // Member `wheel_longitudinal_slip_ratio`
 // Member `tire_lateral_forces`
 // Member `tire_longitudinal_forces`
+// Member `tire_normal_forces`
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
@@ -43,7 +45,7 @@ void HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_fini_functio
   ht_nav_variables__msg__HtNavTireOut__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array[7] = {
+static rosidl_typesupport_introspection_c__MessageMember HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array[8] = {
   {
     "time",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
@@ -148,13 +150,28 @@ static rosidl_typesupport_introspection_c__MessageMember HtNavTireOut__rosidl_ty
     NULL,  // get_const(index) function pointer
     NULL,  // get(index) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "tire_normal_forces",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message (initialized later)
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ht_nav_variables__msg__HtNavTireOut, tire_normal_forces),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_members = {
   "ht_nav_variables__msg",  // message namespace
   "HtNavTireOut",  // message name
-  7,  // number of fields
+  8,  // number of fields
   sizeof(ht_nav_variables__msg__HtNavTireOut),
   HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array,  // message members
   HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -179,6 +196,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
   HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array[5].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
   HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array[6].members_ =
+    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
+  HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_member_array[7].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, ht_nav_variables, msg, HtNavWheelVector)();
   if (!HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_type_support_handle.typesupport_identifier) {
     HtNavTireOut__rosidl_typesupport_introspection_c__HtNavTireOut_message_type_support_handle.typesupport_identifier =

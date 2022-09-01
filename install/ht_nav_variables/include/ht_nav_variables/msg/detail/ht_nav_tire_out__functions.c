@@ -14,6 +14,7 @@
 // Member `wheel_longitudinal_slip_ratio`
 // Member `tire_lateral_forces`
 // Member `tire_longitudinal_forces`
+// Member `tire_normal_forces`
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__functions.h"
 
 bool
@@ -45,6 +46,11 @@ ht_nav_variables__msg__HtNavTireOut__init(ht_nav_variables__msg__HtNavTireOut * 
     ht_nav_variables__msg__HtNavTireOut__fini(msg);
     return false;
   }
+  // tire_normal_forces
+  if (!ht_nav_variables__msg__HtNavWheelVector__init(&msg->tire_normal_forces)) {
+    ht_nav_variables__msg__HtNavTireOut__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -65,6 +71,8 @@ ht_nav_variables__msg__HtNavTireOut__fini(ht_nav_variables__msg__HtNavTireOut * 
   ht_nav_variables__msg__HtNavWheelVector__fini(&msg->tire_lateral_forces);
   // tire_longitudinal_forces
   ht_nav_variables__msg__HtNavWheelVector__fini(&msg->tire_longitudinal_forces);
+  // tire_normal_forces
+  ht_nav_variables__msg__HtNavWheelVector__fini(&msg->tire_normal_forces);
 }
 
 ht_nav_variables__msg__HtNavTireOut *

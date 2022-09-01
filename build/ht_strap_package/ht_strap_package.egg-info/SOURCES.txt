@@ -12,7 +12,6 @@ config/params.yaml
 ht_strap_package/__init__.py
 ht_strap_package/config.py
 ht_strap_package/data_collector_function.py
-ht_strap_package/deneme.py
 ht_strap_package/gps_data_converter_function.py
 ht_strap_package/gps_data_publisher_function.py
 ht_strap_package/ideal_gps_data_converter_function.py
@@ -40,8 +39,10 @@ ht_strap_package/strap_tf_operations.py
 ht_strap_package/strap_with_kalman_node_function.py
 ht_strap_package/strapdown.py
 ht_strap_package/subscriber_member_function.py
+ht_strap_package/teleop_archieve.py
 ht_strap_package/teleop_constant.py
 ht_strap_package/teleop_controller.py
+ht_strap_package/teleop_scn_pub copy.py
 ht_strap_package/teleop_scn_pub.py
 ht_strap_package/tire_force_calc.py
 ht_strap_package/tire_force_node_function.py

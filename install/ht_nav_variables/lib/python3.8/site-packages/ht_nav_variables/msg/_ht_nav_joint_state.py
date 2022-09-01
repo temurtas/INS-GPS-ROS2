@@ -60,16 +60,19 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
         '_time',
         '_steering_angle',
         '_wheel_rotation',
+        '_normal_force',
     ]
 
     _fields_and_field_types = {
         'time': 'double',
         'steering_angle': 'ht_nav_variables/HtNavWheelVector',
         'wheel_rotation': 'ht_nav_variables/HtNavWheelVector',
+        'normal_force': 'ht_nav_variables/HtNavWheelVector',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
         rosidl_parser.definition.NamespacedType(['ht_nav_variables', 'msg'], 'HtNavWheelVector'),  # noqa: E501
     )
@@ -83,6 +86,8 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
         self.steering_angle = kwargs.get('steering_angle', HtNavWheelVector())
         from ht_nav_variables.msg import HtNavWheelVector
         self.wheel_rotation = kwargs.get('wheel_rotation', HtNavWheelVector())
+        from ht_nav_variables.msg import HtNavWheelVector
+        self.normal_force = kwargs.get('normal_force', HtNavWheelVector())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -118,6 +123,8 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
         if self.steering_angle != other.steering_angle:
             return False
         if self.wheel_rotation != other.wheel_rotation:
+            return False
+        if self.normal_force != other.normal_force:
             return False
         return True
 
@@ -166,3 +173,17 @@ class HtNavJointState(metaclass=Metaclass_HtNavJointState):
                 isinstance(value, HtNavWheelVector), \
                 "The 'wheel_rotation' field must be a sub message of type 'HtNavWheelVector'"
         self._wheel_rotation = value
+
+    @property
+    def normal_force(self):
+        """Message field 'normal_force'."""
+        return self._normal_force
+
+    @normal_force.setter
+    def normal_force(self, value):
+        if __debug__:
+            from ht_nav_variables.msg import HtNavWheelVector
+            assert \
+                isinstance(value, HtNavWheelVector), \
+                "The 'normal_force' field must be a sub message of type 'HtNavWheelVector'"
+        self._normal_force = value

@@ -19,6 +19,7 @@
 // Member 'wheel_longitudinal_slip_ratio'
 // Member 'tire_lateral_forces'
 // Member 'tire_longitudinal_forces'
+// Member 'tire_normal_forces'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__struct.hpp"
 
 #ifndef _WIN32
@@ -43,7 +44,8 @@ struct HtNavTireOut_
   : wheel_side_slip_ang(_init),
     wheel_longitudinal_slip_ratio(_init),
     tire_lateral_forces(_init),
-    tire_longitudinal_forces(_init)
+    tire_longitudinal_forces(_init),
+    tire_normal_forces(_init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -58,7 +60,8 @@ struct HtNavTireOut_
   : wheel_side_slip_ang(_alloc, _init),
     wheel_longitudinal_slip_ratio(_alloc, _init),
     tire_lateral_forces(_alloc, _init),
-    tire_longitudinal_forces(_alloc, _init)
+    tire_longitudinal_forces(_alloc, _init),
+    tire_normal_forces(_alloc, _init)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -91,6 +94,9 @@ struct HtNavTireOut_
   using _tire_longitudinal_forces_type =
     ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator>;
   _tire_longitudinal_forces_type tire_longitudinal_forces;
+  using _tire_normal_forces_type =
+    ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator>;
+  _tire_normal_forces_type tire_normal_forces;
 
   // setters for named parameter idiom
   Type & set__time(
@@ -133,6 +139,12 @@ struct HtNavTireOut_
     const ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator> & _arg)
   {
     this->tire_longitudinal_forces = _arg;
+    return *this;
+  }
+  Type & set__tire_normal_forces(
+    const ht_nav_variables::msg::HtNavWheelVector_<ContainerAllocator> & _arg)
+  {
+    this->tire_normal_forces = _arg;
     return *this;
   }
 
@@ -197,6 +209,9 @@ struct HtNavTireOut_
       return false;
     }
     if (this->tire_longitudinal_forces != other.tire_longitudinal_forces) {
+      return false;
+    }
+    if (this->tire_normal_forces != other.tire_normal_forces) {
       return false;
     }
     return true;

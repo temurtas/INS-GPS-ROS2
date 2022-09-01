@@ -13,6 +13,7 @@
 // Include directives for member types
 // Member 'steering_angle'
 // Member 'wheel_rotation'
+// Member 'normal_force'
 #include "ht_nav_variables/msg/detail/ht_nav_wheel_vector__traits.hpp"
 
 namespace rosidl_generator_traits
