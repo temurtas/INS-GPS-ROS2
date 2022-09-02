@@ -50,14 +50,14 @@ class TeleopScnPub(Node):
         self.velocity_ = 0.0
         self.steering_angle_ = 0.0
 
-        self.scn_num_ = 1
+        self.scn_num_ = 7
         # 1 : Circular Motion with Constant Velocity
         # 2 : Straight Motion with Constant Acceleration
         # 3 : Circular Motion with Constant Acceleration
         # 4 : Slalom Motion with Constant Velocity
         # 5 : Slalom Motion with Constant Acceleration
         # 6 : Straight Motion with Constant Acceleration & Decelaration
-        # 2 : Straight Motion with Constant Acceleration (no vel contr btw t=20-25 sec)
+        # 7 : Straight Motion with Constant Acceleration (no vel contr btw t=20-25 sec)
 
         self.steer_limit = 0.1
         self.steer_diff = 0.0
@@ -66,7 +66,7 @@ class TeleopScnPub(Node):
 
         scn_num = self.scn_num_
         if (scn_num == 1):
-            self.in_velocity = 5
+            self.in_velocity = 10.0
             self.in_steer_ang = 0.15 
             self.velocity_ = self.delta_t * 0.5
             self.steering_angle_ = self.in_steer_ang
@@ -81,7 +81,7 @@ class TeleopScnPub(Node):
             self.velocity_ = 0.0
             self.steering_angle_ = 0.15
         elif (scn_num == 4):
-            self.in_velocity = 20.0
+            self.in_velocity = 10.0
             self.in_steer_ang = 0.0
             self.velocity_ = 0.0
             self.steering_angle_ = 0.0
@@ -147,7 +147,7 @@ class TeleopScnPub(Node):
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 3):
             if (self.last_velocity_ < 12.0):
-                self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.2
+                self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.1
             else:
                 self.velocity_ = self.last_velocity_            
             self.steering_angle_ = self.in_steer_ang
