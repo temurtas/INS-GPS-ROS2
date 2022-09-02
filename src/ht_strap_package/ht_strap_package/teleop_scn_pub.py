@@ -50,7 +50,7 @@ class TeleopScnPub(Node):
         self.velocity_ = 0.0
         self.steering_angle_ = 0.0
 
-        self.scn_num_ = 7
+        self.scn_num_ = 2
         # 1 : Circular Motion with Constant Velocity
         # 2 : Straight Motion with Constant Acceleration
         # 3 : Circular Motion with Constant Acceleration
@@ -59,7 +59,7 @@ class TeleopScnPub(Node):
         # 6 : Straight Motion with Constant Acceleration & Decelaration
         # 7 : Straight Motion with Constant Acceleration (no vel contr btw t=20-25 sec)
 
-        self.steer_limit = 0.1
+        self.steer_limit = 0.15
         self.steer_diff = 0.0
         self.vel_diff = 0.0
         self.max_velocity = 16.6 # 60 km/hr
@@ -224,7 +224,7 @@ class TeleopScnPub(Node):
                 twist.linear.z  = 1.0  # for new ackermann plugin: lin_vel_stop_: stops the linear velocity controller 
                 twist.angular.x = 1.0  # for new ackermann plugin: steer_stop_: stops the steering angle controller
             else:
-                if(self.velocity_ > -1e-15 and self.velocity_ < 8.0):
+                if(self.last_velocity_ < 12.0):
                     self.velocity_ = self.last_velocity_ + self.delta_t * 0.2
                 else:
                     self.velocity_ = self.last_velocity_
