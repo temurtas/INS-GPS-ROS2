@@ -1,5 +1,0 @@
-  File "/home/temur/INS-GPS-ROS2/install/ht_strap_package/lib/python3.8/site-packages/ht_strap_package/robot_listener_function.py", line 593
-    self.get_logger().info('I heard z gyro as: "%f"' % msg.angular_velocity.z])
-                                                                             ^
-SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
-
