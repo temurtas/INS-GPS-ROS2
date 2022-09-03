@@ -1,8 +1,0 @@
-CMake Error at /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:93 (message):
-  rosidl_generate_interfaces() the passed file 'msg/HtNavKalmanOut.msg'
-  doesn't exist relative to the CMAKE_CURRENT_SOURCE_DIR
-  '/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables'
-Call Stack (most recent call first):
-  CMakeLists.txt:25 (rosidl_generate_interfaces)
-
-

@@ -1,6 +1,0 @@
-[0.017s] Invoking command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
-[0.023s] CMake Error: The current CMakeCache.txt directory /home/temur/INS-GPS-ROS2/build/ht_nav_variables/CMakeCache.txt is different than the directory /home/temurtas/INS-GPS-ROS2/build/ht_nav_variables where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
-[0.048s] CMake Error: The source directory "/home/temurtas/INS-GPS-ROS2/src/ht_nav_variables" does not exist.
-[0.048s] Specify --help for usage, or press the help button on the CMake GUI.
-[0.049s] make: *** [Makefile:2908: cmake_check_build_system] Error 1
-[0.054s] Invoked command in '/home/temur/INS-GPS-ROS2/build/ht_nav_variables' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/temur/INS-GPS-ROS2/build/ht_nav_variables -- -j12 -l12
