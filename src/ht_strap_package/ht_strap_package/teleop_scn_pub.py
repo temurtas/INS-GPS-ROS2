@@ -50,7 +50,7 @@ class TeleopScnPub(Node):
         self.velocity_ = 0.0
         self.steering_angle_ = 0.0
 
-        self.scn_num_ = 1
+        self.scn_num_ = 2
         # 1 : Circular Motion with Constant Velocity
         # 2 : Straight Motion with Constant Acceleration
         # 3 : Circular Motion with Constant Acceleration

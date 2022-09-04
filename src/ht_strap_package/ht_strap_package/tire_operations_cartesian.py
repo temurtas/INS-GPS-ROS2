@@ -336,8 +336,9 @@ def tire_pacejka_force_calc(F_z_total, alpha_t, sigma_t):
         D_x0 = mu * F_z[i] 
         D_y0 = mu * F_z[i]
 
-        C_F_alpha = 4.15 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
-        C_F_sigma = 8 * F_z[i]      # c_8 * F_z;
+        # C_F_alpha = 4.15 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
+        C_F_alpha = 8.0 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
+        C_F_sigma = 8.0 * F_z[i]      # c_8 * F_z;
         # C_F_gamma = F_z;          # c_5 * F_z;
 
         # C_F_alpha_0 = C_F_alpha;
@@ -361,8 +362,10 @@ def tire_pacejka_force_calc(F_z_total, alpha_t, sigma_t):
         # sigma_cy = tan(alpha) / (1 + sigma_k);
         # sigma = sqrt(sigma_cx^2 + sigma_cy^2);
 
-        F_x0 = D_x0 * math.sin(C_x * math.atan(B_x0 * sigma[i] - E_x0 * sigma[i] - E_x * (B_x0 * sigma[i] - math.atan(B_x0 * sigma[i])) ) )
-        F_y0 = D_y0 * math.sin(C_y * math.atan(B_y0 * alpha[i] - E_y0 * alpha[i] - E_y * (B_y0 * alpha[i] - math.atan(B_y0 * alpha[i])) ) )
+        F_x0 = D_x0 * math.sin(C_x * math.atan(B_x0 * sigma[i] - E_x * (B_x0 * sigma[i] - math.atan(B_x0 * sigma[i])) ) )
+        F_y0 = D_y0 * math.sin(C_y * math.atan(B_y0 * alpha[i] - E_y * (B_y0 * alpha[i] - math.atan(B_y0 * alpha[i])) ) )
+        # F_x0 = D_x0 * math.sin(C_x * math.atan(B_x0 * sigma[i] - E_x0 * sigma[i] - E_x * (B_x0 * sigma[i] - math.atan(B_x0 * sigma[i])) ) )
+        # F_y0 = D_y0 * math.sin(C_y * math.atan(B_y0 * alpha[i] - E_y0 * alpha[i] - E_y * (B_y0 * alpha[i] - math.atan(B_y0 * alpha[i])) ) )
 
         F_x_t[i] = F_x0
         F_y_t[i] = F_y0
