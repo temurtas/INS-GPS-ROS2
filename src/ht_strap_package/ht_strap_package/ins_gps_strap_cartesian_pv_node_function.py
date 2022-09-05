@@ -147,11 +147,40 @@ class INSGPSNode(Node):
         self.old_strap.euler.roll =  0.0 
         self.old_strap.euler.pitch = 0.0 
         self.old_strap.euler.yaw =   0.0
-        
+
         self.old_strap.quaternion.x = 1.0
         self.old_strap.quaternion.y = 0.0
         self.old_strap.quaternion.z = 0.0
         self.old_strap.quaternion.w = 0.0
+        
+        init_pos_err = 5 * np.random.randn(3)
+        init_vel_err = 0.2 * np.random.randn(3)
+        init_att_err = 10e-3 * np.random.randn(3)
+        
+        self.old_strap.pos.x = self.old_strap.pos.x + init_pos_err[0]
+        self.old_strap.pos.y = self.old_strap.pos.y + init_pos_err[1]
+        self.old_strap.pos.z = self.old_strap.pos.z + init_pos_err[2]
+
+        self.old_strap.vel.x = self.old_strap.vel.x + init_vel_err[0]
+        self.old_strap.vel.y = self.old_strap.vel.y + init_vel_err[1]
+        self.old_strap.vel.z = self.old_strap.vel.z + init_vel_err[2]
+
+        self.old_strap.euler.roll  = self.old_strap.euler.roll  + init_att_err[0]
+        self.old_strap.euler.pitch = self.old_strap.euler.pitch + init_att_err[1]
+        self.old_strap.euler.yaw   = self.old_strap.euler.yaw   + init_att_err[2]
+
+        err_euler = np.zeros((3,1))
+        err_quat  = np.zeros((4,1))
+
+        err_euler[0] = self.old_strap.euler.roll 
+        err_euler[1] = self.old_strap.euler.pitch
+        err_euler[2] = self.old_strap.euler.yaw 
+        err_quat = euler2quaternion(err_euler)
+
+        self.old_strap.quaternion.x = float(err_quat[0])
+        self.old_strap.quaternion.y = float(err_quat[1])
+        self.old_strap.quaternion.z = float(err_quat[2])
+        self.old_strap.quaternion.w = float(err_quat[3])
 
         self.new_strap = self.old_strap
 

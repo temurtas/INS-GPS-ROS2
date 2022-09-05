@@ -140,11 +140,15 @@ class TeleopScnPub(Node):
             
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 2):
-            if (self.last_velocity_ < 16.6):
-                self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.2
+            if( time_diff < 4000):
+                twist.linear.z  = 1.0  # for new ackermann plugin: lin_vel_stop_: stops the linear velocity controller 
+                twist.angular.x = 1.0  # for new ackermann plugin: steer_stop_: stops the steering angle controller
             else:
-                self.velocity_ = self.last_velocity_
-            self.steering_angle_ = self.in_steer_ang
+                if (self.last_velocity_ < 16.6):
+                    self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.2
+                else:
+                    self.velocity_ = self.last_velocity_
+                self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 3):
             if (self.last_velocity_ < 12.0):
                 self.velocity_ = self.in_velocity +  self.i * self.delta_t * 0.1

@@ -337,6 +337,7 @@ def tire_pacejka_force_calc(F_z_total, alpha_t, sigma_t):
         D_y0 = mu * F_z[i]
 
         # C_F_alpha = 4.15 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
+        # C_F_alpha = 8.0 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
         C_F_alpha = 8.0 * F_z[i]   # c_1 * c_2 * sin(2*atan(F_z/c_2/F_z0)) * F_z0;
         C_F_sigma = 8.0 * F_z[i]      # c_8 * F_z;
         # C_F_gamma = F_z;          # c_5 * F_z;
@@ -345,6 +346,7 @@ def tire_pacejka_force_calc(F_z_total, alpha_t, sigma_t):
         # C_F_sigma_0 = C_F_sigma;
         
         C_x = 1.44
+        # C_x = 0.8
         C_y = 1
   
         B_x0 = C_F_sigma / C_x / D_x0
