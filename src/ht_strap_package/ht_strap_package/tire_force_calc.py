@@ -188,11 +188,17 @@ def tire_force_calc(strap_data, imu_data, joint_state):
     wheel_rots[2] = joint_state.wheel_rotation.w3
     wheel_rots[3] = joint_state.wheel_rotation.w4
 
-    normal_forces = np.zeros((4, 1))
-    normal_forces[0] = joint_state.normal_force.w1
-    normal_forces[1] = joint_state.normal_force.w2
-    normal_forces[2] = joint_state.normal_force.w3
-    normal_forces[3] = joint_state.normal_force.w4
+    # normal_forces = np.zeros((4, 1))
+    # normal_forces[0] = joint_state.normal_force.w1
+    # normal_forces[1] = joint_state.normal_force.w2
+    # normal_forces[2] = joint_state.normal_force.w3
+    # normal_forces[3] = joint_state.normal_force.w4
+    force_err = 150 * np.random.randn(4)
+    normal_forces = HtNavWheelVector()
+    normal_forces.w1 = joint_state.normal_force.w1 + force_err[0]
+    normal_forces.w2 = joint_state.normal_force.w2 + force_err[1]
+    normal_forces.w3 = joint_state.normal_force.w3 + force_err[2]
+    normal_forces.w4 = joint_state.normal_force.w4 + force_err[3]
 
     # Create lever-arms and rotation matrices
     r_bt1_n = np.zeros((3,1))
@@ -278,7 +284,8 @@ def tire_force_calc(strap_data, imu_data, joint_state):
     # Calculate Tire Forces
     tire_out = HtNavTireOut()
     # tire_out = tire_dugoff_force_calc(joint_state.normal_force, alpha_t, sigma_t)
-    tire_out = tire_pacejka_force_calc(joint_state.normal_force, alpha_t, sigma_t)
+    # tire_out = tire_pacejka_force_calc(joint_state.normal_force, alpha_t, sigma_t)
+    tire_out = tire_pacejka_force_calc(normal_forces, alpha_t, sigma_t)
     
     # float64          effective_radius_est
     # float64          vehicle_mass_est

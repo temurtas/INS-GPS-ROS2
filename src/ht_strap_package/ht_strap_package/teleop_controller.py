@@ -121,7 +121,7 @@ def main():
     acc_limit = 0.2
     jerk_limit = 0.0
     status = 0.0
-    max_steer = 0.6458
+    max_steer = 0.4 # 0.6458
 
     try:
         print(msg)

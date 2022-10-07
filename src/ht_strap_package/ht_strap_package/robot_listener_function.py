@@ -539,7 +539,7 @@ class RobotStateListener(Node):
         self.tire_debug.wheel_variables = tire_out
     
         msg_tire_out = self.tire_debug.wheel_variables
-        print(str(self.zaman_ref), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
+        print(str(self.gazebo_time), str(msg_tire_out.wheel_side_slip_ang.w1), str(msg_tire_out.wheel_side_slip_ang.w2) , str(msg_tire_out.wheel_side_slip_ang.w3), str(msg_tire_out.wheel_side_slip_ang.w4), str(msg_tire_out.wheel_longitudinal_slip_ratio.w1), str(msg_tire_out.wheel_longitudinal_slip_ratio.w2) , str(msg_tire_out.wheel_longitudinal_slip_ratio.w3), str(msg_tire_out.wheel_longitudinal_slip_ratio.w4) , \
             str(msg_tire_out.tire_lateral_forces.w1), str(msg_tire_out.tire_lateral_forces.w2) , str(msg_tire_out.tire_lateral_forces.w3), str(msg_tire_out.tire_lateral_forces.w4), str(msg_tire_out.tire_longitudinal_forces.w1), str(msg_tire_out.tire_longitudinal_forces.w2) , str(msg_tire_out.tire_longitudinal_forces.w3), str(msg_tire_out.tire_longitudinal_forces.w4) , sep='\t', file=tire_out_data_ideal_txt)
 
         print(str(self.gazebo_time), str(msg.position[0]), str(msg.velocity[0]), str(msg.position[1]), str(msg.velocity[1]), str(msg.position[2]), str(msg.velocity[2]), str(msg.position[3]), str(msg.velocity[3]), str(msg.position[4]), str(msg.velocity[4]), sep='\t', file=joint_input_data_txt)

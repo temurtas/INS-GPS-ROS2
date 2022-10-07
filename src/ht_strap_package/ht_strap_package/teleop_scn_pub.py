@@ -50,7 +50,7 @@ class TeleopScnPub(Node):
         self.velocity_ = 0.0
         self.steering_angle_ = 0.0
 
-        self.scn_num_ = 2
+        self.scn_num_ = 11
         # 1 : Circular Motion with Constant Velocity
         # 2 : Straight Motion with Constant Acceleration
         # 3 : Circular Motion with Constant Acceleration
@@ -59,6 +59,9 @@ class TeleopScnPub(Node):
         # 6 : Straight Motion with Constant Acceleration & Decelaration
         # 7 : Straight Motion with Constant Acceleration (no vel contr btw t=20-25 sec)
 
+        # 10 : Highway turn at high vel (t=90-120s)
+        # 11 : Highway turn at high vel (t=30-40s)
+
         self.steer_limit = 0.15
         self.steer_diff = 0.0
         self.vel_diff = 0.0
@@ -66,8 +69,8 @@ class TeleopScnPub(Node):
 
         scn_num = self.scn_num_
         if (scn_num == 1):
-            self.in_velocity = 10.0
-            self.in_steer_ang = 0.15 
+            self.in_velocity = 20.0 # 25.0   # 10.0
+            self.in_steer_ang = 0.1 # 0.025 # 0.15 
             self.velocity_ = self.delta_t * 0.5
             self.steering_angle_ = self.in_steer_ang
         elif (scn_num == 2):
@@ -110,6 +113,16 @@ class TeleopScnPub(Node):
             self.in_steer_ang = 0.15 
             self.velocity_ = self.delta_t * 0.5
             self.steering_angle_ = self.in_steer_ang
+        elif (scn_num == 10):
+            self.in_velocity = 20.0
+            self.in_steer_ang = 0.0 #self.delta_t * 2.0
+            self.velocity_ = self.delta_t * 0.5
+            self.steering_angle_ = 0.0
+        elif (scn_num == 11):
+            self.in_velocity = 27.5
+            self.in_steer_ang = 0.0 #self.delta_t * 2.0
+            self.velocity_ = self.delta_t * 0.5
+            self.steering_angle_ = 0.0
 
         self.last_velocity_ = self.in_velocity
         # self.pub_func(msg_pb)
@@ -253,6 +266,120 @@ class TeleopScnPub(Node):
                     self.velocity_ = self.in_velocity
             
             self.steering_angle_ = self.in_steer_ang
+        if (scn_num == 10):
+            if( time_diff < 4000):
+                twist.linear.z  = 1.0  # for new ackermann plugin: lin_vel_stop_: stops the linear velocity controller 
+                twist.angular.x = 1.0  # for new ackermann plugin: steer_stop_: stops the steering angle controller
+            else:
+                if (self.velocity_ < self.in_velocity):
+                    self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                else:
+                    self.velocity_ = self.in_velocity
+
+                if( (time_diff * 1e-3) > 90.0 and  (time_diff * 1e-3) < 105.0):
+                    if (self.steering_angle_ < 0.1):
+                        self.steering_angle_ = self.steering_angle_ +  self.delta_t 
+                    else:
+                        self.steering_angle_ = 0.1
+                elif( (time_diff * 1e-3) > 105.0 and  (time_diff * 1e-3) < 120.0):
+                    if (self.steering_angle_ > 0.0):
+                        self.steering_angle_ = self.steering_angle_ -  self.delta_t 
+                    else:
+                        self.steering_angle_ = self.in_steer_ang
+                else:
+                    self.steering_angle_ = self.in_steer_ang
+        if (scn_num == 11):
+            if( time_diff < 4000):
+                twist.linear.z  = 1.0  # for new ackermann plugin: lin_vel_stop_: stops the linear velocity controller 
+                twist.angular.x = 1.0  # for new ackermann plugin: steer_stop_: stops the steering angle controller
+            else:
+                # if( (time_diff * 1e-3) > 30.0 and  (time_diff * 1e-3) < 35.0):
+                #     if (self.steering_angle_ < 0.1):
+                #         self.steering_angle_ = self.steering_angle_ +  self.delta_t 
+                #     else:
+                #         self.steering_angle_ = 0.1
+                # elif( (time_diff * 1e-3) > 35.0 and  (time_diff * 1e-3) < 40.0):
+                #     if (self.steering_angle_ > 0.0):
+                #         self.steering_angle_ = self.steering_angle_ -  self.delta_t 
+                #     else:
+                #         self.steering_angle_ = self.in_steer_ang
+                # INITIAL FAST LEFT TURN 
+                if( (time_diff * 1e-3) > 40.0 and  (time_diff * 1e-3) < 45.0):
+                    if (self.velocity_ < self.in_velocity):
+                        self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = self.in_velocity
+
+                    if (self.steering_angle_ < 0.08):
+                        self.steering_angle_ = self.steering_angle_ +  self.delta_t 
+                    else:
+                        self.steering_angle_ = 0.08
+                elif( (time_diff * 1e-3) > 45.0 and  (time_diff * 1e-3) < 50.0):
+                    if (self.velocity_ < self.in_velocity):
+                        self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = self.in_velocity
+
+                    if (self.steering_angle_ > 0.0):
+                        self.steering_angle_ = self.steering_angle_ -  self.delta_t 
+                    else:
+                        self.steering_angle_ = self.in_steer_ang
+                # SLOW RIGHT TURN 
+                elif( (time_diff * 1e-3) > 60.0 and  (time_diff * 1e-3) < 75.0):
+                    if (self.velocity_ > 10.0):
+                        self.velocity_ = self.velocity_ -  self.delta_t 
+                    else:
+                        self.velocity_ = 10.0
+
+                    if (self.steering_angle_ > -0.08):
+                        self.steering_angle_ = self.steering_angle_ -  self.delta_t 
+                    else:
+                        self.steering_angle_ = -0.08
+                elif( (time_diff * 1e-3) > 75.0 and  (time_diff * 1e-3) < 90.0):
+                    self.velocity_ = 10.0
+
+                    if (self.steering_angle_ < 0.0):
+                        self.steering_angle_ = self.steering_angle_ +  self.delta_t 
+                    else:
+                        self.steering_angle_ = self.in_steer_ang
+                # SECOND FAST LEFT TURN 
+                elif( (time_diff * 1e-3) > 130.0 and  (time_diff * 1e-3) < 135.0):
+                    if (self.velocity_ < self.in_velocity):
+                        self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = self.in_velocity
+
+                    if (self.steering_angle_ < 0.08):
+                        self.steering_angle_ = self.steering_angle_ +  self.delta_t 
+                    else:
+                        self.steering_angle_ = 0.08
+                elif( (time_diff * 1e-3) > 135.0 and  (time_diff * 1e-3) < 140.0):
+                    if (self.velocity_ < self.in_velocity):
+                        self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = self.in_velocity
+
+                    if (self.steering_angle_ > 0.0):
+                        self.steering_angle_ = self.steering_angle_ -  self.delta_t 
+                    else:
+                        self.steering_angle_ = self.in_steer_ang
+                # SLOW STRAIGHT LINE 
+                elif( (time_diff * 1e-3) > 165.0 and  (time_diff * 1e-3) < 225.0):
+                    if (self.velocity_ > 10.0):
+                        self.velocity_ = self.velocity_ -  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = 10.0
+                    
+                    self.steering_angle_ = -0.01
+                
+                else:
+                    if (self.velocity_ < self.in_velocity):
+                        self.velocity_ = self.velocity_ +  self.delta_t * 0.5
+                    else:
+                        self.velocity_ = self.in_velocity
+
+                    self.steering_angle_ = self.in_steer_ang
+
 
         velocity = self.velocity_
         steering_angle = self.steering_angle_
